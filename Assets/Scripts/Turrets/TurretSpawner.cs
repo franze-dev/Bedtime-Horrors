@@ -14,6 +14,7 @@ public class TurretSpawner : MonoBehaviour
     [SerializeField] private InputActionReference _spawnTurret3;
 
     [SerializeField] private CreativityUpdater _creativityUpdater;
+    [SerializeField] private TurretSelectionManager _selectionManager;
 
     private SpriteRenderer _renderer;
     private GameObject _spawnedTurret;
@@ -38,8 +39,10 @@ public class TurretSpawner : MonoBehaviour
 
     private void OnClick(InputAction.CallbackContext context)
     {
-        //if (IsMouseHovering())
-        //     SpawnTurret();
+        int selectedTurret = _selectionManager.GetSelectedTurret();
+
+        if (selectedTurret >= 0 && IsMouseHovering())
+            SpawnTurret(selectedTurret);
     }
 
     private void OnSpawnTurret1(InputAction.CallbackContext context)
@@ -47,11 +50,13 @@ public class TurretSpawner : MonoBehaviour
         if (IsMouseHovering())
             SpawnTurret(0);
     }
+
     private void OnSpawnTurret2(InputAction.CallbackContext context)
     {
         if (IsMouseHovering())
             SpawnTurret(1);
     }
+
     private void OnSpawnTurret3(InputAction.CallbackContext context)
     {
         if (IsMouseHovering())
@@ -67,6 +72,7 @@ public class TurretSpawner : MonoBehaviour
         Bounds bounds = _renderer.sprite.bounds;
         float distance = Vector2.Distance(mouseToScreenPos, (Vector2)transform.position);
 
+        Debug.Log("Mouse hovering spawner: " + (distance < bounds.size.x / 2));
         return (distance < bounds.size.x / 2);
 
     }

@@ -7,7 +7,6 @@ public class TurretManager : MonoBehaviour
     [SerializeField] private List<TurretSpawner> _turretSpawners;
     [SerializeField] private List<GameObject> _turretPrefabs;
     [SerializeField] private List<GameObject> _activeTurrets;
-
     public List<GameObject> ActiveTurrets => _activeTurrets;
 
     private void Awake()
