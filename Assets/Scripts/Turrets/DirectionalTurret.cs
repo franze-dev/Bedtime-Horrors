@@ -66,10 +66,13 @@ public class DirectionalTurret : ShootTurret, IAreaTurret
     private void ClearEnemyList()
     {
         for (int i = 0; i < EnemiesCollided.Count; i++)
-            if (!EnemiesCollided[i].gameObject.activeSelf)
+        {
+            var enemy = EnemiesCollided[i].GetComponent<Enemy>();
+            if (!EnemiesCollided[i].activeSelf || enemy.IsDead)
             {
                 EnemiesCollided.Remove(EnemiesCollided[i]);
                 return;
             }
+        }
     }
 }

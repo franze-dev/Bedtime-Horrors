@@ -14,6 +14,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float _currentHealth;
     [SerializeField] private int _creativityToSum = 10;
 
+    private bool _isDead;
+
     private GameObject _currentTarget;
     private int _currentTargetIndex;
     private float _speedMultiplier = 1f;
@@ -22,9 +24,12 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Transform _floatingDamageSpawn;
     [SerializeField] private GameObject _floatingDamage;
     [SerializeField] private SpriteRenderer _spriteRenderer;
+    [SerializeField] private BoxCollider2D _collider;
     [SerializeField] private GameObject _armature;
 
     private FloatingText _floatingText;
+
+    public bool IsDead => _isDead;
 
     void OnEnable()
     {
@@ -33,6 +38,11 @@ public class Enemy : MonoBehaviour
 
         if (_healthBar == null)
             _healthBar = GetComponentInChildren<SliderUpdater>();
+
+        if (_collider == null)
+            _collider = GetComponent<BoxCollider2D>();
+
+        _isDead = false;
 
         if (_spriteRenderer == null)
             _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
@@ -46,7 +56,8 @@ public class Enemy : MonoBehaviour
             _spriteRenderer.gameObject.SetActive(true);
 
         _healthBar.gameObject.SetActive(true);
-        
+        _collider.enabled = true;
+
         _floatingText = _floatingDamage.GetComponent<FloatingText>();
 
         _currentHealth = _maxHealth;
@@ -101,6 +112,7 @@ public class Enemy : MonoBehaviour
 
     public void OnDeath()
     {
+        _isDead = true;
         StartCoroutine(DeathCoroutine());
     }
 
@@ -111,7 +123,8 @@ public class Enemy : MonoBehaviour
         else if (_spriteRenderer != null)
             _spriteRenderer.gameObject.SetActive(false);
 
-        _healthBar.gameObject.SetActive(false);
+        _healthBar.gameObject.SetActive(false);        
+        _collider.enabled = false;
 
         yield return new WaitForSeconds(_floatingText.LifeTime);
 
