@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -19,6 +21,10 @@ public class Enemy : MonoBehaviour
     [SerializeField] private SliderUpdater _healthBar;
     [SerializeField] private Transform _floatingDamageSpawn;
     [SerializeField] private GameObject _floatingDamage;
+    [SerializeField] private SpriteRenderer _spriteRenderer;
+    [SerializeField] private GameObject _armature;
+
+    private FloatingText _floatingText;
 
     void OnEnable()
     {
@@ -28,11 +34,27 @@ public class Enemy : MonoBehaviour
         if (_healthBar == null)
             _healthBar = GetComponentInChildren<SliderUpdater>();
 
+        if (_spriteRenderer == null)
+            _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+
+        if (!_spriteRenderer && !_armature)
+            Debug.LogError("No SpriteRenderer or Armature assigned to " + gameObject.name);
+
+        if (_armature != null)
+            _armature.SetActive(true);
+        else if (_spriteRenderer != null)
+            _spriteRenderer.gameObject.SetActive(true);
+
+        _healthBar.gameObject.SetActive(true);
+        
+        _floatingText = _floatingDamage.GetComponent<FloatingText>();
+
         _currentHealth = _maxHealth;
         _healthBar.UpdateSlider(_currentHealth, _maxHealth);
 
         Debug.Log(gameObject.name + " Enabled!");
         Debug.Log("Current target set to " + _currentTargetIndex);
+
     }
 
     void Update()
@@ -77,12 +99,31 @@ public class Enemy : MonoBehaviour
         Debug.Log("This enemy collided with another object");
     }
 
+    public void OnDeath()
+    {
+        StartCoroutine(DeathCoroutine());
+    }
+
+    private IEnumerator DeathCoroutine()
+    {
+        if (_armature != null)
+            _armature.SetActive(false);
+        else if (_spriteRenderer != null)
+            _spriteRenderer.gameObject.SetActive(false);
+
+        _healthBar.gameObject.SetActive(false);
+
+        yield return new WaitForSeconds(_floatingText.LifeTime);
+
+        this.gameObject.SetActive(false);
+    }
+
     private void OnDisable()
     {
         ResetSpeed();
         EventTriggerer.Trigger<ICreativityUpdateEvent>(new CreativityUpdaterEvent(this.gameObject, _creativityToSum));
     }
-        
+
     public void TakeDamage(float damage)
     {
         var msg = Instantiate(_floatingDamage, _floatingDamageSpawn.position, Quaternion.identity, gameObject.transform);
@@ -94,7 +135,7 @@ public class Enemy : MonoBehaviour
         _currentHealth -= damage;
 
         if (_currentHealth < Mathf.Epsilon)
-            this.gameObject.SetActive(false);
+            OnDeath();
 
         _healthBar.UpdateSlider(_currentHealth, _maxHealth);
     }
