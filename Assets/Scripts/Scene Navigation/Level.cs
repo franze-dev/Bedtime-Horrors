@@ -4,5 +4,5 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Level", menuName = "ScriptableObjects/Level")]
 public class Level : ScriptableObject
 {
-    [SerializeField] public List<SceneRef> scenes;
+    public List<SceneRef> scenes;
 }
