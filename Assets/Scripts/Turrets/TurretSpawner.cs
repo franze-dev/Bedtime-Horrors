@@ -16,12 +16,16 @@ public class TurretSpawner : MonoBehaviour
     [SerializeField] private CreativityUpdater _creativityUpdater;
     [SerializeField] private TurretSelectionManager _selectionManager;
     [SerializeField] private SpriteRenderer _renderer;
+    [SerializeField] private GameObject _giftBoxGO;
 
     private GameObject _spawnedTurret;
     private int _nextTurretId = 0;
 
     private void Awake()
     {
+        if (_giftBoxGO == null)
+            Debug.LogError("giftboxGO not found in " + gameObject.name);
+
         if (_renderer == null)
             _renderer = gameObject.GetComponentInChildren<SpriteRenderer>();
 
@@ -31,6 +35,13 @@ public class TurretSpawner : MonoBehaviour
         _spawnTurret3.action.canceled += OnSpawnTurret3;
 
         _spawnedTurret = null;
+
+    }
+
+    private void Update()
+    {
+        if (_spawnedTurret == null && !_giftBoxGO.activeSelf)
+            _giftBoxGO.SetActive(true);
     }
 
     private void OnDestroy()
@@ -75,32 +86,6 @@ public class TurretSpawner : MonoBehaviour
         return bounds.Contains(mouseToScreenPos);
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireCube(_renderer.bounds.center, _renderer.bounds.size);
-    }
-
-    private void SpawnTurret()
-    {
-        GameObject toDestroy = null;
-
-        if (_spawnedTurret != null)
-        {
-            toDestroy = _spawnedTurret;
-            _spawnedTurret = null;
-
-            Destroy(toDestroy);
-
-            if (_nextTurretId >= _turretPrefabs.Count - 1)
-                _nextTurretId = 0;
-            else
-                _nextTurretId++;
-        }
-        _spawnedTurret = Instantiate(_turretPrefabs[_nextTurretId]);
-        _spawnedTurret.transform.position = transform.position;
-    }
-
     private void SpawnTurret(int turretId)
     {
         int turretPrice = GetTurretPrice(_turretPrefabs[turretId]);
@@ -123,6 +108,7 @@ public class TurretSpawner : MonoBehaviour
             }
             _spawnedTurret = Instantiate(_turretPrefabs[turretId]);
             _spawnedTurret.transform.position = transform.position;
+            _giftBoxGO.SetActive(false);
 
             EventTriggerer.Trigger<ICreativityUpdateEvent>(new CreativityUpdaterEvent(gameObject, -turretPrice));
         }
