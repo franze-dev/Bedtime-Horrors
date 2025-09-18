@@ -9,7 +9,6 @@ public class CreativityUpdater : MonoBehaviour
     private float timeToUpdate = 1f;
     private int valueToAdd = 2;
 
-
     private void Awake()
     {
         if (_statTextUpdater == null)
