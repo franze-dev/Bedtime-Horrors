@@ -15,14 +15,15 @@ public class TurretSpawner : MonoBehaviour
 
     [SerializeField] private CreativityUpdater _creativityUpdater;
     [SerializeField] private TurretSelectionManager _selectionManager;
+    [SerializeField] private SpriteRenderer _renderer;
 
-    private SpriteRenderer _renderer;
     private GameObject _spawnedTurret;
     private int _nextTurretId = 0;
 
     private void Awake()
     {
-        _renderer = GetComponent<SpriteRenderer>();
+        if (_renderer == null)
+            _renderer = gameObject.GetComponentInChildren<SpriteRenderer>();
 
         _click.action.canceled += OnClick;
         _spawnTurret1.action.canceled += OnSpawnTurret1;
@@ -69,12 +70,15 @@ public class TurretSpawner : MonoBehaviour
         Vector3 mouseToScreenPos = Camera.main.ScreenToWorldPoint(mousePos);
         mouseToScreenPos.z = 0;
 
-        Bounds bounds = _renderer.sprite.bounds;
-        float distance = Vector2.Distance(mouseToScreenPos, (Vector2)transform.position);
+        Bounds bounds = _renderer.bounds;
 
-        Debug.Log("Mouse hovering spawner: " + (distance < bounds.size.x / 2));
-        return (distance < bounds.size.x / 2);
+        return bounds.Contains(mouseToScreenPos);
+    }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireCube(_renderer.bounds.center, _renderer.bounds.size);
     }
 
     private void SpawnTurret()
