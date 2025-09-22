@@ -9,7 +9,7 @@ public class NavigationController : MonoBehaviour
     private GameObject _lastSelectedOption;
 
     private List<Menu> _menus = new();
-    [SerializeField] public Menu baseMenu;
+    public Menu baseMenu;
     private Menu _activeMenu;
 
     [SerializeField] private InputActionReference _navigateAction;

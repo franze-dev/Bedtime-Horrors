@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
-    [SerializeField] public List<Level> levels;
+    public List<Level> levels;
     [SerializeField] private Level _bootLevel;
 
     private List<SceneRef> _loadedScenes = new();

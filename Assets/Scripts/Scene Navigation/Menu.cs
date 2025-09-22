@@ -2,6 +2,6 @@ using UnityEngine;
 
 public class Menu : MonoBehaviour
 {
-    [SerializeField] public string menuName;
-    [SerializeField] public GameObject firstButton;
+    public string menuName;
+    public GameObject firstButton;
 }
