@@ -15,14 +15,19 @@ public class TurretSpawner : MonoBehaviour
 
     [SerializeField] private CreativityUpdater _creativityUpdater;
     [SerializeField] private TurretSelectionManager _selectionManager;
+    [SerializeField] private SpriteRenderer _renderer;
+    [SerializeField] private GameObject _giftBoxGO;
 
-    private SpriteRenderer _renderer;
     private GameObject _spawnedTurret;
     private int _nextTurretId = 0;
 
     private void Awake()
     {
-        _renderer = GetComponent<SpriteRenderer>();
+        if (_giftBoxGO == null)
+            Debug.LogError("giftboxGO not found in " + gameObject.name);
+
+        if (_renderer == null)
+            _renderer = gameObject.GetComponentInChildren<SpriteRenderer>();
 
         _click.action.canceled += OnClick;
         _spawnTurret1.action.canceled += OnSpawnTurret1;
@@ -30,6 +35,13 @@ public class TurretSpawner : MonoBehaviour
         _spawnTurret3.action.canceled += OnSpawnTurret3;
 
         _spawnedTurret = null;
+
+    }
+
+    private void Update()
+    {
+        if (_spawnedTurret == null && !_giftBoxGO.activeSelf)
+            _giftBoxGO.SetActive(true);
     }
 
     private void OnDestroy()
@@ -69,32 +81,9 @@ public class TurretSpawner : MonoBehaviour
         Vector3 mouseToScreenPos = Camera.main.ScreenToWorldPoint(mousePos);
         mouseToScreenPos.z = 0;
 
-        Bounds bounds = _renderer.sprite.bounds;
-        float distance = Vector2.Distance(mouseToScreenPos, (Vector2)transform.position);
+        Bounds bounds = _renderer.bounds;
 
-        Debug.Log("Mouse hovering spawner: " + (distance < bounds.size.x / 2));
-        return (distance < bounds.size.x / 2);
-
-    }
-
-    private void SpawnTurret()
-    {
-        GameObject toDestroy = null;
-
-        if (_spawnedTurret != null)
-        {
-            toDestroy = _spawnedTurret;
-            _spawnedTurret = null;
-
-            Destroy(toDestroy);
-
-            if (_nextTurretId >= _turretPrefabs.Count - 1)
-                _nextTurretId = 0;
-            else
-                _nextTurretId++;
-        }
-        _spawnedTurret = Instantiate(_turretPrefabs[_nextTurretId]);
-        _spawnedTurret.transform.position = transform.position;
+        return bounds.Contains(mouseToScreenPos);
     }
 
     private void SpawnTurret(int turretId)
@@ -119,6 +108,7 @@ public class TurretSpawner : MonoBehaviour
             }
             _spawnedTurret = Instantiate(_turretPrefabs[turretId]);
             _spawnedTurret.transform.position = transform.position;
+            _giftBoxGO.SetActive(false);
 
             EventTriggerer.Trigger<ICreativityUpdateEvent>(new CreativityUpdaterEvent(gameObject, -turretPrice));
         }

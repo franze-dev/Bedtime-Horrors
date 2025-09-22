@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -27,7 +28,7 @@ public class Bullet : MonoBehaviour
         var currentTarget = target == null ? (Vector2)transform.position + direction : (Vector2)target.transform.position;
 
         transform.position = Vector2.MoveTowards(transform.position, currentTarget, speed * Time.deltaTime);
-        
+
         if ((Vector2)transform.position == currentTarget)
             gameObject.SetActive(false);
     }
@@ -51,5 +52,14 @@ public class Bullet : MonoBehaviour
             return;
 
         this.gameObject.SetActive(false);
+    }
+
+    public void SetRotation(Vector2 direction)
+    {
+        var angle = Vector3.Angle(transform.forward, direction);
+
+        angle *= direction.x != 0 ? direction.x : direction.y;
+
+        transform.Rotate(new(0, 0, angle));
     }
 }
