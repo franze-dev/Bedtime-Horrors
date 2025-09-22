@@ -19,7 +19,14 @@ public class TurretSelectionManager : MonoBehaviour
         _renderers.Clear();
 
         for (int i = 0; i < _turretPrefabs.Count; i++)
-            _renderers.Add(_turretPrefabs[i].GetComponent<SpriteRenderer>());
+        {
+            var toAdd = _turretPrefabs[i].GetComponent<SpriteRenderer>();
+
+            if (toAdd == null)
+                toAdd = _turretPrefabs[i].GetComponentInChildren<SpriteRenderer>();
+
+            _renderers.Add(toAdd);
+        }
 
         _selectedTurret = -1;
         _scaleMultiplier = 1.2f;
