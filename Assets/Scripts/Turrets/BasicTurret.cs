@@ -52,5 +52,8 @@ public class BasicTurret : ShootTurret
         _arrowGO.transform.Rotate(new(0, 0, angle));
 
         _direction = dir;
+
+        foreach (var bullet in Bullets)
+            bullet.GetComponent<Bullet>().nextDirection = _direction;
     }
 }
