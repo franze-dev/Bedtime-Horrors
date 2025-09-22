@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private TargetManager _TargetManager;
+    [SerializeField] private TargetManager _targetManager;
     [SerializeField] private float _speed;
     [SerializeField] private float _damage;
 
@@ -34,7 +34,7 @@ public class Enemy : MonoBehaviour
     void OnEnable()
     {
         _currentTargetIndex = 0;
-        _currentTarget = _TargetManager.Targets[_currentTargetIndex];
+        _currentTarget = _targetManager.Targets[_currentTargetIndex];
 
         if (_healthBar == null)
             _healthBar = GetComponentInChildren<SliderUpdater>();
@@ -81,15 +81,15 @@ public class Enemy : MonoBehaviour
     {
         float distance = Vector2.Distance(transform.position, _currentTarget.transform.position);
 
-        if (distance < math.EPSILON)
+        if (distance < Mathf.Epsilon + 0.0001f)
         {
-            if (_currentTargetIndex < _TargetManager.Targets.Count - 1)
+            if (_currentTargetIndex < _targetManager.Targets.Count - 1)
             {
                 _currentTargetIndex++;
-                _currentTarget = _TargetManager.Targets[_currentTargetIndex];
+                _currentTarget = _targetManager.Targets[_currentTargetIndex];
             }
-            else if (_currentTargetIndex == _TargetManager.Targets.Count - 1)
-                _currentTarget = _TargetManager.FinalTarget;
+            else if (_currentTargetIndex == _targetManager.Targets.Count - 1)
+                _currentTarget = _targetManager.FinalTarget;
             else
                 _currentTarget = null;
         }
