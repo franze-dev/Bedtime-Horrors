@@ -4,7 +4,6 @@ public class BasicTurret : ShootTurret
 {
     [SerializeField] private Vector2 _direction;
     [SerializeField] private GameObject _arrowGO;
-    [SerializeField] private Sprite _sprite;
 
     public override void Fire()
     {
@@ -22,15 +21,9 @@ public class BasicTurret : ShootTurret
         if (_arrowGO == null)
             Debug.LogError("Directional arrow missing in " + gameObject.name);
 
-        _sprite = GetComponentInChildren<SpriteRenderer>().sprite;
+        _arrowGO.SetActive(true);
 
-        _arrowGO.transform.position = (Vector2)transform.position + _direction * 0.5f;
-
-        var angle = Vector3.Angle(_arrowGO.transform.up, _direction);
-
-        angle *= _direction.x != 0 ? _direction.x : _direction.y;
-
-        _arrowGO.transform.Rotate(new(0, 0, angle));
+        ChangeDir(_direction);
 
         base.Awake();
     }
@@ -44,5 +37,20 @@ public class BasicTurret : ShootTurret
             Fire1(_direction);
             _timer = 0f;
         }
+    }
+
+    public void ChangeDir(Vector2 dir)
+    {
+        _arrowGO.transform.position = (Vector2)transform.position + dir * 0.5f;
+
+        _arrowGO.transform.rotation = Quaternion.identity;
+
+        var angle = Vector3.Angle(_arrowGO.transform.up, dir);
+
+        angle *= dir.x != 0 ? -dir.x : dir.y;
+
+        _arrowGO.transform.Rotate(new(0, 0, angle));
+
+        _direction = dir;
     }
 }

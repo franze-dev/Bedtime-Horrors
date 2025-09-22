@@ -54,12 +54,16 @@ public class Bullet : MonoBehaviour
         this.gameObject.SetActive(false);
     }
 
-    public void SetRotation(Vector2 direction)
+    public void SetRotation(Vector2 newDir)
     {
-        var angle = Vector3.Angle(transform.forward, direction);
+        transform.rotation = Quaternion.identity;
 
-        angle *= direction.x != 0 ? direction.x : direction.y;
+        var angle = Vector3.Angle(transform.up, newDir);
+
+        angle *= newDir.x != 0 ? -newDir.x : newDir.y;
 
         transform.Rotate(new(0, 0, angle));
+
+        direction = newDir;
     }
 }
