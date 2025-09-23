@@ -1,4 +1,3 @@
-using NavMeshPlus.Components;
 using System;
 using UnityEditor;
 using UnityEngine;
@@ -18,7 +17,7 @@ public class PathPiece : MonoBehaviour
     }
 
     [SerializeField] private PathSettings _pathInfo;
-    [SerializeField] public Direction SpawnDirection = Direction.Right;
+    public Direction SpawnDirection = Direction.Right;
     [SerializeField] private TileSet _tileSet;
     private Direction _previousDir = Direction.Right;
     private SpriteRenderer _spriteRenderer;

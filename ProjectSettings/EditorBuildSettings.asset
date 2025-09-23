@@ -5,12 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/main.unity
-    guid: 3cfe9bb16734acc418db605ba01f6e6a
-  - enabled: 0
-    path: Assets/Scenes/natural disaster test.unity
-    guid: 367cc9bc2a3786147a10aab6c9b72dc3
+  - enabled: 1
+    path: Assets/Scenes/Boot.unity
+    guid: 5509a6753210ef443b9d2b275f2cdf9c
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 2af6ac9e45b1239459e30edf4202fe26
+  - enabled: 1
+    path: Assets/Scenes/MergeScene.unity
+    guid: 130b564bf8cb18445bcd9f13ab4fe34e
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
