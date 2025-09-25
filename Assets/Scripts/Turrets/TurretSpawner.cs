@@ -28,7 +28,7 @@ public class TurretSpawner : MonoBehaviour
             Debug.LogError("giftboxGO not found in " + gameObject.name);
 
         if (_renderer == null)
-            _renderer = gameObject.GetComponentInChildren<SpriteRenderer>();
+            _renderer = _giftBoxGO.GetComponent<SpriteRenderer>();
 
         _click.action.canceled += OnClick;
         _turretDelInput.action.canceled += OnDeletion;
