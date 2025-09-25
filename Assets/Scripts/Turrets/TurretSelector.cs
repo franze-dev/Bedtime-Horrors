@@ -58,7 +58,10 @@ public class TurretSelector : MonoBehaviour
         if (this == null)
             return false;
 
-        if ( _selectedTurret == null )
+        if (!gameObject.activeSelf)
+            return false;
+
+        if (_selectedTurret == null)
             _selectedTurret = transform.parent.GetComponent<BasicTurret>();
 
         return _selectedTurret != null;

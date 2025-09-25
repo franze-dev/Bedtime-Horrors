@@ -13,8 +13,8 @@ public class Turret : MonoBehaviour
 
         if (_selectionGO == null)
             Debug.LogError("Selection GO not found on " + gameObject.name);
-        //else
-        //    _selectionGO.SetActive(false);
+        else
+            _selectionGO.SetActive(false);
     }
 
     protected virtual void Update()
