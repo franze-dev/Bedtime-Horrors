@@ -1,20 +1,17 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class TurretSelectionManager : MonoBehaviour
 {
     [SerializeField] private InputActionReference _click;
 
-    [Header("Prefab select")]
     [SerializeField] private List<GameObject> _turretPrefabs = new List<GameObject>();
     private List<SpriteRenderer> _renderers = new List<SpriteRenderer>();
-    private int _selectedPrefab;
+    private int _selectedTurret;
     [SerializeField] private float _scaleMultiplier;
-
-    [Header("Gameplay Turrets Select")]
-    [SerializeField] private TurretManager _turretManager;
-    private Turret _selectedTurret;
 
     private void Awake()
     {
@@ -31,7 +28,7 @@ public class TurretSelectionManager : MonoBehaviour
             _renderers.Add(toAdd);
         }
 
-        _selectedPrefab = -1;
+        _selectedTurret = -1;
         _scaleMultiplier = 1.2f;
     }
 
@@ -41,36 +38,8 @@ public class TurretSelectionManager : MonoBehaviour
         {
             if (IsMouseHovering(_renderers[i].bounds))
             {
-                _selectedPrefab = i;
-                return;
-            }
-        }
-
-        _selectedPrefab = -1;
-
-        foreach (var turret in _turretManager.ActiveTurrets)
-        {
-            if (turret == null)
-                continue;
-
-            var spriteRenderer = turret.GetComponentInChildren<SpriteRenderer>();
-
-            if (spriteRenderer == null)
-                spriteRenderer = turret.GetComponent<SpriteRenderer>();
-
-            if (IsMouseHovering(spriteRenderer.bounds))
-            {
-                if (_selectedTurret != null)
-                    _selectedTurret.Deselect();
-
-                var previous = _selectedTurret;
-
-                _selectedTurret = turret.GetComponent<Turret>();
-
-                if (previous != _selectedTurret)
-                    _selectedTurret.Select();
-                else
-                    _selectedTurret.Deselect();
+                _selectedTurret = i;
+                break;
             }
         }
     }
@@ -84,7 +53,7 @@ public class TurretSelectionManager : MonoBehaviour
                 Debug.Log("Mouse hovering over " + _renderers[i].gameObject.name);
                 _turretPrefabs[i].gameObject.transform.localScale = new Vector3(_scaleMultiplier, _scaleMultiplier, _scaleMultiplier);
             }
-            else if (i != _selectedPrefab)
+            else if (i != _selectedTurret)
                 _turretPrefabs[i].gameObject.transform.localScale = new Vector3(1, 1, 1);
         }
     }
@@ -101,6 +70,6 @@ public class TurretSelectionManager : MonoBehaviour
 
     public int GetSelectedTurret()
     {
-        return _selectedPrefab;
+        return _selectedTurret;
     }
 }
