@@ -148,6 +148,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "TurretDel",
+                    "type": "Button",
+                    "id": "eab406ab-e650-4284-803d-8f2cd74ac23e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -643,6 +652,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "DownDir",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fd8ad164-0c81-41c7-af8c-16ed42e9cc0c",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TurretDel",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
