@@ -94,10 +94,10 @@ public class TurretSpawner : MonoBehaviour
     private void SpawnTurret(int turretId)
     {
         if (_currentTime < _cooldown)
+        {
+            Debug.Log("Time: " + _currentTime);
             return;
-
-        if (_spawnedTurret.GetType() == _turretPrefabs[turretId].GetComponent<Turret>().GetType())
-            return;
+        }
 
         int turretPrice = GetTurretPrice(_turretPrefabs[turretId]);
 
