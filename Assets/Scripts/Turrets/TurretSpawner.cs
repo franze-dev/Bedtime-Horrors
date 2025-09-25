@@ -18,6 +18,9 @@ public class TurretSpawner : MonoBehaviour
     [SerializeField] private SpriteRenderer _renderer;
     [SerializeField] private GameObject _giftBoxGO;
 
+    [SerializeField] private float _cooldown = 1;
+    private float _currentTime = 0;
+
     private GameObject _spawnedTurret;
     private int _nextTurretId = 0;
 
@@ -42,6 +45,8 @@ public class TurretSpawner : MonoBehaviour
     {
         if (_spawnedTurret == null && !_giftBoxGO.activeSelf)
             _giftBoxGO.SetActive(true);
+
+        _currentTime += Time.deltaTime;
     }
 
     private void OnDestroy()
@@ -88,6 +93,12 @@ public class TurretSpawner : MonoBehaviour
 
     private void SpawnTurret(int turretId)
     {
+        if (_currentTime < _cooldown)
+            return;
+
+        if (_spawnedTurret.GetType() == _turretPrefabs[turretId].GetComponent<Turret>().GetType())
+            return;
+
         int turretPrice = GetTurretPrice(_turretPrefabs[turretId]);
 
         if (_creativityUpdater.GetCreativityValue() >= turretPrice)
@@ -109,6 +120,8 @@ public class TurretSpawner : MonoBehaviour
             _spawnedTurret = Instantiate(_turretPrefabs[turretId]);
             _spawnedTurret.transform.position = transform.position;
             _giftBoxGO.SetActive(false);
+
+            _currentTime = 0;
 
             EventTriggerer.Trigger<ICreativityUpdateEvent>(new CreativityUpdaterEvent(gameObject, -turretPrice));
         }
