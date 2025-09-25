@@ -6,8 +6,8 @@ public class TurretManager : MonoBehaviour
 {
     [SerializeField] private List<TurretSpawner> _turretSpawners;
     [SerializeField] private List<GameObject> _turretPrefabs;
-    [SerializeField] private List<GameObject> _activeTurrets;
-    public List<GameObject> ActiveTurrets => _activeTurrets;
+    [SerializeField] private List<Turret> _activeTurrets;
+    public List<Turret> ActiveTurrets => _activeTurrets;
 
     private void Awake()
     {
@@ -23,13 +23,13 @@ public class TurretManager : MonoBehaviour
         if (!@event.Turret)
             return;
 
-        _activeTurrets.Remove(@event.Turret);
+        _activeTurrets.Remove(@event.Turret.GetComponent<Turret>());
 
         Destroy(@event.Turret);
     }
 
     private void OnTurretSpawn(ITurretSpawnEvent @event)
     {
-        _activeTurrets.Add(@event.Turret);
+        _activeTurrets.Add(@event.Turret.GetComponent<Turret>());
     }
 }
