@@ -37,7 +37,6 @@ public class TurretSpawner : MonoBehaviour
         _spawnTurret3.action.canceled += OnSpawnTurret3;
 
         _spawnedTurret = null;
-
     }
 
     private void OnDeletion(InputAction.CallbackContext context)
