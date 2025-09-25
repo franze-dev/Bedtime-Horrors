@@ -48,7 +48,7 @@ public class Earthquake : NaturalDisaster, IDisasterUpdate
             return;
         }
 
-        GameObject turretToDestroy = activeTurrets[randomIndex];
+        GameObject turretToDestroy = activeTurrets[randomIndex].gameObject;
 
         if (turretToDestroy != null)
         {

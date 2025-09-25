@@ -53,19 +53,14 @@ public class TurretSelectionManager : MonoBehaviour
             if (turret == null)
                 continue;
 
-            var spriteRenderer = turret.GetComponentInChildren<SpriteRenderer>();
-
-            if (spriteRenderer == null)
-                spriteRenderer = turret.GetComponent<SpriteRenderer>();
-
-            if (IsMouseHovering(spriteRenderer.bounds))
+            if (IsMouseHovering(turret.spriteRenderer.bounds))
             {
                 if (_selectedTurret != null)
                     _selectedTurret.Deselect();
 
                 var previous = _selectedTurret;
 
-                _selectedTurret = turret.GetComponent<Turret>();
+                _selectedTurret = turret;
 
                 if (previous != _selectedTurret)
                     _selectedTurret.Select();
@@ -86,6 +81,14 @@ public class TurretSelectionManager : MonoBehaviour
             }
             else if (i != _selectedPrefab)
                 _turretPrefabs[i].gameObject.transform.localScale = new Vector3(1, 1, 1);
+        }
+
+        foreach (var turret in _turretManager.ActiveTurrets)
+        {
+            if (IsMouseHovering(turret.spriteRenderer.bounds))
+                turret.ActivateArea();
+            else
+                turret.DeactivateArea();
         }
     }
 
