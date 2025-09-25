@@ -112,6 +112,42 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "UpDir",
+                    "type": "Button",
+                    "id": "6d35b1f2-a682-4cab-998f-0eebb42a2279",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "LeftDir",
+                    "type": "Button",
+                    "id": "1cd4ac9e-d7ea-44e0-94b7-c4b1a9dd938a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "RightDir",
+                    "type": "Button",
+                    "id": "8de90c81-5602-4155-ad5d-f9f3728b4b0e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "DownDir",
+                    "type": "Button",
+                    "id": "8542e2b7-e61a-4425-918d-0b29ec300d49",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -563,6 +599,50 @@
                     "processors": "",
                     "groups": "",
                     "action": "Turret3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "504fe138-f05b-432e-b05c-7650f2a2aaf1",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UpDir",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4e2ecec5-9681-4cae-bc4c-1dd3a0d6af57",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftDir",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1836b7a8-3e41-4b64-bedd-db6046d0f51c",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightDir",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "31854e16-507d-4bd7-a80a-b707d2e3de58",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DownDir",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
