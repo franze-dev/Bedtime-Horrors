@@ -18,10 +18,10 @@ public class TurretSelectionManager : MonoBehaviour
 
         for (int i = 0; i < _turretPrefabs.Count; i++)
         {
-            var toAdd = _turretPrefabs[i].GetComponent<SpriteRenderer>();
+            var toAdd = _turretPrefabs[i].GetComponentInChildren<SpriteRenderer>();
 
             if (toAdd == null)
-                toAdd = _turretPrefabs[i].GetComponentInChildren<SpriteRenderer>();
+                toAdd = _turretPrefabs[i].GetComponent<SpriteRenderer>();
 
             _renderers.Add(toAdd);
         }
@@ -45,7 +45,7 @@ public class TurretSelectionManager : MonoBehaviour
     private void Update()
     {
         for (int i = 0; i < _turretPrefabs.Count; i++)
-        {           
+        {
             if (IsMouseHovering(_renderers[i].bounds))
             {
                 Debug.Log("Mouse hovering over " + _renderers[i].gameObject.name);

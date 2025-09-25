@@ -11,7 +11,6 @@ public class Earthquake : NaturalDisaster, IDisasterUpdate
     private Vector3 originalCamPos;
     private Camera _camera = null;
     private bool _isRunning = false;
-    private float _elapsedTime = 0f;
 
     public override void EndDisaster()
     {
@@ -86,8 +85,6 @@ public class Earthquake : NaturalDisaster, IDisasterUpdate
                 Debug.LogError("Main Camera not found!");
                 return;
             }
-
-            _elapsedTime += Time.deltaTime;
 
             float offsetX = Mathf.PerlinNoise(Time.time * _frequency, 0f) * 2f - 1f;
             float offsetY = Mathf.PerlinNoise(0f, Time.time * _frequency) * 2f - 1f;
