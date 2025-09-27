@@ -36,7 +36,7 @@ public class PauseController : MonoBehaviour
             TogglePause();
     }
 
-    private void OnTogglePauseEvent(ITogglePause ev)
+    private void OnTogglePauseEvent(ITogglePause @event)
     {
         TogglePause();
     }

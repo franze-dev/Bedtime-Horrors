@@ -1,9 +1,6 @@
 using UnityEngine;
 
-public interface ITogglePause : IEvent
-{
-
-}
+public interface ITogglePause : IEvent { }
 
 public class TogglePauseEvent : ITogglePause
 {
