@@ -31,6 +31,7 @@ public class NaturalDisasterManager : MonoBehaviour
     private void OnDestroy()
     {
         StopAllCoroutines();
+        _currentDisaster = null;
     }
 
     private IEnumerator DisasterCoroutine()
