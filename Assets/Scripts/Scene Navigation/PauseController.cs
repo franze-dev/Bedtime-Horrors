@@ -13,30 +13,32 @@ public class PauseController : MonoBehaviour
     private void OnEnable()
     {
         if (_pauseAction != null)
-        {
             _pauseAction.action.performed += OnPause;
-        }
+
+        EventProvider.Subscribe<ITogglePause>(OnTogglePauseEvent);
     }
 
     private void OnDisable()
     {
         if (_pauseAction != null)
-        {
             _pauseAction.action.performed -= OnPause;
-        }
+
+        EventProvider.Unsubscribe<ITogglePause>(OnTogglePauseEvent);
     }
 
     private void OnPause(InputAction.CallbackContext context)
     {
-        if (GameManager.Instance == null)
-            return;
+        if (GameManager.Instance == null) return;
 
         var currentState = GameManager.Instance.CurrentState;
 
         if (currentState == GameManager.GameState.Gameplay || currentState == GameManager.GameState.Paused)
-        {
             TogglePause();
-        }
+    }
+
+    private void OnTogglePauseEvent(ITogglePause ev)
+    {
+        TogglePause();
     }
 
     public void TogglePause()
@@ -62,7 +64,7 @@ public class PauseController : MonoBehaviour
         }
     }
 
-    public void ChangePausedState()
+    private void ChangePausedState()
     {
         isPaused = !isPaused;
     }

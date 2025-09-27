@@ -171,7 +171,17 @@ public class SceneController : MonoBehaviour
     /// </summary>
     private IEnumerator UnloadSceneByIndexRoutine(int index)
     {
+        if (index < 0 || index >= SceneManager.sceneCountInBuildSettings)
+            yield break;
+
+        Scene scene = SceneManager.GetSceneByBuildIndex(index);
+        if (!scene.isLoaded)
+            yield break;
+
         AsyncOperation asyncUnload = SceneManager.UnloadSceneAsync(index);
+        if (asyncUnload == null)
+            yield break;
+
         while (!asyncUnload.isDone)
             yield return null;
     }

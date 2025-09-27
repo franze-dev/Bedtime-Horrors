@@ -32,4 +32,9 @@ public class MenuTransitionButton : MonoBehaviour
         EventTriggerer.Trigger<ISetAllMenusInactive>(new SetAllMenusInactive(_stateToTransition));
         Debug.Log("All menus inactive Event triggered!");
     }
+
+    public void ButtonTogglePause()
+    {
+        EventTriggerer.Trigger<ITogglePause>(new TogglePauseEvent());
+    }
 }
