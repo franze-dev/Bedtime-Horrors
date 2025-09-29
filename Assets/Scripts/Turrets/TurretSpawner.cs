@@ -8,6 +8,7 @@ public class TurretSpawner : MonoBehaviour
     private List<GameObject> _turretPrefabs;
 
     [SerializeField] private InputActionReference _click;
+    [SerializeField] private InputActionReference _turretDelInput;
 
     [SerializeField] private InputActionReference _spawnTurret1;
     [SerializeField] private InputActionReference _spawnTurret2;
@@ -30,15 +31,29 @@ public class TurretSpawner : MonoBehaviour
             Debug.LogError("giftboxGO not found in " + gameObject.name);
 
         if (_renderer == null)
-            _renderer = gameObject.GetComponentInChildren<SpriteRenderer>();
+            _renderer = _giftBoxGO.GetComponent<SpriteRenderer>();
 
         _click.action.canceled += OnClick;
+        _turretDelInput.action.canceled += OnDeletion;
         _spawnTurret1.action.canceled += OnSpawnTurret1;
         _spawnTurret2.action.canceled += OnSpawnTurret2;
         _spawnTurret3.action.canceled += OnSpawnTurret3;
 
         _spawnedTurret = null;
+    }
 
+    private void OnDeletion(InputAction.CallbackContext context)
+    {
+        if (IsMouseHovering())
+            DeleteTurret();
+    }
+
+    private void DeleteTurret()
+    {
+        if (_spawnedTurret == null)
+            return;
+
+        EventTriggerer.Trigger<ITurretDestroyEvent>(new TurretDestroyEvent(_spawnedTurret));
     }
 
     private void Update()
