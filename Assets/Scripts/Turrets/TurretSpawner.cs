@@ -67,6 +67,9 @@ public class TurretSpawner : MonoBehaviour
     private void OnDestroy()
     {
         _click.action.canceled -= OnClick;
+        _spawnTurret1.action.canceled -= OnSpawnTurret1;
+        _spawnTurret2.action.canceled -= OnSpawnTurret2;
+        _spawnTurret3.action.canceled -= OnSpawnTurret3;
     }
 
     private void OnClick(InputAction.CallbackContext context)

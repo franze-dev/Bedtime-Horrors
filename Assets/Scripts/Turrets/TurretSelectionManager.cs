@@ -35,6 +35,11 @@ public class TurretSelectionManager : MonoBehaviour
         _scaleMultiplier = 1.2f;
     }
 
+    private void OnDestroy()
+    {
+        _click.action.canceled -= OnClick;
+    }
+
     private void OnClick(InputAction.CallbackContext context)
     {
         for (int i = 0; i < _turretPrefabs.Count; i++)
@@ -74,6 +79,11 @@ public class TurretSelectionManager : MonoBehaviour
     {
         for (int i = 0; i < _turretPrefabs.Count; i++)
         {
+            if (_renderers[i] == null)
+            {
+                Debug.LogWarning("_renderers[i] == null");
+                continue;
+            }
             if (IsMouseHovering(_renderers[i].bounds))
             {
                 Debug.Log("Mouse hovering over " + _renderers[i].gameObject.name);

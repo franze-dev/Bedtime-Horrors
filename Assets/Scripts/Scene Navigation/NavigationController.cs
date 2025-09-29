@@ -22,6 +22,7 @@ public class NavigationController : MonoBehaviour
     private void Awake()
     {
         _eventSystem = GetComponent<EventSystem>();
+        _eventSystem.firstSelectedGameObject = null;
         _lastSelectedOption = _eventSystem.firstSelectedGameObject;
         AddMenusToList();
         _activeMenu = baseMenu.GetComponent<Menu>();
@@ -33,7 +34,6 @@ public class NavigationController : MonoBehaviour
     private void Start()
     {
         SetBaseMenuActive();
-        //GameManager.Instance.ShowCursor();
     }
 
     /// <summary>
