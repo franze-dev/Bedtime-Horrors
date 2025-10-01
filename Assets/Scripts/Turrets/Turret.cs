@@ -8,6 +8,8 @@ public class Turret : MonoBehaviour
     protected float _timer = 0;
     public int price;
     public SpriteRenderer spriteRenderer;
+    [SerializeField] private SpriteRenderer _areaSpriteRenderer;
+    private float _areaTransparency;
 
     protected virtual void Awake()
     {
@@ -25,6 +27,11 @@ public class Turret : MonoBehaviour
 
         if (spriteRenderer == null)
             spriteRenderer = GetComponent<SpriteRenderer>();
+
+        if (_areaSpriteRenderer == null)
+            Debug.LogError("Area sprite not found");
+
+        _areaTransparency = _areaSpriteRenderer.color.a;
     }
 
     protected virtual void Update()
@@ -44,13 +51,15 @@ public class Turret : MonoBehaviour
 
     public void ActivateArea()
     {
-        if (_areaNotifier != null)
-            _areaNotifier.gameObject.SetActive(true);
+        Color areaColor = _areaSpriteRenderer.color;
+        areaColor.a = _areaTransparency;
+        _areaSpriteRenderer.color = areaColor;
     }
 
     public void DeactivateArea()
     {
-        if (_areaNotifier != null)
-            _areaNotifier.gameObject.SetActive(false);
+        Color areaColor = _areaSpriteRenderer.color;
+        areaColor.a = 0;
+        _areaSpriteRenderer.color = areaColor;
     }
 }
