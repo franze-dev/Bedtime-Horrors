@@ -37,4 +37,9 @@ public class MenuTransitionButton : MonoBehaviour
     {
         EventTriggerer.Trigger<ITogglePause>(new TogglePauseEvent());
     }
+
+    public void ExitApp()
+    {
+        Application.Quit();
+    }
 }
