@@ -70,7 +70,10 @@ public class TurretSelectionManager : MonoBehaviour
                 if (previous != _selectedTurret)
                     _selectedTurret.Select();
                 else
+                {
                     _selectedTurret.Deselect();
+                    _selectedTurret = null;
+                }
             }
         }
     }
