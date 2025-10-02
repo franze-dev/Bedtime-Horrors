@@ -410,7 +410,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldown: 2
   _selectionGO: {fileID: 664409294331371595}
+  _areaNotifier: {fileID: 0}
   price: 20
+  spriteRenderer: {fileID: 0}
+  _areaSpriteRenderer: {fileID: 4207891038408144019}
   _bulletSpeed: 4
   _bulletGO: {fileID: 1332241359455922819, guid: 8562605dcd4ec394a8276a65a30115f4, type: 3}
   _maxBullets: 3

@@ -136,7 +136,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldown: 4
   _selectionGO: {fileID: 7353734920135782185}
+  _areaNotifier: {fileID: 0}
   price: 30
+  spriteRenderer: {fileID: 0}
+  _areaSpriteRenderer: {fileID: 7680611550168783753}
   _enemiesCollided: []
   _damage: 30
 --- !u!1 &7118958331834670034
