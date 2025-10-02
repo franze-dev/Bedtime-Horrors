@@ -28,10 +28,10 @@ public class Turret : MonoBehaviour
         if (spriteRenderer == null)
             spriteRenderer = GetComponent<SpriteRenderer>();
 
-        if (_areaSpriteRenderer == null)
-            Debug.LogError("Area sprite not found");
+        if (_areaSpriteRenderer != null)
+            _areaTransparency = _areaSpriteRenderer.color.a;
 
-        _areaTransparency = _areaSpriteRenderer.color.a;
+
     }
 
     protected virtual void Update()
@@ -51,6 +51,9 @@ public class Turret : MonoBehaviour
 
     public void ActivateArea()
     {
+        if (_areaSpriteRenderer == null)
+            return;
+
         Color areaColor = _areaSpriteRenderer.color;
         areaColor.a = _areaTransparency;
         _areaSpriteRenderer.color = areaColor;
@@ -58,6 +61,9 @@ public class Turret : MonoBehaviour
 
     public void DeactivateArea()
     {
+        if (_areaSpriteRenderer == null)
+            return;
+
         Color areaColor = _areaSpriteRenderer.color;
         areaColor.a = 0;
         _areaSpriteRenderer.color = areaColor;

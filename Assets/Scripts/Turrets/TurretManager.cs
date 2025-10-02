@@ -32,4 +32,14 @@ public class TurretManager : MonoBehaviour
     {
         _activeTurrets.Add(@event.Turret.GetComponent<Turret>());
     }
+
+    private void OnDrawGizmos()
+    {
+        for (int i = 0; i < _turretSpawners.Count; i++)
+        {
+            Gizmos.color = Color.yellow;
+            Bounds bounds = _turretSpawners[i].GetComponentInChildren<SpriteRenderer>().bounds;
+            Gizmos.DrawWireCube(bounds.center, bounds.size);
+        }
+    }
 }

@@ -9,7 +9,7 @@ public class TurretSelectionManager : MonoBehaviour
     [Header("Prefab select")]
     [SerializeField] private List<GameObject> _turretPrefabs = new List<GameObject>();
     private List<SpriteRenderer> _renderers = new List<SpriteRenderer>();
-    private int _selectedPrefab;
+    [SerializeField] private int _selectedPrefab;
     [SerializeField] private float _scaleMultiplier;
 
     [Header("Gameplay Turrets Select")]
@@ -41,7 +41,13 @@ public class TurretSelectionManager : MonoBehaviour
     }
 
     private void OnClick(InputAction.CallbackContext context)
-    {
+    {   
+        if (_selectedTurret != null)
+        {
+            _selectedTurret.Deselect();
+            _selectedTurret = null;
+        }
+
         for (int i = 0; i < _turretPrefabs.Count; i++)
         {
             if (IsMouseHovering(_renderers[i].bounds))
@@ -75,7 +81,7 @@ public class TurretSelectionManager : MonoBehaviour
                     _selectedTurret = null;
                 }
             }
-        }
+        }    
     }
 
     private void Update()
@@ -98,6 +104,9 @@ public class TurretSelectionManager : MonoBehaviour
 
         foreach (var turret in _turretManager.ActiveTurrets)
         {
+            if (!turret.spriteRenderer)
+                Debug.Log(turret.gameObject.name + ": sprite renderer not found!");
+
             if (IsMouseHovering(turret.spriteRenderer.bounds))
                 turret.ActivateArea();
             else
