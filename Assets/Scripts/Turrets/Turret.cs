@@ -1,6 +1,7 @@
+using System;
 using UnityEngine;
 
-public class Turret : MonoBehaviour
+public class Turret : MonoBehaviour, IInteractable
 {
     [SerializeField] protected float cooldown;
     [SerializeField] private GameObject _selectionGO;
@@ -10,6 +11,7 @@ public class Turret : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     [SerializeField] private SpriteRenderer _areaSpriteRenderer;
     private float _areaTransparency;
+    private BoxCollider2D _collider;
 
     protected virtual void Awake()
     {
@@ -31,7 +33,23 @@ public class Turret : MonoBehaviour
         if (_areaSpriteRenderer != null)
             _areaTransparency = _areaSpriteRenderer.color.a;
 
+        _collider = GetComponentInChildren<BoxCollider2D>();
 
+        EventProvider.Subscribe<IClickHitEvent>(OnClickAny);
+    }
+
+    private void OnClickAny(IClickHitEvent @event)
+    {
+        if (!@event.HasHit)
+            Deselect();
+    }
+
+    public void Interact()
+    {
+        if (_selectionGO.activeInHierarchy)
+            Deselect();
+        else
+            Select();
     }
 
     protected virtual void Update()

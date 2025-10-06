@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class TurretSpawner : MonoBehaviour
+public class TurretSpawner : MonoBehaviour, IInteractable
 {
     private List<GameObject> _turretPrefabs;
 
-    [SerializeField] private InputActionReference _click;
     [SerializeField] private InputActionReference _turretDelInput;
 
     [SerializeField] private InputActionReference _spawnTurret1;
@@ -33,7 +32,6 @@ public class TurretSpawner : MonoBehaviour
         if (_renderer == null)
             _renderer = _giftBoxGO.GetComponent<SpriteRenderer>();
 
-        _click.action.canceled += OnClick;
         _turretDelInput.action.canceled += OnDeletion;
         _spawnTurret1.action.canceled += OnSpawnTurret1;
         _spawnTurret2.action.canceled += OnSpawnTurret2;
@@ -66,19 +64,9 @@ public class TurretSpawner : MonoBehaviour
 
     private void OnDestroy()
     {
-        _click.action.canceled -= OnClick;
         _spawnTurret1.action.canceled -= OnSpawnTurret1;
         _spawnTurret2.action.canceled -= OnSpawnTurret2;
         _spawnTurret3.action.canceled -= OnSpawnTurret3;
-    }
-
-    private void OnClick(InputAction.CallbackContext context)
-    {
-        int selectedTurret = _selectionManager.GetSelectedTurret();
-        Debug.LogError("selected turret: " + selectedTurret);
-
-        if (selectedTurret >= 0 && IsMouseHovering())
-            SpawnTurret(selectedTurret);
     }
 
     private void OnSpawnTurret1(InputAction.CallbackContext context)
@@ -114,6 +102,10 @@ public class TurretSpawner : MonoBehaviour
 
     private void SpawnTurret(int turretId)
     {
+        if (_spawnedTurret != null)
+            if (_spawnedTurret.GetType() == _turretPrefabs[turretId].GetType())
+                return;
+
         if (_currentTime < _cooldown)
         {
             Debug.Log("Time: " + _currentTime);
@@ -172,5 +164,14 @@ public class TurretSpawner : MonoBehaviour
             return turret.price;
         }
         else return 0;
+    }
+
+    public void Interact()
+    {
+        int selectedTurret = _selectionManager.GetSelectedTurret();
+        Debug.Log("selected turret: " + selectedTurret);
+
+        if (selectedTurret >= 0)
+            SpawnTurret(selectedTurret);
     }
 }

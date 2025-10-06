@@ -128,6 +128,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1941673496799188265}
   - component: {fileID: 5727367013825334767}
+  - component: {fileID: 4623876211714281455}
   m_Layer: 0
   m_Name: turret
   m_TagString: Untagged
@@ -168,7 +169,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldown: 1
   _selectionGO: {fileID: 8772055955712231961}
+  _areaNotifier: {fileID: 0}
   price: 10
+  spriteRenderer: {fileID: 0}
+  _areaSpriteRenderer: {fileID: 0}
   _bulletSpeed: 2
   _bulletGO: {fileID: 1332241359455922819, guid: 36b660b64812643488969fb0e60b041c, type: 3}
   _maxBullets: 3
@@ -176,6 +180,52 @@ MonoBehaviour:
   _bulletStartPosition: {fileID: 7201090591476053530}
   _direction: {x: 0, y: -1}
   _arrowGO: {fileID: 7798142831552536924}
+--- !u!61 &4623876211714281455
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6911526105226655499}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.015505016, y: 0.12588078}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.96898997, y: 0.8621763}
+  m_EdgeRadius: 0
 --- !u!1 &7798142831552536924
 GameObject:
   m_ObjectHideFlags: 0
