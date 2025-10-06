@@ -41,15 +41,12 @@ public class Turret : MonoBehaviour, IInteractable
     private void OnClickAny(IClickHitEvent @event)
     {
         if (!@event.HasHit)
-            Deselect();
+            EventTriggerer.Trigger<IUpdateSelectedTurretEvent>(new UpdateSelectedTurret(null));
     }
 
     public void Interact()
     {
-        if (_selectionGO.activeInHierarchy)
-            Deselect();
-        else
-            Select();
+        EventTriggerer.Trigger<IUpdateSelectedTurretEvent>(new UpdateSelectedTurret(this));
     }
 
     protected virtual void Update()
