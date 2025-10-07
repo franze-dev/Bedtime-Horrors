@@ -18,8 +18,18 @@ public class MessageLogger : MonoBehaviour
         _statTextUpdater.UpdateText("");
     }
 
+    private void OnDestroy()
+    {
+        EventProvider.Unsubscribe<ILogMessageEvent>(OnLogMessage);
+    }
+
     private void OnLogMessage(ILogMessageEvent @event)
     {
+        if (_statTextUpdater == null)
+        {
+            Debug.LogWarning("Stat text updater == null");
+            return;
+        }
         _statTextUpdater.UpdateText(@event.Message);
 
         StartCoroutine(_statTextUpdater.UpdateTextAfterDelay("", 2f));

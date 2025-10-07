@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
 
+#if UNITY_EDITOR
+
 [CreateAssetMenu(fileName = "TileSettings", menuName = "ScriptableObjects/Path/TileSettings")]
 public class TileSettings : ScriptableObject
 {
@@ -31,3 +33,5 @@ public class TileSettings : ScriptableObject
         return StartDir == dir || EndDir == dir;
     }
 }
+
+#endif

@@ -1,5 +1,4 @@
 using UnityEngine;
-using TMPro;
 
 public class FloatingText : MonoBehaviour
 {
@@ -10,6 +9,8 @@ public class FloatingText : MonoBehaviour
     [SerializeField] private float _rangeVelocityX;
     [SerializeField] private float _lifeTime;
 
+    public float LifeTime => _lifeTime;
+
     private void Awake()
     {
         _rigidBody = GetComponent<Rigidbody2D>();
@@ -19,14 +20,12 @@ public class FloatingText : MonoBehaviour
     private void Start()
     {
         float initialVelocityX = Random.Range(-_rangeVelocityX, _rangeVelocityX);
-        //_rigidBody.linearVelocity = new Vector2(initialVelocityX, _initalVelocityY);
         _rigidBody.AddForce(new Vector2(initialVelocityX, _initalVelocityY), ForceMode2D.Impulse);
         Destroy(gameObject, _lifeTime);
     }
 
     public void SetText(string text)
     {
-        Debug.Log("FloatingText script SetText called");
         _text?.ChangeText(text);
     }
 }

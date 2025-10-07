@@ -13,6 +13,9 @@ public class NaturalDisasterManager : MonoBehaviour
 
     private void Awake()
     {
+        if (_disasters.Count == 0)
+            return;
+
         foreach (var disaster in _disasters)
             disaster?.Init();
 
@@ -21,6 +24,9 @@ public class NaturalDisasterManager : MonoBehaviour
 
     private void Update()
     {
+        if (_disasters.Count == 0)
+            return;
+
         if (!_isCoroutineRunning)
             StartCoroutine(DisasterCoroutine());
 
@@ -31,10 +37,14 @@ public class NaturalDisasterManager : MonoBehaviour
     private void OnDestroy()
     {
         StopAllCoroutines();
+        _currentDisaster = null;
     }
 
     private IEnumerator DisasterCoroutine()
     {
+        if (_disasters.Count == 0)
+            yield break;
+
         if (_isCoroutineRunning) yield break;
         _isCoroutineRunning = true;
         yield return new WaitForSeconds(Random.Range(_minInterval, _maxInterval));

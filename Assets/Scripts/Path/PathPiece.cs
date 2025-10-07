@@ -1,14 +1,15 @@
-using NavMeshPlus.Components;
 using System;
-using UnityEditor;
 using UnityEngine;
 
 #if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 [ExecuteInEditMode]
 [RequireComponent(typeof(SpriteRenderer))]
 public class PathPiece : MonoBehaviour
 {
+#if UNITY_EDITOR
     public enum Direction
     {
         Up,
@@ -18,7 +19,7 @@ public class PathPiece : MonoBehaviour
     }
 
     [SerializeField] private PathSettings _pathInfo;
-    [SerializeField] public Direction SpawnDirection = Direction.Right;
+    public Direction SpawnDirection = Direction.Right;
     [SerializeField] private TileSet _tileSet;
     private Direction _previousDir = Direction.Right;
     private SpriteRenderer _spriteRenderer;
@@ -137,5 +138,5 @@ public class PathPiece : MonoBehaviour
 
         return finalPos;
     }
-}
 #endif
+}

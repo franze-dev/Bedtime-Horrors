@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+#if UNITY_EDITOR
+
 [CreateAssetMenu(fileName = "TileSet", menuName = "ScriptableObjects/Path/TileSet")]
 public class TileSet : ScriptableObject
 {
@@ -28,3 +30,5 @@ public class TileSet : ScriptableObject
         return null;
     }
 }
+
+#endif

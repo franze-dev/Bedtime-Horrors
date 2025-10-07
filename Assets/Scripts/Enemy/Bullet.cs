@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -7,6 +8,7 @@ public class Bullet : MonoBehaviour
     public float damage;
 
     public Vector2 direction;
+    public Vector2 nextDirection;
     public Vector2 initialPosition;
 
     public GameObject target;
@@ -14,6 +16,13 @@ public class Bullet : MonoBehaviour
     private void OnEnable()
     {
         initialPosition = transform.position;
+
+        SetRotation(direction);
+    }
+
+    private void OnDisable()
+    {
+        direction = nextDirection;
     }
 
     private void Update()
@@ -27,7 +36,7 @@ public class Bullet : MonoBehaviour
         var currentTarget = target == null ? (Vector2)transform.position + direction : (Vector2)target.transform.position;
 
         transform.position = Vector2.MoveTowards(transform.position, currentTarget, speed * Time.deltaTime);
-        
+
         if ((Vector2)transform.position == currentTarget)
             gameObject.SetActive(false);
     }
@@ -42,6 +51,7 @@ public class Bullet : MonoBehaviour
     public void ResetBullet()
     {
         transform.position = initialPosition;
+        direction = nextDirection;
         this.gameObject.SetActive(true);
     }
 
@@ -51,5 +61,16 @@ public class Bullet : MonoBehaviour
             return;
 
         this.gameObject.SetActive(false);
+    }
+
+    public void SetRotation(Vector2 newDir)
+    {
+        transform.rotation = Quaternion.identity;
+
+        var angle = Vector3.Angle(transform.right, newDir);
+
+        angle *= newDir.x != 0 ? newDir.x : newDir.y;
+
+        transform.Rotate(new(0, 0, angle));
     }
 }

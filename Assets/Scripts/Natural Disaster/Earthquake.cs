@@ -11,7 +11,6 @@ public class Earthquake : NaturalDisaster, IDisasterUpdate
     private Vector3 originalCamPos;
     private Camera _camera = null;
     private bool _isRunning = false;
-    private float _elapsedTime = 0f;
 
     public override void EndDisaster()
     {
@@ -37,19 +36,19 @@ public class Earthquake : NaturalDisaster, IDisasterUpdate
         if (activeTurrets == null || activeTurrets.Count == 0)
         {
             Debug.LogWarning("No active turrets to destroy.");
-            EventTriggerer.Trigger<ILogMessageEvent>(new LogMessageEvent("Earthquake ended with no casualties!", null));
+            EventTriggerer.Trigger<ILogMessageEvent>(new LogMessageEvent("No turrets to destroy!", null));
             return;
         }
 
-        int randomIndex = UnityEngine.Random.Range(0, activeTurrets.Count + 2);
+        int randomIndex = Random.Range(0, activeTurrets.Count + 2);
 
         if (randomIndex >= activeTurrets.Count)
         {
-            EventTriggerer.Trigger<ILogMessageEvent>(new LogMessageEvent("Earthquake ended with no casualties!", null));
+            EventTriggerer.Trigger<ILogMessageEvent>(new LogMessageEvent("No casualties!", null));
             return;
         }
 
-        GameObject turretToDestroy = activeTurrets[randomIndex];
+        GameObject turretToDestroy = activeTurrets[randomIndex].gameObject;
 
         if (turretToDestroy != null)
         {
@@ -86,8 +85,6 @@ public class Earthquake : NaturalDisaster, IDisasterUpdate
                 Debug.LogError("Main Camera not found!");
                 return;
             }
-
-            _elapsedTime += Time.deltaTime;
 
             float offsetX = Mathf.PerlinNoise(Time.time * _frequency, 0f) * 2f - 1f;
             float offsetY = Mathf.PerlinNoise(0f, Time.time * _frequency) * 2f - 1f;

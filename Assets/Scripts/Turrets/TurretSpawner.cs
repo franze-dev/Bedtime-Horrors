@@ -3,27 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class TurretSpawner : MonoBehaviour
+public class TurretSpawner : MonoBehaviour, IInteractable
 {
     private List<GameObject> _turretPrefabs;
 
-    [SerializeField] private InputActionReference _click;
+    [SerializeField] private InputActionReference _turretDelInput;
 
     [SerializeField] private InputActionReference _spawnTurret1;
     [SerializeField] private InputActionReference _spawnTurret2;
     [SerializeField] private InputActionReference _spawnTurret3;
 
     [SerializeField] private CreativityUpdater _creativityUpdater;
+    [SerializeField] private TurretSelectionManager _selectionManager;
+    [SerializeField] private SpriteRenderer _renderer;
+    [SerializeField] private GameObject _giftBoxGO;
 
-    private SpriteRenderer _renderer;
+    [SerializeField] private float _cooldown = 1;
+    private float _currentTime = 0;
+
     private GameObject _spawnedTurret;
     private int _nextTurretId = 0;
 
     private void Awake()
     {
-        _renderer = GetComponent<SpriteRenderer>();
+        if (_giftBoxGO == null)
+            Debug.LogError("giftboxGO not found in " + gameObject.name);
 
-        _click.action.canceled += OnClick;
+        if (_renderer == null)
+            _renderer = _giftBoxGO.GetComponent<SpriteRenderer>();
+
+        _turretDelInput.action.canceled += OnDeletion;
         _spawnTurret1.action.canceled += OnSpawnTurret1;
         _spawnTurret2.action.canceled += OnSpawnTurret2;
         _spawnTurret3.action.canceled += OnSpawnTurret3;
@@ -31,15 +40,33 @@ public class TurretSpawner : MonoBehaviour
         _spawnedTurret = null;
     }
 
-    private void OnDestroy()
+    private void OnDeletion(InputAction.CallbackContext context)
     {
-        _click.action.canceled -= OnClick;
+        if (IsMouseHovering())
+            DeleteTurret();
     }
 
-    private void OnClick(InputAction.CallbackContext context)
+    private void DeleteTurret()
     {
-        //if (IsMouseHovering())
-        //     SpawnTurret();
+        if (_spawnedTurret == null)
+            return;
+
+        EventTriggerer.Trigger<ITurretDestroyEvent>(new TurretDestroyEvent(_spawnedTurret));
+    }
+
+    private void Update()
+    {
+        if (_spawnedTurret == null && !_giftBoxGO.activeSelf)
+            _giftBoxGO.SetActive(true);
+
+        _currentTime += Time.deltaTime;
+    }
+
+    private void OnDestroy()
+    {
+        _spawnTurret1.action.canceled -= OnSpawnTurret1;
+        _spawnTurret2.action.canceled -= OnSpawnTurret2;
+        _spawnTurret3.action.canceled -= OnSpawnTurret3;
     }
 
     private void OnSpawnTurret1(InputAction.CallbackContext context)
@@ -47,11 +74,13 @@ public class TurretSpawner : MonoBehaviour
         if (IsMouseHovering())
             SpawnTurret(0);
     }
+
     private void OnSpawnTurret2(InputAction.CallbackContext context)
     {
         if (IsMouseHovering())
             SpawnTurret(1);
     }
+
     private void OnSpawnTurret3(InputAction.CallbackContext context)
     {
         if (IsMouseHovering())
@@ -64,15 +93,30 @@ public class TurretSpawner : MonoBehaviour
         Vector3 mouseToScreenPos = Camera.main.ScreenToWorldPoint(mousePos);
         mouseToScreenPos.z = 0;
 
-        Bounds bounds = _renderer.sprite.bounds;
-        float distance = Vector2.Distance(mouseToScreenPos, (Vector2)transform.position);
+        Bounds bounds = _renderer.bounds;
 
-        return (distance < bounds.size.x / 2);
-
+        bool contained = bounds.Contains(mouseToScreenPos);
+        Debug.LogError("contiene: " + contained);
+        return contained;
     }
 
-    private void SpawnTurret()
+    private void SpawnTurret(int turretId)
     {
+        if (_spawnedTurret != null)
+            if (_spawnedTurret.GetType() == _turretPrefabs[turretId].GetType())
+                return;
+
+        if (_currentTime < _cooldown)
+        {
+            Debug.Log("Time: " + _currentTime);
+            return;
+        }
+
+        int turretPrice = GetTurretPrice(_turretPrefabs[turretId]);
+
+        if (_creativityUpdater.GetCreativityValue() < turretPrice)
+            return;
+
         GameObject toDestroy = null;
 
         if (_spawnedTurret != null)
@@ -80,42 +124,21 @@ public class TurretSpawner : MonoBehaviour
             toDestroy = _spawnedTurret;
             _spawnedTurret = null;
 
-            Destroy(toDestroy);
+            EventTriggerer.Trigger<ITurretDestroyEvent>(new TurretDestroyEvent(toDestroy));
+            //Destroy(toDestroy);
 
             if (_nextTurretId >= _turretPrefabs.Count - 1)
                 _nextTurretId = 0;
             else
                 _nextTurretId++;
         }
-        _spawnedTurret = Instantiate(_turretPrefabs[_nextTurretId]);
+        _spawnedTurret = Instantiate(_turretPrefabs[turretId]);
         _spawnedTurret.transform.position = transform.position;
-    }
+        _giftBoxGO.SetActive(false);
 
-    private void SpawnTurret(int turretId)
-    {
-        int turretPrice = GetTurretPrice(_turretPrefabs[turretId]);
+        _currentTime = 0;
 
-        if (_creativityUpdater.GetCreativityValue() >= turretPrice)
-        {
-            GameObject toDestroy = null;
-
-            if (_spawnedTurret != null)
-            {
-                toDestroy = _spawnedTurret;
-                _spawnedTurret = null;
-
-                Destroy(toDestroy);
-
-                if (_nextTurretId >= _turretPrefabs.Count - 1)
-                    _nextTurretId = 0;
-                else
-                    _nextTurretId++;
-            }
-            _spawnedTurret = Instantiate(_turretPrefabs[turretId]);
-            _spawnedTurret.transform.position = transform.position;
-
-            EventTriggerer.Trigger<ICreativityUpdateEvent>(new CreativityUpdaterEvent(gameObject, -turretPrice));
-        }
+        EventTriggerer.Trigger<ICreativityUpdateEvent>(new CreativityUpdaterEvent(gameObject, -turretPrice));
 
     }
 
@@ -141,5 +164,14 @@ public class TurretSpawner : MonoBehaviour
             return turret.price;
         }
         else return 0;
+    }
+
+    public void Interact()
+    {
+        int selectedTurret = _selectionManager.GetSelectedTurret();
+        Debug.Log("selected turret: " + selectedTurret);
+
+        if (selectedTurret >= 0)
+            SpawnTurret(selectedTurret);
     }
 }

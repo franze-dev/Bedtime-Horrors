@@ -3,12 +3,11 @@ using UnityEngine;
 public class CreativityUpdater : MonoBehaviour
 {
     [SerializeField] private StatTextUpdater _statTextUpdater;
-    private int value = 100;
+    [SerializeField] private int value = 1000;
 
     private float timer = 0f;
     private float timeToUpdate = 1f;
     private int valueToAdd = 2;
-
 
     private void Awake()
     {
