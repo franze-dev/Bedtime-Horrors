@@ -21,11 +21,13 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
-using UnityEngine;
+using System.Text.RegularExpressions;
 using UnityEditor;
 using UnityEditor.SceneManagement;
-using System.Text.RegularExpressions;
+using UnityEngine;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace DragonBones
 {
@@ -148,20 +150,23 @@ namespace DragonBones
             for (int i = 0; i < textureAtlasJSONs.Count; ++i)
             {
                 string path = textureAtlasJSONs[i];
-                //load textureAtlas data
+
+                // load textureAtlas data
                 UnityDragonBonesData.TextureAtlas ta = new UnityDragonBonesData.TextureAtlas();
                 ta.textureAtlasJSON = AssetDatabase.LoadAssetAtPath<TextAsset>(path);
-                //load texture
-                path = path.Substring(0, path.LastIndexOf(".json"));
-                ta.texture = AssetDatabase.LoadAssetAtPath<Texture2D>(path + ".png");
-                //load material
-                ta.material = AssetDatabase.LoadAssetAtPath<Material>(path + "_Mat.mat");
-                ta.uiMaterial = AssetDatabase.LoadAssetAtPath<Material>(path + "_UI_Mat.mat");
+
+                // load texture
+                string basePath = path.Substring(0, path.LastIndexOf(".json"));
+                ta.texture = AssetDatabase.LoadAssetAtPath<Texture2D>(basePath + ".png");
+                ta.material = AssetDatabase.LoadAssetAtPath<Material>(basePath + "_Mat.mat");
+                ta.uiMaterial = AssetDatabase.LoadAssetAtPath<Material>(basePath + "_UI_Mat.mat");
+
                 textureAtlas[i] = ta;
             }
 
             return textureAtlas;
         }
+
 
 
         public static bool ChangeDragonBonesData(UnityArmatureComponent _armatureComponent, TextAsset dragonBoneJSON)
