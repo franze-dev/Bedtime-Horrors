@@ -1,6 +1,7 @@
+using System;
 using UnityEngine;
 
-public class Turret : MonoBehaviour
+public class Turret : MonoBehaviour, IInteractable
 {
     [SerializeField] protected float cooldown;
     [SerializeField] private GameObject _selectionGO;
@@ -10,6 +11,7 @@ public class Turret : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     [SerializeField] private SpriteRenderer _areaSpriteRenderer;
     private float _areaTransparency;
+    private BoxCollider2D _collider;
 
     protected virtual void Awake()
     {
@@ -28,10 +30,23 @@ public class Turret : MonoBehaviour
         if (spriteRenderer == null)
             spriteRenderer = GetComponent<SpriteRenderer>();
 
-        if (_areaSpriteRenderer == null)
-            Debug.LogError("Area sprite not found");
+        if (_areaSpriteRenderer != null)
+            _areaTransparency = _areaSpriteRenderer.color.a;
 
-        _areaTransparency = _areaSpriteRenderer.color.a;
+        _collider = GetComponentInChildren<BoxCollider2D>();
+
+        EventProvider.Subscribe<IClickHitEvent>(OnClickAny);
+    }
+
+    private void OnClickAny(IClickHitEvent @event)
+    {
+        if (!@event.HasHit)
+            EventTriggerer.Trigger<IUpdateSelectedTurretEvent>(new UpdateSelectedTurret(null));
+    }
+
+    public void Interact()
+    {
+        EventTriggerer.Trigger<IUpdateSelectedTurretEvent>(new UpdateSelectedTurret(this));
     }
 
     protected virtual void Update()
@@ -51,6 +66,9 @@ public class Turret : MonoBehaviour
 
     public void ActivateArea()
     {
+        if (_areaSpriteRenderer == null)
+            return;
+
         Color areaColor = _areaSpriteRenderer.color;
         areaColor.a = _areaTransparency;
         _areaSpriteRenderer.color = areaColor;
@@ -58,6 +76,9 @@ public class Turret : MonoBehaviour
 
     public void DeactivateArea()
     {
+        if (_areaSpriteRenderer == null)
+            return;
+
         Color areaColor = _areaSpriteRenderer.color;
         areaColor.a = 0;
         _areaSpriteRenderer.color = areaColor;

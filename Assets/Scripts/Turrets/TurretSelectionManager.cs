@@ -1,15 +1,14 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class TurretSelectionManager : MonoBehaviour
 {
-    [SerializeField] private InputActionReference _click;
-
     [Header("Prefab select")]
     [SerializeField] private List<GameObject> _turretPrefabs = new List<GameObject>();
     private List<SpriteRenderer> _renderers = new List<SpriteRenderer>();
-    private int _selectedPrefab;
+    [SerializeField] private int _selectedPrefab;
     [SerializeField] private float _scaleMultiplier;
 
     [Header("Gameplay Turrets Select")]
@@ -18,7 +17,6 @@ public class TurretSelectionManager : MonoBehaviour
 
     private void Awake()
     {
-        _click.action.canceled += OnClick;
         _renderers.Clear();
 
         for (int i = 0; i < _turretPrefabs.Count; i++)
@@ -33,18 +31,47 @@ public class TurretSelectionManager : MonoBehaviour
 
         _selectedPrefab = -1;
         _scaleMultiplier = 1.2f;
-    }
 
+        EventProvider.Subscribe<ISelectTurretPrefabEvent>(OnSelectPrefab);
+        EventProvider.Subscribe<IUpdateSelectedTurretEvent>(OnSelectTurret);
+    }
     private void OnDestroy()
     {
-        _click.action.canceled -= OnClick;
+        EventProvider.Unsubscribe<IUpdateSelectedTurretEvent>(OnSelectTurret);
+        EventProvider.Unsubscribe<ISelectTurretPrefabEvent>(OnSelectPrefab);
     }
 
-    private void OnClick(InputAction.CallbackContext context)
+    private void OnSelectTurret(IUpdateSelectedTurretEvent @event)
     {
+        if (_selectedTurret != null)
+            DeselectCurrent();
+
+        if (_selectedTurret == null)
+        {
+            _selectedTurret = @event.ToSelect;
+            _selectedTurret.Select();
+        }
+        else if (@event.ToSelect == null)
+            DeselectCurrent();
+        else if (@event.ToSelect == _selectedTurret)
+            DeselectCurrent();
+    }
+
+    private void DeselectCurrent()
+    {
+        _selectedTurret.Deselect();
+        _selectedTurret = null;
+    }
+
+    private void OnSelectPrefab(ISelectTurretPrefabEvent @event)
+    {
+        if (_selectedPrefab != -1)
+            if (@event.TurretSelectable.gameObject == _turretPrefabs[_selectedPrefab])
+                return;
+
         for (int i = 0; i < _turretPrefabs.Count; i++)
         {
-            if (IsMouseHovering(_renderers[i].bounds))
+            if (@event.TurretSelectable.gameObject == _turretPrefabs[i])
             {
                 _selectedPrefab = i;
                 return;
@@ -52,31 +79,9 @@ public class TurretSelectionManager : MonoBehaviour
         }
 
         _selectedPrefab = -1;
-
-        foreach (var turret in _turretManager.ActiveTurrets)
-        {
-            if (turret == null)
-                continue;
-
-            if (IsMouseHovering(turret.spriteRenderer.bounds))
-            {
-                if (_selectedTurret != null)
-                    _selectedTurret.Deselect();
-
-                var previous = _selectedTurret;
-
-                _selectedTurret = turret;
-
-                if (previous != _selectedTurret)
-                    _selectedTurret.Select();
-                else
-                {
-                    _selectedTurret.Deselect();
-                    _selectedTurret = null;
-                }
-            }
-        }
     }
+
+
 
     private void Update()
     {
@@ -98,6 +103,9 @@ public class TurretSelectionManager : MonoBehaviour
 
         foreach (var turret in _turretManager.ActiveTurrets)
         {
+            if (!turret.spriteRenderer)
+                Debug.Log(turret.gameObject.name + ": sprite renderer not found!");
+
             if (IsMouseHovering(turret.spriteRenderer.bounds))
                 turret.ActivateArea();
             else
@@ -118,5 +126,22 @@ public class TurretSelectionManager : MonoBehaviour
     public int GetSelectedTurret()
     {
         return _selectedPrefab;
+    }
+}
+
+public interface IUpdateSelectedTurretEvent : IEvent
+{
+    Turret ToSelect { get; }
+}
+
+public class UpdateSelectedTurret : IUpdateSelectedTurretEvent
+{
+    private Turret _toSelect;
+    public Turret ToSelect => _toSelect;
+    public GameObject TriggeredByGO => null;
+
+    public UpdateSelectedTurret(Turret toSelect)
+    {
+        _toSelect = toSelect;
     }
 }

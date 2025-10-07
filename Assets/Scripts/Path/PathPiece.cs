@@ -1,13 +1,15 @@
 using System;
-using UnityEditor;
 using UnityEngine;
 
 #if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 [ExecuteInEditMode]
 [RequireComponent(typeof(SpriteRenderer))]
 public class PathPiece : MonoBehaviour
 {
+#if UNITY_EDITOR
     public enum Direction
     {
         Up,
@@ -136,5 +138,5 @@ public class PathPiece : MonoBehaviour
 
         return finalPos;
     }
-}
 #endif
+}
