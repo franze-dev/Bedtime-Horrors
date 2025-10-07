@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
 
 public class TurretSelectionManager : MonoBehaviour
 {
@@ -11,6 +10,10 @@ public class TurretSelectionManager : MonoBehaviour
     private List<SpriteRenderer> _renderers = new List<SpriteRenderer>();
     [SerializeField] private int _selectedPrefab;
     [SerializeField] private float _scaleMultiplier;
+
+    [Header("Gameplay Turrets Select")]
+    [SerializeField] private TurretManager _turretManager;
+    private Turret _selectedTurret;
 
     private void Awake()
     {
@@ -26,7 +29,7 @@ public class TurretSelectionManager : MonoBehaviour
             _renderers.Add(toAdd);
         }
 
-        _selectedTurret = -1;
+        _selectedPrefab = -1;
         _scaleMultiplier = 1.2f;
 
         EventProvider.Subscribe<ISelectTurretPrefabEvent>(OnSelectPrefab);
@@ -46,7 +49,7 @@ public class TurretSelectionManager : MonoBehaviour
         if (_selectedTurret == null)
         {
             _selectedTurret = @event.ToSelect;
-            _selectedTurret.Select();
+            _selectedTurret?.Select();
         }
         else if (@event.ToSelect == null)
             DeselectCurrent();
@@ -70,8 +73,8 @@ public class TurretSelectionManager : MonoBehaviour
         {
             if (@event.TurretSelectable.gameObject == _turretPrefabs[i])
             {
-                _selectedTurret = i;
-                break;
+                _selectedPrefab = i;
+                return;
             }
         }
 
@@ -94,7 +97,7 @@ public class TurretSelectionManager : MonoBehaviour
                 Debug.Log("Mouse hovering over " + _renderers[i].gameObject.name);
                 _turretPrefabs[i].gameObject.transform.localScale = new Vector3(_scaleMultiplier, _scaleMultiplier, _scaleMultiplier);
             }
-            else if (i != _selectedTurret)
+            else if (i != _selectedPrefab)
                 _turretPrefabs[i].gameObject.transform.localScale = new Vector3(1, 1, 1);
         }
 
@@ -122,7 +125,7 @@ public class TurretSelectionManager : MonoBehaviour
 
     public int GetSelectedTurret()
     {
-        return _selectedTurret;
+        return _selectedPrefab;
     }
 }
 
