@@ -12,9 +12,13 @@ public class TextUpdater : MonoBehaviour
 
     public void ChangeText(string newText)
     {
-        //Debug.Log("TextUpdater script ChangeText called");
+        if (textMesh != null)
+            textMesh.text = newText;
+    }
 
-
-        textMesh.text = newText;
+    public void ChangeColor(Color newColor)
+    {
+        if (textMesh != null)
+            textMesh.color = newColor;
     }
 }
