@@ -11,6 +11,8 @@ public class TurretSelectionManager : MonoBehaviour
     private List<SpriteRenderer> _renderers = new List<SpriteRenderer>();
     [SerializeField] private int _selectedPrefab;
     [SerializeField] private float _scaleMultiplier;
+    private Turret _selectedTurret;
+    [SerializeField] private TurretManager _turretManager;
 
     private void Awake()
     {
@@ -26,7 +28,7 @@ public class TurretSelectionManager : MonoBehaviour
             _renderers.Add(toAdd);
         }
 
-        _selectedTurret = -1;
+        _selectedPrefab = -1;
         _scaleMultiplier = 1.2f;
 
         EventProvider.Subscribe<ISelectTurretPrefabEvent>(OnSelectPrefab);
@@ -70,7 +72,7 @@ public class TurretSelectionManager : MonoBehaviour
         {
             if (@event.TurretSelectable.gameObject == _turretPrefabs[i])
             {
-                _selectedTurret = i;
+                _selectedPrefab = i;
                 break;
             }
         }
@@ -94,7 +96,7 @@ public class TurretSelectionManager : MonoBehaviour
                 Debug.Log("Mouse hovering over " + _renderers[i].gameObject.name);
                 _turretPrefabs[i].gameObject.transform.localScale = new Vector3(_scaleMultiplier, _scaleMultiplier, _scaleMultiplier);
             }
-            else if (i != _selectedTurret)
+            else if (i != _selectedPrefab)
                 _turretPrefabs[i].gameObject.transform.localScale = new Vector3(1, 1, 1);
         }
 
@@ -122,7 +124,7 @@ public class TurretSelectionManager : MonoBehaviour
 
     public int GetSelectedTurret()
     {
-        return _selectedTurret;
+        return _selectedPrefab;
     }
 }
 
