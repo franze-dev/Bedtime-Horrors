@@ -28,4 +28,10 @@ public class FloatingText : MonoBehaviour
     {
         _text?.ChangeText(text);
     }
+
+    public void SetTextAndColor(string text, Color color)
+    {
+        _text?.ChangeText(text);
+        _text?.ChangeColor(color);
+    }
 }
