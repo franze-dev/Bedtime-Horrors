@@ -23,7 +23,6 @@ public abstract class ShootTurret : Turret, IBulletConfig
 
         Bullet bulletComponent = newBullet.GetComponent<Bullet>();
         bulletComponent.direction = direction;
-        bulletComponent.nextDirection = direction;
         bulletComponent.speed = BulletSpeed;
 
         if (target != null)
@@ -52,7 +51,6 @@ public abstract class ShootTurret : Turret, IBulletConfig
 
             Bullet bulletComponent = newBullet.GetComponent<Bullet>();
             bulletComponent.direction = direction;
-            bulletComponent.nextDirection = direction;
             bulletComponent.speed = BulletSpeed;
 
             bulletComponent.SetRotation(direction);

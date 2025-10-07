@@ -8,7 +8,6 @@ public class Bullet : MonoBehaviour
     public float damage;
 
     public Vector2 direction;
-    public Vector2 nextDirection;
     public Vector2 initialPosition;
 
     public GameObject target;
@@ -16,13 +15,6 @@ public class Bullet : MonoBehaviour
     private void OnEnable()
     {
         initialPosition = transform.position;
-
-        SetRotation(direction);
-    }
-
-    private void OnDisable()
-    {
-        direction = nextDirection;
     }
 
     private void Update()
@@ -51,7 +43,6 @@ public class Bullet : MonoBehaviour
     public void ResetBullet()
     {
         transform.position = initialPosition;
-        direction = nextDirection;
         this.gameObject.SetActive(true);
     }
 
@@ -63,13 +54,11 @@ public class Bullet : MonoBehaviour
         this.gameObject.SetActive(false);
     }
 
-    public void SetRotation(Vector2 newDir)
+    public void SetRotation(Vector2 direction)
     {
-        transform.rotation = Quaternion.identity;
+        var angle = Vector3.Angle(transform.forward, direction);
 
-        var angle = Vector3.Angle(transform.right, newDir);
-
-        angle *= newDir.x != 0 ? newDir.x : newDir.y;
+        angle *= direction.x != 0 ? direction.x : direction.y;
 
         transform.Rotate(new(0, 0, angle));
     }
