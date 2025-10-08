@@ -143,7 +143,9 @@ public class Enemy : MonoBehaviour
         msg.transform.localPosition = Vector2.zero;
         msg.transform.localScale = Vector2.one * 3; //Hacer esto bien en el futuro
 
-        msg.GetComponent<FloatingText>()?.SetText(damage.ToString());
+        Color damageColor = GetDamageColor(damage);
+
+        msg.GetComponent<FloatingText>()?.SetTextAndColor(damage.ToString(), damageColor);
 
         _currentHealth -= damage;
 
@@ -151,6 +153,15 @@ public class Enemy : MonoBehaviour
             OnDeath();
 
         _healthBar.UpdateSlider(_currentHealth, _maxHealth);
+    }
+
+    private Color GetDamageColor(float damage)
+    {
+        float minDamage = StaticTurretValues.minDamage;
+        float maxDamage = StaticTurretValues.maxDamage;
+        float t = Mathf.InverseLerp(minDamage, maxDamage, damage);
+        Color damageColor = Color.Lerp(Color.green, Color.red, t);
+        return damageColor;
     }
 
     public float GetDamage()
