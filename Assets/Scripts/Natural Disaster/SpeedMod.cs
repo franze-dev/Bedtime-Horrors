@@ -15,7 +15,7 @@ public class SpeedMod : NaturalDisaster
     [SerializeField] private string _messageEnd = "Speed End!";
 
     private GameObject animationObject;
-
+    private GameObject animationObjectInstance;
     public override void Init()
     {
         Duration = _duration;
@@ -72,15 +72,19 @@ public class SpeedMod : NaturalDisaster
         if (DisasterAnimation != null)
         {
             animationObject = DisasterAnimation.animationPrefab;
-            Instantiate(animationObject);
-            var animationArmature = animationObject.GetComponent<UnityArmatureComponent>();
-            animationArmature.animation.Play(animationArmature.animation.animationNames[0]);
+            animationObjectInstance = Instantiate(animationObject);
+            var animationArmature = animationObjectInstance.GetComponent<UnityArmatureComponent>();
+            //animationArmature.animation.Play(animationArmature.animation.animationNames[0], 1);
+            Debug.LogWarning("Playing animation");
         }
     }
 
     public override void EndAnimation()
     {
-        if (DisasterAnimation != null)
-            Destroy(animationObject);
+        if (animationObjectInstance != null)
+        {
+            Debug.LogWarning("End animation entered");
+            Destroy(animationObjectInstance);
+        }
     }
 }
