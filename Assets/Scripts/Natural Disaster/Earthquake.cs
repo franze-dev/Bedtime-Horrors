@@ -1,9 +1,12 @@
+using DragonBones;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "RandomTowerDestruction", menuName = "ScriptableObjects/NaturalDisasters/RandomTowerDestruction")]
 public class Earthquake : NaturalDisaster, IDisasterUpdate
 {
     [SerializeField] private float _duration = 3f;
+    [SerializeField] private DisasterAnimation _disasterAnimation;
     [Header("Shake Parameters")]
     [SerializeField] private float _magnitude = 0.2f;
     [SerializeField] private float _frequency = 25f;
@@ -11,6 +14,7 @@ public class Earthquake : NaturalDisaster, IDisasterUpdate
     private Vector3 originalCamPos;
     private Camera _camera = null;
     private bool _isRunning = false;
+    private GameObject animationObject;
 
     public override void EndDisaster()
     {
@@ -19,6 +23,7 @@ public class Earthquake : NaturalDisaster, IDisasterUpdate
         _camera.transform.localPosition = originalCamPos;
 
         DestroyRandomTurret();
+        EndAnimation();
     }
 
     private void DestroyRandomTurret()
@@ -60,6 +65,7 @@ public class Earthquake : NaturalDisaster, IDisasterUpdate
     public override void Init()
     {
         Duration = _duration;
+        DisasterAnimation = _disasterAnimation;
 
         _camera = Camera.current;
     }
@@ -68,6 +74,8 @@ public class Earthquake : NaturalDisaster, IDisasterUpdate
     {
         _isRunning = true;
         EventTriggerer.Trigger<ILogMessageEvent>(new LogMessageEvent("Earthquake!", null));
+
+        StartAnimation();
     }
 
     public void UpdateDisaster()
@@ -93,5 +101,22 @@ public class Earthquake : NaturalDisaster, IDisasterUpdate
 
             _camera.transform.localPosition = originalCamPos + shakePos;
         }
+    }
+
+    public override void StartAnimation()
+    {
+        if (DisasterAnimation != null)
+        {
+            animationObject = DisasterAnimation.animationPrefab;
+            Instantiate(animationObject);
+            var animationArmature = animationObject.GetComponent<UnityArmatureComponent>();
+            animationArmature.animation.Play(animationArmature.animation.animationNames[0]);
+        }
+    }
+
+    public override void EndAnimation()
+    {
+        if (DisasterAnimation != null)
+            Destroy(animationObject);
     }
 }

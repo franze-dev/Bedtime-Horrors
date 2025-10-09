@@ -1,3 +1,4 @@
+using DragonBones;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,6 +6,7 @@ using UnityEngine.UI;
 public class LightsOff : NaturalDisaster, IDisasterUpdate
 {
     [SerializeField] private float _duration = 3f;
+    [SerializeField] private DisasterAnimation _disasterAnimation;
     [Header("Lights parameters")]
     [SerializeField] private GameObject _darkRectPrefab;
     [SerializeField] private float _maxAlphaValue = 0.9f;
@@ -21,6 +23,8 @@ public class LightsOff : NaturalDisaster, IDisasterUpdate
     private Color _midColor;
     private Color _maxColor;
 
+    private GameObject animationObject;
+
     public override void EndDisaster()
     {
         _darkRectImage.color = _minColor;
@@ -29,6 +33,7 @@ public class LightsOff : NaturalDisaster, IDisasterUpdate
         _darkRectGO.SetActive(false);
 
         EventTriggerer.Trigger<ILogMessageEvent>(new LogMessageEvent("Lights On!", null));
+        EndAnimation();
     }
 
     public override void Init()
@@ -58,6 +63,7 @@ public class LightsOff : NaturalDisaster, IDisasterUpdate
         EventTriggerer.Trigger<ILogMessageEvent>(new LogMessageEvent("Lights off!", null));
 
         _darkRectGO?.SetActive(true);
+        StartAnimation();
     }
 
     public void UpdateDisaster()
@@ -78,5 +84,22 @@ public class LightsOff : NaturalDisaster, IDisasterUpdate
         }
 
         _darkRectImage.color = _midColor;
+    }
+
+    public override void StartAnimation()
+    {
+        if (DisasterAnimation != null)
+        {
+            animationObject = DisasterAnimation.animationPrefab;
+            Instantiate(animationObject);
+            var animationArmature = animationObject.GetComponent<UnityArmatureComponent>();
+            animationArmature.animation.Play(animationArmature.animation.animationNames[0]);
+        }
+    }
+
+    public override void EndAnimation()
+    {
+        if (DisasterAnimation != null)
+            Destroy(animationObject);
     }
 }
