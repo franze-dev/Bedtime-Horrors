@@ -34,6 +34,7 @@ public class SpeedMod : NaturalDisaster
         MultiplySpeed();
 
     }
+
     public override void EndDisaster()
     {
         EventTriggerer.Trigger<ILogMessageEvent>(new LogMessageEvent("Speed End!", null));
