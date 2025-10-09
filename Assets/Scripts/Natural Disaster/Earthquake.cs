@@ -15,9 +15,11 @@ public class Earthquake : NaturalDisaster, IDisasterUpdate
     private Camera _camera = null;
     private bool _isRunning = false;
     private GameObject animationObject;
+    private GameObject animationObjectInstance;
 
     public override void EndDisaster()
     {
+        Debug.LogWarning("End disaster entered");
         _isRunning = false;
         originalCamPos = new(0, 0, -10);
         _camera.transform.localPosition = originalCamPos;
@@ -75,6 +77,8 @@ public class Earthquake : NaturalDisaster, IDisasterUpdate
         _isRunning = true;
         EventTriggerer.Trigger<ILogMessageEvent>(new LogMessageEvent("Earthquake!", null));
 
+        Debug.LogWarning("Start earthquake");
+
         StartAnimation();
     }
 
@@ -108,15 +112,19 @@ public class Earthquake : NaturalDisaster, IDisasterUpdate
         if (DisasterAnimation != null)
         {
             animationObject = DisasterAnimation.animationPrefab;
-            Instantiate(animationObject);
-            var animationArmature = animationObject.GetComponent<UnityArmatureComponent>();
-            animationArmature.animation.Play(animationArmature.animation.animationNames[0]);
+            animationObjectInstance = Instantiate(animationObject);
+            var animationArmature = animationObjectInstance.GetComponent<UnityArmatureComponent>();
+            //animationArmature.animation.Play(animationArmature.animation.animationNames[0], 1);
+            Debug.LogWarning("Playing animation");
         }
     }
 
     public override void EndAnimation()
     {
-        if (DisasterAnimation != null)
-            Destroy(animationObject);
+        if (animationObjectInstance != null)
+        {
+            Debug.LogWarning("End animation entered");
+            Destroy(animationObjectInstance);
+        }
     }
 }

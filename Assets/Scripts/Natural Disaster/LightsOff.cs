@@ -24,6 +24,7 @@ public class LightsOff : NaturalDisaster, IDisasterUpdate
     private Color _maxColor;
 
     private GameObject animationObject;
+    private GameObject animationObjectInstance;
 
     public override void EndDisaster()
     {
@@ -91,15 +92,19 @@ public class LightsOff : NaturalDisaster, IDisasterUpdate
         if (DisasterAnimation != null)
         {
             animationObject = DisasterAnimation.animationPrefab;
-            Instantiate(animationObject);
-            var animationArmature = animationObject.GetComponent<UnityArmatureComponent>();
-            animationArmature.animation.Play(animationArmature.animation.animationNames[0]);
+            animationObjectInstance = Instantiate(animationObject);
+            var animationArmature = animationObjectInstance.GetComponent<UnityArmatureComponent>();
+            //animationArmature.animation.Play(animationArmature.animation.animationNames[0], 1);
+            Debug.LogWarning("Playing animation");
         }
     }
 
     public override void EndAnimation()
     {
-        if (DisasterAnimation != null)
-            Destroy(animationObject);
+        if (animationObjectInstance != null)
+        {
+            Debug.LogWarning("End animation entered");
+            Destroy(animationObjectInstance);
+        }
     }
 }
