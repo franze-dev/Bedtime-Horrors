@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71a4ce11f235266429e7e08d9edccd16, type: 3}
   m_Name: Flood
   m_EditorClassIdentifier: 
-  speedMultiplier: 0.3
+  speedMultiplier: 0.2
   _duration: 0.7
   _affectedEnemies:
   - {fileID: 0}
@@ -38,3 +38,5 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  _messageStart: Flood!
+  _messageEnd: Flood Ended!
