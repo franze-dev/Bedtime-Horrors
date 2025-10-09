@@ -75,7 +75,7 @@ public class Earthquake : NaturalDisaster, IDisasterUpdate
         _isRunning = true;
         EventTriggerer.Trigger<ILogMessageEvent>(new LogMessageEvent("Earthquake!", null));
 
-       StartAnimation();
+        StartAnimation();
     }
 
     public void UpdateDisaster()
@@ -105,14 +105,18 @@ public class Earthquake : NaturalDisaster, IDisasterUpdate
 
     public override void StartAnimation()
     {
-        animationObject = DisasterAnimation.animationPrefab;
-        Instantiate(animationObject);
-        var animationArmature = animationObject.GetComponent<UnityArmatureComponent>();
-        animationArmature.animation.Play(animationArmature.animation.animationNames[0]);
+        if (DisasterAnimation != null)
+        {
+            animationObject = DisasterAnimation.animationPrefab;
+            Instantiate(animationObject);
+            var animationArmature = animationObject.GetComponent<UnityArmatureComponent>();
+            animationArmature.animation.Play(animationArmature.animation.animationNames[0]);
+        }
     }
 
     public override void EndAnimation()
     {
-        Destroy(animationObject);
+        if (DisasterAnimation != null)
+            Destroy(animationObject);
     }
 }

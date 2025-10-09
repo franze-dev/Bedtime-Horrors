@@ -1,3 +1,4 @@
+using DragonBones;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,10 @@ public class SpeedMod : NaturalDisaster
 {
     [SerializeField] private float speedMultiplier = 1.5f;
     [SerializeField] private float _duration = 10f;
+    [SerializeField] private DisasterAnimation _disasterAnimation;
     [SerializeField] private List<Enemy> _affectedEnemies;
+
+    private GameObject animationObject;
 
     public override void Init()
     {
@@ -30,15 +34,16 @@ public class SpeedMod : NaturalDisaster
     public override void StartDisaster()
     {
         EventTriggerer.Trigger<ILogMessageEvent>(new LogMessageEvent("Speed!", null));
-
         MultiplySpeed();
-
+        StartAnimation();
     }
+
     public override void EndDisaster()
     {
         EventTriggerer.Trigger<ILogMessageEvent>(new LogMessageEvent("Speed End!", null));
 
         ResetSpeed();
+        EndAnimation();
     }
 
     private void MultiplySpeed()
@@ -58,5 +63,22 @@ public class SpeedMod : NaturalDisaster
     public void OnDestroy()
     {
         EventProvider.Unsubscribe<IEnemyCreateEvent>(OnEnemyCreate);
+    }
+
+    public override void StartAnimation()
+    {
+        if (DisasterAnimation != null)
+        {
+            animationObject = DisasterAnimation.animationPrefab;
+            Instantiate(animationObject);
+            var animationArmature = animationObject.GetComponent<UnityArmatureComponent>();
+            animationArmature.animation.Play(animationArmature.animation.animationNames[0]);
+        }
+    }
+
+    public override void EndAnimation()
+    {
+        if (DisasterAnimation != null)
+            Destroy(animationObject);
     }
 }
