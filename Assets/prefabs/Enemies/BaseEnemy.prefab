@@ -79,15 +79,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cac4d345d47b11c4b9228226713a62e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _TargetManager: {fileID: 0}
+  _targetManager: {fileID: 0}
   _speed: 1
-  _damage: 1
-  _maxHealth: 100
-  _currentHealth: 100
-  _creativityToSum: 10
+  _damage: 15
+  _maxHealth: 80
+  _currentHealth: 80
+  _creativityToSum: 15
   _healthBar: {fileID: 1730794346897253779}
   _floatingDamageSpawn: {fileID: 7050329113912377489}
   _floatingDamage: {fileID: 310084361762771315, guid: b476fb13115d6874d8f945e56cd11050, type: 3}
+  _spriteRenderer: {fileID: 0}
+  _collider: {fileID: 0}
+  _armature: {fileID: 0}
 --- !u!50 &419097758472167262
 Rigidbody2D:
   serializedVersion: 5

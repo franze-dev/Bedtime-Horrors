@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [Range(0.1f, 2f)] public float speed;
+    [Range(0.1f, 5f)] public float speed;
     public float range;
     public float damage;
 

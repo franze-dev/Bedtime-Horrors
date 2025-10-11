@@ -3,11 +3,11 @@ using UnityEngine;
 public class CreativityUpdater : MonoBehaviour
 {
     [SerializeField] private StatTextUpdater _statTextUpdater;
-    [SerializeField] private int value = 1000;
+    [SerializeField] private int value = 100;
+    [SerializeField] private int ValueAddPerSecond = 2;
 
     private float timer = 0f;
     private float timeToUpdate = 1f;
-    private int valueToAdd = 2;
 
     private void Awake()
     {
@@ -30,7 +30,7 @@ public class CreativityUpdater : MonoBehaviour
 
         if (timer >= timeToUpdate)
         {
-            EventTriggerer.Trigger<ICreativityUpdateEvent>(new CreativityUpdaterEvent(gameObject, valueToAdd));
+            EventTriggerer.Trigger<ICreativityUpdateEvent>(new CreativityUpdaterEvent(gameObject, ValueAddPerSecond));
             timer = 0f;
         }
     }
