@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebab3509e8f85e2479381776fc76401e, type: 3}
   m_Name: RandomTowerDestruction
   m_EditorClassIdentifier: 
-  _duration: 3
   _disasterAnimation: {fileID: 11400000, guid: ad3592672419d8b4c963360601339980, type: 2}
+  _duration: 3
+  _animation: {fileID: 11400000, guid: ad3592672419d8b4c963360601339980, type: 2}
   _magnitude: 0.2
   _frequency: 25
