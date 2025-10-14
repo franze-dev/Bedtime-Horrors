@@ -9,7 +9,7 @@ public class SpeedMod : NaturalDisaster, IDisasterUpdate
 {
     [SerializeField] private float speedMultiplier = 1.5f;
     [SerializeField] private float _duration = 10f;
-    [SerializeField] private DisasterAnimation _disasterAnimation;
+    [SerializeField] private DisasterAnimation _animation;
     [SerializeField] private List<Enemy> _affectedEnemies;
     [SerializeField] private string _messageStart = "Speed!";
     [SerializeField] private string _messageEnd = "Speed End!";
