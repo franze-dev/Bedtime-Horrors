@@ -135,14 +135,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ea350422c3e2fa4da3e1fc38d04eb50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 0.8
+  cooldown: 1.6
   _selectionGO: {fileID: 7353734920135782185}
   _areaNotifier: {fileID: 0}
   price: 30
   spriteRenderer: {fileID: 0}
   _areaSpriteRenderer: {fileID: 7680611550168783753}
   _enemiesCollided: []
-  _damage: 15
+  _damage: 10
 --- !u!61 &8973960906623155150
 BoxCollider2D:
   m_ObjectHideFlags: 0
