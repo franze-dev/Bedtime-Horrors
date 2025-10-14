@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class LightsOff : NaturalDisaster, IDisasterUpdate
 {
     [SerializeField] private float _duration = 3f;
-    [SerializeField] private DisasterAnimation _disasterAnimation;
+    [SerializeField] private DisasterAnimation _animation;
     [Header("Lights parameters")]
     [SerializeField] private GameObject _darkRectPrefab;
     [SerializeField] private float _maxAlphaValue = 0.9f;

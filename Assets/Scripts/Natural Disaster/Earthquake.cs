@@ -6,7 +6,7 @@ using UnityEngine;
 public class Earthquake : NaturalDisaster, IDisasterUpdate
 {
     [SerializeField] private float _duration = 3f;
-    [SerializeField] private DisasterAnimation _disasterAnimation;
+    [SerializeField] private DisasterAnimation _animation;
     [Header("Shake Parameters")]
     [SerializeField] private float _magnitude = 0.2f;
     [SerializeField] private float _frequency = 25f;
@@ -69,7 +69,7 @@ public class Earthquake : NaturalDisaster, IDisasterUpdate
     public override void Init()
     {
         Duration = _duration;
-        DisasterAnimation = _disasterAnimation;
+        DisasterAnimation = _animation;
 
         _camera = Camera.current;
     }
