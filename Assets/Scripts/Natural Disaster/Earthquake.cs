@@ -14,8 +14,10 @@ public class Earthquake : NaturalDisaster, IDisasterUpdate
     private Vector3 originalCamPos;
     private Camera _camera = null;
     private bool _isRunning = false;
-    private GameObject animationObject;
-    private GameObject animationObjectInstance;
+
+    private GameObject _animationObject;
+    private GameObject _animationObjectInstance;
+    private UnityArmatureComponent _animationArmature;
 
     public override void EndDisaster()
     {
@@ -111,9 +113,9 @@ public class Earthquake : NaturalDisaster, IDisasterUpdate
     {
         if (DisasterAnimation != null)
         {
-            animationObject = DisasterAnimation.animationPrefab;
-            animationObjectInstance = Instantiate(animationObject);
-            var animationArmature = animationObjectInstance.GetComponent<UnityArmatureComponent>();
+            _animationObject = DisasterAnimation.animationPrefab;
+            _animationObjectInstance = Instantiate(_animationObject);
+            _animationArmature = _animationObjectInstance.GetComponent<UnityArmatureComponent>();
             //animationArmature.animation.Play(animationArmature.animation.animationNames[0], 1);
             Debug.LogWarning("Playing animation");
         }
@@ -121,10 +123,10 @@ public class Earthquake : NaturalDisaster, IDisasterUpdate
 
     public override void EndAnimation()
     {
-        if (animationObjectInstance != null)
+        if (_animationObjectInstance != null)
         {
             Debug.LogWarning("End animation entered");
-            Destroy(animationObjectInstance);
+            Destroy(_animationObjectInstance);
         }
     }
 }
