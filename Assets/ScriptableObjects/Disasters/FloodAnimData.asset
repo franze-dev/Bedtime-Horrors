@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 350320c110f3d3d4ca590d879e37d7b2, type: 3}
-  m_Name: FloodAnimation
+  m_Script: {fileID: 11500000, guid: f48d85d996c2c7f449ba01006a0c3b2d, type: 3}
+  m_Name: FloodAnimData
   m_EditorClassIdentifier: 
-  _loopAnimationName: Inundacion_Loop
-  _endAnimationName: Inundacion_End
+  animationPrefab: {fileID: 6601629749743142445, guid: 96271771944e8bb44b8fc6a637070285, type: 3}
