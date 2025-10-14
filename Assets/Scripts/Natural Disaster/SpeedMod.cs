@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "SpeedMod", menuName = "ScriptableObjects/NaturalDisasters/SpeedMod")]
-public class SpeedMod : NaturalDisaster
+public class SpeedMod : NaturalDisaster, IDisasterUpdate
 {
     [SerializeField] private float speedMultiplier = 1.5f;
     [SerializeField] private float _duration = 10f;
@@ -14,8 +14,10 @@ public class SpeedMod : NaturalDisaster
     [SerializeField] private string _messageStart = "Speed!";
     [SerializeField] private string _messageEnd = "Speed End!";
 
-    private GameObject animationObject;
-    private GameObject animationObjectInstance;
+    private GameObject _animationObject;
+    private GameObject _animationObjectInstance;
+    private UnityArmatureComponent _animationArmature;
+
     public override void Init()
     {
         Duration = _duration;
@@ -46,6 +48,7 @@ public class SpeedMod : NaturalDisaster
 
         ResetSpeed();
         EndAnimation();
+        //_affectedEnemies?.Clear();
     }
 
     private void MultiplySpeed()
@@ -71,9 +74,9 @@ public class SpeedMod : NaturalDisaster
     {
         if (DisasterAnimation != null)
         {
-            animationObject = DisasterAnimation.animationPrefab;
-            animationObjectInstance = Instantiate(animationObject);
-            var animationArmature = animationObjectInstance.GetComponent<UnityArmatureComponent>();
+            _animationObject = DisasterAnimation.animationPrefab;
+            _animationObjectInstance = Instantiate(_animationObject);
+            _animationArmature = _animationObjectInstance.GetComponent<UnityArmatureComponent>();
             //animationArmature.animation.Play(animationArmature.animation.animationNames[0], 1);
             Debug.LogWarning("Playing animation");
         }
@@ -81,10 +84,27 @@ public class SpeedMod : NaturalDisaster
 
     public override void EndAnimation()
     {
-        if (animationObjectInstance != null)
+        if (_animationObjectInstance != null)
         {
             Debug.LogWarning("End animation entered");
-            Destroy(animationObjectInstance);
+
+            _animationArmature = _animationObjectInstance.GetComponent<UnityArmatureComponent>();
+            _animationArmature.animation.Play("Inundacion_End", 1);
+            float destroyTime = _animationArmature.armature.animation.animations["Inundacion_End"].duration;
+            Destroy(_animationObjectInstance, destroyTime);
+        }
+    }
+
+    public void UpdateDisaster()
+    {
+        if (_animationObjectInstance != null)
+        {
+            if (_animationArmature.animation.lastAnimationName == _animationArmature.animation.animationNames[0])
+            {
+                bool firstAnimationCompleted = _animationArmature.animation.isCompleted;
+                if (firstAnimationCompleted)
+                    _animationArmature.animation.Play("Inundacion_Loop");
+            }
         }
     }
 }
