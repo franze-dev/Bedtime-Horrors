@@ -6,7 +6,6 @@ using UnityEngine;
 public class Earthquake : NaturalDisaster, IDisasterUpdate
 {
     [SerializeField] private float _duration = 3f;
-    [SerializeField] private DisasterAnimation _animation;
     [Header("Shake Parameters")]
     [SerializeField] private float _magnitude = 0.2f;
     [SerializeField] private float _frequency = 25f;
@@ -14,10 +13,6 @@ public class Earthquake : NaturalDisaster, IDisasterUpdate
     private Vector3 originalCamPos;
     private Camera _camera = null;
     private bool _isRunning = false;
-
-    private GameObject _animationObject;
-    private GameObject _animationObjectInstance;
-    private UnityArmatureComponent _animationArmature;
 
     public override void EndDisaster()
     {
@@ -27,7 +22,7 @@ public class Earthquake : NaturalDisaster, IDisasterUpdate
         _camera.transform.localPosition = originalCamPos;
 
         DestroyRandomTurret();
-        EndAnimation();
+        AnimationLogic?.Stop();
     }
 
     private void DestroyRandomTurret()
@@ -69,7 +64,6 @@ public class Earthquake : NaturalDisaster, IDisasterUpdate
     public override void Init()
     {
         Duration = _duration;
-        DisasterAnimation = _animation;
 
         _camera = Camera.current;
     }
@@ -81,7 +75,7 @@ public class Earthquake : NaturalDisaster, IDisasterUpdate
 
         Debug.LogWarning("Start earthquake");
 
-        StartAnimation();
+        AnimationLogic?.Play(AnimationData);
     }
 
     public void UpdateDisaster()
@@ -107,26 +101,7 @@ public class Earthquake : NaturalDisaster, IDisasterUpdate
 
             _camera.transform.localPosition = originalCamPos + shakePos;
         }
-    }
 
-    public override void StartAnimation()
-    {
-        if (DisasterAnimation != null)
-        {
-            _animationObject = DisasterAnimation.animationPrefab;
-            _animationObjectInstance = Instantiate(_animationObject);
-            _animationArmature = _animationObjectInstance.GetComponent<UnityArmatureComponent>();
-            //animationArmature.animation.Play(animationArmature.animation.animationNames[0], 1);
-            Debug.LogWarning("Playing animation");
-        }
-    }
-
-    public override void EndAnimation()
-    {
-        if (_animationObjectInstance != null)
-        {
-            Debug.LogWarning("End animation entered");
-            Destroy(_animationObjectInstance);
-        }
+        (AnimationLogic as IDisasterAnimationLoop)?.Loop();
     }
 }

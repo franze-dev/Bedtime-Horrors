@@ -11,11 +11,11 @@ public class AreaNotifier : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        _parentTurret.CollisionEnter(collision);
+        _parentTurret?.CollisionEnter(collision);
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        _parentTurret.CollisionExit(collision);
+        _parentTurret?.CollisionExit(collision);
     }
 }
