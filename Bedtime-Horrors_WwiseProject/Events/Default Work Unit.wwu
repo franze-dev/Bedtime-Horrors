@@ -1,6 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{52DD7F67-F123-4AA1-A73A-36B216D11CA3}" SchemaVersion="123">
 	<Events>
-		<WorkUnit Name="Default Work Unit" ID="{52DD7F67-F123-4AA1-A73A-36B216D11CA3}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{52DD7F67-F123-4AA1-A73A-36B216D11CA3}" PersistMode="Standalone">
+			<ChildrenList>
+				<Folder Name="Music" ID="{14018490-EE75-4DF3-9C4E-EE12A83F23F7}" ShortID="565122092">
+					<ChildrenList>
+						<Event Name="Music_Menu" ID="{FCC65AED-5371-4E24-A47E-6B53627B9949}"/>
+						<Event Name="Music_Gameplay" ID="{3DB0C889-C8E4-4595-98ED-D4160ADC7D24}"/>
+						<Event Name="Music_Stinger_Victory" ID="{FA0FB104-C463-4117-B50C-F518E9FE36E0}"/>
+						<Event Name="Music_Stinger_Defeat" ID="{2C8290CE-EE6A-4BB9-B3A6-D5B469116F4E}"/>
+						<Event Name="Gameplay_Resume" ID="{9C29D38C-B87B-48FB-94AB-D62680C3BE69}"/>
+						<Event Name="Gameplay_Pause" ID="{060C00C4-1F9C-4E3A-ADD2-7A1872F099E6}"/>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Ambient" ID="{12F46618-68AA-44F8-AFC8-7FAD6E128226}" ShortID="3586527">
+					<ChildrenList>
+						<Event Name="Ambient_Wind" ID="{642759CE-B921-45EA-B9D4-6832CA2DE74A}"/>
+						<Event Name="Ambient_Creaks" ID="{C7737DC2-AFFB-49EC-A2DD-4AAAE984B9B6}"/>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="UI" ID="{0B9A0F8F-BF51-4EBA-B11C-4CC5E80B2EED}" ShortID="326983710">
+					<ChildrenList>
+						<Event Name="UI_RadioAnnouncement" ID="{5D599C58-81B0-42C7-9726-7E2E98D23C1C}"/>
+						<Event Name="UI_EliteEnemyAnnouncement" ID="{C584969E-4F68-4558-9342-FDD576DEF304}"/>
+						<Event Name="UI_TowerChest_Open" ID="{D247628B-69BC-47CB-88B8-46A9333638D5}"/>
+						<Event Name="UI_TowerChest_Close" ID="{CB917243-2DCE-48AE-8FCF-57558B873280}"/>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Enemy" ID="{6835C477-88BF-4004-A2FA-56CF044EE58C}" ShortID="763513481">
+					<ChildrenList>
+						<Event Name="Enemy_Attack_Dog" ID="{D8DE8EB0-22B8-4BAF-AD69-49074FC45065}"/>
+						<Event Name="Enemy_Attack_Doll" ID="{B4039EF7-2280-41EE-BE6B-A6331FC6810D}"/>
+						<Event Name="Enemy_Footsteps" ID="{4760C3BB-246A-4F89-AC64-81422F44CDC6}"/>
+						<Event Name="Enemy_Doll_Run" ID="{8F047D21-5364-43A6-ACF4-2A0E5A600AB3}"/>
+						<Event Name="Enemy_Doll_Transform" ID="{F17B07E4-01E1-47DA-8A07-655F412781CB}"/>
+						<Event Name="Enemy_Death_Dog" ID="{42ABC833-9489-4E1C-A0D2-892E91369284}"/>
+						<Event Name="Enemy_Death_Doll" ID="{78901C3E-68FB-4BB7-8EFF-C95F67CA8F51}"/>
+						<Event Name="Enemy_Death_Elite" ID="{E6839A8B-5E0C-41E9-940D-ED652ED9D28E}"/>
+						<Event Name="Enemy_Hit_TowerDamage" ID="{1DF9E471-7A31-415B-9AEE-D91550B0AFFF}"/>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Tower" ID="{F8B795F1-5FB2-41F9-B359-D5FF2B42209C}" ShortID="803605303">
+					<ChildrenList>
+						<Event Name="Tower_Shoot_TeddyBear" ID="{4E825D32-6F6A-4702-9137-67770A378985}"/>
+						<Event Name="Tower_Shoot_ToyTank" ID="{2601DF2F-567E-4884-9D9E-AD6C926525BA}"/>
+						<Event Name="Tower_Shoot_RubberDino" ID="{39C21F18-CD42-4BDC-B29D-299BDA05B51C}"/>
+						<Event Name="Tower_Place" ID="{F73304EB-6F84-4633-815F-A977D3D2A886}"/>
+						<Event Name="Tower_Destroy" ID="{818904D9-4C9C-4A82-AF1F-7B88B39F41EA}"/>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Base" ID="{F58C7A35-4E1F-4A0C-8098-E6E595142FD6}" ShortID="985752268">
+					<ChildrenList>
+						<Event Name="Base_TakeDamage" ID="{355D17B9-0A26-4237-AA07-1B17E5724129}"/>
+					</ChildrenList>
+				</Folder>
+			</ChildrenList>
+		</WorkUnit>
 	</Events>
 </WwiseDocument>

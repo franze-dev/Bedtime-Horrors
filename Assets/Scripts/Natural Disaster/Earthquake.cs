@@ -1,3 +1,5 @@
+using DragonBones;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "RandomTowerDestruction", menuName = "ScriptableObjects/NaturalDisasters/RandomTowerDestruction")]
@@ -14,11 +16,13 @@ public class Earthquake : NaturalDisaster, IDisasterUpdate
 
     public override void EndDisaster()
     {
+        Debug.LogWarning("End disaster entered");
         _isRunning = false;
         originalCamPos = new(0, 0, -10);
         _camera.transform.localPosition = originalCamPos;
 
         DestroyRandomTurret();
+        AnimationLogic?.Stop();
     }
 
     private void DestroyRandomTurret()
@@ -68,6 +72,10 @@ public class Earthquake : NaturalDisaster, IDisasterUpdate
     {
         _isRunning = true;
         EventTriggerer.Trigger<ILogMessageEvent>(new LogMessageEvent("Earthquake!", null));
+
+        Debug.LogWarning("Start earthquake");
+
+        AnimationLogic?.Play(AnimationData);
     }
 
     public void UpdateDisaster()
@@ -93,5 +101,7 @@ public class Earthquake : NaturalDisaster, IDisasterUpdate
 
             _camera.transform.localPosition = originalCamPos + shakePos;
         }
+
+        (AnimationLogic as IDisasterAnimationLoop)?.Loop();
     }
 }
