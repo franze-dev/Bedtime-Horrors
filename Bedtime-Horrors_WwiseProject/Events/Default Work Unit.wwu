@@ -45,7 +45,17 @@
 						<Event Name="Tower_Shoot_TeddyBear" ID="{4E825D32-6F6A-4702-9137-67770A378985}"/>
 						<Event Name="Tower_Shoot_ToyTank" ID="{2601DF2F-567E-4884-9D9E-AD6C926525BA}"/>
 						<Event Name="Tower_Shoot_RubberDino" ID="{39C21F18-CD42-4BDC-B29D-299BDA05B51C}"/>
-						<Event Name="Tower_Place" ID="{F73304EB-6F84-4633-815F-A977D3D2A886}"/>
+						<Event Name="Tower_Place" ID="{F73304EB-6F84-4633-815F-A977D3D2A886}">
+							<ChildrenList>
+								<Action Name="" ID="{5ADF8533-99CC-4D92-80A6-08BD570EC026}" ShortID="1073099948">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Tower_Place" ID="{0E7B035F-4FF1-4A01-A96E-BA0499C1C97C}" WorkUnitID="{932C6B5F-4E51-4C47-BD09-779BE6F37C5D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 						<Event Name="Tower_Destroy" ID="{818904D9-4C9C-4A82-AF1F-7B88B39F41EA}"/>
 					</ChildrenList>
 				</Folder>
