@@ -31,6 +31,7 @@ public class TurretManager : MonoBehaviour
     private void OnTurretSpawn(ITurretSpawnEvent @event)
     {
         _activeTurrets.Add(@event.Turret.GetComponent<Turret>());
+        AkUnitySoundEngine.PostEvent("Tower_Place", gameObject);
     }
 
     private void OnDrawGizmos()
