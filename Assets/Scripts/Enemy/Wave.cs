@@ -9,11 +9,12 @@ public class Wave : MonoBehaviour
     public int currentEnemyIndex;
     public float timeToNextWave;
 
+    [SerializeField] private NaturalDisaster _disaster;
     [SerializeField] private Transform _spawnPoint;
 
     public void InitWave()
     {
-        EventTriggerer.Trigger<IWaveCreateEvent>(new WaveCreateEvent(_enemies, gameObject));
+        EventTriggerer.Trigger<IWaveCreateEvent>(new WaveCreateEvent(_enemies, _disaster, gameObject));
 
         foreach (var enemy in _enemies)
         {

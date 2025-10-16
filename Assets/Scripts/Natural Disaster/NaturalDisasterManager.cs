@@ -19,7 +19,9 @@ public class NaturalDisasterManager : MonoBehaviour
         foreach (var disaster in _disasters)
             disaster?.Init();
 
-        StartCoroutine(DisasterCoroutine());
+        StartCoroutine(RandomDisasterCoroutine());
+
+
     }
 
     private void Update()
@@ -28,7 +30,7 @@ public class NaturalDisasterManager : MonoBehaviour
             return;
 
         if (!_isCoroutineRunning)
-            StartCoroutine(DisasterCoroutine());
+            StartCoroutine(RandomDisasterCoroutine());
 
         if (_currentDisaster != null)
             (_currentDisaster as IDisasterUpdate)?.UpdateDisaster();
@@ -40,7 +42,7 @@ public class NaturalDisasterManager : MonoBehaviour
         _currentDisaster = null;
     }
 
-    private IEnumerator DisasterCoroutine()
+    private IEnumerator RandomDisasterCoroutine()
     {
         if (_disasters.Count == 0)
             yield break;
@@ -53,6 +55,21 @@ public class NaturalDisasterManager : MonoBehaviour
         _currentDisaster.EndDisaster();
         _isCoroutineRunning = false;
     }
+
+    public IEnumerator DisasterCoroutine(NaturalDisaster disaster)
+    {
+        if (_disasters.Count == 0)
+            yield break;
+
+        if (_isCoroutineRunning) yield break;
+        _isCoroutineRunning = true;
+        yield return new WaitForSeconds(Random.Range(_minInterval, _maxInterval));
+        StartDisaster(disaster);
+        yield return new WaitForSeconds(disaster.Duration);
+        disaster.EndDisaster();
+        _isCoroutineRunning = false;
+    }
+
 
     private void StartRandomDisaster()
     {
@@ -74,5 +91,18 @@ public class NaturalDisasterManager : MonoBehaviour
             _currentDisaster = _disasters[0];
 
         _currentDisaster.StartDisaster();
+    }
+
+
+    private void StartDisaster(NaturalDisaster disaster)
+    {
+        if (_currentDisaster != null)
+        {
+            Debug.Log("Ending current disaster: " + _currentDisaster.name);
+            _currentDisaster.EndDisaster();
+        }
+
+        if (_disasters.Count > 1)
+            disaster.StartDisaster();
     }
 }
