@@ -5,8 +5,9 @@ using UnityEngine;
 public class Wave : MonoBehaviour
 {
     public List<GameObject> _enemies = new List<GameObject>();
-    public float cooldown;
+    public float cooldownBetweenEnemies;
     public int currentEnemyIndex;
+    public float timeToNextWave;
 
     [SerializeField] private Transform _spawnPoint;
 

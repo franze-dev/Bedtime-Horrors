@@ -46,20 +46,20 @@ public class TurretSelectionManager : MonoBehaviour
         if (_selectedTurret != null)
             DeselectCurrent();
 
-        if (_selectedTurret == null)
+        if (@event.ToSelect == null)
+            DeselectCurrent();
+        else if (_selectedTurret == null)
         {
             _selectedTurret = @event.ToSelect;
-            _selectedTurret.Select();
+            _selectedTurret?.Select();
         }
-        else if (@event.ToSelect == null)
-            DeselectCurrent();
         else if (@event.ToSelect == _selectedTurret)
             DeselectCurrent();
     }
 
     private void DeselectCurrent()
     {
-        _selectedTurret.Deselect();
+        _selectedTurret?.Deselect();
         _selectedTurret = null;
     }
 

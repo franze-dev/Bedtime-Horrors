@@ -96,7 +96,6 @@ public class TurretSpawner : MonoBehaviour, IInteractable
         Bounds bounds = _renderer.bounds;
 
         bool contained = bounds.Contains(mouseToScreenPos);
-        Debug.LogError("contiene: " + contained);
         return contained;
     }
 

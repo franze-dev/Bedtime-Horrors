@@ -101,10 +101,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41b5c204c414bcb43867b784e3917bd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.1
+  speed: 3.5
   range: 5
   damage: 30
   direction: {x: 0, y: -1}
+  nextDirection: {x: 0, y: 0}
   initialPosition: {x: 0, y: 0}
   target: {fileID: 0}
 --- !u!61 &4203144406054025120
