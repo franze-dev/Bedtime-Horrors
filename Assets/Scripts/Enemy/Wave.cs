@@ -12,6 +12,13 @@ public class Wave : MonoBehaviour
     [SerializeField] private NaturalDisaster _disaster;
     [SerializeField] private Transform _spawnPoint;
 
+    public NaturalDisaster Disaster => _disaster;
+
+    private void Awake()
+    {
+        _disaster?.Init();
+    }
+
     public void InitWave()
     {
         EventTriggerer.Trigger<IWaveCreateEvent>(new WaveCreateEvent(_enemies, _disaster, gameObject));

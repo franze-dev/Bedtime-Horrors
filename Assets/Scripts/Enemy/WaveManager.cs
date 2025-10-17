@@ -39,11 +39,37 @@ public class WaveManager : MonoBehaviour
                 _timer = 0;
             }
         }
-        else if (_currentWaveIndex < _waves.Count && _timer >= _waves[_currentWaveIndex].timeToNextWave)
+        else if (_currentWaveIndex < _waves.Count) // a wave ends
         {
-            _timer = 0;
-            _currentWaveIndex++;
-            Debug.Log("Wave changed to wave: " + (_currentWaveIndex + 1));
+            if (_waves[_currentWaveIndex].Disaster != null)
+                EventTriggerer.Trigger<IStartFixedDisasterEvent>(new StartFixedDisasterEvent(_waves[_currentWaveIndex].Disaster));
+
+            if (_timer >= _waves[_currentWaveIndex].timeToNextWave)
+            {
+                _timer = 0;
+                _currentWaveIndex++;
+                Debug.Log("Wave changed to wave: " + (_currentWaveIndex + 1));
+            }
         }
+    }
+}
+
+
+public interface IStartFixedDisasterEvent : IEvent
+{
+    NaturalDisaster Disaster { get; }
+}
+
+public class StartFixedDisasterEvent : IStartFixedDisasterEvent
+{
+    private NaturalDisaster _disaster;
+
+    public NaturalDisaster Disaster => _disaster;
+    public GameObject TriggeredByGO => null;
+
+
+    public StartFixedDisasterEvent(NaturalDisaster disaster)
+    {
+        _disaster = disaster;
     }
 }

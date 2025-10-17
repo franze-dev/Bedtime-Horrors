@@ -19,9 +19,14 @@ public class NaturalDisasterManager : MonoBehaviour
         foreach (var disaster in _disasters)
             disaster?.Init();
 
-        StartCoroutine(RandomDisasterCoroutine());
+        if (_disasters.Count > 0)
+            StartCoroutine(RandomDisasterCoroutine());
 
+    }
 
+    private void Start()
+    {
+        EventProvider.Subscribe<IStartFixedDisasterEvent>(StartFixedDisasterCoroutine);
     }
 
     private void Update()
@@ -58,16 +63,15 @@ public class NaturalDisasterManager : MonoBehaviour
 
     public IEnumerator DisasterCoroutine(NaturalDisaster disaster)
     {
-        if (_disasters.Count == 0)
-            yield break;
-
         if (_isCoroutineRunning) yield break;
         _isCoroutineRunning = true;
-        yield return new WaitForSeconds(Random.Range(_minInterval, _maxInterval));
-        StartDisaster(disaster);
+        _currentDisaster = disaster;
+
+        disaster.StartDisaster();
         yield return new WaitForSeconds(disaster.Duration);
         disaster.EndDisaster();
         _isCoroutineRunning = false;
+        _currentDisaster = null;
     }
 
 
@@ -93,16 +97,8 @@ public class NaturalDisasterManager : MonoBehaviour
         _currentDisaster.StartDisaster();
     }
 
-
-    private void StartDisaster(NaturalDisaster disaster)
+    public void StartFixedDisasterCoroutine(IStartFixedDisasterEvent @event)
     {
-        if (_currentDisaster != null)
-        {
-            Debug.Log("Ending current disaster: " + _currentDisaster.name);
-            _currentDisaster.EndDisaster();
-        }
-
-        if (_disasters.Count > 1)
-            disaster.StartDisaster();
+        StartCoroutine(DisasterCoroutine(@event.Disaster));
     }
 }
