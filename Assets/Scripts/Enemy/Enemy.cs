@@ -3,7 +3,6 @@ using System.Collections;
 using Unity.Mathematics;
 using UnityEngine;
 
-
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private TargetManager _targetManager;
@@ -26,13 +25,29 @@ public class Enemy : MonoBehaviour
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private BoxCollider2D _collider;
     [SerializeField] private GameObject _armature;
+    [SerializeField] private PanelEventTrigger _spawnPanel;
+    [SerializeField] private PanelEventTrigger _deathPanel;
 
     private FloatingText _floatingText;
 
     public bool IsDead => _isDead;
 
+    private void Awake()
+    {
+        if (_targetManager == null)
+            Debug.LogError("No TargetManager assigned to " + gameObject.name);
+
+        if (_spawnPanel == null)
+            Debug.LogError("No Spawn Panel assigned to " + gameObject.name);
+
+        if (_deathPanel == null)
+            Debug.LogError("No Death Panel assigned to " + gameObject.name);
+    }
+
     void OnEnable()
     {
+        _spawnPanel.TriggerEvent();
+
         _currentTargetIndex = 0;
         _currentTarget = _targetManager.Targets[_currentTargetIndex];
 
@@ -112,6 +127,7 @@ public class Enemy : MonoBehaviour
 
     public void OnDeath()
     {
+        _deathPanel.TriggerEvent();
         _isDead = true;
         StartCoroutine(DeathCoroutine());
     }
@@ -123,7 +139,7 @@ public class Enemy : MonoBehaviour
         else if (_spriteRenderer != null)
             _spriteRenderer.gameObject.SetActive(false);
 
-        _healthBar.gameObject.SetActive(false);        
+        _healthBar.gameObject.SetActive(false);
         _collider.enabled = false;
 
         yield return new WaitForSeconds(_floatingText.LifeTime);
