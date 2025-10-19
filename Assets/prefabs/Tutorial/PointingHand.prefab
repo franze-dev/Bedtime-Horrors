@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3764042466892872106}
   - component: {fileID: 3148242853240143312}
   - component: {fileID: 3955066882390845440}
+  - component: {fileID: 7130559990867594508}
   m_Layer: 0
   m_Name: PointingHand
   m_TagString: Untagged
@@ -74,6 +75,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotNames: []
   dirty: 0
+--- !u!114 &7130559990867594508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2179593813611864518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f4ee696bc21b324da85b402ed114554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5061467695819322343
 GameObject:
   m_ObjectHideFlags: 0
