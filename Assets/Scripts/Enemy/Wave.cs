@@ -21,7 +21,7 @@ public class Wave : MonoBehaviour
 
     public void InitWave()
     {
-        EventTriggerer.Trigger<IWaveCreateEvent>(new WaveCreateEvent(_enemies, _disaster, gameObject));
+        EventTriggerer.Trigger<IStartFixedDisasterEvent>(new StartFixedDisasterEvent(_disaster));
 
         foreach (var enemy in _enemies)
         {

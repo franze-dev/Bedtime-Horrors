@@ -36,17 +36,11 @@ public class Enemy : MonoBehaviour
     {
         if (_targetManager == null)
             Debug.LogError("No TargetManager assigned to " + gameObject.name);
-
-        if (_spawnPanel == null)
-            Debug.LogError("No Spawn Panel assigned to " + gameObject.name);
-
-        if (_deathPanel == null)
-            Debug.LogError("No Death Panel assigned to " + gameObject.name);
     }
 
     void OnEnable()
     {
-        _spawnPanel.TriggerEvent();
+        _spawnPanel?.TriggerEvent();
 
         _currentTargetIndex = 0;
         _currentTarget = _targetManager.Targets[_currentTargetIndex];
@@ -127,7 +121,7 @@ public class Enemy : MonoBehaviour
 
     public void OnDeath()
     {
-        _deathPanel.TriggerEvent();
+        _deathPanel?.TriggerEvent();
         _isDead = true;
         StartCoroutine(DeathCoroutine());
     }

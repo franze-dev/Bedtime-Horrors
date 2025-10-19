@@ -13,7 +13,7 @@ public class TutorialManager : MonoBehaviour
     {
         foreach (var panel in _panels)
         {
-            panel.gameObject.SetActive(false);
+            panel?.gameObject.SetActive(false);
         }
         Time.timeScale = 0;
 
@@ -28,21 +28,23 @@ public class TutorialManager : MonoBehaviour
 
     private void OnContinuePanels(IContinuePanelsEvent @event)
     {
-        var index = FindPanel(@event.TriggeredByGO);
+        var go = @event.Panel;
+
+        var index = FindPanel(go);
 
         if (@event.IsSequencePanel)
         {
-            if (index < _currentPanelIndex && index != -1)
+            if (index <= _currentPanelIndex && index != -1)
                 ActivateNextPanel(_currentPanelIndex);
         }
         else if (index != -1)
             ActivatePanel(index);
     }
 
-    private int FindPanel(GameObject triggeredByGO)
+    private int FindPanel(TutorialPanel panel)
     {
         for (int i = 0; i < _panels.Count; i++)
-            if (_panels[i].gameObject == triggeredByGO)
+            if (_panels[i] == panel)
                 return i;
 
         return -1;
@@ -60,6 +62,7 @@ public class TutorialManager : MonoBehaviour
             if (_panels[currentIndex + 1] != null)
             {
                 _panels[currentIndex + 1].gameObject.SetActive(true);
+                _currentPanelIndex = currentIndex + 1;
                 Time.timeScale = 0;
             }
             else
@@ -87,17 +90,18 @@ public class TutorialManager : MonoBehaviour
 }
 public class ContinuePanelsEvent : IContinuePanelsEvent
 {
-    private GameObject _panelGO;
-
     private bool _isSequencePanel;
-
-    public GameObject TriggeredByGO => null;
+    private TutorialPanel _panel;
 
     public bool IsSequencePanel => _isSequencePanel;
 
-    public ContinuePanelsEvent(GameObject panelGO, bool IsSequence = true)
+    public TutorialPanel Panel => _panel;
+
+    public GameObject TriggeredByGO => null;
+
+    public ContinuePanelsEvent(TutorialPanel panelGO, bool IsSequence = true)
     {
-        this._panelGO = panelGO;
+        this._panel = panelGO;
 
         _isSequencePanel = IsSequence;
     }
@@ -105,5 +109,6 @@ public class ContinuePanelsEvent : IContinuePanelsEvent
 
 public interface IContinuePanelsEvent : IEvent
 {
+    TutorialPanel Panel { get; }
     bool IsSequencePanel { get; }
 }

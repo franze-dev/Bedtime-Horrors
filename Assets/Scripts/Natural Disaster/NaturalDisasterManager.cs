@@ -57,7 +57,6 @@ public class NaturalDisasterManager : MonoBehaviour
         _isCoroutineRunning = true;
         yield return new WaitForSeconds(Random.Range(_minInterval, _maxInterval));
         StartRandomDisaster();
-        _firstDisasterPanel?.TriggerEvent();
         yield return new WaitForSeconds(_currentDisaster.Duration);
         _currentDisaster.EndDisaster();
         _isCoroutineRunning = false;
@@ -70,6 +69,7 @@ public class NaturalDisasterManager : MonoBehaviour
         _currentDisaster = disaster;
 
         disaster.StartDisaster();
+        _firstDisasterPanel?.TriggerEvent();
         yield return new WaitForSeconds(disaster.Duration);
         disaster.EndDisaster();
         _isCoroutineRunning = false;
