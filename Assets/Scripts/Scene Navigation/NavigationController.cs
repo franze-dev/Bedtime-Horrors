@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -7,6 +8,13 @@ public class NavigationController : MonoBehaviour
 {
     [SerializeField] private EventSystem _eventSystem;
     private GameObject _lastSelectedOption;
+
+    public GameObject mainMenuGO;
+    public GameObject pauseMenuGO;
+    public GameObject winMenuGO;
+    public GameObject loseMenuGO;
+    public GameObject settingsMenuGO;
+    public GameObject creditsMenuGO;   
 
     private List<Menu> _menus = new();
     public Menu baseMenu;
@@ -21,6 +29,8 @@ public class NavigationController : MonoBehaviour
     /// </summary>
     private void Awake()
     {
+        ServiceProvider.SetService(this);
+
         _eventSystem = GetComponent<EventSystem>();
         _eventSystem.firstSelectedGameObject = null;
         _lastSelectedOption = _eventSystem.firstSelectedGameObject;
@@ -28,11 +38,18 @@ public class NavigationController : MonoBehaviour
         _activeMenu = baseMenu.GetComponent<Menu>();
     }
 
+    private void OnDestroy()
+    {
+        ServiceProvider.SetService<NavigationController>(null);
+    }
+
     /// <summary>
     /// Sets the base menu as the currently active menu and unlocks the cursor
     /// </summary>
     private void Start()
     {
+        SetAllInactive();
+
         SetBaseMenuActive();
     }
 
@@ -76,10 +93,15 @@ public class NavigationController : MonoBehaviour
         }
     }
 
+    public void GoToMenu(IMenuState menuState)
+    {
+
+    }
+
     /// <summary>
     /// Searches for all Menu components under this object and adds them to the internal list
     /// </summary>
-    void AddMenusToList()
+    private void AddMenusToList()
     {
         _menus.Clear();
 
@@ -95,18 +117,24 @@ public class NavigationController : MonoBehaviour
     /// </summary>
     private void SetBaseMenuActive()
     {
-        SetMenuActive(baseMenu);
+        SetMenuActive(mainMenuGO);
     }
 
     /// <summary>
     /// Activates the specified menu and deactivates the rest.
     /// Sets focus on the first button of the active menu
     /// </summary>
-    public void SetMenuActive(Menu menuToActivate)
+    public void SetMenuActive(GameObject menuToActivate)
     {
+        if (menuToActivate == null)
+        {
+            Debug.LogWarning("Menu to activate is null!");
+            return;
+        }
+
         foreach (var menu in _menus)
         {
-            bool isActive = menu == menuToActivate;
+            bool isActive = menu.gameObject == menuToActivate;
             menu.gameObject.SetActive(isActive);
 
             if (isActive)
@@ -142,5 +170,11 @@ public class NavigationController : MonoBehaviour
     private bool WasNavigatePressed()
     {
         return _navigateInput != Vector2.zero;
+    }
+
+    public void ShowMenu(GameObject menuGO)
+    {
+        SetAllInactive();
+        menuGO.SetActive(true);
     }
 }
