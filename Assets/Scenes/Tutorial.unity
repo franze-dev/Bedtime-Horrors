@@ -13447,6 +13447,7 @@ MonoBehaviour:
   timeToNextWave: 10
   _disaster: {fileID: 0}
   _spawnPoint: {fileID: 1811455905}
+  _waitForEnemiesToDie: 0
 --- !u!4 &485752776
 Transform:
   m_ObjectHideFlags: 0
@@ -19094,6 +19095,7 @@ MonoBehaviour:
   timeToNextWave: 7
   _disaster: {fileID: 11400000, guid: b4ceee40672422d409a03c82db33c973, type: 2}
   _spawnPoint: {fileID: 1811455905}
+  _waitForEnemiesToDie: 1
 --- !u!4 &759891364
 Transform:
   m_ObjectHideFlags: 0
@@ -29263,6 +29265,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 300
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1208322219 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1161121499768278653, guid: 4644ecfc9d8179b47bee1ff085b03703, type: 3}
+  m_PrefabInstance: {fileID: 2463753422577445382}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aec1b5a78d268b54e826897f68ae1498, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1212401005
 GameObject:
   m_ObjectHideFlags: 1
@@ -38846,17 +38859,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 300
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1665061450 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2317030800305031326, guid: 4644ecfc9d8179b47bee1ff085b03703, type: 3}
-  m_PrefabInstance: {fileID: 2463753422577445382}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aec1b5a78d268b54e826897f68ae1498, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1665730616
 GameObject:
   m_ObjectHideFlags: 1
@@ -43943,7 +43945,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f148cd5471f51cb44a0daddebf31f860, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPos: {fileID: 541992787}
+  startPos: {fileID: 366951638}
   _maxHealth: 100
   _currentHealth: 100
   _healthBar: {fileID: 8555583747345451600}
@@ -45653,6 +45655,7 @@ MonoBehaviour:
   timeToNextWave: 7
   _disaster: {fileID: 0}
   _spawnPoint: {fileID: 1811455905}
+  _waitForEnemiesToDie: 0
 --- !u!4 &1967414218 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3544137984215957962, guid: d1361d9b673fd944b82213c9fa59c98d, type: 3}
@@ -50046,6 +50049,7 @@ MonoBehaviour:
   timeToNextWave: 0
   _disaster: {fileID: 0}
   _spawnPoint: {fileID: 1811455905}
+  _waitForEnemiesToDie: 0
 --- !u!4 &2108426501
 Transform:
   m_ObjectHideFlags: 0
@@ -50268,7 +50272,7 @@ MonoBehaviour:
   - {fileID: 325047335}
   - {fileID: 0}
   - {fileID: 1124147132}
-  - {fileID: 1665061450}
+  - {fileID: 1208322219}
   - {fileID: 1590596769}
   - {fileID: 1248026017}
   - {fileID: 1219303004}
@@ -50469,6 +50473,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2126239611}
     m_Modifications:
+    - target: {fileID: 1161121499768278653, guid: 4644ecfc9d8179b47bee1ff085b03703, type: 3}
+      propertyPath: _handGO
+      value: 
+      objectReference: {fileID: 1376341295}
     - target: {fileID: 1756474398370592952, guid: 4644ecfc9d8179b47bee1ff085b03703, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.47216594
@@ -50529,10 +50537,6 @@ PrefabInstance:
       propertyPath: _handGO
       value: 
       objectReference: {fileID: 2082314015}
-    - target: {fileID: 3310079577365864025, guid: 4644ecfc9d8179b47bee1ff085b03703, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4365462195375568513, guid: 4644ecfc9d8179b47bee1ff085b03703, type: 3}
       propertyPath: _handGO
       value: 

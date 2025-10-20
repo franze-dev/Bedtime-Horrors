@@ -55,6 +55,7 @@ public class NaturalDisasterManager : MonoBehaviour
 
         if (_isCoroutineRunning) yield break;
         _isCoroutineRunning = true;
+
         yield return new WaitForSeconds(Random.Range(_minInterval, _maxInterval));
         StartRandomDisaster();
         yield return new WaitForSeconds(_currentDisaster.Duration);
