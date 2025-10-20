@@ -1,10 +1,10 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class PauseController : MonoBehaviour
 {
-    [SerializeField] private Menu _pauseMenu;
     [SerializeField] private InputActionReference _pauseAction;
     [SerializeField] private NavigationController _navigationController;
 
@@ -30,9 +30,7 @@ public class PauseController : MonoBehaviour
     {
         if (GameManager.Instance == null) return;
 
-        var currentState = GameManager.Instance.CurrentState;
-
-        if (currentState == GameManager.GameState.Gameplay || currentState == GameManager.GameState.Paused)
+        if (SceneController.Instance.IsGameplaySceneActive() || isPaused)
             TogglePause();
     }
 
@@ -48,19 +46,14 @@ public class PauseController : MonoBehaviour
         if (isPaused)
         {
             GameManager.Instance.PauseTime();
-            GameManager.Instance.SetState(GameManager.GameState.Paused);
-
-            _navigationController.SetMenuActive(_pauseMenu);
-            int pauseSceneBuildIndex = _pauseMenu.gameObject.scene.buildIndex;
-            SceneController.Instance.SetSceneActive(pauseSceneBuildIndex);
+            EventTriggerer.Trigger<IActivateTargetMenu>(new ActivateTargetMenu(_navigationController.pauseMenuGO, true));
         }
         else
         {
             GameManager.Instance.ResumeTime();
-            GameManager.Instance.SetState(GameManager.GameState.Gameplay);
 
             _navigationController.SetAllInactive();
-            SceneController.Instance.SetSceneActive(SceneController.Instance.PreviousActiveScene.Index);
+            SceneController.Instance.SetSceneActive(SceneController.Instance.PreviousActiveScene);
         }
     }
 

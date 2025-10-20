@@ -18,6 +18,12 @@ public class TurretManager : MonoBehaviour
         EventProvider.Subscribe<ITurretDestroyEvent>(OnTurretDestroy);
     }
 
+    private void OnDestroy()
+    {
+        EventProvider.Unsubscribe<ITurretSpawnEvent>(OnTurretSpawn);
+        EventProvider.Unsubscribe<ITurretDestroyEvent>(OnTurretDestroy);
+    }
+
     private void OnTurretDestroy(ITurretDestroyEvent @event)
     {
         if (!@event.Turret)

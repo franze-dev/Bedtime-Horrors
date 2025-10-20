@@ -1,4 +1,6 @@
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [CreateAssetMenu(fileName = "SceneRef", menuName = "ScriptableObjects/SceneRef")]
 public class SceneRef : ScriptableObject
@@ -10,4 +12,13 @@ public class SceneRef : ScriptableObject
     public int Index { get => _index; }
     public bool IsActive { get => _isActive; }
     public bool IsPersistent { get => _isPersistent; }
+
+#if UNITY_EDITOR
+    [SerializeField] private SceneAsset _sceneAsset;
+
+    private void OnValidate()
+    {
+        _index = SceneUtility.GetBuildIndexByScenePath(AssetDatabase.GetAssetPath(_sceneAsset));
+    }
+#endif
 }
