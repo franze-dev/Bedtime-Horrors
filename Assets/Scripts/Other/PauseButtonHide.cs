@@ -10,6 +10,9 @@ public class PauseButtonHide : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.Instance == null)
+            return;
+
         if (GameManager.Instance.CurrentState == GameManager.GameState.Paused)
             gameObject.transform.localScale = new Vector3(0,0,0);
         else

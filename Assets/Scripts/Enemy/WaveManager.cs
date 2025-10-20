@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
-    [SerializeField] private List<Wave> waves;
+    [SerializeField] private List<Wave> _waves;
     private int _currentWaveIndex;
     private float _timer;
 
@@ -12,38 +12,70 @@ public class WaveManager : MonoBehaviour
         _currentWaveIndex = 0;
         _timer = 0f;
 
-        for (int i = 0; i < waves.Count; i++)
+        for (int i = 0; i < _waves.Count; i++)
         {
-            waves[i].InitWave();
+            _waves[i].InitWave();
         }
     }
 
-    void Update()
+    private void Update()
     {
         _timer += Time.deltaTime;
 
+        if (_currentWaveIndex == _waves.Count - 1 && _waves[_currentWaveIndex].AreEnemiesDead())
+        {
+            Debug.Log("All waves completed!");
+            Time.timeScale = 0;
+            //show win screen
+            return;
+        }
 
-        if (_currentWaveIndex >= waves.Count)
+        if (_currentWaveIndex >= _waves.Count)
         {
             _timer = 0f;
-            //_currentWaveIndex = 0;
             //finish level
             return;
         }
-        else if (!waves[_currentWaveIndex].IsWaveOver())
+        else if (!_waves[_currentWaveIndex].IsWaveOver())
         {
-            var currentWave = waves[_currentWaveIndex];
+            var currentWave = _waves[_currentWaveIndex];
             if (_timer >= currentWave.cooldownBetweenEnemies)
             {
                 currentWave.SpawnEnemy();
                 _timer = 0;
             }
         }
-        else if (_currentWaveIndex < waves.Count && _timer >= waves[_currentWaveIndex].timeToNextWave)
+        else if (_currentWaveIndex < _waves.Count) // a wave ends
         {
-            _timer = 0;
-            _currentWaveIndex++;
-            Debug.Log("Wave changed to wave: " + (_currentWaveIndex + 1));
+            if (_timer >= _waves[_currentWaveIndex].timeToNextWave)
+            {
+                if (_waves[_currentWaveIndex].Disaster != null)
+                    EventTriggerer.Trigger<IStartFixedDisasterEvent>(new StartFixedDisasterEvent(_waves[_currentWaveIndex].Disaster));
+                
+                _timer = 0;
+                _currentWaveIndex++;
+                Debug.Log("Wave changed to wave: " + (_currentWaveIndex + 1));
+            }
         }
+    }
+}
+
+
+public interface IStartFixedDisasterEvent : IEvent
+{
+    NaturalDisaster Disaster { get; }
+}
+
+public class StartFixedDisasterEvent : IStartFixedDisasterEvent
+{
+    private NaturalDisaster _disaster;
+
+    public NaturalDisaster Disaster => _disaster;
+    public GameObject TriggeredByGO => null;
+
+
+    public StartFixedDisasterEvent(NaturalDisaster disaster)
+    {
+        _disaster = disaster;
     }
 }

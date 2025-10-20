@@ -1,19 +1,27 @@
 using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 
 public class Wave : MonoBehaviour
 {
-    public List<GameObject> _enemies = new List<GameObject>();
+    public List<GameObject> _enemies = new();
     public float cooldownBetweenEnemies;
     public int currentEnemyIndex;
     public float timeToNextWave;
 
+    [SerializeField] private NaturalDisaster _disaster;
     [SerializeField] private Transform _spawnPoint;
+    [SerializeField] private bool _waitForEnemiesToDie;
+
+    public NaturalDisaster Disaster => _disaster;
+
+    private void Awake()
+    {
+        _disaster?.Init();
+    }
 
     public void InitWave()
     {
-        EventTriggerer.Trigger<IWaveCreateEvent>(new WaveCreateEvent(_enemies, gameObject));
+        EventTriggerer.Trigger<IStartFixedDisasterEvent>(new StartFixedDisasterEvent(_disaster));
 
         foreach (var enemy in _enemies)
         {
@@ -29,7 +37,10 @@ public class Wave : MonoBehaviour
 
     public void SpawnEnemy()
     {
-        _enemies[currentEnemyIndex].SetActive(false);
+        if (currentEnemyIndex >= _enemies.Count)
+            return;
+
+        _enemies[currentEnemyIndex]?.SetActive(false);
 
         //_enemies[currentEnemyIndex].GetComponent<Enemy>().SetCurrentHealth(_enemies[currentEnemyIndex].GetComponent<Enemy>().GetMaxHealth());
         _enemies[currentEnemyIndex].gameObject.transform.position = _spawnPoint.position;
@@ -39,6 +50,21 @@ public class Wave : MonoBehaviour
 
     public bool IsWaveOver()
     {
-        return !(currentEnemyIndex < _enemies.Count);
+        if (!_waitForEnemiesToDie)
+            return !(currentEnemyIndex < _enemies.Count);
+        else if (currentEnemyIndex > 0)
+            return AreEnemiesDead();
+
+        return false;
+    }
+
+    public bool AreEnemiesDead()
+    {
+        foreach (var enemy in _enemies)
+        {
+            if (enemy.activeSelf)
+                return false;
+        }
+        return true;
     }
 }
