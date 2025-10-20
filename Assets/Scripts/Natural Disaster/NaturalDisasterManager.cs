@@ -46,6 +46,8 @@ public class NaturalDisasterManager : MonoBehaviour
     {
         StopAllCoroutines();
         _currentDisaster = null;
+
+        EventProvider.Unsubscribe<IStartFixedDisasterEvent>(StartFixedDisasterCoroutine);
     }
 
     private IEnumerator RandomDisasterCoroutine()

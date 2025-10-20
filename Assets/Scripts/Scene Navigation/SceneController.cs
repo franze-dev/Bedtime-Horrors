@@ -1,13 +1,11 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
-    public List<Level> levels;
+    public LevelContainer levelContainer;
     [SerializeField] private Level _bootLevel;
 
     private List<SceneRef> _loadedScenes = new();
@@ -100,7 +98,7 @@ public class SceneController : MonoBehaviour
         {
             if (scene.IsActive)
             {
-                SetSceneActive(scene.Index);
+                SetSceneActive(scene);
                 break;
             }
         }
@@ -151,7 +149,7 @@ public class SceneController : MonoBehaviour
 
             Scene newScene = SceneManager.GetSceneByBuildIndex(scene.Index);
             if (newScene.IsValid() && scene.IsActive)
-                SetSceneActive(scene.Index);
+                SetSceneActive(scene);
 
 
             //SoundManager.Instance.DestroyDuplicatedAudioListeners();
@@ -190,20 +188,37 @@ public class SceneController : MonoBehaviour
     /// Sets the scene with the given build index as the active scene,
     /// and updates the current and previous active SceneRefs
     /// </summary>
-    public void SetSceneActive(int index)
+    public void SetSceneActive(SceneRef sceneToLoad)
     {
-        Scene scene = SceneManager.GetSceneByBuildIndex(index);
+        Scene scene = SceneManager.GetSceneByBuildIndex(sceneToLoad.Index);
         if (scene.IsValid())
         {
             SceneManager.SetActiveScene(scene);
 
-            SceneRef sceneRef = _loadedScenes.Find(s => s.Index == index);
+            SceneRef sceneRef = _loadedScenes.Find(s => s.Index == sceneToLoad.Index);
             if (sceneRef != null)
             {
                 _previousActiveScene = _currentActiveScene;
                 _currentActiveScene = sceneRef;
             }
         }
+    }
+
+    public bool IsGameplaySceneActive()
+    {
+        if (_currentActiveScene == null)
+            return false;
+        return IsSceneInGameplayLevels(_currentActiveScene);
+    }
+
+    private bool IsSceneInGameplayLevels(SceneRef sceneRef)
+    {
+        foreach (var level in levelContainer.gameplayLevels)
+        {
+            if (level.scenes.Contains(sceneRef))
+                return true;
+        }
+        return false;
     }
 
     /// <summary>
