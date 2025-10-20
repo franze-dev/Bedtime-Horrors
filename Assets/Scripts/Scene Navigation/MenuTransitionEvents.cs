@@ -12,9 +12,7 @@ public class MenuTransitionEvents : MonoBehaviour
 
     private void SetAllInactive(ISetAllMenusInactive @event)
     {
-        //GameEvents.TriggerSetAllMenusInactive();
         _navigationController.SetAllInactive();
-        GameManager.Instance.SetState(@event.StateToTransition);
     }
     private void ActivateTargetMenu(IActivateTargetMenu @event)
     {
