@@ -22,40 +22,36 @@ public class WaveManager : MonoBehaviour
     {
         _timer += Time.deltaTime;
 
-        if (_currentWaveIndex == _waves.Count - 1 && _waves[_currentWaveIndex].AreEnemiesDead())
+        if (_currentWaveIndex < _waves.Count)
+        {
+            if (!_waves[_currentWaveIndex].IsWaveOver())
+            {
+                var currentWave = _waves[_currentWaveIndex];
+                if (_timer >= currentWave.cooldownBetweenEnemies)
+                {
+                    currentWave.SpawnEnemy();
+                    _timer = 0;
+                }
+            }
+            else if (_currentWaveIndex < _waves.Count) // a wave ends
+            {
+                if (_timer >= _waves[_currentWaveIndex].timeToNextWave) // next wave starts
+                {
+                    if (_waves[_currentWaveIndex].Disaster != null)
+                        EventTriggerer.Trigger<IStartFixedDisasterEvent>(new StartFixedDisasterEvent(_waves[_currentWaveIndex].Disaster));
+
+                    _timer = 0;
+                    _currentWaveIndex++;
+                    Debug.Log("Wave changed to wave: " + (_currentWaveIndex + 1));
+                }
+            }
+        }
+        else if (_waves[_waves.Count - 1].AreEnemiesDead())
         {
             Debug.Log("All waves completed!");
             Time.timeScale = 0;
             //show win screen
             return;
-        }
-
-        if (_currentWaveIndex >= _waves.Count)
-        {
-            _timer = 0f;
-            //finish level
-            return;
-        }
-        else if (!_waves[_currentWaveIndex].IsWaveOver())
-        {
-            var currentWave = _waves[_currentWaveIndex];
-            if (_timer >= currentWave.cooldownBetweenEnemies)
-            {
-                currentWave.SpawnEnemy();
-                _timer = 0;
-            }
-        }
-        else if (_currentWaveIndex < _waves.Count) // a wave ends
-        {
-            if (_timer >= _waves[_currentWaveIndex].timeToNextWave)
-            {
-                if (_waves[_currentWaveIndex].Disaster != null)
-                    EventTriggerer.Trigger<IStartFixedDisasterEvent>(new StartFixedDisasterEvent(_waves[_currentWaveIndex].Disaster));
-                
-                _timer = 0;
-                _currentWaveIndex++;
-                Debug.Log("Wave changed to wave: " + (_currentWaveIndex + 1));
-            }
         }
     }
 }
