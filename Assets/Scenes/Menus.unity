@@ -390,6 +390,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventSystem: {fileID: 128744910}
+  mainMenuGO: {fileID: 1661448965}
+  pauseMenuGO: {fileID: 345855063}
+  winMenuGO: {fileID: 0}
+  loseMenuGO: {fileID: 0}
+  settingsMenuGO: {fileID: 0}
+  creditsMenuGO: {fileID: 0}
   baseMenu: {fileID: 1661448966}
   _navigateAction: {fileID: -8784545083839296357, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
 --- !u!114 &128744910
@@ -480,7 +486,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2f5ee318582e244994ded19d8c631da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pauseMenu: {fileID: 345855065}
   _pauseAction: {fileID: 7727032971491509709, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   _navigationController: {fileID: 128744909}
 --- !u!4 &247622617
@@ -1161,7 +1166,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetMenu: {fileID: 0}
   _navigationController: {fileID: 128744909}
-  _stateToTransition: 3
 --- !u!114 &580354573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1851,7 +1855,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetMenu: {fileID: 0}
   _navigationController: {fileID: 128744909}
-  _stateToTransition: 3
 --- !u!1 &940096782
 GameObject:
   m_ObjectHideFlags: 0
@@ -2000,8 +2003,6 @@ GameObject:
   - component: {fileID: 951256090}
   - component: {fileID: 951256089}
   - component: {fileID: 951256088}
-  - component: {fileID: 951256087}
-  - component: {fileID: 951256086}
   m_Layer: 5
   m_Name: ResumeButton
   m_TagString: Untagged
@@ -2029,34 +2030,6 @@ RectTransform:
   m_AnchoredPosition: {x: 17.000061, y: 64}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &951256086
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 951256084}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5826462c3acfab84fa756a946b50b852, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _targetMenu: {fileID: 0}
-  _navigationController: {fileID: 128744909}
-  _stateToTransition: 0
---- !u!114 &951256087
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 951256084}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3aa76bba3b0a54c4699bacb0e80d88d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _levelToLoad: {fileID: 0}
 --- !u!114 &951256088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2261,9 +2234,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5826462c3acfab84fa756a946b50b852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetMenu: {fileID: 1661448966}
+  _targetMenu: {fileID: 1661448965}
   _navigationController: {fileID: 128744909}
-  _stateToTransition: 0
 --- !u!114 &1032818651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2694,8 +2666,6 @@ GameObject:
   - component: {fileID: 1453406968}
   - component: {fileID: 1453406967}
   - component: {fileID: 1453406966}
-  - component: {fileID: 1453406965}
-  - component: {fileID: 1453406964}
   m_Layer: 5
   m_Name: PauseButton
   m_TagString: Untagged
@@ -2723,34 +2693,6 @@ RectTransform:
   m_AnchoredPosition: {x: 17, y: -94}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1453406964
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1453406962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5826462c3acfab84fa756a946b50b852, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _targetMenu: {fileID: 345855065}
-  _navigationController: {fileID: 128744909}
-  _stateToTransition: 0
---- !u!114 &1453406965
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1453406962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3aa76bba3b0a54c4699bacb0e80d88d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _levelToLoad: {fileID: 0}
 --- !u!114 &1453406966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2875,7 +2817,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuName: MainMenu
-  firstButton: {fileID: 0}
+  firstButton: {fileID: 827137729}
 --- !u!224 &1661448967
 RectTransform:
   m_ObjectHideFlags: 0
