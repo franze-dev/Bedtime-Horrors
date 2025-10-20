@@ -34,7 +34,7 @@ public class TutorialManager : MonoBehaviour
 
         if (@event.IsSequencePanel)
         {
-            if (index <= _currentPanelIndex && index != -1)
+            if (index - 1 <= _currentPanelIndex && index != -1)
                 ActivateNextPanel(_currentPanelIndex);
         }
         else if (index != -1)
