@@ -121,6 +121,7 @@ public class Enemy : MonoBehaviour
 
     public void OnDeath()
     {
+        EventTriggerer.Trigger<ICreativityUpdateEvent>(new CreativityUpdaterEvent(this.gameObject, _creativityToSum));
         _deathPanel?.TriggerEvent();
         _isDead = true;
         StartCoroutine(DeathCoroutine());
@@ -144,7 +145,6 @@ public class Enemy : MonoBehaviour
     private void OnDisable()
     {
         ResetSpeed();
-        EventTriggerer.Trigger<ICreativityUpdateEvent>(new CreativityUpdaterEvent(this.gameObject, _creativityToSum));
     }
 
     public void TakeDamage(float damage)
