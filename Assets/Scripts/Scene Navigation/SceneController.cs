@@ -150,9 +150,6 @@ public class SceneController : MonoBehaviour
             Scene newScene = SceneManager.GetSceneByBuildIndex(scene.Index);
             if (newScene.IsValid() && scene.IsActive)
                 SetSceneActive(scene);
-
-
-            //SoundManager.Instance.DestroyDuplicatedAudioListeners();
         }
     }
 
