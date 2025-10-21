@@ -16,6 +16,12 @@ public class SceneController : MonoBehaviour
     public SceneRef CurrentActiveScene => _currentActiveScene;
     public SceneRef PreviousActiveScene => _previousActiveScene;
 
+
+    private Level _currentActiveLevel;
+    private Level _previousActiveLevel;
+    public Level CurrentActiveLevel => _currentActiveLevel;
+    public Level PreviousActiveLevel => _previousActiveLevel;
+
     public static SceneController Instance { get; private set; }
 
     /// <summary>
@@ -58,6 +64,9 @@ public class SceneController : MonoBehaviour
     /// </summary>
     public void AddLevel(Level level)
     {
+        _previousActiveLevel = _currentActiveLevel;
+        _currentActiveLevel = level;
+
         foreach (var scene in level.scenes)
         {
             if (!_loadedScenes.Contains(scene) && !_persistentLoadedScenes.Contains(scene))
@@ -94,10 +103,15 @@ public class SceneController : MonoBehaviour
     /// </summary>
     public void UnloadNonPersistentScenes()
     {
+        _previousActiveLevel = _currentActiveLevel;
+
+        SceneRef newActiveScene = null;
+
         foreach (var scene in _loadedScenes)
         {
             if (scene.IsActive)
             {
+                newActiveScene = scene;
                 SetSceneActive(scene);
                 break;
             }
@@ -110,6 +124,9 @@ public class SceneController : MonoBehaviour
         }
 
         _loadedScenes.RemoveAll(scene => !scene.IsPersistent);
+
+        if (newActiveScene != null)
+            _currentActiveLevel = GetLevelContainingScene(newActiveScene);
     }
 
     /// <summary>
@@ -228,4 +245,24 @@ public class SceneController : MonoBehaviour
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
     }
+
+    private Level GetLevelContainingScene(SceneRef sceneRef)
+    {
+        if (levelContainer.bootLevel != null &&
+            levelContainer.bootLevel.scenes.Contains(sceneRef))
+            return levelContainer.bootLevel;
+
+        foreach (var level in levelContainer.gameplayLevels)
+        {
+            if (level.scenes.Contains(sceneRef))
+                return level;
+        }
+
+        if (levelContainer.menusLevel != null &&
+            levelContainer.menusLevel.scenes.Contains(sceneRef))
+            return levelContainer.menusLevel;
+
+        return null;
+    }
+
 }
