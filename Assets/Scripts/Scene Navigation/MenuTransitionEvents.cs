@@ -8,6 +8,7 @@ public class MenuTransitionEvents : MonoBehaviour
     {
         EventProvider.Subscribe<ISetAllMenusInactive>(SetAllInactive);
         EventProvider.Subscribe<IActivateTargetMenu>(ActivateTargetMenu);
+        EventProvider.Subscribe<IActivatePreviousMenu>(ActivatePreviousMenu);
     }
 
     private void SetAllInactive(ISetAllMenusInactive @event)
@@ -18,6 +19,11 @@ public class MenuTransitionEvents : MonoBehaviour
     {
         if (@event.TargetMenu != null)
             _navigationController.SetMenuActive(@event.TargetMenu);
+    }
+
+    private void ActivatePreviousMenu(IActivatePreviousMenu @event)
+    {
+        _navigationController.SetMenuActive(_navigationController.PreviousMenu);
     }
 
 }

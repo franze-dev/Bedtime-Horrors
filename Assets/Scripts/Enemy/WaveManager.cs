@@ -49,8 +49,13 @@ public class WaveManager : MonoBehaviour
         else if (_waves[_waves.Count - 1].AreEnemiesDead())
         {
             Debug.Log("All waves completed!");
-            Time.timeScale = 0;
-            //show win screen
+
+            SceneController.Instance.UnloadNonPersistentScenes();
+
+            if (ServiceProvider.TryGetService(out NavigationController nav))
+                nav.SetMenuActive(nav.winMenuGO);
+            else
+                Debug.LogWarning("NavigationController service not found!");
             return;
         }
     }

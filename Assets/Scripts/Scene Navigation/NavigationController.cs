@@ -14,11 +14,15 @@ public class NavigationController : MonoBehaviour
     public GameObject winMenuGO;
     public GameObject loseMenuGO;
     public GameObject settingsMenuGO;
-    public GameObject creditsMenuGO;   
+    public GameObject creditsMenuGO;
 
     private List<Menu> _menus = new();
     public Menu baseMenu;
-    private Menu _activeMenu;
+
+    private GameObject _activeMenu;
+    private GameObject _previousMenu;
+
+    public GameObject PreviousMenu => _previousMenu; 
 
     [SerializeField] private InputActionReference _navigateAction;
     private Vector2 _navigateInput = Vector2.zero;
@@ -34,8 +38,11 @@ public class NavigationController : MonoBehaviour
         _eventSystem = GetComponent<EventSystem>();
         _eventSystem.firstSelectedGameObject = null;
         _lastSelectedOption = _eventSystem.firstSelectedGameObject;
+
         AddMenusToList();
-        _activeMenu = baseMenu.GetComponent<Menu>();
+
+        _activeMenu = mainMenuGO;
+        _previousMenu = mainMenuGO;
     }
 
     private void OnDestroy()
@@ -72,8 +79,6 @@ public class NavigationController : MonoBehaviour
     /// </summary>
     private void Update()
     {
-        //Debug.Log(GameManager.Instance.CurrentState);
-
         if (_eventSystem != null)
         {
             if (_eventSystem.currentSelectedGameObject == null)
@@ -84,7 +89,6 @@ public class NavigationController : MonoBehaviour
             else if (_lastSelectedOption != _eventSystem.currentSelectedGameObject)
             {
                 _lastSelectedOption = _eventSystem.currentSelectedGameObject;
-                //SoundManager.Instance.PlaySound(SoundType.SelectButton);
             }
         }
         else
@@ -117,6 +121,7 @@ public class NavigationController : MonoBehaviour
     /// </summary>
     private void SetBaseMenuActive()
     {
+        _previousMenu = _activeMenu;
         SetMenuActive(mainMenuGO);
     }
 
@@ -139,7 +144,8 @@ public class NavigationController : MonoBehaviour
 
             if (isActive)
             {
-                _activeMenu = menu;
+                _previousMenu = _activeMenu;
+                _activeMenu = menuToActivate;
                 _eventSystem.SetSelectedGameObject(menu.firstButton);
             }
             else
@@ -152,6 +158,7 @@ public class NavigationController : MonoBehaviour
     /// </summary>
     public void SetAllInactive()
     {
+        _previousMenu = _activeMenu;
         foreach (var menu in _menus)
             menu.gameObject.SetActive(false);
     }
@@ -174,6 +181,8 @@ public class NavigationController : MonoBehaviour
 
     public void ShowMenu(GameObject menuGO)
     {
+        _previousMenu = _activeMenu;
+        _activeMenu = menuGO;
         SetAllInactive();
         menuGO.SetActive(true);
     }
