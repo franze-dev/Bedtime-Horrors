@@ -44,7 +44,13 @@ public class Child : MonoBehaviour
         {
             Debug.Log("You lost!!");
             _currentHealth = 0;
-            Time.timeScale = 0.0f;
+
+            SceneController.Instance.UnloadNonPersistentScenes();
+
+            if (ServiceProvider.TryGetService(out NavigationController nav))
+                nav.SetMenuActive(nav.loseMenuGO);
+            else
+                Debug.LogWarning("NavigationController service not found!");
         }
 
         _healthBar.UpdateSlider(_currentHealth, _maxHealth);
