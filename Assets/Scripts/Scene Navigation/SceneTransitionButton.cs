@@ -20,6 +20,14 @@ public class SceneTransitionButton : MonoBehaviour
         SceneController.Instance.AddLevel(_levelToLoad);
     }
 
+    public void LoadLastLevel()
+    {
+        if (SceneController.Instance.PreviousActiveLevel != null)
+            SceneController.Instance.LoadLevel(SceneController.Instance.PreviousActiveLevel);
+        else
+            Debug.LogWarning("Previous active level not found");
+    }
+
     /// <summary>
     /// Exits the game
     /// </summary>
