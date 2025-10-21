@@ -21,6 +21,11 @@ public class MenuTransitionButton : MonoBehaviour
         EventTriggerer.Trigger<IActivateTargetMenu>(new ActivateTargetMenu(_targetMenu));
     }
 
+    public void ButtonSetPreviousActive()
+    {
+        EventTriggerer.Trigger<IActivatePreviousMenu>(new ActivatePreviousMenu());
+    }
+
     /// <summary>
     /// Calls the SetAllInactive() function from NavigationController.
     /// Sets the GameManager state to the assigned target state
