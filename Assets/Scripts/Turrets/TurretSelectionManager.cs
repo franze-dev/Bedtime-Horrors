@@ -94,7 +94,6 @@ public class TurretSelectionManager : MonoBehaviour
             }
             if (IsMouseHovering(_renderers[i].bounds))
             {
-                Debug.Log("Mouse hovering over " + _renderers[i].gameObject.name);
                 _turretPrefabs[i].gameObject.transform.localScale = new Vector3(_scaleMultiplier, _scaleMultiplier, _scaleMultiplier);
             }
             else if (i != _selectedPrefab)

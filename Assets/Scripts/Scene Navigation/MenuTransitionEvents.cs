@@ -8,18 +8,22 @@ public class MenuTransitionEvents : MonoBehaviour
     {
         EventProvider.Subscribe<ISetAllMenusInactive>(SetAllInactive);
         EventProvider.Subscribe<IActivateTargetMenu>(ActivateTargetMenu);
+        EventProvider.Subscribe<IActivatePreviousMenu>(ActivatePreviousMenu);
     }
 
     private void SetAllInactive(ISetAllMenusInactive @event)
     {
-        //GameEvents.TriggerSetAllMenusInactive();
         _navigationController.SetAllInactive();
-        GameManager.Instance.SetState(@event.StateToTransition);
     }
     private void ActivateTargetMenu(IActivateTargetMenu @event)
     {
         if (@event.TargetMenu != null)
             _navigationController.SetMenuActive(@event.TargetMenu);
+    }
+
+    private void ActivatePreviousMenu(IActivatePreviousMenu @event)
+    {
+        _navigationController.SetMenuActive(_navigationController.PreviousMenu);
     }
 
 }

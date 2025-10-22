@@ -18,6 +18,12 @@ public class TurretManager : MonoBehaviour
         EventProvider.Subscribe<ITurretDestroyEvent>(OnTurretDestroy);
     }
 
+    private void OnDestroy()
+    {
+        EventProvider.Unsubscribe<ITurretSpawnEvent>(OnTurretSpawn);
+        EventProvider.Unsubscribe<ITurretDestroyEvent>(OnTurretDestroy);
+    }
+
     private void OnTurretDestroy(ITurretDestroyEvent @event)
     {
         if (!@event.Turret)
@@ -31,6 +37,7 @@ public class TurretManager : MonoBehaviour
     private void OnTurretSpawn(ITurretSpawnEvent @event)
     {
         _activeTurrets.Add(@event.Turret.GetComponent<Turret>());
+        AkUnitySoundEngine.PostEvent("Tower_Place", gameObject);
     }
 
     private void OnDrawGizmos()

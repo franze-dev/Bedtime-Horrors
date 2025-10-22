@@ -4,12 +4,14 @@ using UnityEngine;
 public class WaveCreateEvent : IWaveCreateEvent
 {
     private List<GameObject> _enemies;
-    private GameObject _triggeredByGO;
+    private NaturalDisaster _disaster;
+
     public List<GameObject> Enemies => _enemies;
+    public NaturalDisaster Disaster => _disaster;
 
-    public GameObject TriggeredByGO => _triggeredByGO;
+    public GameObject TriggeredByGO => null;
 
-    public WaveCreateEvent(List<GameObject> enemies, GameObject triggeredByGO)
+    public WaveCreateEvent(List<GameObject> enemies, NaturalDisaster disaster)
     {
         _enemies = new List<GameObject>();
 
@@ -17,6 +19,6 @@ public class WaveCreateEvent : IWaveCreateEvent
             Debug.LogWarning("WaveCreateEvent: enemies list is null!");
 
         _enemies = enemies;
-        _triggeredByGO = triggeredByGO;
+        _disaster = disaster;
     }
 }

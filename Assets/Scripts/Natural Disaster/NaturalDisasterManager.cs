@@ -7,6 +7,7 @@ public class NaturalDisasterManager : MonoBehaviour
     [SerializeField] private List<NaturalDisaster> _disasters;
     [SerializeField] private float _minInterval = 30f;
     [SerializeField] private float _maxInterval = 120f;
+    [SerializeField] private PanelEventTrigger _firstDisasterPanel;
     private NaturalDisaster _currentDisaster;
 
     bool _isCoroutineRunning = false;
@@ -19,7 +20,14 @@ public class NaturalDisasterManager : MonoBehaviour
         foreach (var disaster in _disasters)
             disaster?.Init();
 
-        StartCoroutine(DisasterCoroutine());
+        if (_disasters.Count > 0)
+            StartCoroutine(RandomDisasterCoroutine());
+
+    }
+
+    private void Start()
+    {
+        EventProvider.Subscribe<IStartFixedDisasterEvent>(StartFixedDisasterCoroutine);
     }
 
     private void Update()
@@ -28,7 +36,7 @@ public class NaturalDisasterManager : MonoBehaviour
             return;
 
         if (!_isCoroutineRunning)
-            StartCoroutine(DisasterCoroutine());
+            StartCoroutine(RandomDisasterCoroutine());
 
         if (_currentDisaster != null)
             (_currentDisaster as IDisasterUpdate)?.UpdateDisaster();
@@ -38,21 +46,39 @@ public class NaturalDisasterManager : MonoBehaviour
     {
         StopAllCoroutines();
         _currentDisaster = null;
+
+        EventProvider.Unsubscribe<IStartFixedDisasterEvent>(StartFixedDisasterCoroutine);
     }
 
-    private IEnumerator DisasterCoroutine()
+    private IEnumerator RandomDisasterCoroutine()
     {
         if (_disasters.Count == 0)
             yield break;
 
         if (_isCoroutineRunning) yield break;
         _isCoroutineRunning = true;
+
         yield return new WaitForSeconds(Random.Range(_minInterval, _maxInterval));
         StartRandomDisaster();
         yield return new WaitForSeconds(_currentDisaster.Duration);
         _currentDisaster.EndDisaster();
         _isCoroutineRunning = false;
     }
+
+    public IEnumerator DisasterCoroutine(NaturalDisaster disaster)
+    {
+        if (_isCoroutineRunning) yield break;
+        _isCoroutineRunning = true;
+        _currentDisaster = disaster;
+
+        disaster.StartDisaster();
+        _firstDisasterPanel?.TriggerEvent();
+        yield return new WaitForSeconds(disaster.Duration);
+        disaster.EndDisaster();
+        _isCoroutineRunning = false;
+        _currentDisaster = null;
+    }
+
 
     private void StartRandomDisaster()
     {
@@ -74,5 +100,10 @@ public class NaturalDisasterManager : MonoBehaviour
             _currentDisaster = _disasters[0];
 
         _currentDisaster.StartDisaster();
+    }
+
+    public void StartFixedDisasterCoroutine(IStartFixedDisasterEvent @event)
+    {
+        StartCoroutine(DisasterCoroutine(@event.Disaster));
     }
 }

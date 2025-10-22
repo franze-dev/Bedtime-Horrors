@@ -12557,6 +12557,7 @@ MonoBehaviour:
   cooldownBetweenEnemies: 1
   currentEnemyIndex: 0
   timeToNextWave: 10
+  _disaster: {fileID: 0}
   _spawnPoint: {fileID: 1811455905}
 --- !u!4 &485752776
 Transform:
@@ -16576,6 +16577,7 @@ GameObject:
   m_Component:
   - component: {fileID: 670561007}
   - component: {fileID: 670561006}
+  - component: {fileID: 670561008}
   m_Layer: 0
   m_Name: WwiseGlobal
   m_TagString: Untagged
@@ -16623,6 +16625,31 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &670561008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670561005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5981e0bda7c47742a83af4a103e70ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: ae8d9d44
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 0dbe18826391d42008cbd2382258e012, type: 2}
+  decodeBank: 0
+  overrideLoadSetting: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 
 --- !u!1 &676792159
 GameObject:
   m_ObjectHideFlags: 0
@@ -17932,6 +17959,7 @@ MonoBehaviour:
   cooldownBetweenEnemies: 1
   currentEnemyIndex: 0
   timeToNextWave: 7
+  _disaster: {fileID: 0}
   _spawnPoint: {fileID: 1811455905}
 --- !u!4 &759891364
 Transform:
@@ -30205,7 +30233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f732385247692e74a8cb844d4d42d9f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waves:
+  _waves:
   - {fileID: 759891363}
   - {fileID: 485752775}
   - {fileID: 2108426500}
@@ -46551,6 +46579,7 @@ MonoBehaviour:
   cooldownBetweenEnemies: 1
   currentEnemyIndex: 0
   timeToNextWave: 0
+  _disaster: {fileID: 0}
   _spawnPoint: {fileID: 1811455905}
 --- !u!4 &2108426501
 Transform:
@@ -46836,6 +46865,7 @@ MonoBehaviour:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 670561007}
   - {fileID: 815779194}
   - {fileID: 87071352}
   - {fileID: 1335706203}
@@ -46850,4 +46880,3 @@ SceneRoots:
   - {fileID: 1033397284}
   - {fileID: 1884938123}
   - {fileID: 1360999750}
-  - {fileID: 670561007}

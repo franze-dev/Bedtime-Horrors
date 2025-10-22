@@ -3,15 +3,13 @@ using UnityEngine.UI;
 
 public class MenuTransitionButton : MonoBehaviour
 {
-    [SerializeField] private Menu _targetMenu;
+    [SerializeField] private GameObject _targetMenu;
     [SerializeField] private NavigationController _navigationController;
-    [SerializeField] private GameManager.GameState _stateToTransition;
 
     public void ActivateBaseMenu()
     {
         //GameEvents.TriggerActivateBaseMenu();
-        _navigationController.SetMenuActive(_navigationController.baseMenu);
-        GameManager.Instance.SetState(GameManager.GameState.MainMenu);
+        _navigationController.SetMenuActive(_navigationController.mainMenuGO);
     }
 
     /// <summary>
@@ -23,13 +21,18 @@ public class MenuTransitionButton : MonoBehaviour
         EventTriggerer.Trigger<IActivateTargetMenu>(new ActivateTargetMenu(_targetMenu));
     }
 
+    public void ButtonSetPreviousActive()
+    {
+        EventTriggerer.Trigger<IActivatePreviousMenu>(new ActivatePreviousMenu());
+    }
+
     /// <summary>
     /// Calls the SetAllInactive() function from NavigationController.
     /// Sets the GameManager state to the assigned target state
     /// </summary>
     public void ButtonSetAllInactive()
     {
-        EventTriggerer.Trigger<ISetAllMenusInactive>(new SetAllMenusInactive(_stateToTransition));
+        EventTriggerer.Trigger<ISetAllMenusInactive>(new SetAllMenusInactive());
         Debug.Log("All menus inactive Event triggered!");
     }
 

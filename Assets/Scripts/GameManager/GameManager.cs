@@ -2,17 +2,6 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public enum GameState 
-    { 
-        Boot,
-        MainMenu,
-        Credits,
-        Gameplay,
-        Paused,
-        Victory
-    }
-    public GameState CurrentState { get; private set; }
-
     [SerializeField] private Level firstLevel;
 
     public static GameManager Instance { get; private set; }
@@ -26,21 +15,11 @@ public class GameManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(this.gameObject);
-        CurrentState = GameState.Boot;
     }
 
     private void Start()
     {
-        CurrentState = GameState.MainMenu;
         SceneController.Instance.LoadLevel(firstLevel);
-    }
-
-    /// <summary>
-    /// Changes the current game state
-    /// </summary>
-    public void SetState(GameState newState)
-    {
-        CurrentState = newState;
     }
 
     /// <summary>
@@ -51,7 +30,6 @@ public class GameManager : MonoBehaviour
     {
         SceneController.Instance.UnloadNonPersistentScenes();
         SceneController.Instance.LoadLevel(firstLevel);
-        CurrentState = GameState.MainMenu;
     }
 
     /// <summary>
