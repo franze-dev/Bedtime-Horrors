@@ -1,24 +1,43 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TutorialManager : MonoBehaviour
 {
-    [SerializeField] private List<TutorialPanel> _panels;
+    [SerializeField] private List<TutorialPanel> _panels = new();
+    [SerializeField] private TutorialPanel _transitionPanel;
     private int _currentPanelIndex = -1;
 
     public int CurrentPanelIndex => _currentPanelIndex;
 
     private void Awake()
     {
+        if (_panels == null || _panels.Count == 0)
+        {
+            Debug.LogError("No panels assigned to TutorialManager.");
+            return;
+        }
+
         foreach (var panel in _panels)
         {
-            panel?.gameObject.SetActive(false);
+            if (panel == null)
+            {
+                Debug.LogWarning("A panel in the TutorialManager list is null.");
+                continue;
+            }
+
+            if (panel.gameObject == null)
+            {
+                Debug.LogWarning("A panel's GameObject in the TutorialManager list is null.");
+                continue;
+            }
+
+            panel.gameObject.SetActive(false);
         }
+
         Time.timeScale = 0;
 
-        ActivateNextPanel(_currentPanelIndex);
-
+        if (_panels.Count > 0)
+            ActivateNextPanel(_currentPanelIndex);
     }
 
     private void Start()
@@ -59,7 +78,7 @@ public class TutorialManager : MonoBehaviour
             if (currentIndex >= 0)
                 _panels[currentIndex]?.gameObject.SetActive(false);
 
-            if (_panels[currentIndex + 1] != null)
+            if (_panels[currentIndex + 1] != null && _panels[currentIndex + 1] != _transitionPanel)
             {
                 _panels[currentIndex + 1].gameObject.SetActive(true);
                 _currentPanelIndex = currentIndex + 1;
@@ -70,7 +89,6 @@ public class TutorialManager : MonoBehaviour
                 _currentPanelIndex = currentIndex + 1;
                 Time.timeScale = 1;
             }
-            //activar los eventos de este panel
         }
         else
             _panels[currentIndex].gameObject.SetActive(false);
