@@ -72,8 +72,8 @@ public class Enemy : MonoBehaviour
         _currentHealth = _maxHealth;
         _healthBar.UpdateSlider(_currentHealth, _maxHealth);
 
-        Debug.Log(gameObject.name + " Enabled!");
-        Debug.Log("Current target set to " + _currentTargetIndex);
+        //Debug.Log(gameObject.name + " Enabled!");
+        //Debug.Log("Current target set to " + _currentTargetIndex);
 
     }
 
@@ -112,11 +112,11 @@ public class Enemy : MonoBehaviour
             {
                 float damageToTake = bullet.damage;
                 TakeDamage(damageToTake);
-                Debug.Log(damageToTake + " damage taken!");
+                //Debug.Log(damageToTake + " damage taken!");
                 return;
             }
         }
-        Debug.Log("This enemy collided with another object");
+        //Debug.Log("This enemy collided with another object");
     }
 
     public void OnDeath()

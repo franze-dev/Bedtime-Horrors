@@ -35,10 +35,10 @@ public class Turret : MonoBehaviour, IInteractable
 
         _collider = GetComponentInChildren<BoxCollider2D>();
 
-        EventProvider.Subscribe<IClickHitEvent>(OnClickAny);
+        EventProvider.Subscribe<IClickEvent>(OnClickAny);
     }
 
-    private void OnClickAny(IClickHitEvent @event)
+    private void OnClickAny(IClickEvent @event)
     {
         if (!@event.HasHit)
             EventTriggerer.Trigger<IUpdateSelectedTurretEvent>(new UpdateSelectedTurret(null));
@@ -83,4 +83,5 @@ public class Turret : MonoBehaviour, IInteractable
         areaColor.a = 0;
         _areaSpriteRenderer.color = areaColor;
     }
+
 }

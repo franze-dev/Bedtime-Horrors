@@ -7,7 +7,7 @@ public class TurretSpawner : MonoBehaviour, IInteractable
 {
     private List<GameObject> _turretPrefabs;
 
-    [SerializeField] private InputActionReference _turretDelInput;
+    [SerializeField] private InputActionReference _turretDeleteInput;
 
     [SerializeField] private InputActionReference _spawnTurret1;
     [SerializeField] private InputActionReference _spawnTurret2;
@@ -32,7 +32,7 @@ public class TurretSpawner : MonoBehaviour, IInteractable
         if (_renderer == null)
             _renderer = _giftBoxGO.GetComponent<SpriteRenderer>();
 
-        _turretDelInput.action.canceled += OnDeletion;
+        _turretDeleteInput.action.canceled += OnDeletion;
         _spawnTurret1.action.canceled += OnSpawnTurret1;
         _spawnTurret2.action.canceled += OnSpawnTurret2;
         _spawnTurret3.action.canceled += OnSpawnTurret3;
@@ -101,6 +101,9 @@ public class TurretSpawner : MonoBehaviour, IInteractable
 
     private void SpawnTurret(int turretId)
     {
+        if (!SceneController.Instance.IsGameplaySceneActive())
+            return;
+
         if (_spawnedTurret != null)
             if (_spawnedTurret.GetType() == _turretPrefabs[turretId].GetType())
                 return;
@@ -158,7 +161,7 @@ public class TurretSpawner : MonoBehaviour, IInteractable
 
     private int GetTurretPrice(GameObject turretGO)
     {
-        if (turretGO.gameObject.TryGetComponent<Turret>(out Turret turret))
+        if (turretGO.gameObject.TryGetComponent(out Turret turret))
         {
             return turret.price;
         }
