@@ -7,6 +7,7 @@ public class TurretManager : MonoBehaviour
     [SerializeField] private List<TurretSpawner> _turretSpawners;
     [SerializeField] private List<GameObject> _turretPrefabs;
     [SerializeField] private List<Turret> _activeTurrets;
+    private bool _isFirstSpawn = true;
     public List<Turret> ActiveTurrets => _activeTurrets;
 
     private void Awake()
@@ -37,6 +38,11 @@ public class TurretManager : MonoBehaviour
     private void OnTurretSpawn(ITurretSpawnEvent @event)
     {
         _activeTurrets.Add(@event.Turret.GetComponent<Turret>());
+        if (_isFirstSpawn)
+        {
+            EventTriggerer.Trigger<IFirstTurretSpawnEvent>(new FirstTurretSpawnEvent());
+            _isFirstSpawn = false;
+        }
         AkUnitySoundEngine.PostEvent("Tower_Place", gameObject);
     }
 

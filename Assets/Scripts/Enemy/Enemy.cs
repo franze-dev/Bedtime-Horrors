@@ -25,8 +25,6 @@ public class Enemy : MonoBehaviour
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private BoxCollider2D _collider;
     [SerializeField] private GameObject _armature;
-    [SerializeField] private PanelEventTrigger _spawnPanel;
-    [SerializeField] private PanelEventTrigger _deathPanel;
 
     private FloatingText _floatingText;
 
@@ -40,8 +38,6 @@ public class Enemy : MonoBehaviour
 
     void OnEnable()
     {
-        _spawnPanel?.TriggerEvent();
-
         _currentTargetIndex = 0;
         _currentTarget = _targetManager.Targets[_currentTargetIndex];
 
@@ -75,6 +71,7 @@ public class Enemy : MonoBehaviour
         Debug.Log(gameObject.name + " Enabled!");
         Debug.Log("Current target set to " + _currentTargetIndex);
 
+        EventTriggerer.Trigger<IEnemySpawnEvent>(new EnemySpawnEvent());
     }
 
     void Update()
@@ -122,7 +119,7 @@ public class Enemy : MonoBehaviour
     public void OnDeath()
     {
         EventTriggerer.Trigger<ICreativityUpdateEvent>(new CreativityUpdaterEvent(this.gameObject, _creativityToSum));
-        _deathPanel?.TriggerEvent();
+        EventTriggerer.Trigger<IEnemyDeathEvent>(new EnemyDeathEvent());
         _isDead = true;
         StartCoroutine(DeathCoroutine());
     }
@@ -198,4 +195,34 @@ public class Enemy : MonoBehaviour
     {
         _currentHealth = value;
     }
+}
+
+public class EnemySpawnEvent : IEnemySpawnEvent
+{
+    public GameObject TriggeredByGO => null;
+
+    public bool IsSequencePanel => true;
+
+    public EnemySpawnEvent()
+    {
+        EventTriggerer.Trigger<IContinuePanelsEvent>(new ContinuePanelsEvent());
+    }
+}
+
+internal interface IEnemySpawnEvent : IEvent
+{
+}
+
+public class EnemyDeathEvent : IEnemyDeathEvent
+{
+    public GameObject TriggeredByGO => null;
+
+    public EnemyDeathEvent()
+    {
+        EventTriggerer.Trigger<IContinuePanelsEvent>(new ContinuePanelsEvent());
+    }
+}
+
+public interface IEnemyDeathEvent : IEvent
+{
 }
