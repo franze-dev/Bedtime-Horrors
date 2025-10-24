@@ -52,6 +52,104 @@
 								<ActiveSource Name="Tower_Place" ID="{04B58486-0B1D-4DE2-94BA-5A677A744701}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
+						<RandomSequenceContainer Name="Tower_Shoot_ToyTank" ID="{C15BAFF6-57F0-4AE3-B631-0529C355580F}" ShortID="324399306">
+							<PropertyList>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>30</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{83D415B7-58B7-4485-8414-4994C0136BD1}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="300"/>
+													<Property Name="Min" Type="Real64" Value="-150"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{066AACED-29FB-4E9B-977A-46A9F6C9913D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F847AA8C-7B54-49C2-9EE8-B09DDE93BCE9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Tower_Shoot_ToyTank_3" ID="{70E3BCAA-9357-4292-BF99-6DD0073FADB6}" ShortID="507927114">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{066AACED-29FB-4E9B-977A-46A9F6C9913D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F847AA8C-7B54-49C2-9EE8-B09DDE93BCE9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Tower_Shoot_ToyTank_3" ID="{EB7E5461-1EB7-4FA6-9C48-556F5D0D4918}">
+											<Language>SFX</Language>
+											<AudioFile>Tower_Shoot_ToyTank_3.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="997827705"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Tower_Shoot_ToyTank_3" ID="{EB7E5461-1EB7-4FA6-9C48-556F5D0D4918}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Tower_Shoot_ToyTank_2" ID="{451F3972-E3E0-463F-BC8E-F1C27A312125}" ShortID="472238000">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{066AACED-29FB-4E9B-977A-46A9F6C9913D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F847AA8C-7B54-49C2-9EE8-B09DDE93BCE9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Tower_Shoot_ToyTank_2" ID="{AE2CFCE2-7971-4564-B0D0-6EB5FB941B1F}">
+											<Language>SFX</Language>
+											<AudioFile>Tower_Shoot_ToyTank_2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="191497200"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Tower_Shoot_ToyTank_2" ID="{AE2CFCE2-7971-4564-B0D0-6EB5FB941B1F}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Tower_Shoot_ToyTank_1" ID="{54DE429E-73DB-4FF9-9AA0-897849A046BB}" ShortID="179211330">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{066AACED-29FB-4E9B-977A-46A9F6C9913D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F847AA8C-7B54-49C2-9EE8-B09DDE93BCE9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Tower_Shoot_ToyTank_1" ID="{C472C4C9-0D2F-4648-AC2D-0B93CF192FF4}">
+											<Language>SFX</Language>
+											<AudioFile>Tower_Shoot_ToyTank_1.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="956428192"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Tower_Shoot_ToyTank_1" ID="{C472C4C9-0D2F-4648-AC2D-0B93CF192FF4}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>
