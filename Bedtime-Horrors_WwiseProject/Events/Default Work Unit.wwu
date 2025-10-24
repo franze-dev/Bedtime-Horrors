@@ -57,7 +57,17 @@
 				</Folder>
 				<Folder Name="Tower" ID="{F8B795F1-5FB2-41F9-B359-D5FF2B42209C}" ShortID="803605303">
 					<ChildrenList>
-						<Event Name="Tower_Shoot_TeddyBear" ID="{4E825D32-6F6A-4702-9137-67770A378985}"/>
+						<Event Name="Tower_Shoot_TeddyBear" ID="{4E825D32-6F6A-4702-9137-67770A378985}">
+							<ChildrenList>
+								<Action Name="" ID="{4DD0B6C5-CC41-430B-BA35-54C240C5F3E3}" ShortID="576422163">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Tower_Shoot_TeddyBear" ID="{0006AEB5-6FF6-42C9-BDC0-6CB22735AC78}" WorkUnitID="{932C6B5F-4E51-4C47-BD09-779BE6F37C5D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 						<Event Name="Tower_Shoot_ToyTank" ID="{2601DF2F-567E-4884-9D9E-AD6C926525BA}">
 							<ChildrenList>
 								<Action Name="" ID="{7F541E47-3AFE-49FC-860F-0EFDC14D08EF}" ShortID="741480070">
