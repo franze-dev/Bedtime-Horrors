@@ -1,12 +1,9 @@
-using NUnit.Framework;
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TutorialPanel : MonoBehaviour
 {
     [SerializeField] private GameObject _handGO;
-    [SerializeField] private GameObject _focusBackground;
     [SerializeField] private GameObject _focusPointsGO;
 
     private void OnEnable()
@@ -25,11 +22,6 @@ public class TutorialPanel : MonoBehaviour
 
     private void ShowFocus(bool isFocus)
     {
-        if (_focusBackground == null)
-            return;
-
-        _focusBackground.SetActive(isFocus);
-
         if (_focusPointsGO == null)
             return;
 
@@ -42,5 +34,10 @@ public class TutorialPanel : MonoBehaviour
             return;
 
         _handGO.SetActive(show);
+    }
+
+    public bool HasFocusPoints()
+    {
+        return _focusPointsGO != null;
     }
 }

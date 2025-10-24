@@ -23,6 +23,7 @@ public class TurretSpawner : MonoBehaviour, IInteractable
 
     private GameObject _spawnedTurret;
     private int _nextTurretId = 0;
+    private int _spawnedTurretsCount = 0;
 
     private void Awake()
     {
@@ -124,7 +125,6 @@ public class TurretSpawner : MonoBehaviour, IInteractable
             _spawnedTurret = null;
 
             EventTriggerer.Trigger<ITurretDestroyEvent>(new TurretDestroyEvent(toDestroy));
-            //Destroy(toDestroy);
 
             if (_nextTurretId >= _turretPrefabs.Count - 1)
                 _nextTurretId = 0;
@@ -138,7 +138,6 @@ public class TurretSpawner : MonoBehaviour, IInteractable
         _currentTime = 0;
 
         EventTriggerer.Trigger<ICreativityUpdateEvent>(new CreativityUpdaterEvent(gameObject, -turretPrice));
-
     }
 
     public void SetTurretPrefabs(List<GameObject> turretPrefabs)
@@ -172,5 +171,19 @@ public class TurretSpawner : MonoBehaviour, IInteractable
 
         if (selectedTurret >= 0)
             SpawnTurret(selectedTurret);
+    }
+}
+
+public interface IFirstTurretSpawnEvent : IEvent
+{
+}
+
+public class FirstTurretSpawnEvent : IFirstTurretSpawnEvent
+{
+    public GameObject TriggeredByGO => null;
+
+    public FirstTurretSpawnEvent()
+    {
+        EventTriggerer.Trigger<IContinuePanelsEvent>(new ContinuePanelsEvent());
     }
 }
