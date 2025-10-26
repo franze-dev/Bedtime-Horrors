@@ -8,5 +8,6 @@ public class TurretSpawnEvent : ITurretSpawnEvent
     public TurretSpawnEvent(GameObject turret)
     {
         Turret = turret;
+
     }
 }

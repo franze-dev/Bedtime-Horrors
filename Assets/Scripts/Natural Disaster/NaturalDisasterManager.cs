@@ -7,7 +7,6 @@ public class NaturalDisasterManager : MonoBehaviour
     [SerializeField] private List<NaturalDisaster> _disasters;
     [SerializeField] private float _minInterval = 30f;
     [SerializeField] private float _maxInterval = 120f;
-    [SerializeField] private PanelEventTrigger _firstDisasterPanel;
     private NaturalDisaster _currentDisaster;
 
     bool _isCoroutineRunning = false;
@@ -72,7 +71,6 @@ public class NaturalDisasterManager : MonoBehaviour
         _currentDisaster = disaster;
 
         disaster.StartDisaster();
-        _firstDisasterPanel?.TriggerEvent();
         yield return new WaitForSeconds(disaster.Duration);
         disaster.EndDisaster();
         _isCoroutineRunning = false;

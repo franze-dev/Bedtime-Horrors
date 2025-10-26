@@ -74,9 +74,9 @@ public class StartFixedDisasterEvent : IStartFixedDisasterEvent
     public NaturalDisaster Disaster => _disaster;
     public GameObject TriggeredByGO => null;
 
-
     public StartFixedDisasterEvent(NaturalDisaster disaster)
     {
         _disaster = disaster;
+        EventTriggerer.Trigger<IContinuePanelsEvent>(new ContinuePanelsEvent());
     }
 }
