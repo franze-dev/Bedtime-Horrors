@@ -28,6 +28,7 @@ public class DirectionalTurret : ShootTurret, IAreaTurret
         if (_timer >= cooldown && EnemiesCollided.Count > 0)
         {
             Fire();
+            AkUnitySoundEngine.PostEvent("Tower_Shoot_TeddyBear", gameObject);
             _timer = 0f;
         }
     }
