@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class TurretSelectionManager : MonoBehaviour
 {
     [Header("Prefab select")]
-    [SerializeField] private List<GameObject> _turretPrefabs = new List<GameObject>();
+    [SerializeField] private List<GameObject> _turretSelectables = new List<GameObject>();
     private List<SpriteRenderer> _renderers = new List<SpriteRenderer>();
     [SerializeField] private int _selectedPrefab;
     [SerializeField] private float _scaleMultiplier;
@@ -19,12 +19,12 @@ public class TurretSelectionManager : MonoBehaviour
     {
         _renderers.Clear();
 
-        for (int i = 0; i < _turretPrefabs.Count; i++)
+        for (int i = 0; i < _turretSelectables.Count; i++)
         {
-            var toAdd = _turretPrefabs[i].GetComponentInChildren<SpriteRenderer>();
+            var toAdd = _turretSelectables[i].GetComponentInChildren<SpriteRenderer>();
 
             if (toAdd == null)
-                toAdd = _turretPrefabs[i].GetComponent<SpriteRenderer>();
+                toAdd = _turretSelectables[i].GetComponent<SpriteRenderer>();
 
             _renderers.Add(toAdd);
         }
@@ -66,18 +66,21 @@ public class TurretSelectionManager : MonoBehaviour
     private void OnSelectPrefab(ISelectTurretPrefabEvent @event)
     {
         if (_selectedPrefab != -1)
-            if (@event.TurretSelectable.gameObject == _turretPrefabs[_selectedPrefab])
+            if (@event.TurretSelectable.gameObject == _turretSelectables[_selectedPrefab])
                 return;
 
-        for (int i = 0; i < _turretPrefabs.Count; i++)
+        for (int i = 0; i < _turretSelectables.Count; i++)
         {
-            if (@event.TurretSelectable.gameObject == _turretPrefabs[i])
+            var select = @event.TurretSelectable;
+
+            if (select == _turretSelectables[i].GetComponent<TurretSelectable>())
             {
                 _selectedPrefab = i;
                 return;
             }
         }
 
+        Debug.Log(@event.TurretSelectable.gameObject.name);
         _selectedPrefab = -1;
     }
 
@@ -85,7 +88,7 @@ public class TurretSelectionManager : MonoBehaviour
 
     private void Update()
     {
-        for (int i = 0; i < _turretPrefabs.Count; i++)
+        for (int i = 0; i < _turretSelectables.Count; i++)
         {
             if (_renderers[i] == null)
             {
@@ -94,10 +97,10 @@ public class TurretSelectionManager : MonoBehaviour
             }
             if (IsMouseHovering(_renderers[i].bounds))
             {
-                _turretPrefabs[i].gameObject.transform.localScale = new Vector3(_scaleMultiplier, _scaleMultiplier, _scaleMultiplier);
+                _turretSelectables[i].gameObject.transform.localScale = new Vector3(_scaleMultiplier, _scaleMultiplier, _scaleMultiplier);
             }
             else if (i != _selectedPrefab)
-                _turretPrefabs[i].gameObject.transform.localScale = new Vector3(1, 1, 1);
+                _turretSelectables[i].gameObject.transform.localScale = new Vector3(1, 1, 1);
         }
 
         foreach (var turret in _turretManager.ActiveTurrets)

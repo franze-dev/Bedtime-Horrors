@@ -88,7 +88,7 @@ public class NaturalDisasterManager : MonoBehaviour
 
         if (_currentDisaster != null)
         {
-            Debug.Log("Ending current disaster: " + _currentDisaster.name);
+            //Debug.Log("Ending current disaster: " + _currentDisaster.name);
             _currentDisaster.EndDisaster();
         }
 
