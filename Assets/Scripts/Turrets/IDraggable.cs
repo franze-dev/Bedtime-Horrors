@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-public interface IDraggable
+﻿public interface IDraggable
 {
     void OnDragStart(IClickEvent @event);
     void OnDrag(IDragEvent @event);

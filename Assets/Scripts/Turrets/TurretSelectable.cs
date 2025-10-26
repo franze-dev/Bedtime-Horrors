@@ -8,7 +8,6 @@ public class TurretSelectable : MonoBehaviour, IInteractable, IDraggable
     private GameObject _copy;
 
 
-
     private void Awake()
     {
         EventProvider.Subscribe<IClickEvent>(OnDragStart);
@@ -43,12 +42,6 @@ public class TurretSelectable : MonoBehaviour, IInteractable, IDraggable
 
     public void OnDragStart(IClickEvent @event)
     {
-        if (_copy == null)
-        {
-            //Debug.Log("INSTANCIANDO");
-            _copy = Instantiate(gameObject);
-            _copy.transform.position = transform.position;
-        }
 
         if (!@event.HasHit) return;
 
@@ -56,6 +49,12 @@ public class TurretSelectable : MonoBehaviour, IInteractable, IDraggable
         {
             if (hit.collider != null && hit.collider.gameObject == gameObject)
             {
+                if (_copy == null)
+                {
+                    _copy = Instantiate(gameObject);
+                    _copy.transform.position = transform.position;
+                }
+
                 _isDragging = true;
                 break;
             }
