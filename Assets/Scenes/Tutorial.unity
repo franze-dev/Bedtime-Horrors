@@ -4430,6 +4430,10 @@ PrefabInstance:
       propertyPath: _creativityUpdater
       value: 
       objectReference: {fileID: 1866713631}
+    - target: {fileID: 5227965411734066404, guid: d1361d9b673fd944b82213c9fa59c98d, type: 3}
+      propertyPath: _turretDeleteInput
+      value: 
+      objectReference: {fileID: -4744351689228943628, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5243,6 +5247,10 @@ PrefabInstance:
       propertyPath: _creativityUpdater
       value: 
       objectReference: {fileID: 1866713631}
+    - target: {fileID: 5227965411734066404, guid: d1361d9b673fd944b82213c9fa59c98d, type: 3}
+      propertyPath: _turretDeleteInput
+      value: 
+      objectReference: {fileID: -4744351689228943628, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5406,6 +5414,10 @@ PrefabInstance:
       propertyPath: _creativityUpdater
       value: 
       objectReference: {fileID: 1866713631}
+    - target: {fileID: 5227965411734066404, guid: d1361d9b673fd944b82213c9fa59c98d, type: 3}
+      propertyPath: _turretDeleteInput
+      value: 
+      objectReference: {fileID: -4744351689228943628, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17605,7 +17617,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 670561007}
-  - component: {fileID: 670561006}
   - component: {fileID: 670561008}
   m_Layer: 0
   m_Name: WwiseGlobal
@@ -17614,31 +17625,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &670561006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 670561005}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a54fcbd3b58734a40af0e8229eaddc6d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InitializationSettings: {fileID: 11400000, guid: 5b1666fd9829698408c53c51e35d4827, type: 2}
-  basePath: 
-  language: 
-  defaultPoolSize: 0
-  lowerPoolSize: 0
-  streamingPoolSize: 0
-  memoryCutoffThreshold: 0
-  monitorPoolSize: 0
-  monitorQueuePoolSize: 0
-  callbackManagerBufferSize: 0
-  spatialAudioPoolSize: 0
-  maxSoundPropagationDepth: 0
-  engineLogging: 0
 --- !u!4 &670561007
 Transform:
   m_ObjectHideFlags: 0
@@ -19427,6 +19413,10 @@ PrefabInstance:
       propertyPath: _creativityUpdater
       value: 
       objectReference: {fileID: 1866713631}
+    - target: {fileID: 5227965411734066404, guid: d1361d9b673fd944b82213c9fa59c98d, type: 3}
+      propertyPath: _turretDeleteInput
+      value: 
+      objectReference: {fileID: -4744351689228943628, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19508,6 +19498,10 @@ PrefabInstance:
       propertyPath: _creativityUpdater
       value: 
       objectReference: {fileID: 1866713631}
+    - target: {fileID: 5227965411734066404, guid: d1361d9b673fd944b82213c9fa59c98d, type: 3}
+      propertyPath: _turretDeleteInput
+      value: 
+      objectReference: {fileID: -4744351689228943628, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22404,6 +22398,10 @@ PrefabInstance:
       propertyPath: _creativityUpdater
       value: 
       objectReference: {fileID: 1866713631}
+    - target: {fileID: 5227965411734066404, guid: d1361d9b673fd944b82213c9fa59c98d, type: 3}
+      propertyPath: _turretDeleteInput
+      value: 
+      objectReference: {fileID: -4744351689228943628, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -23762,6 +23760,10 @@ PrefabInstance:
       propertyPath: _creativityUpdater
       value: 
       objectReference: {fileID: 1866713631}
+    - target: {fileID: 5227965411734066404, guid: d1361d9b673fd944b82213c9fa59c98d, type: 3}
+      propertyPath: _turretDeleteInput
+      value: 
+      objectReference: {fileID: -4744351689228943628, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -25357,6 +25359,10 @@ PrefabInstance:
       propertyPath: _creativityUpdater
       value: 
       objectReference: {fileID: 1866713631}
+    - target: {fileID: 5227965411734066404, guid: d1361d9b673fd944b82213c9fa59c98d, type: 3}
+      propertyPath: _turretDeleteInput
+      value: 
+      objectReference: {fileID: -4744351689228943628, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -29032,6 +29038,10 @@ PrefabInstance:
       propertyPath: _creativityUpdater
       value: 
       objectReference: {fileID: 1866713631}
+    - target: {fileID: 5227965411734066404, guid: d1361d9b673fd944b82213c9fa59c98d, type: 3}
+      propertyPath: _turretDeleteInput
+      value: 
+      objectReference: {fileID: -4744351689228943628, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -34504,6 +34514,10 @@ PrefabInstance:
       propertyPath: _creativityUpdater
       value: 
       objectReference: {fileID: 1866713631}
+    - target: {fileID: 5227965411734066404, guid: d1361d9b673fd944b82213c9fa59c98d, type: 3}
+      propertyPath: _turretDeleteInput
+      value: 
+      objectReference: {fileID: -4744351689228943628, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -35484,7 +35498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7708e4b74b0c1724186d036e50dd8708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _turretPrefabs:
+  _turretSelectables:
   - {fileID: 1162781610}
   - {fileID: 1707069598}
   - {fileID: 1171104249}
@@ -41371,6 +41385,10 @@ PrefabInstance:
       propertyPath: _creativityUpdater
       value: 
       objectReference: {fileID: 1866713631}
+    - target: {fileID: 5227965411734066404, guid: d1361d9b673fd944b82213c9fa59c98d, type: 3}
+      propertyPath: _turretDeleteInput
+      value: 
+      objectReference: {fileID: -4744351689228943628, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -43231,6 +43249,10 @@ PrefabInstance:
       propertyPath: _creativityUpdater
       value: 
       objectReference: {fileID: 1866713631}
+    - target: {fileID: 5227965411734066404, guid: d1361d9b673fd944b82213c9fa59c98d, type: 3}
+      propertyPath: _turretDeleteInput
+      value: 
+      objectReference: {fileID: -4744351689228943628, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -44982,6 +45004,10 @@ PrefabInstance:
       propertyPath: _creativityUpdater
       value: 
       objectReference: {fileID: 1866713631}
+    - target: {fileID: 5227965411734066404, guid: d1361d9b673fd944b82213c9fa59c98d, type: 3}
+      propertyPath: _turretDeleteInput
+      value: 
+      objectReference: {fileID: -4744351689228943628, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -46975,6 +47001,10 @@ PrefabInstance:
       propertyPath: _creativityUpdater
       value: 
       objectReference: {fileID: 1866713631}
+    - target: {fileID: 5227965411734066404, guid: d1361d9b673fd944b82213c9fa59c98d, type: 3}
+      propertyPath: _turretDeleteInput
+      value: 
+      objectReference: {fileID: -4744351689228943628, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -48497,6 +48527,10 @@ PrefabInstance:
       propertyPath: _creativityUpdater
       value: 
       objectReference: {fileID: 1866713631}
+    - target: {fileID: 5227965411734066404, guid: d1361d9b673fd944b82213c9fa59c98d, type: 3}
+      propertyPath: _turretDeleteInput
+      value: 
+      objectReference: {fileID: -4744351689228943628, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -50546,6 +50580,10 @@ PrefabInstance:
       propertyPath: _creativityUpdater
       value: 
       objectReference: {fileID: 1866713631}
+    - target: {fileID: 5227965411734066404, guid: d1361d9b673fd944b82213c9fa59c98d, type: 3}
+      propertyPath: _turretDeleteInput
+      value: 
+      objectReference: {fileID: -4744351689228943628, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
