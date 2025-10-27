@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using Unity.Mathematics;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -68,9 +66,6 @@ public class Enemy : MonoBehaviour
         _currentHealth = _maxHealth;
         _healthBar.UpdateSlider(_currentHealth, _maxHealth);
 
-        //Debug.Log(gameObject.name + " Enabled!");
-        //Debug.Log("Current target set to " + _currentTargetIndex);
-
         EventTriggerer.Trigger<IEnemySpawnEvent>(new EnemySpawnEvent());
     }
 
@@ -105,20 +100,18 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("bullet"))
         {
-            if (collision.gameObject.TryGetComponent<Bullet>(out Bullet bullet))
+            if (collision.gameObject.TryGetComponent(out Bullet bullet))
             {
                 float damageToTake = bullet.damage;
                 TakeDamage(damageToTake);
-                //Debug.Log(damageToTake + " damage taken!");
                 return;
             }
         }
-        //Debug.Log("This enemy collided with another object");
     }
 
     public void OnDeath()
     {
-        EventTriggerer.Trigger<ICreativityUpdateEvent>(new CreativityUpdaterEvent(this.gameObject, _creativityToSum));
+        EventTriggerer.Trigger<ICreativityUpdateEvent>(new CreativityUpdaterEvent(gameObject, _creativityToSum));
         EventTriggerer.Trigger<IEnemyDeathEvent>(new EnemyDeathEvent());
         _isDead = true;
         StartCoroutine(DeathCoroutine());
