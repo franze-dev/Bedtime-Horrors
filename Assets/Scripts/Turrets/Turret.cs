@@ -107,7 +107,7 @@ public class Turret : MonoBehaviour, IInteractable
 
     public void Upgrade()
     {
-        if (_currentLevelId < 0 || _currentLevelId > _levelData.LevelCount - 1)
+        if (_currentLevelId < 0 || _currentLevelId > _levelData.LevelCount - 2)
             return;
 
         _currentLevelId++;
