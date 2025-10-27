@@ -22,7 +22,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] private GameObject _floatingDamage;
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private BoxCollider2D _collider;
-    [SerializeField] private GameObject _armature;
+    [SerializeField] private GameObject _armatureGO;
+
+    [SerializeField] private EnemyAnimator _animator;
 
     private FloatingText _floatingText;
 
@@ -32,6 +34,9 @@ public class Enemy : MonoBehaviour
     {
         if (_targetManager == null)
             Debug.LogError("No TargetManager assigned to " + gameObject.name);
+
+        if(_animator == null)
+            _animator = GetComponent<EnemyAnimator>();
     }
 
     void OnEnable()
@@ -50,11 +55,11 @@ public class Enemy : MonoBehaviour
         if (_spriteRenderer == null)
             _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
-        if (!_spriteRenderer && !_armature)
+        if (!_spriteRenderer && !_armatureGO)
             Debug.LogError("No SpriteRenderer or Armature assigned to " + gameObject.name);
 
-        if (_armature != null)
-            _armature.SetActive(true);
+        if (_armatureGO != null)
+            _armatureGO.SetActive(true);
         else if (_spriteRenderer != null)
             _spriteRenderer.gameObject.SetActive(true);
 
@@ -65,6 +70,9 @@ public class Enemy : MonoBehaviour
 
         _currentHealth = _maxHealth;
         _healthBar.UpdateSlider(_currentHealth, _maxHealth);
+
+        if (_animator != null)
+            _animator.Play(EnemyAnimationState.Walk);
 
         EventTriggerer.Trigger<IEnemySpawnEvent>(new EnemySpawnEvent());
     }
@@ -114,22 +122,24 @@ public class Enemy : MonoBehaviour
         EventTriggerer.Trigger<ICreativityUpdateEvent>(new CreativityUpdaterEvent(gameObject, _creativityToSum));
         EventTriggerer.Trigger<IEnemyDeathEvent>(new EnemyDeathEvent());
         _isDead = true;
+        _animator.Play(EnemyAnimationState.Death, 1);
+        MultiplySpeed(0f);
         StartCoroutine(DeathCoroutine());
     }
 
     private IEnumerator DeathCoroutine()
     {
-        if (_armature != null)
-            _armature.SetActive(false);
-        else if (_spriteRenderer != null)
+        //if (_armatureGO != null)
+        //    _armatureGO.SetActive(false);
+        if (_spriteRenderer != null)
             _spriteRenderer.gameObject.SetActive(false);
 
         _healthBar.gameObject.SetActive(false);
         _collider.enabled = false;
 
-        yield return new WaitForSeconds(_floatingText.LifeTime);
-
-        this.gameObject.SetActive(false);
+        yield return new WaitForSeconds(_animator.GetAnimationDuration(EnemyAnimationState.Death));
+        ResetSpeed();
+        gameObject.SetActive(false);
     }
 
     private void OnDisable()
