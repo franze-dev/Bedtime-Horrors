@@ -5,12 +5,14 @@ public class Turret : MonoBehaviour, IInteractable
     [SerializeField] protected float cooldown;
     [SerializeField] private GameObject _selectionGO;
     [SerializeField] private AreaNotifier _areaNotifier;
+    [SerializeField] protected float damage = 30;
     protected float _timer = 0;
     public int price;
     public SpriteRenderer spriteRenderer;
     [SerializeField] private SpriteRenderer _areaSpriteRenderer;
     private float _areaTransparency;
     private BoxCollider2D _collider;
+
 
     protected virtual void Awake()
     {
@@ -82,5 +84,10 @@ public class Turret : MonoBehaviour, IInteractable
         areaColor.a = 0;
         _areaSpriteRenderer.color = areaColor;
     }
+
+}
+
+public interface TurretStats
+{
 
 }

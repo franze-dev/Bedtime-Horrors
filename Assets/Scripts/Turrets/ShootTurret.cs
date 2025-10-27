@@ -14,9 +14,9 @@ public abstract class ShootTurret : Turret, IBulletConfig
     public List<GameObject> Bullets { get => _bullets; set => _bullets = value; }
     public Transform BulletStartPos { get => _bulletStartPosition; set => _bulletStartPosition = value; }
 
-    public abstract void Fire();
+    public abstract void Fire(float damage);
 
-    public virtual void AddNewBullet(Vector3 direction, GameObject target = null)
+    public virtual void AddNewBullet(Vector3 direction, float damage, GameObject target = null)
     {
         //Modificar para que los datos de la bala se pasen desde aca
         GameObject newBullet = Instantiate(BulletGO, BulletStartPos.position, Quaternion.identity);
@@ -25,6 +25,7 @@ public abstract class ShootTurret : Turret, IBulletConfig
         bulletComponent.direction = direction;
         bulletComponent.nextDirection = direction;
         bulletComponent.speed = BulletSpeed;
+        bulletComponent.damage = damage;
 
         if (target != null)
             bulletComponent.target = target;
@@ -43,7 +44,7 @@ public abstract class ShootTurret : Turret, IBulletConfig
             }
     }
 
-    public void Fire1(Vector2 direction)
+    public void Fire(Vector2 direction, float damage)
     {
         if (Bullets.Count < MaxBullets)
         {

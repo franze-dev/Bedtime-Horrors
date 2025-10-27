@@ -4,7 +4,6 @@ using UnityEngine;
 public class AreaTurret : Turret, IAreaTurret
 {
     [SerializeField] private List<GameObject> _enemiesCollided;
-    [SerializeField] private float _damage = 30;
 
     public List<GameObject> EnemiesCollided { get => _enemiesCollided; private set => _enemiesCollided = value; }
 
@@ -29,7 +28,7 @@ public class AreaTurret : Turret, IAreaTurret
                 GameObject enemyGO = EnemiesCollided[i];
                 var enemy = enemyGO?.GetComponent<Enemy>();
                 
-                enemy?.TakeDamage(_damage);
+                enemy?.TakeDamage(damage);
             }
         }
     }
@@ -60,3 +59,4 @@ public class AreaTurret : Turret, IAreaTurret
         }
     }
 }
+
