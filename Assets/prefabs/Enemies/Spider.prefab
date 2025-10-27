@@ -182,6 +182,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4667694364650094029}
   - component: {fileID: 509469669851145109}
+  - component: {fileID: 1164114568063533734}
   - component: {fileID: 8412359145247716755}
   - component: {fileID: 1732574656794449136}
   m_Layer: 6
@@ -202,7 +203,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.778, y: 0.42, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7497370940584937786}
   - {fileID: 6118205717736863964}
@@ -231,7 +232,21 @@ MonoBehaviour:
   _floatingDamage: {fileID: 310084361762771315, guid: b476fb13115d6874d8f945e56cd11050, type: 3}
   _spriteRenderer: {fileID: 0}
   _collider: {fileID: 0}
-  _armature: {fileID: 5817411121751701144}
+  _armatureGO: {fileID: 5817411121751701144}
+  _animator: {fileID: 1164114568063533734}
+--- !u!114 &1164114568063533734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839991168330126653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee7309b36c8fb58498155ac3228b7ab2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _armatureComponent: {fileID: 4797898558101405677}
 --- !u!50 &8412359145247716755
 Rigidbody2D:
   serializedVersion: 5

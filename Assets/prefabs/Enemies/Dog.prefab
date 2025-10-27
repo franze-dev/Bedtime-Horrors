@@ -2220,9 +2220,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2872349585197642162}
   - component: {fileID: 822686634498361948}
+  - component: {fileID: 7482512268162370915}
   - component: {fileID: 419097758472167262}
   - component: {fileID: 7380925061933179273}
-  - component: {fileID: 6080712691154329564}
   m_Layer: 6
   m_Name: Dog
   m_TagString: Untagged
@@ -2270,7 +2270,21 @@ MonoBehaviour:
   _floatingDamage: {fileID: 310084361762771315, guid: b476fb13115d6874d8f945e56cd11050, type: 3}
   _spriteRenderer: {fileID: 0}
   _collider: {fileID: 0}
-  _armature: {fileID: 623948468533597038}
+  _armatureGO: {fileID: 623948468533597038}
+  _animator: {fileID: 7482512268162370915}
+--- !u!114 &7482512268162370915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3762735258986391157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee7309b36c8fb58498155ac3228b7ab2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _armatureComponent: {fileID: 7189134404286813139}
 --- !u!50 &419097758472167262
 Rigidbody2D:
   serializedVersion: 5
@@ -2344,21 +2358,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 3.49, y: 2.65}
   m_EdgeRadius: 0
---- !u!114 &6080712691154329564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3762735258986391157}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 599fe2f155d658c4393ec34a96356139, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _armature: {fileID: 7189134404286813139}
-  _timer: 0
-  _timeToChangeAnimation: 2
 --- !u!1 &3790736552407901181
 GameObject:
   m_ObjectHideFlags: 0
