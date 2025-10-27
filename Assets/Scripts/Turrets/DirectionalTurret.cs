@@ -25,10 +25,10 @@ public class DirectionalTurret : ShootTurret, IAreaTurret
 
         ClearEnemyList();
 
-        if (_timer >= cooldown && EnemiesCollided.Count > 0)
+        if (timer >= Cooldown && EnemiesCollided.Count > 0)
         {
             Fire();
-            _timer = 0f;
+            timer = 0f;
         }
     }
 
@@ -36,8 +36,8 @@ public class DirectionalTurret : ShootTurret, IAreaTurret
     {
         EnemiesCollided?.Add(collision.gameObject);
 
-        EnemiesCollided[0] = EnemiesCollided[0] != null ? EnemiesCollided[0] : collision.gameObject;
-        //_currentTarget
+        EnemiesCollided[0] = EnemiesCollided[0] != null ? 
+            EnemiesCollided[0] : collision.gameObject;
 
     }
 
@@ -47,7 +47,6 @@ public class DirectionalTurret : ShootTurret, IAreaTurret
             return;
 
         EnemiesCollided?.Remove(collision.gameObject);
-        //Debug.Log()
     }
 
     public override void Fire()
@@ -56,7 +55,7 @@ public class DirectionalTurret : ShootTurret, IAreaTurret
         {
             var target = EnemiesCollided[0] != null ? EnemiesCollided[0] : null;
 
-            AddNewBullet(new(0, 0), target);
+            AddNewBullet(new(0, 0), Damage, target);
         }
         else
             RetargetBullets(EnemiesCollided[0]);

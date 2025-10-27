@@ -8,7 +8,7 @@ public class BasicTurret : ShootTurret
     public override void Fire()
     {
         if (Bullets.Count < MaxBullets)
-            AddNewBullet(_direction);
+            AddNewBullet(_direction, Damage);
         else
             RetargetBullets();
     }
@@ -32,10 +32,10 @@ public class BasicTurret : ShootTurret
     {
         base.Update();
 
-        if (_timer >= cooldown)
+        if (timer >= Cooldown)
         {
-            Fire1(_direction);
-            _timer = 0f;
+            Fire(_direction);
+            timer = 0f;
         }
     }
 

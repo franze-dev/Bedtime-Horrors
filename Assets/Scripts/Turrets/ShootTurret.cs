@@ -7,16 +7,18 @@ public abstract class ShootTurret : Turret, IBulletConfig
     [SerializeField] private int _maxBullets;
     [SerializeField] private List<GameObject> _bullets = new();
     [SerializeField] private Transform _bulletStartPosition;
+    [SerializeField] private float _bulletRange;
 
     public float BulletSpeed { get => _bulletSpeed; set => _bulletSpeed = value; }
     public GameObject BulletGO { get => _bulletGO; set => _bulletGO = value; }
     public int MaxBullets { get => _maxBullets; set => _maxBullets = value; }
     public List<GameObject> Bullets { get => _bullets; set => _bullets = value; }
     public Transform BulletStartPos { get => _bulletStartPosition; set => _bulletStartPosition = value; }
+    public float BulletRange { get => _bulletRange; set => _bulletRange = value; }
 
     public abstract void Fire();
 
-    public virtual void AddNewBullet(Vector3 direction, GameObject target = null)
+    public virtual void AddNewBullet(Vector3 direction, float damage, GameObject target = null)
     {
         //Modificar para que los datos de la bala se pasen desde aca
         GameObject newBullet = Instantiate(BulletGO, BulletStartPos.position, Quaternion.identity);
@@ -25,6 +27,12 @@ public abstract class ShootTurret : Turret, IBulletConfig
         bulletComponent.direction = direction;
         bulletComponent.nextDirection = direction;
         bulletComponent.speed = BulletSpeed;
+        bulletComponent.damage = damage;
+
+        if (BulletRange == 0)
+            Debug.LogWarning("Bullet range is 0");
+        else
+            bulletComponent.range = BulletRange;
 
         if (target != null)
             bulletComponent.target = target;
@@ -37,13 +45,16 @@ public abstract class ShootTurret : Turret, IBulletConfig
         for (int i = 0; i < Bullets.Count; i++)
             if (!Bullets[i].gameObject.activeSelf)
             {
-                Bullets[i].GetComponent<Bullet>().ResetBullet();
-                Bullets[i].GetComponent<Bullet>().target = target;
+                var bullet = Bullets[i].GetComponent<Bullet>();
+                bullet.ResetBullet();
+                bullet.target = target;
+                bullet.damage = Damage;
+                bullet.range = Range;
                 return;
             }
     }
 
-    public void Fire1(Vector2 direction)
+    public void Fire(Vector2 direction)
     {
         if (Bullets.Count < MaxBullets)
         {
@@ -54,6 +65,8 @@ public abstract class ShootTurret : Turret, IBulletConfig
             bulletComponent.direction = direction;
             bulletComponent.nextDirection = direction;
             bulletComponent.speed = BulletSpeed;
+            bulletComponent.damage = Damage;
+            bulletComponent.range = Range;
 
             bulletComponent.SetRotation(direction);
 
@@ -64,7 +77,10 @@ public abstract class ShootTurret : Turret, IBulletConfig
             for (int i = 0; i < Bullets.Count; i++)
                 if (!Bullets[i].gameObject.activeSelf)
                 {
-                    Bullets[i].GetComponent<Bullet>().ResetBullet();
+                    var bullet = Bullets[i].GetComponent<Bullet>();
+                    bullet.ResetBullet();
+                    bullet.damage = Damage;
+                    bullet.range = Range;
                     return;
                 }
         }

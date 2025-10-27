@@ -23,7 +23,6 @@ public class TurretSpawner : MonoBehaviour, IInteractable
 
     private GameObject _spawnedTurret;
     private int _nextTurretId = 0;
-    private int _spawnedTurretsCount = 0;
 
     private void Awake()
     {
@@ -170,7 +169,6 @@ public class TurretSpawner : MonoBehaviour, IInteractable
     public void Interact()
     {
         int selectedTurret = _selectionManager.GetSelectedTurret();
-        Debug.Log("selected turret: " + selectedTurret);
 
         if (selectedTurret >= 0)
             SpawnTurret(selectedTurret);
