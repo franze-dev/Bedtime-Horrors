@@ -37,7 +37,6 @@ public class TurretSelectable : MonoBehaviour, IInteractable, IDraggable
     public void Interact()
     {
         EventTriggerer.Trigger<ISelectTurretPrefabEvent>(new SelectTurretPrefabEvent(this));
-        Debug.Log("INTREACTUOOOOOO");
     }
 
     public void OnDragStart(IClickEvent @event)
@@ -67,8 +66,6 @@ public class TurretSelectable : MonoBehaviour, IInteractable, IDraggable
     {
         if (!_isDragging) return;
         _copy.transform.position = @event.MouseWorldPos;
-
-        Debug.Log("Dragging");
     }
 
     public void OnDragEnd(IClickReleaseEvent @event)

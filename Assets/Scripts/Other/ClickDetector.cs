@@ -22,13 +22,11 @@ public class ClickDetector : MonoBehaviour
     private void OnClick(InputAction.CallbackContext context)
     {
         EventTriggerer.Trigger<IClickEvent>(new ClickHitEvent(Mouse.current.position.ReadValue()));
-        Debug.Log("CLICK");
     }
 
     private void OnClickRelease(InputAction.CallbackContext context)
     {
         EventTriggerer.Trigger<IClickReleaseEvent>(new ClickReleaseEvent(Mouse.current.position.ReadValue()));
-        Debug.Log("CLICK RELEASED");
     }
 }
 

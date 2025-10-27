@@ -42,7 +42,6 @@ public class WaveManager : MonoBehaviour
 
                     _timer = 0;
                     _currentWaveIndex++;
-                    Debug.Log("Wave changed to wave: " + (_currentWaveIndex + 1));
                 }
             }
         }
