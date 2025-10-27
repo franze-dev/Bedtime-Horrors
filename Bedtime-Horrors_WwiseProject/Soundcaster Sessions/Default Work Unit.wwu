@@ -10,8 +10,16 @@
 							<Position X="0" Y="0"/>
 						</Module>
 						<Module>
+							<ObjectRef Name="Event_Start_Flood" ID="{751A05A3-56F3-453A-AF6F-710C8E47D3FA}" WorkUnitID="{52DD7F67-F123-4AA1-A73A-36B216D11CA3}"/>
+							<Position X="0" Y="1"/>
+						</Module>
+						<Module>
 							<ObjectRef Name="Event_End_Earthquake" ID="{82DFD3E8-DCFB-4268-AD57-A0FB7B9DE6B1}" WorkUnitID="{52DD7F67-F123-4AA1-A73A-36B216D11CA3}"/>
 							<Position X="1" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Event_End_Flood" ID="{8B39F927-6BD8-458E-AF93-AB804AA613E6}" WorkUnitID="{52DD7F67-F123-4AA1-A73A-36B216D11CA3}"/>
+							<Position X="1" Y="1"/>
 						</Module>
 					</ModuleList>
 					<RTPCValueList ShowAll="true"/>
