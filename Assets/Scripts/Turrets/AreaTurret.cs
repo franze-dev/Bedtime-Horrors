@@ -19,16 +19,17 @@ public class AreaTurret : Turret, IAreaTurret
         base.Update();
         ClearEnemyList();
 
-        if (_timer >= cooldown && EnemiesCollided.Count > 0)
+        if (timer >= Cooldown && EnemiesCollided.Count > 0)
         {
-            _timer = 0f;
+            timer = 0f;
 
             for (int i = 0; i < EnemiesCollided.Count; i++)
             {
                 GameObject enemyGO = EnemiesCollided[i];
                 var enemy = enemyGO?.GetComponent<Enemy>();
-                
-                enemy?.TakeDamage(damage);
+
+                Debug.Log("DAMAGE: " + Damage);
+                enemy?.TakeDamage(Damage);
             }
         }
     }

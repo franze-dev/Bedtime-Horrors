@@ -45,8 +45,11 @@ public abstract class ShootTurret : Turret, IBulletConfig
         for (int i = 0; i < Bullets.Count; i++)
             if (!Bullets[i].gameObject.activeSelf)
             {
-                Bullets[i].GetComponent<Bullet>().ResetBullet();
-                Bullets[i].GetComponent<Bullet>().target = target;
+                var bullet = Bullets[i].GetComponent<Bullet>();
+                bullet.ResetBullet();
+                bullet.target = target;
+                bullet.damage = Damage;
+                bullet.range = Range;
                 return;
             }
     }
@@ -62,8 +65,8 @@ public abstract class ShootTurret : Turret, IBulletConfig
             bulletComponent.direction = direction;
             bulletComponent.nextDirection = direction;
             bulletComponent.speed = BulletSpeed;
-            bulletComponent.damage = damage;
-            bulletComponent.range = range;
+            bulletComponent.damage = Damage;
+            bulletComponent.range = Range;
 
             bulletComponent.SetRotation(direction);
 
@@ -74,7 +77,10 @@ public abstract class ShootTurret : Turret, IBulletConfig
             for (int i = 0; i < Bullets.Count; i++)
                 if (!Bullets[i].gameObject.activeSelf)
                 {
-                    Bullets[i].GetComponent<Bullet>().ResetBullet();
+                    var bullet = Bullets[i].GetComponent<Bullet>();
+                    bullet.ResetBullet();
+                    bullet.damage = Damage;
+                    bullet.range = Range;
                     return;
                 }
         }

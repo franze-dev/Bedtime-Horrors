@@ -25,10 +25,10 @@ public class DirectionalTurret : ShootTurret, IAreaTurret
 
         ClearEnemyList();
 
-        if (_timer >= cooldown && EnemiesCollided.Count > 0)
+        if (timer >= Cooldown && EnemiesCollided.Count > 0)
         {
             Fire();
-            _timer = 0f;
+            timer = 0f;
         }
     }
 
@@ -55,7 +55,7 @@ public class DirectionalTurret : ShootTurret, IAreaTurret
         {
             var target = EnemiesCollided[0] != null ? EnemiesCollided[0] : null;
 
-            AddNewBullet(new(0, 0), damage, target);
+            AddNewBullet(new(0, 0), Damage, target);
         }
         else
             RetargetBullets(EnemiesCollided[0]);

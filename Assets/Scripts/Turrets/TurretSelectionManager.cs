@@ -105,10 +105,10 @@ public class TurretSelectionManager : MonoBehaviour
 
         foreach (var turret in _turretManager.ActiveTurrets)
         {
-            if (!turret.spriteRenderer)
+            if (!turret.SpriteRenderer)
                 Debug.Log(turret.gameObject.name + ": sprite renderer not found!");
 
-            if (IsMouseHovering(turret.spriteRenderer.bounds))
+            if (IsMouseHovering(turret.SpriteRenderer.bounds))
                 turret.ActivateArea();
             else
                 turret.DeactivateArea();

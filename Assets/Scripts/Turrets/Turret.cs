@@ -1,19 +1,27 @@
-using System;
 using UnityEngine;
 
 public class Turret : MonoBehaviour, IInteractable
 {
-    [SerializeField] protected float cooldown;
     [SerializeField] private GameObject _selectionGO;
     [SerializeField] private AreaNotifier _areaNotifier;
-    [SerializeField] protected float damage = 30;
-    [SerializeField] protected float range = 5;
-    protected float _timer = 0;
+    [SerializeField] private string _name;
+    [SerializeField] private TurretLevels _levelData;
+
+    protected float timer = 0;
     public int price;
-    public SpriteRenderer spriteRenderer;
+    private int _currentLevelId = 0;
+    private SpriteRenderer spriteRenderer;
     [SerializeField] private SpriteRenderer _areaSpriteRenderer;
     private float _areaTransparency;
-    private BoxCollider2D _collider;
+
+    public TurretStats CurrentStats => _levelData.GetStats(_currentLevelId);
+    public TurretStats NextStats => _levelData.GetStats(_currentLevelId + 1);
+    public float Cooldown { get => CurrentStats.Cooldown;}
+    public float Damage { get => CurrentStats.Damage; }
+    public float Range { get => CurrentStats.Range; }
+    public string Name { get => _name; set => _name = value; }
+    public SpriteRenderer SpriteRenderer { get => spriteRenderer; set => spriteRenderer = value; }
+    private SelectedTurretVisual _selectedTurretVisual;
 
     protected virtual void Awake()
     {
@@ -27,16 +35,15 @@ public class Turret : MonoBehaviour, IInteractable
         if (!_areaNotifier)
             _areaNotifier = GetComponentInChildren<AreaNotifier>();
 
-        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        SpriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
-        if (spriteRenderer == null)
-            spriteRenderer = GetComponent<SpriteRenderer>();
+        if (SpriteRenderer == null)
+            SpriteRenderer = GetComponent<SpriteRenderer>();
 
         if (_areaSpriteRenderer != null)
             _areaTransparency = _areaSpriteRenderer.color.a;
 
-        _collider = GetComponentInChildren<BoxCollider2D>();
-
+        _currentLevelId = 0;
 
         EventProvider.Subscribe<IClickEvent>(OnClickAny);
     }
@@ -44,7 +51,9 @@ public class Turret : MonoBehaviour, IInteractable
     private void Start()
     {
         if (_areaNotifier != null)
-            _areaNotifier.SetRange(range);
+            _areaNotifier.SetRange(Range);
+
+        ServiceProvider.TryGetService(out _selectedTurretVisual);
     }
 
     private void OnClickAny(IClickEvent @event)
@@ -60,17 +69,20 @@ public class Turret : MonoBehaviour, IInteractable
 
     protected virtual void Update()
     {
-        _timer += Time.deltaTime;
+        timer += Time.deltaTime;
     }
 
     public void Select()
     {
         _selectionGO.SetActive(true);
+        _selectedTurretVisual.SetStats(CurrentStats, NextStats, _name);
+        _selectedTurretVisual.Enable();
     }
 
     public void Deselect()
     {
         _selectionGO.SetActive(false);
+        _selectedTurretVisual.Disable();
     }
 
     public void ActivateArea()
@@ -93,9 +105,12 @@ public class Turret : MonoBehaviour, IInteractable
         _areaSpriteRenderer.color = areaColor;
     }
 
-}
+    public void Upgrade()
+    {
+        if (_currentLevelId < 0 || _currentLevelId > _levelData.LevelCount - 1)
+            return;
 
-public interface TurretStats
-{
-
+        _currentLevelId++;
+        _selectedTurretVisual.SetStats(CurrentStats, NextStats, _name);
+    }
 }
