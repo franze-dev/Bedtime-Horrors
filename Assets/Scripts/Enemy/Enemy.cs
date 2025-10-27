@@ -129,8 +129,6 @@ public class Enemy : MonoBehaviour
 
     private IEnumerator DeathCoroutine()
     {
-        //if (_armatureGO != null)
-        //    _armatureGO.SetActive(false);
         if (_spriteRenderer != null)
             _spriteRenderer.gameObject.SetActive(false);
 
