@@ -5,7 +5,7 @@ public class BasicTurret : ShootTurret
     [SerializeField] private Vector2 _direction;
     [SerializeField] private GameObject _arrowGO;
 
-    public override void Fire(float damage)
+    public override void Fire()
     {
         if (Bullets.Count < MaxBullets)
             AddNewBullet(_direction, damage);
@@ -34,7 +34,7 @@ public class BasicTurret : ShootTurret
 
         if (_timer >= cooldown)
         {
-            Fire(_direction, damage);
+            Fire(_direction);
             _timer = 0f;
         }
     }

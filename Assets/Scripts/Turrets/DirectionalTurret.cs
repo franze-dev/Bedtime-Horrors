@@ -27,7 +27,7 @@ public class DirectionalTurret : ShootTurret, IAreaTurret
 
         if (_timer >= cooldown && EnemiesCollided.Count > 0)
         {
-            Fire(damage);
+            Fire();
             _timer = 0f;
         }
     }
@@ -49,7 +49,7 @@ public class DirectionalTurret : ShootTurret, IAreaTurret
         EnemiesCollided?.Remove(collision.gameObject);
     }
 
-    public override void Fire(float damage)
+    public override void Fire()
     {
         if (Bullets.Count < MaxBullets)
         {

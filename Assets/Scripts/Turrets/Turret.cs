@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Turret : MonoBehaviour, IInteractable
@@ -6,13 +7,13 @@ public class Turret : MonoBehaviour, IInteractable
     [SerializeField] private GameObject _selectionGO;
     [SerializeField] private AreaNotifier _areaNotifier;
     [SerializeField] protected float damage = 30;
+    [SerializeField] protected float range = 5;
     protected float _timer = 0;
     public int price;
     public SpriteRenderer spriteRenderer;
     [SerializeField] private SpriteRenderer _areaSpriteRenderer;
     private float _areaTransparency;
     private BoxCollider2D _collider;
-
 
     protected virtual void Awake()
     {
@@ -36,7 +37,14 @@ public class Turret : MonoBehaviour, IInteractable
 
         _collider = GetComponentInChildren<BoxCollider2D>();
 
+
         EventProvider.Subscribe<IClickEvent>(OnClickAny);
+    }
+
+    private void Start()
+    {
+        if (_areaNotifier != null)
+            _areaNotifier.SetRange(range);
     }
 
     private void OnClickAny(IClickEvent @event)
