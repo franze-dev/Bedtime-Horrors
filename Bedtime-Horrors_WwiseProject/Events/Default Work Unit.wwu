@@ -101,8 +101,39 @@
 				</Folder>
 				<Folder Name="Events" ID="{F249F206-80CA-4872-AC08-91A95CBA3CCF}" ShortID="186666429">
 					<ChildrenList>
-						<Event Name="Event_Start_Earthquake" ID="{8B70E5D7-3E58-47DF-81E0-42FAA2310241}"/>
-						<Event Name="Event_End_Earthquake" ID="{82DFD3E8-DCFB-4268-AD57-A0FB7B9DE6B1}"/>
+						<Event Name="Event_Start_Earthquake" ID="{8B70E5D7-3E58-47DF-81E0-42FAA2310241}">
+							<ChildrenList>
+								<Action Name="" ID="{6ED5A15F-54B7-4694-B75A-4C1D95DADC48}" ShortID="877914227">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Event_Start_Earthquake" ID="{D72CD91C-2758-4B9E-8337-0C27272C849C}" WorkUnitID="{932C6B5F-4E51-4C47-BD09-779BE6F37C5D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Event_End_Earthquake" ID="{82DFD3E8-DCFB-4268-AD57-A0FB7B9DE6B1}">
+							<ChildrenList>
+								<Action Name="" ID="{407F41B1-9C25-45C2-A22D-C505D2853092}" ShortID="1067403003">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="Delay" Type="Real64" Value="0.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Event_Start_Earthquake" ID="{D72CD91C-2758-4B9E-8337-0C27272C849C}" WorkUnitID="{932C6B5F-4E51-4C47-BD09-779BE6F37C5D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{D4E07FCF-D6F9-4B2C-B542-0FD7782240E7}" ShortID="787302838">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Event_End_Earthquake" ID="{59B83323-319A-4739-9616-74885DBD04EA}" WorkUnitID="{932C6B5F-4E51-4C47-BD09-779BE6F37C5D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 						<Event Name="Event_Start_Flood" ID="{751A05A3-56F3-453A-AF6F-710C8E47D3FA}"/>
 						<Event Name="Event_End_Flood" ID="{8B39F927-6BD8-458E-AF93-AB804AA613E6}"/>
 						<Event Name="Event_Start_Winter" ID="{A3284DA7-AB05-4240-84FA-F7BC49FB092C}"/>

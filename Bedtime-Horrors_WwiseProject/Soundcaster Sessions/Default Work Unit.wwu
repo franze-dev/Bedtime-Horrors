@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{F82A206A-3541-42C6-9E35-6C350BE0204F}" SchemaVersion="123">
 	<SoundcasterSessions>
-		<WorkUnit Name="Default Work Unit" ID="{F82A206A-3541-42C6-9E35-6C350BE0204F}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{F82A206A-3541-42C6-9E35-6C350BE0204F}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundcasterSession Name="New Soundcaster Session" ID="{0907307F-BD8E-47F3-8321-7468B7092CC0}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="Event_Start_Earthquake" ID="{8B70E5D7-3E58-47DF-81E0-42FAA2310241}" WorkUnitID="{52DD7F67-F123-4AA1-A73A-36B216D11CA3}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Event_End_Earthquake" ID="{82DFD3E8-DCFB-4268-AD57-A0FB7B9DE6B1}" WorkUnitID="{52DD7F67-F123-4AA1-A73A-36B216D11CA3}"/>
+							<Position X="1" Y="0"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true"/>
+					<CurrentStateList ShowAll="true"/>
+					<CurrentSwitchList ShowAll="true"/>
+				</SoundcasterSession>
+			</ChildrenList>
+		</WorkUnit>
 	</SoundcasterSessions>
 </WwiseDocument>
