@@ -120,7 +120,6 @@ public class Enemy : MonoBehaviour
     public void OnDeath()
     {
         EventTriggerer.Trigger<ICreativityUpdateEvent>(new CreativityUpdaterEvent(gameObject, _creativityToSum));
-        EventTriggerer.Trigger<IEnemyDeathEvent>(new EnemyDeathEvent());
         _isDead = true;
         _animator.Play(EnemyAnimationState.Death, 1);
         MultiplySpeed(0f);
@@ -136,6 +135,8 @@ public class Enemy : MonoBehaviour
         _collider.enabled = false;
 
         yield return new WaitForSeconds(_animator.GetAnimationDuration(EnemyAnimationState.Death));
+
+        EventTriggerer.Trigger<IEnemyDeathEvent>(new EnemyDeathEvent());
         ResetSpeed();
         gameObject.SetActive(false);
     }
