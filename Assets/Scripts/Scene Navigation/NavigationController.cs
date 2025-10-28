@@ -15,14 +15,14 @@ public class NavigationController : MonoBehaviour
     public GameObject loseMenuGO;
     public GameObject settingsMenuGO;
     public GameObject creditsMenuGO;
+    public GameObject diaryMenuGO;
 
     private List<Menu> _menus = new();
     public Menu baseMenu;
+    private IMenuState _activeState;
+    private IMenuState _previousState;
 
-    private GameObject _activeMenu;
-    private GameObject _previousMenu;
-
-    public GameObject PreviousMenu => _previousMenu; 
+    public IMenuState PreviousMenu => _previousState;
 
     [SerializeField] private InputActionReference _navigateAction;
     private Vector2 _navigateInput = Vector2.zero;
@@ -41,8 +41,7 @@ public class NavigationController : MonoBehaviour
 
         AddMenusToList();
 
-        _activeMenu = mainMenuGO;
-        _previousMenu = mainMenuGO;
+        ShowMenu(mainMenuGO, new MainMenuState());
     }
 
     private void OnDestroy()
@@ -97,9 +96,12 @@ public class NavigationController : MonoBehaviour
         }
     }
 
-    public void GoToMenu(IMenuState menuState)
+    public void GoToMenu(IMenuState menuState, bool deactivatePrevious = true)
     {
+        if (deactivatePrevious)
+            _activeState.Exit(this);
 
+        menuState.Enter(this);
     }
 
     /// <summary>
@@ -121,44 +123,61 @@ public class NavigationController : MonoBehaviour
     /// </summary>
     private void SetBaseMenuActive()
     {
-        _previousMenu = _activeMenu;
-        SetMenuActive(mainMenuGO);
+        _previousState = _activeState;
+        GoToMenu(new MainMenuState());
     }
 
-    /// <summary>
-    /// Activates the specified menu and deactivates the rest.
-    /// Sets focus on the first button of the active menu
-    /// </summary>
-    public void SetMenuActive(GameObject menuToActivate)
-    {
-        if (menuToActivate == null)
-        {
-            Debug.LogWarning("Menu to activate is null!");
-            return;
-        }
+    ///// <summary>
+    ///// Activates the specified menu and deactivates the rest.
+    ///// Sets focus on the first button of the active menu
+    ///// </summary>
+    //public void SetMenuActive(GameObject menuToActivate, bool deactivatePrevious = true)
+    //{
+    //    if (menuToActivate == null)
+    //    {
+    //        Debug.LogWarning("Menu to activate is null!");
+    //        return;
+    //    }
 
-        foreach (var menu in _menus)
-        {
-            bool isActive = menu.gameObject == menuToActivate;
-            menu.gameObject.SetActive(isActive);
 
-            if (isActive)
-            {
-                _previousMenu = _activeMenu;
-                _activeMenu = menuToActivate;
-                _eventSystem.SetSelectedGameObject(menu.firstButton);
-            }
-            else
-                menu.gameObject.SetActive(false);
-        }
-    }
+
+    //    foreach (var menu in _menus)
+    //    {
+    //        bool isCurrentActive = false;
+
+    //        if (!menu.gameObject.activeSelf)
+    //        {
+    //            isCurrentActive = menu.gameObject == menuToActivate;
+    //            menu.gameObject.SetActive(isCurrentActive);
+    //        }
+    //        else
+    //        {
+    //            if (menu.gameObject != menuToActivate)
+    //            {
+    //                if (deactivatePrevious)
+    //                    menu.gameObject.SetActive(false);
+    //                else
+    //                    menu.gameObject.SetActive(true);
+    //            }
+    //        }
+
+    //        if (isCurrentActive)
+    //        {
+    //            _previousState = _activeState;
+    //            _activeState = menuToActivate;
+    //            _eventSystem.SetSelectedGameObject(menu.firstButton);
+    //        }
+    //        else
+    //            menu.gameObject.SetActive(false);
+    //    }
+    //}
 
     /// <summary>
     /// Deactivates all menus under this object
     /// </summary>
     public void SetAllInactive()
     {
-        _previousMenu = _activeMenu;
+        _previousState = _activeState;
         foreach (var menu in _menus)
             menu.gameObject.SetActive(false);
     }
@@ -179,11 +198,15 @@ public class NavigationController : MonoBehaviour
         return _navigateInput != Vector2.zero;
     }
 
-    public void ShowMenu(GameObject menuGO)
+    public void ShowMenu(GameObject menuGO, IMenuState state)
     {
-        _previousMenu = _activeMenu;
-        _activeMenu = menuGO;
-        SetAllInactive();
+        _previousState = _activeState;
+        _activeState = state;
         menuGO.SetActive(true);
+    }
+
+    public void HideMenu(GameObject menuGO)
+    {
+        menuGO.SetActive(false);
     }
 }
