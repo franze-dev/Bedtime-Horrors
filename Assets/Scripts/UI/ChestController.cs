@@ -22,6 +22,7 @@ public class ChestController : MonoBehaviour
         _isOpen = _chestStartStatus;
         _turretSelectables = _turretSelectionManager.TurretSelectables;
         SetBarActive(_isOpen);
+        UpdateChestVisual();
     }
 
     public void ToggleChest()
