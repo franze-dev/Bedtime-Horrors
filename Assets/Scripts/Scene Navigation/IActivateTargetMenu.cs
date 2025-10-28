@@ -3,6 +3,7 @@ using UnityEngine;
 public interface IActivateTargetMenu : IEvent
 {
     GameObject TargetMenu { get; }
+    bool DeactivatePreviousMenu { get; }
 }
 
 
@@ -10,13 +11,18 @@ public class ActivateTargetMenu : IActivateTargetMenu
 {
     private GameObject _targetMenu;
     private GameObject _gameObject;
+    private bool _deactivatePreviousMenu;
 
     public GameObject TargetMenu => _targetMenu;
     public GameObject TriggeredByGO => _gameObject;
+    public bool DeactivatePreviousMenu => _deactivatePreviousMenu;
 
-    public ActivateTargetMenu(GameObject targetMenu, bool activateMenuScene = false)
+    public ActivateTargetMenu(IMenuState targetMenu, bool deactivatePreviousMenu = true, bool activateMenuScene = false)
     {
-        this._targetMenu = targetMenu;
+        ServiceProvider.TryGetService<NavigationController>(out var controller);
+
+        controller.GoToMenu(targetMenu, deactivatePreviousMenu);
+
         _gameObject = null;
 
         if (activateMenuScene)
