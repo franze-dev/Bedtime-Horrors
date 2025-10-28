@@ -7,6 +7,8 @@ public class TurretSelectionManager : MonoBehaviour
 {
     [Header("Prefab select")]
     [SerializeField] private List<GameObject> _turretSelectables = new List<GameObject>();
+    public List<GameObject> TurretSelectables => _turretSelectables;
+
     private List<SpriteRenderer> _renderers = new List<SpriteRenderer>();
     [SerializeField] private int _selectedPrefab;
     [SerializeField] private float _scaleMultiplier;
