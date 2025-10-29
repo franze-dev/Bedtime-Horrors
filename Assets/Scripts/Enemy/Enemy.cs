@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private BoxCollider2D _collider;
     [SerializeField] private GameObject _armatureGO;
 
-    [SerializeField] private Animator _animator;
+    [SerializeField] private MyAnimator _animator;
 
     private FloatingText _floatingText;
 
@@ -36,7 +36,7 @@ public class Enemy : MonoBehaviour
             Debug.LogError("No TargetManager assigned to " + gameObject.name);
 
         if(_animator == null)
-            _animator = GetComponent<Animator>();
+            _animator = GetComponent<MyAnimator>();
     }
 
     void OnEnable()

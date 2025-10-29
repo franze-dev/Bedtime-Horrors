@@ -8,9 +8,9 @@ public class Turret : MonoBehaviour, IInteractable
     [SerializeField] private AreaNotifier _areaNotifier;
     [SerializeField] private string _name;
     [SerializeField] private TurretLevels _levelData;
-    [SerializeField] protected Animator _animator;
+    [SerializeField] protected MyAnimator _animator;
 
-    public Animator Animator => _animator;
+    public MyAnimator Animator => _animator;
 
     protected float timer = 0;
     public int price;
@@ -53,7 +53,7 @@ public class Turret : MonoBehaviour, IInteractable
         _currentLevelId = 0;
 
         if (_animator == null)
-            _animator = GetComponent<Animator>();
+            _animator = GetComponent<MyAnimator>();
         _animator.Play(AnimationState.Idle);
 
         EventProvider.Subscribe<IClickEvent>(OnClickAny);

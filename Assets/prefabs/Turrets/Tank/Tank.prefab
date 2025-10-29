@@ -647,8 +647,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1941673496799188265}
   - component: {fileID: 5727367013825334767}
-  - component: {fileID: 7509797820403189050}
   - component: {fileID: 4623876211714281455}
+  - component: {fileID: 4240009086619009296}
   m_Layer: 0
   m_Name: Tank
   m_TagString: Untagged
@@ -693,7 +693,7 @@ MonoBehaviour:
   _areaNotifier: {fileID: 0}
   _name: Tank
   _levelData: {fileID: 11400000, guid: edcb829547760de4294e8e96ce42f78e, type: 2}
-  _animator: {fileID: 7509797820403189050}
+  _animator: {fileID: 4240009086619009296}
   price: 20
   _areaSpriteRenderer: {fileID: 0}
   _bulletSpeed: 3.5
@@ -704,19 +704,6 @@ MonoBehaviour:
   _bulletRange: 0
   _direction: {x: 0, y: -1}
   _arrowGO: {fileID: 7798142831552536924}
---- !u!114 &7509797820403189050
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6911526105226655499}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a71db49e8ef841c41a2eb48fc10d973c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _armatureComponent: {fileID: 4042338804836371942}
 --- !u!61 &4623876211714281455
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -763,6 +750,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.96898997, y: 0.8621763}
   m_EdgeRadius: 0
+--- !u!114 &4240009086619009296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6911526105226655499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a71db49e8ef841c41a2eb48fc10d973c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _armatureComponent: {fileID: 4042338804836371942}
 --- !u!1 &7798142831552536924
 GameObject:
   m_ObjectHideFlags: 0

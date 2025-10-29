@@ -1,7 +1,7 @@
 using DragonBones;
 using UnityEngine;
 
-public class Animator : MonoBehaviour
+public class MyAnimator : MonoBehaviour
 {
     [SerializeField] private UnityArmatureComponent _armatureComponent;
     public UnityArmatureComponent ArmatureComponent => _armatureComponent;
