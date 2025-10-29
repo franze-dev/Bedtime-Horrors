@@ -1,14 +1,14 @@
 using DragonBones;
 using UnityEngine;
 
-public class EnemyAnimator : MonoBehaviour
+public class Animator : MonoBehaviour
 {
     [SerializeField] private UnityArmatureComponent _armatureComponent;
     public UnityArmatureComponent ArmatureComponent => _armatureComponent;
 
-    private EnemyAnimationState _currentState;
+    private AnimationState _currentState;
 
-    public void Play(EnemyAnimationState state, int playTimes = 0)
+    public void Play(AnimationState state, int playTimes = 0)
     {
         if (_currentState == state)
             return;
@@ -20,7 +20,7 @@ public class EnemyAnimator : MonoBehaviour
             _armatureComponent.armature.animation.Play(animationName, playTimes);
     }
 
-    public float GetAnimationDuration(EnemyAnimationState state)
+    public float GetAnimationDuration(AnimationState state)
     {
         string name = state.ToString().ToUpper();
 
@@ -35,13 +35,20 @@ public class EnemyAnimator : MonoBehaviour
         return (_armatureComponent.armature.animation.animations.ContainsKey(animationName));
     }
 
-    public EnemyAnimationState GetCurrentState() => _currentState;
+    public bool IsAnimationPlaying()
+    {
+        return _armatureComponent.armature.animation.isPlaying;
+    }
+
+    public AnimationState GetCurrentState() => _currentState;
 }
 
 
-public enum EnemyAnimationState
+public enum AnimationState
 {
+    Idle,
     Walk,
+    Attack,
     Death
 }
 
