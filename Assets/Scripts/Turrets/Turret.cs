@@ -1,21 +1,38 @@
+using DragonBones;
 using System;
 using UnityEngine;
 
 public class Turret : MonoBehaviour, IInteractable
 {
-    [SerializeField] protected float cooldown;
     [SerializeField] private GameObject _selectionGO;
     [SerializeField] private AreaNotifier _areaNotifier;
-    protected float _timer = 0;
+    [SerializeField] private string _name;
+    [SerializeField] private TurretLevels _levelData;
+    [SerializeField] protected MyAnimator _animator;
+
+    public MyAnimator Animator => _animator;
+
+    protected float timer = 0;
     public int price;
-    public SpriteRenderer spriteRenderer;
+    private int _currentLevelId = 0;
+    private BoxCollider2D _collider;
     [SerializeField] private SpriteRenderer _areaSpriteRenderer;
     private float _areaTransparency;
-    private BoxCollider2D _collider;
+
+    public TurretStats CurrentStats => _levelData.GetStats(_currentLevelId);
+    public TurretStats NextStats => _levelData.GetStats(_currentLevelId + 1);
+    public float LevelUpPrice => CurrentStats != null ? CurrentStats.LevelUpPrice : 0;
+    public float Cooldown => CurrentStats != null ? CurrentStats.Cooldown : 0;
+    public float Damage => CurrentStats != null ? CurrentStats.Damage : 0;
+    public float Range => CurrentStats != null ? CurrentStats.Range : 0;
+    public string Name { get => _name; set => _name = value; }
+    public BoxCollider2D Collider { get => _collider; set => _collider = value; }
+    private SelectedTurretVisual _selectedTurretVisual;
+    private CreativityUpdater _creativityUpdater;
 
     protected virtual void Awake()
     {
-        EventTriggerer.Trigger<ITurretSpawnEvent>(new TurretSpawnEvent(this.gameObject));
+        EventTriggerer.Trigger<ITurretSpawnEvent>(new TurretSpawnEvent(gameObject));
 
         if (_selectionGO == null)
             Debug.LogError("Selection GO not found on " + gameObject.name);
@@ -25,20 +42,33 @@ public class Turret : MonoBehaviour, IInteractable
         if (!_areaNotifier)
             _areaNotifier = GetComponentInChildren<AreaNotifier>();
 
-        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        Collider = GetComponent<BoxCollider2D>();
 
-        if (spriteRenderer == null)
-            spriteRenderer = GetComponent<SpriteRenderer>();
+        if (Collider == null)
+            Collider = GetComponentInChildren<BoxCollider2D>();
 
         if (_areaSpriteRenderer != null)
             _areaTransparency = _areaSpriteRenderer.color.a;
 
-        _collider = GetComponentInChildren<BoxCollider2D>();
+        _currentLevelId = 0;
 
-        EventProvider.Subscribe<IClickHitEvent>(OnClickAny);
+        if (_animator == null)
+            _animator = GetComponent<MyAnimator>();
+        _animator.Play(MyAnimationStates.Idle);
+
+        EventProvider.Subscribe<IClickEvent>(OnClickAny);
     }
 
-    private void OnClickAny(IClickHitEvent @event)
+    private void Start()
+    {
+        if (_areaNotifier != null)
+            _areaNotifier.SetRange(Range);
+
+        ServiceProvider.TryGetService(out _selectedTurretVisual);
+        ServiceProvider.TryGetService(out _creativityUpdater);
+    }
+
+    private void OnClickAny(IClickEvent @event)
     {
         if (!@event.HasHit)
             EventTriggerer.Trigger<IUpdateSelectedTurretEvent>(new UpdateSelectedTurret(null));
@@ -51,17 +81,20 @@ public class Turret : MonoBehaviour, IInteractable
 
     protected virtual void Update()
     {
-        _timer += Time.deltaTime;
+        timer += Time.deltaTime;
     }
 
     public void Select()
     {
         _selectionGO.SetActive(true);
+        _selectedTurretVisual.SetStats(CurrentStats, NextStats, _name);
+        _selectedTurretVisual.Enable();
     }
 
     public void Deselect()
     {
         _selectionGO.SetActive(false);
+        _selectedTurretVisual.Disable();
     }
 
     public void ActivateArea()
@@ -82,5 +115,32 @@ public class Turret : MonoBehaviour, IInteractable
         Color areaColor = _areaSpriteRenderer.color;
         areaColor.a = 0;
         _areaSpriteRenderer.color = areaColor;
+    }
+
+    public bool Upgrade()
+    {
+
+        if (_currentLevelId < 0 || _currentLevelId >= _levelData.LevelCount - 1)
+            return false;
+        
+        if (NextStats == null)
+            return false;
+
+        _currentLevelId++;
+
+        if (!HasEnoughCreativity())
+        {
+            _currentLevelId--;
+            return false;
+        }
+
+        _selectedTurretVisual.SetStats(CurrentStats, NextStats, _name);
+        return true;
+    }
+
+    private bool HasEnoughCreativity()
+    {
+        return _creativityUpdater.GetCreativityValue() >= LevelUpPrice &&
+               _creativityUpdater.GetCreativityValue() - LevelUpPrice >= 0;
     }
 }

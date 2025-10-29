@@ -3,27 +3,37 @@ using UnityEngine.UI;
 
 public class MenuTransitionButton : MonoBehaviour
 {
-    [SerializeField] private GameObject _targetMenu;
-    [SerializeField] private NavigationController _navigationController;
+    private NavigationController _navigationController;
+
+    private void Start()
+    {
+        ServiceProvider.TryGetService(out _navigationController);
+    }
 
     public void ActivateBaseMenu()
     {
         //GameEvents.TriggerActivateBaseMenu();
-        _navigationController.SetMenuActive(_navigationController.mainMenuGO);
+        _navigationController.GoToMenu(new MainMenuState());
     }
 
-    /// <summary>
-    /// Triggers an event that sets the targetMenu as active
-    /// and the current state as the stateToTransition
-    /// </summary>
-    public void ButtonSetTargetActive()
+    public void ActivateDiaryMenu()
     {
-        EventTriggerer.Trigger<IActivateTargetMenu>(new ActivateTargetMenu(_targetMenu));
+        _navigationController.GoToMenu(new DiaryMenuState(), false);
+    }
+
+    public void ActivateSettingsMenu()
+    {
+        _navigationController.GoToMenu(new SettingsMenuState());
+    }
+
+    public void ActivateCreditsMenu()
+    {
+        _navigationController.GoToMenu(new CreditsMenuState());
     }
 
     public void ButtonSetPreviousActive()
     {
-        EventTriggerer.Trigger<IActivatePreviousMenu>(new ActivatePreviousMenu());
+        _navigationController.GoToMenu(_navigationController.PreviousMenu);
     }
 
     /// <summary>
@@ -33,7 +43,6 @@ public class MenuTransitionButton : MonoBehaviour
     public void ButtonSetAllInactive()
     {
         EventTriggerer.Trigger<ISetAllMenusInactive>(new SetAllMenusInactive());
-        Debug.Log("All menus inactive Event triggered!");
     }
 
     public void ButtonTogglePause()

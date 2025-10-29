@@ -4,7 +4,6 @@ using UnityEngine;
 public class AreaTurret : Turret, IAreaTurret
 {
     [SerializeField] private List<GameObject> _enemiesCollided;
-    [SerializeField] private float _damage = 30;
 
     public List<GameObject> EnemiesCollided { get => _enemiesCollided; private set => _enemiesCollided = value; }
 
@@ -20,17 +19,23 @@ public class AreaTurret : Turret, IAreaTurret
         base.Update();
         ClearEnemyList();
 
-        if (_timer >= cooldown && EnemiesCollided.Count > 0)
+        if (timer >= Cooldown && EnemiesCollided.Count > 0)
         {
-            _timer = 0f;
+            _animator.Play(MyAnimationStates.Attack, 1);
+            timer = 0f;
 
             for (int i = 0; i < EnemiesCollided.Count; i++)
             {
                 GameObject enemyGO = EnemiesCollided[i];
                 var enemy = enemyGO?.GetComponent<Enemy>();
-                
-                enemy?.TakeDamage(_damage);
+
+                Debug.Log("DAMAGE: " + Damage);
+                enemy?.TakeDamage(Damage);
             }
+        }
+        else if (!_animator.IsAnimationPlaying())
+        {
+            _animator.Play(MyAnimationStates.Idle);
         }
     }
 
@@ -60,3 +65,4 @@ public class AreaTurret : Turret, IAreaTurret
         }
     }
 }
+

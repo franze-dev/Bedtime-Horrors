@@ -7,13 +7,12 @@ public class TurretSpawner : MonoBehaviour, IInteractable
 {
     private List<GameObject> _turretPrefabs;
 
-    [SerializeField] private InputActionReference _turretDelInput;
+    [SerializeField] private InputActionReference _turretDeleteInput;
 
     [SerializeField] private InputActionReference _spawnTurret1;
     [SerializeField] private InputActionReference _spawnTurret2;
     [SerializeField] private InputActionReference _spawnTurret3;
 
-    [SerializeField] private CreativityUpdater _creativityUpdater;
     [SerializeField] private TurretSelectionManager _selectionManager;
     [SerializeField] private SpriteRenderer _renderer;
     [SerializeField] private GameObject _giftBoxGO;
@@ -23,6 +22,7 @@ public class TurretSpawner : MonoBehaviour, IInteractable
 
     private GameObject _spawnedTurret;
     private int _nextTurretId = 0;
+    private CreativityUpdater _creativityUpdater;
 
     private void Awake()
     {
@@ -32,12 +32,17 @@ public class TurretSpawner : MonoBehaviour, IInteractable
         if (_renderer == null)
             _renderer = _giftBoxGO.GetComponent<SpriteRenderer>();
 
-        _turretDelInput.action.canceled += OnDeletion;
+        _turretDeleteInput.action.canceled += OnDeletion;
         _spawnTurret1.action.canceled += OnSpawnTurret1;
         _spawnTurret2.action.canceled += OnSpawnTurret2;
         _spawnTurret3.action.canceled += OnSpawnTurret3;
 
         _spawnedTurret = null;
+    }
+
+    private void Start()
+    {
+        ServiceProvider.TryGetService(out _creativityUpdater);
     }
 
     private void OnDeletion(InputAction.CallbackContext context)
@@ -101,6 +106,9 @@ public class TurretSpawner : MonoBehaviour, IInteractable
 
     private void SpawnTurret(int turretId)
     {
+        if (!SceneController.Instance.IsGameplaySceneActive())
+            return;
+
         if (_spawnedTurret != null)
             if (_spawnedTurret.GetType() == _turretPrefabs[turretId].GetType())
                 return;
@@ -124,7 +132,6 @@ public class TurretSpawner : MonoBehaviour, IInteractable
             _spawnedTurret = null;
 
             EventTriggerer.Trigger<ITurretDestroyEvent>(new TurretDestroyEvent(toDestroy));
-            //Destroy(toDestroy);
 
             if (_nextTurretId >= _turretPrefabs.Count - 1)
                 _nextTurretId = 0;
@@ -138,7 +145,6 @@ public class TurretSpawner : MonoBehaviour, IInteractable
         _currentTime = 0;
 
         EventTriggerer.Trigger<ICreativityUpdateEvent>(new CreativityUpdaterEvent(gameObject, -turretPrice));
-
     }
 
     public void SetTurretPrefabs(List<GameObject> turretPrefabs)
@@ -158,7 +164,7 @@ public class TurretSpawner : MonoBehaviour, IInteractable
 
     private int GetTurretPrice(GameObject turretGO)
     {
-        if (turretGO.gameObject.TryGetComponent<Turret>(out Turret turret))
+        if (turretGO.gameObject.TryGetComponent(out Turret turret))
         {
             return turret.price;
         }
@@ -168,9 +174,22 @@ public class TurretSpawner : MonoBehaviour, IInteractable
     public void Interact()
     {
         int selectedTurret = _selectionManager.GetSelectedTurret();
-        Debug.Log("selected turret: " + selectedTurret);
 
         if (selectedTurret >= 0)
             SpawnTurret(selectedTurret);
+    }
+}
+
+public interface IFirstTurretSpawnEvent : IEvent
+{
+}
+
+public class FirstTurretSpawnEvent : IFirstTurretSpawnEvent
+{
+    public GameObject TriggeredByGO => null;
+
+    public FirstTurretSpawnEvent()
+    {
+        EventTriggerer.Trigger<IContinuePanelsEvent>(new ContinuePanelsEvent());
     }
 }

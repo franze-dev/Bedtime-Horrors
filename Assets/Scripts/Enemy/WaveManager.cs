@@ -6,6 +6,9 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private List<Wave> _waves;
     private int _currentWaveIndex;
     private float _timer;
+    private bool wavesStarted;
+
+    public int WavesCount => _waves.Count;
 
     private void Awake()
     {
@@ -16,11 +19,23 @@ public class WaveManager : MonoBehaviour
         {
             _waves[i].InitWave();
         }
+
+        wavesStarted = false;
+
+        ServiceProvider.SetService(this);
+    }
+
+    private void OnDestroy()
+    {
+        ServiceProvider.SetService<WaveManager>(null);
     }
 
     private void Update()
     {
         _timer += Time.deltaTime;
+
+        if (!wavesStarted)
+            return;
 
         if (_currentWaveIndex < _waves.Count)
         {
@@ -42,7 +57,8 @@ public class WaveManager : MonoBehaviour
 
                     _timer = 0;
                     _currentWaveIndex++;
-                    Debug.Log("Wave changed to wave: " + (_currentWaveIndex + 1));
+
+                    EventTriggerer.Trigger<INewWaveEvent>(new NewWaveEvent());
                 }
             }
         }
@@ -53,14 +69,27 @@ public class WaveManager : MonoBehaviour
             SceneController.Instance.UnloadNonPersistentScenes();
 
             if (ServiceProvider.TryGetService(out NavigationController nav))
-                nav.SetMenuActive(nav.winMenuGO);
+                nav.GoToMenu(new WinMenuState());
             else
                 Debug.LogWarning("NavigationController service not found!");
             return;
         }
     }
+
+    public void StartWaves()
+    {
+        wavesStarted = true;
+    }
 }
 
+public class NewWaveEvent : INewWaveEvent
+{
+    public GameObject TriggeredByGO => null;
+}
+
+public interface INewWaveEvent : IEvent
+{
+}
 
 public interface IStartFixedDisasterEvent : IEvent
 {
@@ -74,9 +103,9 @@ public class StartFixedDisasterEvent : IStartFixedDisasterEvent
     public NaturalDisaster Disaster => _disaster;
     public GameObject TriggeredByGO => null;
 
-
     public StartFixedDisasterEvent(NaturalDisaster disaster)
     {
         _disaster = disaster;
+        EventTriggerer.Trigger<IContinuePanelsEvent>(new ContinuePanelsEvent());
     }
 }
