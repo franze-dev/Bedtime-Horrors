@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Turret : MonoBehaviour, IInteractable
@@ -16,12 +17,14 @@ public class Turret : MonoBehaviour, IInteractable
 
     public TurretStats CurrentStats => _levelData.GetStats(_currentLevelId);
     public TurretStats NextStats => _levelData.GetStats(_currentLevelId + 1);
-    public float Cooldown { get => CurrentStats.Cooldown;}
-    public float Damage { get => CurrentStats.Damage; }
-    public float Range { get => CurrentStats.Range; }
+    public float LevelUpPrice => CurrentStats != null ? CurrentStats.LevelUpPrice : 0;
+    public float Cooldown => CurrentStats != null ? CurrentStats.Cooldown : 0;
+    public float Damage => CurrentStats != null ? CurrentStats.Damage : 0;
+    public float Range => CurrentStats != null ? CurrentStats.Range : 0;
     public string Name { get => _name; set => _name = value; }
     public SpriteRenderer SpriteRenderer { get => spriteRenderer; set => spriteRenderer = value; }
     private SelectedTurretVisual _selectedTurretVisual;
+    private CreativityUpdater _creativityUpdater;
 
     protected virtual void Awake()
     {
@@ -54,6 +57,7 @@ public class Turret : MonoBehaviour, IInteractable
             _areaNotifier.SetRange(Range);
 
         ServiceProvider.TryGetService(out _selectedTurretVisual);
+        ServiceProvider.TryGetService(out _creativityUpdater);
     }
 
     private void OnClickAny(IClickEvent @event)
@@ -105,12 +109,30 @@ public class Turret : MonoBehaviour, IInteractable
         _areaSpriteRenderer.color = areaColor;
     }
 
-    public void Upgrade()
+    public bool Upgrade()
     {
-        if (_currentLevelId < 0 || _currentLevelId > _levelData.LevelCount - 1)
-            return;
+
+        if (_currentLevelId < 0 || _currentLevelId >= _levelData.LevelCount - 1)
+            return false;
+        
+        if (NextStats == null)
+            return false;
 
         _currentLevelId++;
+
+        if (!HasEnoughCreativity())
+        {
+            _currentLevelId--;
+            return false;
+        }
+
         _selectedTurretVisual.SetStats(CurrentStats, NextStats, _name);
+        return true;
+    }
+
+    private bool HasEnoughCreativity()
+    {
+        return _creativityUpdater.GetCreativityValue() >= LevelUpPrice &&
+               _creativityUpdater.GetCreativityValue() - LevelUpPrice >= 0;
     }
 }

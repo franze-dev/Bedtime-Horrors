@@ -577,7 +577,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 20
   m_TargetDisplay: 0
 --- !u!114 &1167399287040109323
 MonoBehaviour:
@@ -632,6 +632,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _turret: {fileID: 5727367013825334767}
+  _buttonsGO:
+  - {fileID: 4815881657883332664}
+  - {fileID: 2988966441536611015}
+  - {fileID: 2327460669517444121}
+  _firstButtonId: 0
 --- !u!1 &6911526105226655499
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,7 +13,6 @@ public class TurretSpawner : MonoBehaviour, IInteractable
     [SerializeField] private InputActionReference _spawnTurret2;
     [SerializeField] private InputActionReference _spawnTurret3;
 
-    [SerializeField] private CreativityUpdater _creativityUpdater;
     [SerializeField] private TurretSelectionManager _selectionManager;
     [SerializeField] private SpriteRenderer _renderer;
     [SerializeField] private GameObject _giftBoxGO;
@@ -23,6 +22,7 @@ public class TurretSpawner : MonoBehaviour, IInteractable
 
     private GameObject _spawnedTurret;
     private int _nextTurretId = 0;
+    private CreativityUpdater _creativityUpdater;
 
     private void Awake()
     {
@@ -38,6 +38,11 @@ public class TurretSpawner : MonoBehaviour, IInteractable
         _spawnTurret3.action.canceled += OnSpawnTurret3;
 
         _spawnedTurret = null;
+    }
+
+    private void Start()
+    {
+        ServiceProvider.TryGetService(out _creativityUpdater);
     }
 
     private void OnDeletion(InputAction.CallbackContext context)

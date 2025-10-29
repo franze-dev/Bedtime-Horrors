@@ -9,6 +9,7 @@ public class TurretLevels : ScriptableObject
     [SerializeField] private int _startLevelId = 0;
 
     public int StartLevelId => _startLevelId;
+    public int LastLevelId => _startLevelId + _levelsStats.Count-1;
 
     public int LevelCount => _levelsStats.Count;
 
@@ -17,6 +18,9 @@ public class TurretLevels : ScriptableObject
         if (levelId >= 0 && levelId < _levelsStats.Count)
             return _levelsStats[levelId];
 
-        return null;
+        if (levelId >= _levelsStats.Count)
+            return _levelsStats[LastLevelId];
+        else
+            return _levelsStats[_startLevelId];
     }
 }
