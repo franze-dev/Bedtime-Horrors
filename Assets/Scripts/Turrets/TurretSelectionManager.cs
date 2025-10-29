@@ -1,3 +1,4 @@
+using DragonBones;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,8 @@ public class TurretSelectionManager : MonoBehaviour
     public List<GameObject> TurretSelectables => _turretSelectables;
 
     private List<SpriteRenderer> _renderers = new List<SpriteRenderer>();
+    private List<BoxCollider2D> _colliders = new();
+
     [SerializeField] private int _selectedPrefab;
     [SerializeField] private float _scaleMultiplier;
 
@@ -20,15 +23,28 @@ public class TurretSelectionManager : MonoBehaviour
     private void Awake()
     {
         _renderers.Clear();
+        _colliders.Clear();
 
-        for (int i = 0; i < _turretSelectables.Count; i++)
+        foreach (var selectable in _turretSelectables)
         {
-            var toAdd = _turretSelectables[i].GetComponentInChildren<SpriteRenderer>();
+            var renderer = selectable.GetComponentInChildren<SpriteRenderer>();
+            var collider = selectable.GetComponentInChildren<BoxCollider2D>();
 
-            if (toAdd == null)
-                toAdd = _turretSelectables[i].GetComponent<SpriteRenderer>();
-
-            _renderers.Add(toAdd);
+            if (renderer != null)
+            {
+                _renderers.Add(renderer);
+                _colliders.Add(null);
+            }
+            else if (collider != null)
+            {
+                _renderers.Add(null);
+                _colliders.Add(collider);
+            }
+            else
+            {
+                _renderers.Add(null);
+                _colliders.Add(null);
+            }
         }
 
         _selectedPrefab = -1;
@@ -92,25 +108,27 @@ public class TurretSelectionManager : MonoBehaviour
     {
         for (int i = 0; i < _turretSelectables.Count; i++)
         {
-            if (_renderers[i] == null)
-            {
-                Debug.LogWarning("_renderers[i] == null");
+            Bounds bounds;
+
+            if (_renderers[i] != null)
+                bounds = _renderers[i].bounds;
+            else if (_colliders[i] != null)
+                bounds = _colliders[i].bounds;
+            else
                 continue;
-            }
-            if (IsMouseHovering(_renderers[i].bounds))
-            {
-                _turretSelectables[i].gameObject.transform.localScale = new Vector3(_scaleMultiplier, _scaleMultiplier, _scaleMultiplier);
-            }
+
+            if (IsMouseHovering(bounds))
+                _turretSelectables[i].transform.localScale = Vector3.one * _scaleMultiplier;
             else if (i != _selectedPrefab)
-                _turretSelectables[i].gameObject.transform.localScale = new Vector3(1, 1, 1);
+                _turretSelectables[i].transform.localScale = Vector3.one;
         }
 
         foreach (var turret in _turretManager.ActiveTurrets)
         {
-            if (!turret.SpriteRenderer)
-                Debug.Log(turret.gameObject.name + ": sprite renderer not found!");
+            if (!turret.Collider)
+                continue;
 
-            if (IsMouseHovering(turret.SpriteRenderer.bounds))
+            if (IsMouseHovering(turret.Collider.bounds))
                 turret.ActivateArea();
             else
                 turret.DeactivateArea();
@@ -123,6 +141,7 @@ public class TurretSelectionManager : MonoBehaviour
         Vector2 mousePos = Mouse.current.position.ReadValue();
         Vector3 worldMousePos = Camera.main.ScreenToWorldPoint(mousePos);
         worldMousePos.z = 0;
+        worldMousePos.z = bounds.center.z;
 
         return bounds.Contains(worldMousePos);
     }
@@ -130,6 +149,20 @@ public class TurretSelectionManager : MonoBehaviour
     public int GetSelectedTurret()
     {
         return _selectedPrefab;
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (_turretManager == null)
+            return;
+
+        Gizmos.color = Color.green;
+
+        foreach (var turret in _turretManager.ActiveTurrets)
+        {
+            var bounds = turret.Collider.bounds;
+            Gizmos.DrawWireCube(bounds.center, bounds.size);
+        }
     }
 }
 

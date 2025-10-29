@@ -1,3 +1,4 @@
+using DragonBones;
 using System;
 using UnityEngine;
 
@@ -7,11 +8,14 @@ public class Turret : MonoBehaviour, IInteractable
     [SerializeField] private AreaNotifier _areaNotifier;
     [SerializeField] private string _name;
     [SerializeField] private TurretLevels _levelData;
+    [SerializeField] private Animator _animator;
+
+    public Animator Animator => _animator;
 
     protected float timer = 0;
     public int price;
     private int _currentLevelId = 0;
-    private SpriteRenderer spriteRenderer;
+    private BoxCollider2D _collider;
     [SerializeField] private SpriteRenderer _areaSpriteRenderer;
     private float _areaTransparency;
 
@@ -22,13 +26,13 @@ public class Turret : MonoBehaviour, IInteractable
     public float Damage => CurrentStats != null ? CurrentStats.Damage : 0;
     public float Range => CurrentStats != null ? CurrentStats.Range : 0;
     public string Name { get => _name; set => _name = value; }
-    public SpriteRenderer SpriteRenderer { get => spriteRenderer; set => spriteRenderer = value; }
+    public BoxCollider2D Collider { get => _collider; set => _collider = value; }
     private SelectedTurretVisual _selectedTurretVisual;
     private CreativityUpdater _creativityUpdater;
 
     protected virtual void Awake()
     {
-        EventTriggerer.Trigger<ITurretSpawnEvent>(new TurretSpawnEvent(this.gameObject));
+        EventTriggerer.Trigger<ITurretSpawnEvent>(new TurretSpawnEvent(gameObject));
 
         if (_selectionGO == null)
             Debug.LogError("Selection GO not found on " + gameObject.name);
@@ -38,15 +42,19 @@ public class Turret : MonoBehaviour, IInteractable
         if (!_areaNotifier)
             _areaNotifier = GetComponentInChildren<AreaNotifier>();
 
-        SpriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        Collider = GetComponent<BoxCollider2D>();
 
-        if (SpriteRenderer == null)
-            SpriteRenderer = GetComponent<SpriteRenderer>();
+        if (Collider == null)
+            Collider = GetComponentInChildren<BoxCollider2D>();
 
         if (_areaSpriteRenderer != null)
             _areaTransparency = _areaSpriteRenderer.color.a;
 
         _currentLevelId = 0;
+
+        if (_animator == null)
+            _animator = GetComponent<Animator>();
+        _animator.Play(AnimationState.Idle);
 
         EventProvider.Subscribe<IClickEvent>(OnClickAny);
     }
