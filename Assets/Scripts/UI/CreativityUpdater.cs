@@ -11,10 +11,18 @@ public class CreativityUpdater : MonoBehaviour
 
     private void Awake()
     {
+        ServiceProvider.SetService(this);
+
         if (_statTextUpdater == null)
             GetComponent<StatTextUpdater>();
 
         EventProvider.Subscribe<ICreativityUpdateEvent>(UpdateText);
+    }
+
+    private void OnDestroy()
+    {
+        ServiceProvider.SetService<CreativityUpdater>(null);
+        EventProvider.Unsubscribe<ICreativityUpdateEvent>(UpdateText);
     }
 
     private void UpdateText(ICreativityUpdateEvent @event)

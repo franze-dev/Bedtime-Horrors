@@ -5,15 +5,15 @@ public class ClickHitDetector : MonoBehaviour
 {
     private void Awake()
     {
-        EventProvider.Subscribe<IClickHitEvent>(OnHitAny);
+        EventProvider.Subscribe<IClickEvent>(OnHitAny);
     }
 
     private void OnDestroy()
     {
-        EventProvider.Unsubscribe<IClickHitEvent>(OnHitAny);
+        EventProvider.Unsubscribe<IClickEvent>(OnHitAny);
     }
 
-    private void OnHitAny(IClickHitEvent @event)
+    private void OnHitAny(IClickEvent @event)
     {
         var collider = @event.FirstHit.collider;
 

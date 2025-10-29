@@ -7,8 +7,9 @@ public class BasicTurret : ShootTurret
 
     public override void Fire()
     {
+        _animator.Play(MyAnimationStates.Attack, 1);
         if (Bullets.Count < MaxBullets)
-            AddNewBullet(_direction);
+            AddNewBullet(_direction, Damage);
         else
             RetargetBullets();
     }
@@ -32,11 +33,15 @@ public class BasicTurret : ShootTurret
     {
         base.Update();
 
-        if (_timer >= cooldown)
+        if (timer >= Cooldown)
         {
-            Fire1(_direction);
+            Fire(_direction);
             AkUnitySoundEngine.PostEvent("Tower_Shoot_ToyTank", gameObject);
-            _timer = 0f;
+            timer = 0f;
+        }
+        else if (!_animator.IsAnimationPlaying())
+        {
+            _animator.Play(MyAnimationStates.Idle);
         }
     }
 

@@ -48,7 +48,7 @@ public class Child : MonoBehaviour
             SceneController.Instance.UnloadNonPersistentScenes();
 
             if (ServiceProvider.TryGetService(out NavigationController nav))
-                nav.SetMenuActive(nav.loseMenuGO);
+                nav.GoToMenu(new LoseMenuState());
             else
                 Debug.LogWarning("NavigationController service not found!");
         }

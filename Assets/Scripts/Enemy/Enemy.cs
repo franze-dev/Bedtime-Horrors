@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using Unity.Mathematics;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -24,9 +22,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] private GameObject _floatingDamage;
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private BoxCollider2D _collider;
-    [SerializeField] private GameObject _armature;
-    [SerializeField] private PanelEventTrigger _spawnPanel;
-    [SerializeField] private PanelEventTrigger _deathPanel;
+    [SerializeField] private GameObject _armatureGO;
+
+    [SerializeField] private MyAnimator _animator;
 
     private FloatingText _floatingText;
 
@@ -36,12 +34,13 @@ public class Enemy : MonoBehaviour
     {
         if (_targetManager == null)
             Debug.LogError("No TargetManager assigned to " + gameObject.name);
+
+        if(_animator == null)
+            _animator = GetComponent<MyAnimator>();
     }
 
     void OnEnable()
     {
-        _spawnPanel?.TriggerEvent();
-
         _currentTargetIndex = 0;
         _currentTarget = _targetManager.Targets[_currentTargetIndex];
 
@@ -56,11 +55,11 @@ public class Enemy : MonoBehaviour
         if (_spriteRenderer == null)
             _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
-        if (!_spriteRenderer && !_armature)
+        if (!_spriteRenderer && !_armatureGO)
             Debug.LogError("No SpriteRenderer or Armature assigned to " + gameObject.name);
 
-        if (_armature != null)
-            _armature.SetActive(true);
+        if (_armatureGO != null)
+            _armatureGO.SetActive(true);
         else if (_spriteRenderer != null)
             _spriteRenderer.gameObject.SetActive(true);
 
@@ -72,9 +71,10 @@ public class Enemy : MonoBehaviour
         _currentHealth = _maxHealth;
         _healthBar.UpdateSlider(_currentHealth, _maxHealth);
 
-        Debug.Log(gameObject.name + " Enabled!");
-        Debug.Log("Current target set to " + _currentTargetIndex);
+        if (_animator != null)
+            _animator.Play(MyAnimationStates.Walk);
 
+        EventTriggerer.Trigger<IEnemySpawnEvent>(new EnemySpawnEvent());
     }
 
     void Update()
@@ -108,38 +108,37 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("bullet"))
         {
-            if (collision.gameObject.TryGetComponent<Bullet>(out Bullet bullet))
+            if (collision.gameObject.TryGetComponent(out Bullet bullet))
             {
                 float damageToTake = bullet.damage;
                 TakeDamage(damageToTake);
-                Debug.Log(damageToTake + " damage taken!");
                 return;
             }
         }
-        Debug.Log("This enemy collided with another object");
     }
 
     public void OnDeath()
     {
-        EventTriggerer.Trigger<ICreativityUpdateEvent>(new CreativityUpdaterEvent(this.gameObject, _creativityToSum));
-        _deathPanel?.TriggerEvent();
+        EventTriggerer.Trigger<ICreativityUpdateEvent>(new CreativityUpdaterEvent(gameObject, _creativityToSum));
         _isDead = true;
+        _animator.Play(MyAnimationStates.Death, 1);
+        MultiplySpeed(0f);
         StartCoroutine(DeathCoroutine());
     }
 
     private IEnumerator DeathCoroutine()
     {
-        if (_armature != null)
-            _armature.SetActive(false);
-        else if (_spriteRenderer != null)
+        if (_spriteRenderer != null)
             _spriteRenderer.gameObject.SetActive(false);
 
         _healthBar.gameObject.SetActive(false);
         _collider.enabled = false;
 
-        yield return new WaitForSeconds(_floatingText.LifeTime);
+        yield return new WaitForSeconds(_animator.GetAnimationDuration(MyAnimationStates.Death));
 
-        this.gameObject.SetActive(false);
+        EventTriggerer.Trigger<IEnemyDeathEvent>(new EnemyDeathEvent());
+        ResetSpeed();
+        gameObject.SetActive(false);
     }
 
     private void OnDisable()
@@ -198,4 +197,34 @@ public class Enemy : MonoBehaviour
     {
         _currentHealth = value;
     }
+}
+
+public class EnemySpawnEvent : IEnemySpawnEvent
+{
+    public GameObject TriggeredByGO => null;
+
+    public bool IsSequencePanel => true;
+
+    public EnemySpawnEvent()
+    {
+        EventTriggerer.Trigger<IContinuePanelsEvent>(new ContinuePanelsEvent());
+    }
+}
+
+internal interface IEnemySpawnEvent : IEvent
+{
+}
+
+public class EnemyDeathEvent : IEnemyDeathEvent
+{
+    public GameObject TriggeredByGO => null;
+
+    public EnemyDeathEvent()
+    {
+        EventTriggerer.Trigger<IContinuePanelsEvent>(new ContinuePanelsEvent());
+    }
+}
+
+public interface IEnemyDeathEvent : IEvent
+{
 }

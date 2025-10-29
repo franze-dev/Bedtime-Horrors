@@ -1,10 +1,15 @@
+using Coffee.UIExtensions;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TutorialManager : MonoBehaviour
 {
     [SerializeField] private List<TutorialPanel> _panels = new();
     [SerializeField] private TutorialPanel _transitionPanel;
+    [SerializeField] private GameObject _backgroundGO;
+    [SerializeField] private Image _backgroundImage;
+    [SerializeField] private float _backgroundMaxAlpha = 225;
     private int _currentPanelIndex = -1;
 
     public int CurrentPanelIndex => _currentPanelIndex;
@@ -16,6 +21,9 @@ public class TutorialManager : MonoBehaviour
             Debug.LogError("No panels assigned to TutorialManager.");
             return;
         }
+
+        if (_backgroundImage == null)
+            Debug.LogError("No background image assigned to TutorialManager");
 
         foreach (var panel in _panels)
         {
@@ -45,28 +53,14 @@ public class TutorialManager : MonoBehaviour
         EventProvider.Subscribe<IContinuePanelsEvent>(OnContinuePanels);
     }
 
-    private void OnContinuePanels(IContinuePanelsEvent @event)
+    private void OnDestroy()
     {
-        var go = @event.Panel;
-
-        var index = FindPanel(go);
-
-        if (@event.IsSequencePanel)
-        {
-            if (index - 1 <= _currentPanelIndex && index != -1)
-                ActivateNextPanel(_currentPanelIndex);
-        }
-        else if (index != -1)
-            ActivatePanel(index);
+        EventProvider.Unsubscribe<IContinuePanelsEvent>(OnContinuePanels);
     }
 
-    private int FindPanel(TutorialPanel panel)
+    private void OnContinuePanels(IContinuePanelsEvent @event)
     {
-        for (int i = 0; i < _panels.Count; i++)
-            if (_panels[i] == panel)
-                return i;
-
-        return -1;
+        ActivateNextPanel(_currentPanelIndex);
     }
 
     public void ActivateNextPanel(int currentIndex)
@@ -78,55 +72,68 @@ public class TutorialManager : MonoBehaviour
             if (currentIndex >= 0)
                 _panels[currentIndex]?.gameObject.SetActive(false);
 
-            if (_panels[currentIndex + 1] != null && _panels[currentIndex + 1] != _transitionPanel)
+            if (currentIndex + 1 < _panels.Count)
             {
-                _panels[currentIndex + 1].gameObject.SetActive(true);
-                _currentPanelIndex = currentIndex + 1;
-                Time.timeScale = 0;
-            }
-            else
-            {
-                _currentPanelIndex = currentIndex + 1;
-                Time.timeScale = 1;
+                if (_panels[currentIndex + 1] != null && _panels[currentIndex + 1] != _transitionPanel)
+                {
+                    if (!_backgroundGO.activeSelf)
+                        _backgroundGO.SetActive(true);
+
+                    _panels[currentIndex + 1].gameObject.SetActive(true);
+
+                    if (_panels[currentIndex + 1].HasFocusPoints())
+                    {
+                        if (_backgroundImage != null)
+                        {
+                            var screenColor = _backgroundImage.color;
+                            float alpha = _backgroundMaxAlpha / 255;
+                            screenColor.a = alpha;
+                            _backgroundImage.color = screenColor;
+                        }
+                    }
+                    else
+                    {
+                        if (_backgroundImage != null)
+                        {
+                            var screenColor = _backgroundImage.color;
+                            screenColor.a = 0;
+                            _backgroundImage.color = screenColor;
+                        }
+                    }
+
+                    _currentPanelIndex = currentIndex + 1;
+                    Time.timeScale = 0;
+
+                }
+                else
+                {
+                    if (_backgroundGO.activeSelf)
+                        _backgroundGO.SetActive(false);
+
+                    _currentPanelIndex = currentIndex + 1;
+                    Time.timeScale = 1;
+                }
             }
         }
         else
             _panels[currentIndex].gameObject.SetActive(false);
     }
-
-    private void ActivatePanel(int index)
-    {
-        if (_panels[index] == null)
-            return;
-
-        _panels[_currentPanelIndex]?.gameObject.SetActive(false);
-
-        _panels[index].gameObject.SetActive(true);
-
-        _currentPanelIndex = index;
-    }
 }
 public class ContinuePanelsEvent : IContinuePanelsEvent
 {
     private bool _isSequencePanel;
-    private TutorialPanel _panel;
 
     public bool IsSequencePanel => _isSequencePanel;
 
-    public TutorialPanel Panel => _panel;
-
     public GameObject TriggeredByGO => null;
 
-    public ContinuePanelsEvent(TutorialPanel panelGO, bool IsSequence = true)
+    public ContinuePanelsEvent(bool IsSequence = true)
     {
-        this._panel = panelGO;
-
         _isSequencePanel = IsSequence;
     }
 }
 
 public interface IContinuePanelsEvent : IEvent
 {
-    TutorialPanel Panel { get; }
     bool IsSequencePanel { get; }
 }

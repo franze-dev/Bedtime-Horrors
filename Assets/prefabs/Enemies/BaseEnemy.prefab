@@ -90,7 +90,8 @@ MonoBehaviour:
   _floatingDamage: {fileID: 310084361762771315, guid: b476fb13115d6874d8f945e56cd11050, type: 3}
   _spriteRenderer: {fileID: 0}
   _collider: {fileID: 0}
-  _armature: {fileID: 0}
+  _armatureGO: {fileID: 0}
+  _animator: {fileID: 0}
 --- !u!50 &419097758472167262
 Rigidbody2D:
   serializedVersion: 5
@@ -378,6 +379,10 @@ PrefabInstance:
     - target: {fileID: 7998582300497949323, guid: a39bfb30ecb09d14ab399968812c7afa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8343323734987871606, guid: a39bfb30ecb09d14ab399968812c7afa, type: 3}
+      propertyPath: m_SortingOrder
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 9150344766049216849, guid: a39bfb30ecb09d14ab399968812c7afa, type: 3}
       propertyPath: m_AnchorMax.x
