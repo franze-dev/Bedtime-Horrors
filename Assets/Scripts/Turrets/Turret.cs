@@ -54,7 +54,7 @@ public class Turret : MonoBehaviour, IInteractable
 
         if (_animator == null)
             _animator = GetComponent<MyAnimator>();
-        _animator.Play(AnimationState.Idle);
+        _animator.Play(MyAnimationStates.Idle);
 
         EventProvider.Subscribe<IClickEvent>(OnClickAny);
     }
