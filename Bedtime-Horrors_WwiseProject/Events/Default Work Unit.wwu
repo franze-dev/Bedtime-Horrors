@@ -101,74 +101,39 @@
 				</Folder>
 				<Folder Name="Events" ID="{F249F206-80CA-4872-AC08-91A95CBA3CCF}" ShortID="186666429">
 					<ChildrenList>
-						<Event Name="Event_Start_Earthquake" ID="{8B70E5D7-3E58-47DF-81E0-42FAA2310241}">
+						<Event Name="Disaster_Start" ID="{579D3231-111F-464F-A9B6-E0B35257D231}">
 							<ChildrenList>
-								<Action Name="" ID="{6ED5A15F-54B7-4694-B75A-4C1D95DADC48}" ShortID="877914227">
+								<Action Name="" ID="{A9F4CBA5-7F3A-4629-94FE-DDB4FF61E0BF}" ShortID="1026593318">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Event_Start_Earthquake" ID="{D72CD91C-2758-4B9E-8337-0C27272C849C}" WorkUnitID="{932C6B5F-4E51-4C47-BD09-779BE6F37C5D}"/>
+											<ObjectRef Name="Disaster_Start" ID="{7D952468-3AB8-4CEA-86CB-6ACD21D45293}" WorkUnitID="{932C6B5F-4E51-4C47-BD09-779BE6F37C5D}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="Event_End_Earthquake" ID="{82DFD3E8-DCFB-4268-AD57-A0FB7B9DE6B1}">
+						<Event Name="Disaster_End" ID="{CD310ECB-C0A9-4611-AC09-EEAFA99EA3C3}">
 							<ChildrenList>
-								<Action Name="" ID="{407F41B1-9C25-45C2-A22D-C505D2853092}" ShortID="1067403003">
+								<Action Name="" ID="{3A7D955E-7191-4CFD-937B-F24F3FED7101}" ShortID="159578594">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="2"/>
-										<Property Name="Delay" Type="Real64" Value="0.5"/>
+										<Property Name="FadeTime" Type="Real64" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Event_Start_Earthquake" ID="{D72CD91C-2758-4B9E-8337-0C27272C849C}" WorkUnitID="{932C6B5F-4E51-4C47-BD09-779BE6F37C5D}"/>
+											<ObjectRef Name="Disaster_Start" ID="{7D952468-3AB8-4CEA-86CB-6ACD21D45293}" WorkUnitID="{932C6B5F-4E51-4C47-BD09-779BE6F37C5D}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
-								<Action Name="" ID="{D4E07FCF-D6F9-4B2C-B542-0FD7782240E7}" ShortID="787302838">
+								<Action Name="" ID="{FD2957B7-2060-478F-9CA4-F2EC11F5D391}" ShortID="1061599537">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Event_End_Earthquake" ID="{59B83323-319A-4739-9616-74885DBD04EA}" WorkUnitID="{932C6B5F-4E51-4C47-BD09-779BE6F37C5D}"/>
+											<ObjectRef Name="Disaster_End" ID="{4F4BA34F-0460-4859-987E-BF0A236F647E}" WorkUnitID="{932C6B5F-4E51-4C47-BD09-779BE6F37C5D}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="Event_Start_Flood" ID="{751A05A3-56F3-453A-AF6F-710C8E47D3FA}">
-							<ChildrenList>
-								<Action Name="" ID="{850949B3-E491-43B4-BAC0-E9575F7AE8D9}" ShortID="237143162">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Event_Start_Flood" ID="{F6A50F3D-547F-492A-A91E-E3428164D1AD}" WorkUnitID="{932C6B5F-4E51-4C47-BD09-779BE6F37C5D}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Event_End_Flood" ID="{8B39F927-6BD8-458E-AF93-AB804AA613E6}">
-							<ChildrenList>
-								<Action Name="" ID="{08BBDE2C-3178-44BB-AC71-E05187859386}" ShortID="835239080">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="2"/>
-										<Property Name="Delay" Type="Real64" Value="0.3"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Event_Start_Flood" ID="{F6A50F3D-547F-492A-A91E-E3428164D1AD}" WorkUnitID="{932C6B5F-4E51-4C47-BD09-779BE6F37C5D}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-								<Action Name="" ID="{6FEE903E-AE7D-4D84-BED0-457BEA2598EA}" ShortID="34290106">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Event_End_Flood" ID="{30B3EA39-F529-4A7A-8E83-3E804709A49C}" WorkUnitID="{932C6B5F-4E51-4C47-BD09-779BE6F37C5D}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Event_Start_Winter" ID="{A3284DA7-AB05-4240-84FA-F7BC49FB092C}"/>
-						<Event Name="Event_End_Winter" ID="{C097E93A-656D-4A8C-A012-142733C1837A}"/>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>
