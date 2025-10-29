@@ -6,7 +6,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private List<Wave> _waves;
     private int _currentWaveIndex;
     private float _timer;
-    private bool wavesStarted;
+    [SerializeField] private bool _wavesStarted;
 
     public int WavesCount => _waves.Count;
 
@@ -20,8 +20,6 @@ public class WaveManager : MonoBehaviour
             _waves[i].InitWave();
         }
 
-        wavesStarted = false;
-
         ServiceProvider.SetService(this);
     }
 
@@ -34,7 +32,7 @@ public class WaveManager : MonoBehaviour
     {
         _timer += Time.deltaTime;
 
-        if (!wavesStarted)
+        if (!_wavesStarted)
             return;
 
         if (_currentWaveIndex < _waves.Count)
@@ -78,7 +76,7 @@ public class WaveManager : MonoBehaviour
 
     public void StartWaves()
     {
-        wavesStarted = true;
+        _wavesStarted = true;
     }
 }
 
