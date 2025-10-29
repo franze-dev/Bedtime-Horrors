@@ -1,14 +1,14 @@
 using DragonBones;
 using UnityEngine;
 
-public class Animator : MonoBehaviour
+public class MyAnimator : MonoBehaviour
 {
     [SerializeField] private UnityArmatureComponent _armatureComponent;
     public UnityArmatureComponent ArmatureComponent => _armatureComponent;
 
-    private AnimationState _currentState;
+    private MyAnimationStates _currentState;
 
-    public void Play(AnimationState state, int playTimes = 0)
+    public void Play(MyAnimationStates state, int playTimes = 0)
     {
         if (_currentState == state)
             return;
@@ -20,7 +20,7 @@ public class Animator : MonoBehaviour
             _armatureComponent.armature.animation.Play(animationName, playTimes);
     }
 
-    public float GetAnimationDuration(AnimationState state)
+    public float GetAnimationDuration(MyAnimationStates state)
     {
         string name = state.ToString().ToUpper();
 
@@ -40,11 +40,11 @@ public class Animator : MonoBehaviour
         return _armatureComponent.armature.animation.isPlaying;
     }
 
-    public AnimationState GetCurrentState() => _currentState;
+    public MyAnimationStates GetCurrentState() => _currentState;
 }
 
 
-public enum AnimationState
+public enum MyAnimationStates
 {
     Idle,
     Walk,

@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private BoxCollider2D _collider;
     [SerializeField] private GameObject _armatureGO;
 
-    [SerializeField] private Animator _animator;
+    [SerializeField] private MyAnimator _animator;
 
     private FloatingText _floatingText;
 
@@ -36,7 +36,7 @@ public class Enemy : MonoBehaviour
             Debug.LogError("No TargetManager assigned to " + gameObject.name);
 
         if(_animator == null)
-            _animator = GetComponent<Animator>();
+            _animator = GetComponent<MyAnimator>();
     }
 
     void OnEnable()
@@ -72,7 +72,7 @@ public class Enemy : MonoBehaviour
         _healthBar.UpdateSlider(_currentHealth, _maxHealth);
 
         if (_animator != null)
-            _animator.Play(AnimationState.Walk);
+            _animator.Play(MyAnimationStates.Walk);
 
         EventTriggerer.Trigger<IEnemySpawnEvent>(new EnemySpawnEvent());
     }
@@ -121,7 +121,7 @@ public class Enemy : MonoBehaviour
     {
         EventTriggerer.Trigger<ICreativityUpdateEvent>(new CreativityUpdaterEvent(gameObject, _creativityToSum));
         _isDead = true;
-        _animator.Play(AnimationState.Death, 1);
+        _animator.Play(MyAnimationStates.Death, 1);
         MultiplySpeed(0f);
         StartCoroutine(DeathCoroutine());
     }
@@ -134,7 +134,7 @@ public class Enemy : MonoBehaviour
         _healthBar.gameObject.SetActive(false);
         _collider.enabled = false;
 
-        yield return new WaitForSeconds(_animator.GetAnimationDuration(AnimationState.Death));
+        yield return new WaitForSeconds(_animator.GetAnimationDuration(MyAnimationStates.Death));
 
         EventTriggerer.Trigger<IEnemyDeathEvent>(new EnemyDeathEvent());
         ResetSpeed();

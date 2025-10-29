@@ -790,8 +790,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1941673496799188265}
   - component: {fileID: 6875482896816604502}
-  - component: {fileID: -8875013022334538776}
   - component: {fileID: 6616295537164434326}
+  - component: {fileID: 953199669463364099}
   m_Layer: 0
   m_Name: Teddy
   m_TagString: Untagged
@@ -836,7 +836,7 @@ MonoBehaviour:
   _areaNotifier: {fileID: 5744851772072764794}
   _name: Teddy
   _levelData: {fileID: 11400000, guid: 549f626771c14434cb0fb76a389f9388, type: 2}
-  _animator: {fileID: -8875013022334538776}
+  _animator: {fileID: 953199669463364099}
   price: 30
   _areaSpriteRenderer: {fileID: 8400314274170761117}
   _bulletSpeed: 4
@@ -847,19 +847,6 @@ MonoBehaviour:
   _bulletRange: 0
   _enemiesCollided: []
   _currentTarget: {fileID: 0}
---- !u!114 &-8875013022334538776
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6911526105226655499}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a71db49e8ef841c41a2eb48fc10d973c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _armatureComponent: {fileID: 8039170608942271048}
 --- !u!61 &6616295537164434326
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -906,6 +893,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &953199669463364099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6911526105226655499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a71db49e8ef841c41a2eb48fc10d973c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _armatureComponent: {fileID: 8039170608942271048}
 --- !u!1 &8324052875963389407
 GameObject:
   m_ObjectHideFlags: 0

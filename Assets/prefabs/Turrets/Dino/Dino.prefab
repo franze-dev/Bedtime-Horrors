@@ -260,8 +260,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1941673496799188265}
   - component: {fileID: 7588107092092086437}
-  - component: {fileID: 2793170625208061988}
   - component: {fileID: 8973960906623155150}
+  - component: {fileID: 3979864705007925786}
   m_Layer: 0
   m_Name: Dino
   m_TagString: Untagged
@@ -305,23 +305,10 @@ MonoBehaviour:
   _areaNotifier: {fileID: 6171351376322213499}
   _name: Dino
   _levelData: {fileID: 11400000, guid: 3edb0aabca90ee644ab753be49e0f02c, type: 2}
-  _animator: {fileID: 2793170625208061988}
+  _animator: {fileID: 3979864705007925786}
   price: 30
   _areaSpriteRenderer: {fileID: 4317674797593383905}
   _enemiesCollided: []
---- !u!114 &2793170625208061988
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6911526105226655499}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a71db49e8ef841c41a2eb48fc10d973c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _armatureComponent: {fileID: 6098796316363942830}
 --- !u!61 &8973960906623155150
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -368,6 +355,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.83, y: 1.01}
   m_EdgeRadius: 0
+--- !u!114 &3979864705007925786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6911526105226655499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a71db49e8ef841c41a2eb48fc10d973c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _armatureComponent: {fileID: 6098796316363942830}
 --- !u!1 &7118958331834670034
 GameObject:
   m_ObjectHideFlags: 0

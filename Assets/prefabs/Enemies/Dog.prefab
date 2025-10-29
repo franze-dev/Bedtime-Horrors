@@ -2220,9 +2220,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2872349585197642162}
   - component: {fileID: 822686634498361948}
-  - component: {fileID: 2208718105566918775}
   - component: {fileID: 419097758472167262}
   - component: {fileID: 7380925061933179273}
+  - component: {fileID: 8675326931170660963}
   m_Layer: 6
   m_Name: Dog
   m_TagString: Untagged
@@ -2271,20 +2271,7 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 0}
   _collider: {fileID: 0}
   _armatureGO: {fileID: 623948468533597038}
-  _animator: {fileID: 2208718105566918775}
---- !u!114 &2208718105566918775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3762735258986391157}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a71db49e8ef841c41a2eb48fc10d973c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _armatureComponent: {fileID: 7189134404286813139}
+  _animator: {fileID: 8675326931170660963}
 --- !u!50 &419097758472167262
 Rigidbody2D:
   serializedVersion: 5
@@ -2358,6 +2345,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 3.49, y: 2.65}
   m_EdgeRadius: 0
+--- !u!114 &8675326931170660963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3762735258986391157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a71db49e8ef841c41a2eb48fc10d973c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _armatureComponent: {fileID: 7189134404286813139}
 --- !u!1 &3790736552407901181
 GameObject:
   m_ObjectHideFlags: 0

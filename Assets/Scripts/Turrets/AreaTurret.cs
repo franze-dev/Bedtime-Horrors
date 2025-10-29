@@ -21,7 +21,7 @@ public class AreaTurret : Turret, IAreaTurret
 
         if (timer >= Cooldown && EnemiesCollided.Count > 0)
         {
-            _animator.Play(AnimationState.Attack, 1);
+            _animator.Play(MyAnimationStates.Attack, 1);
             timer = 0f;
 
             for (int i = 0; i < EnemiesCollided.Count; i++)
@@ -35,7 +35,7 @@ public class AreaTurret : Turret, IAreaTurret
         }
         else if (!_animator.IsAnimationPlaying())
         {
-            _animator.Play(AnimationState.Idle);
+            _animator.Play(MyAnimationStates.Idle);
         }
     }
 
