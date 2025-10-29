@@ -8,7 +8,7 @@ public class Turret : MonoBehaviour, IInteractable
     [SerializeField] private AreaNotifier _areaNotifier;
     [SerializeField] private string _name;
     [SerializeField] private TurretLevels _levelData;
-    [SerializeField] private Animator _animator;
+    [SerializeField] protected Animator _animator;
 
     public Animator Animator => _animator;
 
