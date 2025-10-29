@@ -6,6 +6,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private List<Wave> _waves;
     private int _currentWaveIndex;
     private float _timer;
+    private bool wavesStarted;
 
     public int WavesCount => _waves.Count;
 
@@ -19,6 +20,8 @@ public class WaveManager : MonoBehaviour
             _waves[i].InitWave();
         }
 
+        wavesStarted = false;
+
         ServiceProvider.SetService(this);
     }
 
@@ -30,6 +33,9 @@ public class WaveManager : MonoBehaviour
     private void Update()
     {
         _timer += Time.deltaTime;
+
+        if (!wavesStarted)
+            return;
 
         if (_currentWaveIndex < _waves.Count)
         {
@@ -68,6 +74,11 @@ public class WaveManager : MonoBehaviour
                 Debug.LogWarning("NavigationController service not found!");
             return;
         }
+    }
+
+    public void StartWaves()
+    {
+        wavesStarted = true;
     }
 }
 
