@@ -7,6 +7,8 @@ public class WaveManager : MonoBehaviour
     private int _currentWaveIndex;
     private float _timer;
 
+    public int WavesCount => _waves.Count;
+
     private void Awake()
     {
         _currentWaveIndex = 0;
@@ -16,6 +18,13 @@ public class WaveManager : MonoBehaviour
         {
             _waves[i].InitWave();
         }
+
+        ServiceProvider.SetService(this);
+    }
+
+    private void OnDestroy()
+    {
+        ServiceProvider.SetService<WaveManager>(null);
     }
 
     private void Update()
@@ -42,6 +51,8 @@ public class WaveManager : MonoBehaviour
 
                     _timer = 0;
                     _currentWaveIndex++;
+
+                    EventTriggerer.Trigger<INewWaveEvent>(new NewWaveEvent());
                 }
             }
         }
@@ -60,6 +71,14 @@ public class WaveManager : MonoBehaviour
     }
 }
 
+public class NewWaveEvent : INewWaveEvent
+{
+    public GameObject TriggeredByGO => null;
+}
+
+public interface INewWaveEvent : IEvent
+{
+}
 
 public interface IStartFixedDisasterEvent : IEvent
 {
