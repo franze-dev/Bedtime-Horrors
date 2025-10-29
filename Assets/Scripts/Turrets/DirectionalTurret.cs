@@ -57,7 +57,7 @@ public class DirectionalTurret : ShootTurret, IAreaTurret
     {
         if (Bullets.Count < MaxBullets)
         {
-            _animator.Play(AnimationState.Idle);
+            _animator.Play(AnimationState.Attack, 1);
             var target = EnemiesCollided[0] != null ? EnemiesCollided[0] : null;
 
             AddNewBullet(new(0, 0), Damage, target);

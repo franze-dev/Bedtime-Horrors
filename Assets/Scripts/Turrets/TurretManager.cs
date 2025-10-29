@@ -33,7 +33,6 @@ public class TurretManager : MonoBehaviour
         var turret = @event.Turret.GetComponent<Turret>();
         turret.Animator.Play(AnimationState.Death, 1);
 
-
         _activeTurrets.Remove(@event.Turret.GetComponent<Turret>());
         Destroy(@event.Turret, turret.Animator.GetAnimationDuration(AnimationState.Death));
     }
