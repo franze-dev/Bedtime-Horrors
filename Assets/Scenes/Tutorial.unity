@@ -27580,7 +27580,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1981087246132865708, guid: 68ce140c0d4fcc74ab125a9ae3a9d10a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3145809523160556117, guid: 68ce140c0d4fcc74ab125a9ae3a9d10a, type: 3}
       propertyPath: _turret
@@ -32179,6 +32179,7 @@ MonoBehaviour:
   - {fileID: 1966379115}
   - {fileID: 485752775}
   - {fileID: 2108426500}
+  _wavesStarted: 1
 --- !u!1 &1368685684
 GameObject:
   m_ObjectHideFlags: 0
