@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,6 +22,12 @@ public class LevelUpButton : MonoBehaviour
 
     private void ActivateButton(int id)
     {
+        if (id >= _buttonsGO.Count)
+            return;
+
+        if (_currentButtonId < _buttonsGO.Count)
+            _buttonsGO[_currentButtonId].SetActive(false);
+
         _currentButtonId = id;
 
         _buttonsGO[_currentButtonId].SetActive(true);
@@ -28,10 +35,15 @@ public class LevelUpButton : MonoBehaviour
 
     public void LevelUp()
     {
-        ActivateButton(_currentButtonId + 1);
-        _turret.Upgrade();
-        EventTriggerer.Trigger<ILevelUpEvent>(new LevelUpEvent());
+        if (_turret.Upgrade())
+        {
+            ActivateButton(_currentButtonId + 1);
+
+            EventTriggerer.Trigger<ICreativityUpdateEvent>(new CreativityUpdaterEvent(gameObject, (int)-_turret.LevelUpPrice));
+            EventTriggerer.Trigger<ILevelUpEvent>(new LevelUpEvent());
+        }
     }
+
 }
 
 public interface ILevelUpEvent : IEvent

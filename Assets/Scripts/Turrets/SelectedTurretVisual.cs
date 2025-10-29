@@ -31,6 +31,9 @@ public class SelectedTurretVisual : MonoBehaviour
 
     public void SetStats(TurretStats currentStats, TurretStats nextStats, string turretName)
     {
+        if (currentStats == null || nextStats == null)
+            return;
+
         _turretNameMesh.text = turretName;
 
         if (_turretStatsMeshes != null && _turretStatsMeshes.Count > 0)
