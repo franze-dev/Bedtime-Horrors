@@ -30,13 +30,17 @@ public class DirectionalTurret : ShootTurret, IAreaTurret
             Fire();
             timer = 0f;
         }
+        else if (_animator.IsAnimationPlaying())
+        {
+            _animator.Play(AnimationState.Idle);
+        }
     }
 
     public void CollisionEnter(Collision2D collision)
     {
         EnemiesCollided?.Add(collision.gameObject);
 
-        EnemiesCollided[0] = EnemiesCollided[0] != null ? 
+        EnemiesCollided[0] = EnemiesCollided[0] != null ?
             EnemiesCollided[0] : collision.gameObject;
 
     }
@@ -53,6 +57,7 @@ public class DirectionalTurret : ShootTurret, IAreaTurret
     {
         if (Bullets.Count < MaxBullets)
         {
+            _animator.Play(AnimationState.Attack, 1);
             var target = EnemiesCollided[0] != null ? EnemiesCollided[0] : null;
 
             AddNewBullet(new(0, 0), Damage, target);

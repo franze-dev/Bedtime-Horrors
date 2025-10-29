@@ -956,7 +956,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7848717989014921142}
   - component: {fileID: 301566592410748688}
-  - component: {fileID: 8856315826578902635}
+  - component: {fileID: 4202125636897953773}
   - component: {fileID: 6764086899305031504}
   - component: {fileID: 120145151516617794}
   m_Layer: 6
@@ -1007,8 +1007,8 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 0}
   _collider: {fileID: 0}
   _armatureGO: {fileID: 7986848257428032904}
-  _animator: {fileID: 8856315826578902635}
---- !u!114 &8856315826578902635
+  _animator: {fileID: 4202125636897953773}
+--- !u!114 &4202125636897953773
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1017,7 +1017,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3117129704511111547}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee7309b36c8fb58498155ac3228b7ab2, type: 3}
+  m_Script: {fileID: 11500000, guid: a71db49e8ef841c41a2eb48fc10d973c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _armatureComponent: {fileID: 5120401649697528079}
