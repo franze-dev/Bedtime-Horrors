@@ -7,7 +7,7 @@ public class BasicTurret : ShootTurret
 
     public override void Fire()
     {
-        _animator.Play(AnimationState.Attack, 1);
+        _animator.Play(MyAnimationStates.Attack, 1);
         if (Bullets.Count < MaxBullets)
             AddNewBullet(_direction, Damage);
         else
@@ -40,7 +40,7 @@ public class BasicTurret : ShootTurret
         }
         else if (!_animator.IsAnimationPlaying())
         {
-            _animator.Play(AnimationState.Idle);
+            _animator.Play(MyAnimationStates.Idle);
         }
     }
 
