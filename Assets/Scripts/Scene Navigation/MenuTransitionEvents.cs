@@ -11,6 +11,11 @@ public class MenuTransitionEvents : MonoBehaviour
         //EventProvider.Subscribe<IActivatePreviousMenu>(ActivatePreviousMenu);
     }
 
+    private void OnDestroy()
+    {
+        EventProvider.Unsubscribe<ISetAllMenusInactive>(SetAllInactive);
+    }
+
     private void SetAllInactive(ISetAllMenusInactive @event)
     {
         _navigationController.SetAllInactive();

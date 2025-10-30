@@ -59,6 +59,11 @@ public class Turret : MonoBehaviour, IInteractable
         EventProvider.Subscribe<IClickEvent>(OnClickAny);
     }
 
+    private void OnDestroy()
+    {
+        EventProvider.Unsubscribe<IClickEvent>(OnClickAny);
+    }
+
     private void Start()
     {
         if (_areaNotifier != null)
