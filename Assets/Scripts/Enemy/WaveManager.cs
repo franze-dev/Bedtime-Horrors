@@ -22,7 +22,7 @@ public class WaveManager : MonoBehaviour
             _waves[i].InitWave();
         }
 
-        ServiceProvider.SetService(this);
+        ServiceProvider.SetService(this, true);
     }
 
     private void OnDestroy()
