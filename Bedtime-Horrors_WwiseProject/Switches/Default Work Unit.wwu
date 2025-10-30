@@ -12,6 +12,13 @@
 						<Switch Name="Empty" ID="{082C5615-BCDC-4AEE-9E05-FF83EDAEC355}"/>
 					</ChildrenList>
 				</SwitchGroup>
+				<SwitchGroup Name="Enemy_Attack_Type" ID="{05C61E3C-CEFE-4973-9EFC-C45DA8A8875C}">
+					<ChildrenList>
+						<Switch Name="Dog" ID="{551DD70B-33C9-4D95-A599-1E0EE334CFE5}"/>
+						<Switch Name="Doll" ID="{C5A8E9E5-7AEA-45D0-9524-0ACB5CA720EA}"/>
+						<Switch Name="Spider" ID="{BAEAD339-603A-475C-B5EA-44A527B3F9AF}"/>
+					</ChildrenList>
+				</SwitchGroup>
 			</ChildrenList>
 		</WorkUnit>
 	</Switches>
