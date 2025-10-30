@@ -10,6 +10,8 @@ public class WaveManager : MonoBehaviour
 
     public int WavesCount => _waves.Count;
 
+    public bool WavesStarted => _wavesStarted;
+
     private void Awake()
     {
         _currentWaveIndex = 0;

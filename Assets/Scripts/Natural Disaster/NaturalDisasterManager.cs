@@ -8,6 +8,7 @@ public class NaturalDisasterManager : MonoBehaviour
     [SerializeField] private float _minInterval = 30f;
     [SerializeField] private float _maxInterval = 120f;
     private NaturalDisaster _currentDisaster;
+    private WaveManager _waveManager;
 
     bool _isCoroutineRunning = false;
 
@@ -18,20 +19,17 @@ public class NaturalDisasterManager : MonoBehaviour
 
         foreach (var disaster in _disasters)
             disaster?.Init();
-
-        if (_disasters.Count > 0)
-            StartCoroutine(RandomDisasterCoroutine());
-
     }
 
     private void Start()
     {
         EventProvider.Subscribe<IStartFixedDisasterEvent>(StartFixedDisasterCoroutine);
+        ServiceProvider.TryGetService(out _waveManager);
     }
 
     private void Update()
     {
-        if (_disasters.Count == 0)
+        if (_disasters.Count == 0 || !_waveManager.WavesStarted)
             return;
 
         if (!_isCoroutineRunning)
