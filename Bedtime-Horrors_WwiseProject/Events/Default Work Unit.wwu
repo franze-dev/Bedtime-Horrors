@@ -26,7 +26,37 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="Ambient_Creaks" ID="{C7737DC2-AFFB-49EC-A2DD-4AAAE984B9B6}"/>
+						<Event Name="Ambient_Creaks" ID="{C7737DC2-AFFB-49EC-A2DD-4AAAE984B9B6}">
+							<ChildrenList>
+								<Action Name="" ID="{4940250F-20B8-4E6A-B5BE-258E075EC1CE}" ShortID="878962540">
+									<PropertyList>
+										<Property Name="Delay" Type="Real64">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{30401C6F-CBC2-4433-A1E6-3B49A4CC5781}"/>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Ambient_Creaks" ID="{10B96277-F529-428B-BE61-5DF506F72D5B}" WorkUnitID="{932C6B5F-4E51-4C47-BD09-779BE6F37C5D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Ambient_Eerie" ID="{68EE6F13-C85E-4BB1-A4DD-94F1F71F38E1}">
+							<ChildrenList>
+								<Action Name="" ID="{B882DEE1-E6F1-40D6-96C0-AD1937FFB7DB}" ShortID="251741932">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Ambient_Eerie" ID="{FDDCCE1C-E897-4A83-9DD8-E31F5F43267A}" WorkUnitID="{932C6B5F-4E51-4C47-BD09-779BE6F37C5D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="UI" ID="{0B9A0F8F-BF51-4EBA-B11C-4CC5E80B2EED}" ShortID="326983710">

@@ -10,8 +10,20 @@
 							<Position X="0" Y="0"/>
 						</Module>
 						<Module>
+							<ObjectRef Name="Ambient_Wind" ID="{642759CE-B921-45EA-B9D4-6832CA2DE74A}" WorkUnitID="{52DD7F67-F123-4AA1-A73A-36B216D11CA3}"/>
+							<Position X="0" Y="2"/>
+						</Module>
+						<Module>
 							<ObjectRef Name="Disaster_End" ID="{CD310ECB-C0A9-4611-AC09-EEAFA99EA3C3}" WorkUnitID="{52DD7F67-F123-4AA1-A73A-36B216D11CA3}"/>
 							<Position X="1" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Ambient_Eerie" ID="{68EE6F13-C85E-4BB1-A4DD-94F1F71F38E1}" WorkUnitID="{52DD7F67-F123-4AA1-A73A-36B216D11CA3}"/>
+							<Position X="1" Y="2"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Ambient_Creaks" ID="{C7737DC2-AFFB-49EC-A2DD-4AAAE984B9B6}" WorkUnitID="{52DD7F67-F123-4AA1-A73A-36B216D11CA3}"/>
+							<Position X="2" Y="2"/>
 						</Module>
 					</ModuleList>
 					<RTPCValueList ShowAll="true"/>
