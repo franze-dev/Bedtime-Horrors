@@ -15,7 +15,17 @@
 				</Folder>
 				<Folder Name="Ambient" ID="{12F46618-68AA-44F8-AFC8-7FAD6E128226}" ShortID="3586527">
 					<ChildrenList>
-						<Event Name="Ambient_Wind" ID="{642759CE-B921-45EA-B9D4-6832CA2DE74A}"/>
+						<Event Name="Ambient_Wind" ID="{642759CE-B921-45EA-B9D4-6832CA2DE74A}">
+							<ChildrenList>
+								<Action Name="" ID="{B633DFDD-43F1-4F2F-AEE2-18E6532A8A96}" ShortID="762447217">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Ambient_Wind" ID="{D7910854-A0D3-4653-B583-5E85C7801ECE}" WorkUnitID="{932C6B5F-4E51-4C47-BD09-779BE6F37C5D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 						<Event Name="Ambient_Creaks" ID="{C7737DC2-AFFB-49EC-A2DD-4AAAE984B9B6}"/>
 					</ChildrenList>
 				</Folder>
@@ -105,7 +115,17 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="Tower_Destroy" ID="{818904D9-4C9C-4A82-AF1F-7B88B39F41EA}"/>
+						<Event Name="Tower_Destroy" ID="{818904D9-4C9C-4A82-AF1F-7B88B39F41EA}">
+							<ChildrenList>
+								<Action Name="" ID="{C60C9DCC-FCE0-4E1E-AAEB-35818398E7AB}" ShortID="618958506">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Tower_Destroy" ID="{4452B529-E0FD-4CE1-95DB-22F2092984B7}" WorkUnitID="{932C6B5F-4E51-4C47-BD09-779BE6F37C5D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Base" ID="{F58C7A35-4E1F-4A0C-8098-E6E595142FD6}" ShortID="985752268">
