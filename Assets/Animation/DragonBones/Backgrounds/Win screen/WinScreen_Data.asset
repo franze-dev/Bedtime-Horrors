@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a64e5b0e436d4bed9780211ae245f7b, type: 3}
+  m_Name: WinScreen_Data
+  m_EditorClassIdentifier: 
+  dataName: WinScreen
+  dragonBonesJSON: {fileID: 4900000, guid: 9075184eaf8718f4095cacea4a64b898, type: 3}
+  textureAtlas:
+  - textureAtlasJSON: {fileID: 4900000, guid: 5dd7f5b6681cf6c40bad7210cf418795, type: 3}
+    texture: {fileID: 2800000, guid: 8a07e926e64e8d140bb5d6ab28c4d2c1, type: 3}
+    material: {fileID: 2100000, guid: db95a6c7f792dc34b9aa116b8952bebc, type: 2}
+    uiMaterial: {fileID: 0}
