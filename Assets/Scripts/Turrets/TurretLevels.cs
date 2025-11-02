@@ -9,9 +9,11 @@ public class TurretLevels : ScriptableObject
     [SerializeField] private int _startLevelId = 0;
 
     public int StartLevelId => _startLevelId;
-    public int LastLevelId => _startLevelId + _levelsStats.Count-1;
+    public int LastLevelId => _startLevelId + _levelsStats.Count - 1;
 
     public int LevelCount => _levelsStats.Count;
+
+    public TurretStats FinalLevelStats => _levelsStats[LastLevelId];
 
     public TurretStats GetStats(int levelId)
     {
