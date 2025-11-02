@@ -45,8 +45,8 @@ public class PauseController : MonoBehaviour
 
         if (isPaused)
         {
+            EventTriggerer.Trigger<IActivateTargetMenu>(new ActivateTargetMenu(new PauseMenuState(), true, true));
             GameManager.Instance.PauseTime();
-            EventTriggerer.Trigger<IActivateTargetMenu>(new ActivateTargetMenu(new PauseMenuState(), true));
         }
         else
         {
