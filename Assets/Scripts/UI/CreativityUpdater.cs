@@ -11,7 +11,7 @@ public class CreativityUpdater : MonoBehaviour
 
     private void Awake()
     {
-        ServiceProvider.SetService(this);
+        ServiceProvider.SetService(this, true);
 
         if (_statTextUpdater == null)
             GetComponent<StatTextUpdater>();
