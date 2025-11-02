@@ -84,12 +84,6 @@ public class NaturalDisasterManager : MonoBehaviour
             return;
         }
 
-        if (_currentDisaster != null)
-        {
-            //Debug.Log("Ending current disaster: " + _currentDisaster.name);
-            _currentDisaster.EndDisaster();
-        }
-
         if (_disasters.Count > 1)
             _currentDisaster = _disasters[Random.Range(0, _disasters.Count)];
         else
