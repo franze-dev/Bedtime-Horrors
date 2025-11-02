@@ -3,12 +3,14 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelUpButton : MonoBehaviour
+public class LevelUpButton : MonoBehaviour, ITooltipInfo
 {
     [SerializeField] Turret _turret;
     [SerializeField] List<GameObject> _buttonsGO;
     [SerializeField] private int _firstButtonId = 0;
     private int _currentButtonId = 0;
+
+    public string Text => !_turret.IsOnLastLevel() ? "CREATIVITY: " + _turret.LevelUpPrice : "LEVEL MAXED OUT";
 
     private void Awake()
     {
