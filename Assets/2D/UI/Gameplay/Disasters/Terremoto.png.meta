@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: ca16b7f3c7fec2b4488d4e7f2f3b9ef9
+guid: 0ce53dd6281b7fb429ee87bf41f3a728
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8787913685349657494
-    second: Boton de pausa play_0
+      213: 4138507159461002405
+    second: Terremoto_0
+  - first:
+      213: 314898592773567480
+    second: Terremoto_1
+  - first:
+      213: 1535785080942686136
+    second: Terremoto_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +106,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Boton de pausa play_0
+      name: Terremoto_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 6
-        width: 173
-        height: 154
+        x: 40
+        y: 51
+        width: 25
+        height: 99
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +121,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a6490f3401f0b0680800000000000000
-      internalID: -8787913685349657494
+      spriteID: 5ac7514b55eee6930800000000000000
+      internalID: 4138507159461002405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Terremoto_1
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 60
+        width: 167
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f3f98a0a9ebe5400800000000000000
+      internalID: 314898592773567480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Terremoto_2
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 51
+        width: 24
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bfeee8e464305510800000000000000
+      internalID: 1535785080942686136
       vertices: []
       indices: 
       edges: []
@@ -134,8 +184,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Boton de pausa play_0: -8787913685349657494
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
