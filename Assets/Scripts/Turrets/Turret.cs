@@ -124,8 +124,7 @@ public class Turret : MonoBehaviour, IInteractable
 
     public bool Upgrade()
     {
-
-        if (_currentLevelId < 0 || _currentLevelId >= _levelData.LevelCount - 1)
+        if (IsOnLastLevel())
             return false;
         
         if (NextStats == null)
@@ -141,6 +140,11 @@ public class Turret : MonoBehaviour, IInteractable
 
         _selectedTurretVisual.SetStats(CurrentStats, NextStats, _name);
         return true;
+    }
+
+    public bool IsOnLastLevel()
+    {
+        return CurrentStats == _levelData.FinalLevelStats;
     }
 
     private bool HasEnoughCreativity()
