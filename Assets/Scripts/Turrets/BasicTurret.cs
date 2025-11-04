@@ -7,6 +7,7 @@ public class BasicTurret : ShootTurret
 
     public override void Fire()
     {
+        AkUnitySoundEngine.PostEvent("Tower_Shoot_ToyTank", gameObject);
         _animator.Play(MyAnimationStates.Attack, 1);
         if (Bullets.Count < MaxBullets)
             AddNewBullet(_direction, Damage);
