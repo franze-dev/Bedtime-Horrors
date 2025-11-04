@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 9ad1d5c2978ec86409c93e4a115f815c
+guid: 6bcedd29301521841adba25fd45e7c96
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3653170653214871355
-    second: Estrella_2_0
+      213: 1643797421731984369
+    second: Inundacion_0
+  - first:
+      213: 387776836336253777
+    second: Inundacion_1
+  - first:
+      213: -3791790571197907249
+    second: Inundacion_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +106,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Estrella_2_0
+      name: Inundacion_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 95
-        height: 102
+        x: 62
+        y: 72
+        width: 144
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +121,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5c0fe3f65a45d4dc0800000000000000
-      internalID: -3653170653214871355
+      spriteID: 1f3b90dbb01ffc610800000000000000
+      internalID: 1643797421731984369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inundacion_1
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 87
+        width: 134
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15b72f56af8a16500800000000000000
+      internalID: 387776836336253777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inundacion_2
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 61
+        width: 144
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fceb215b09ad06bc0800000000000000
+      internalID: -3791790571197907249
       vertices: []
       indices: 
       edges: []
@@ -134,8 +184,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Estrella_2_0: -3653170653214871355
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
