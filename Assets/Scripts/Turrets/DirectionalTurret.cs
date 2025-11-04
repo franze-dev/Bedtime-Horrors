@@ -56,6 +56,7 @@ public class DirectionalTurret : ShootTurret, IAreaTurret
 
     public override void Fire()
     {
+        AkUnitySoundEngine.PostEvent("Tower_Shoot_TeddyBear", gameObject);
         _animator.Play(MyAnimationStates.Attack, 1);
 
         if (Bullets.Count < MaxBullets)
