@@ -36,6 +36,7 @@ public class BasicTurret : ShootTurret
         if (timer >= Cooldown)
         {
             Fire(_direction);
+            AkUnitySoundEngine.PostEvent("Tower_Shoot_ToyTank", gameObject);
             timer = 0f;
         }
         else if (!_animator.IsAnimationPlaying())
