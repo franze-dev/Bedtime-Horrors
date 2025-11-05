@@ -286,6 +286,11 @@ public class SceneController : MonoBehaviour
         return _lastActiveGameplay;
     }
 
+    public void SetLastActiveGameplay(Level lastActiveGameplay)
+    {
+        _lastActiveGameplay = lastActiveGameplay;
+    }
+
     public void UpdateLastGameplayScene()
     {
         int index = SceneManager.GetActiveScene().buildIndex;

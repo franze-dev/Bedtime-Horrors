@@ -16,5 +16,7 @@ public class NextLevelButton : MonoBehaviour
     {
         if (!_levelManager.IsThereANextLevel())
             _nextLevelButton.gameObject.SetActive(false);
+        else
+            _nextLevelButton.gameObject.SetActive(true);
     }
 }

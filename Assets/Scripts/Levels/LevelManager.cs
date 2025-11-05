@@ -31,8 +31,11 @@ public class LevelManager : MonoBehaviour
         if (!IsNextLevelValid(currentLevel, listId))
         {
             _currentLevelId = _startLevelId;
+            SceneController.Instance.SetLastActiveGameplay(_mainLevels[_startLevelId]);
+
             ServiceProvider.TryGetService(out _navigationController);
             _navigationController.GoToMenu(new MainMenuState());
+
             return;
         }
 
