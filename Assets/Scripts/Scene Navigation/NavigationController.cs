@@ -33,7 +33,7 @@ public class NavigationController : MonoBehaviour
     /// </summary>
     private void Awake()
     {
-        ServiceProvider.SetService(this);
+        ServiceProvider.SetService(this, true);
 
         _eventSystem = GetComponent<EventSystem>();
         _eventSystem.firstSelectedGameObject = null;

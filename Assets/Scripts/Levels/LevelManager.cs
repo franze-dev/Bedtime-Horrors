@@ -9,6 +9,8 @@ public class LevelManager : MonoBehaviour
     private int _currentLevelId = 0;
     private int LastLevelId => _mainLevels.Count - 1;
 
+    private NavigationController _navigationController;
+
     private void Awake()
     {
         _currentLevelId = _startLevelId;
@@ -24,18 +26,27 @@ public class LevelManager : MonoBehaviour
     private void OnNextLevel(INextLevelEvent @event)
     {
         Level currentLevel = @event.CurrentLevel;
-
-        if (currentLevel == null || currentLevel == _mainLevels[LastLevelId])
-            return;
-
         int listId = GetListId(currentLevel);
 
-        if (listId == -1 || listId == LastLevelId)
+        if (!IsNextLevelValid(currentLevel, listId))
+        {
+            _currentLevelId = _startLevelId;
+            ServiceProvider.TryGetService(out _navigationController);
+            _navigationController.GoToMenu(new MainMenuState());
             return;
+        }
 
         Level nextLevel = _mainLevels[listId + 1];
 
         GoToLevel(nextLevel);
+    }
+
+    private bool IsNextLevelValid(Level currentLevel, int listId)
+    {
+        if (currentLevel == null || currentLevel == _mainLevels[LastLevelId] || listId == -1 || listId == LastLevelId)
+            return false;
+
+        return true;
     }
 
     private void GoToLevel(Level nextLevel)
