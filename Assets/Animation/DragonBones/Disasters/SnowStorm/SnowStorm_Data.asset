@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a64e5b0e436d4bed9780211ae245f7b, type: 3}
+  m_Name: SnowStorm_Data
+  m_EditorClassIdentifier: 
+  dataName: Invierno
+  dragonBonesJSON: {fileID: 4900000, guid: 7fb5dcf6839b0cf4882148d136327664, type: 3}
+  textureAtlas:
+  - textureAtlasJSON: {fileID: 4900000, guid: 0546001d44d9ff8449d9dc31a09e0d39, type: 3}
+    texture: {fileID: 2800000, guid: ab448d646602c4940ba97c026951a571, type: 3}
+    material: {fileID: 2100000, guid: 55b4beeab5a6b8b4182aa2ebf6d51088, type: 2}
+    uiMaterial: {fileID: 0}

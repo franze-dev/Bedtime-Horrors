@@ -56,9 +56,10 @@ public abstract class ShootTurret : Turret, IBulletConfig
 
     public void Fire(Vector2 direction)
     {
+        _animator.Play(MyAnimationStates.Attack, 1);
+
         if (Bullets.Count < MaxBullets)
         {
-            _animator.Play(MyAnimationStates.Attack, 1);
             //Modificar para que los datos de la bala se pasen desde aca
             GameObject newBullet = Instantiate(BulletGO, BulletStartPos.position, Quaternion.identity);
 

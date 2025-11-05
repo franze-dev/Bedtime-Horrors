@@ -12,7 +12,6 @@ public class MenuTransitionButton : MonoBehaviour
 
     public void ActivateBaseMenu()
     {
-        //GameEvents.TriggerActivateBaseMenu();
         _navigationController.GoToMenu(new MainMenuState());
     }
 
@@ -49,6 +48,8 @@ public class MenuTransitionButton : MonoBehaviour
     {
         EventTriggerer.Trigger<ITogglePause>(new TogglePauseEvent());
     }
+
+    
 
     public void ExitApp()
     {

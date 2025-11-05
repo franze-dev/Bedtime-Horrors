@@ -28,9 +28,10 @@ public class DirectionalTurret : ShootTurret, IAreaTurret
         if (timer >= Cooldown && EnemiesCollided.Count > 0)
         {
             Fire();
+            AkUnitySoundEngine.PostEvent("Tower_Shoot_TeddyBear", gameObject);
             timer = 0f;
         }
-        else if (_animator.IsAnimationPlaying())
+        else if (!_animator.IsAnimationPlaying())
         {
             _animator.Play(MyAnimationStates.Idle);
         }
@@ -55,9 +56,11 @@ public class DirectionalTurret : ShootTurret, IAreaTurret
 
     public override void Fire()
     {
+        AkUnitySoundEngine.PostEvent("Tower_Shoot_TeddyBear", gameObject);
+        _animator.Play(MyAnimationStates.Attack, 1);
+
         if (Bullets.Count < MaxBullets)
         {
-            _animator.Play(MyAnimationStates.Attack, 1);
             var target = EnemiesCollided[0] != null ? EnemiesCollided[0] : null;
 
             AddNewBullet(new(0, 0), Damage, target);

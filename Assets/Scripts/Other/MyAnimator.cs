@@ -32,6 +32,9 @@ public class MyAnimator : MonoBehaviour
 
     public bool AnimationExists(string animationName)
     {
+        if (_armatureComponent == null || _armatureComponent.armature == null || _armatureComponent.armature.animation == null)
+            return false;
+
         return (_armatureComponent.armature.animation.animations.ContainsKey(animationName));
     }
 

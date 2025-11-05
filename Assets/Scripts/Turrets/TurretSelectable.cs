@@ -2,11 +2,13 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class TurretSelectable : MonoBehaviour, IInteractable, IDraggable
+public class TurretSelectable : MonoBehaviour, ITooltipInfo, IInteractable, IDraggable
 {
+    [SerializeField] private Turret _originalPrefab;
     private bool _isDragging;
     private GameObject _copy;
 
+    public string Text => "CREATIVITY: " + _originalPrefab.price.ToString();
 
     private void Awake()
     {
@@ -41,7 +43,6 @@ public class TurretSelectable : MonoBehaviour, IInteractable, IDraggable
 
     public void OnDragStart(IClickEvent @event)
     {
-
         if (!@event.HasHit) return;
 
         foreach (var hit in @event.AllHits)
@@ -72,8 +73,6 @@ public class TurretSelectable : MonoBehaviour, IInteractable, IDraggable
     {
         if (!_isDragging)
             return;
-
-        //Debug.Log("Drag released");
 
         _isDragging = false;
 

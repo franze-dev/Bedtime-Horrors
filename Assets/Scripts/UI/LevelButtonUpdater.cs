@@ -12,6 +12,11 @@ public class LevelButtonUpdater : MonoBehaviour
         EventProvider.Subscribe<ILevelUpEvent>(OnLevelUp);
     }
 
+    private void OnDestroy()
+    {
+        EventProvider.Unsubscribe<ILevelUpEvent>(OnLevelUp);
+    }
+
     private void OnLevelUp(ILevelUpEvent @event)
     {
         if (_currentlyActiveId == _buttonsGOs.Count - 1)

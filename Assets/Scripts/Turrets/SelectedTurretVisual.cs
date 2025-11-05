@@ -11,7 +11,7 @@ public class SelectedTurretVisual : MonoBehaviour
 
     private void Awake()
     {
-        ServiceProvider.SetService(this);
+        ServiceProvider.SetService(this, true);
     }
 
     private void OnDestroy()
@@ -21,7 +21,7 @@ public class SelectedTurretVisual : MonoBehaviour
 
     public void Enable()
     {
-        _textsContainer.SetActive(true);
+        _textsContainer?.SetActive(true);
     }
 
     public void Disable()

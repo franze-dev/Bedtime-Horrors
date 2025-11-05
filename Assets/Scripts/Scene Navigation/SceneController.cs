@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,11 +17,11 @@ public class SceneController : MonoBehaviour
     public SceneRef CurrentActiveScene => _currentActiveScene;
     public SceneRef PreviousActiveScene => _previousActiveScene;
 
-
     private Level _currentActiveLevel;
     private Level _previousActiveLevel;
     public Level CurrentActiveLevel => _currentActiveLevel;
     public Level PreviousActiveLevel => _previousActiveLevel;
+    private Level _lastActiveGameplay;
 
     public static SceneController Instance { get; private set; }
 
@@ -65,6 +66,8 @@ public class SceneController : MonoBehaviour
     public void AddLevel(Level level)
     {
         _previousActiveLevel = _currentActiveLevel;
+        if (IsSceneInGameplayLevels(_previousActiveLevel))
+            _lastActiveGameplay = level;
         _currentActiveLevel = level;
 
         foreach (var scene in level.scenes)
@@ -225,15 +228,28 @@ public class SceneController : MonoBehaviour
         return IsSceneInGameplayLevels(_currentActiveScene);
     }
 
-    private bool IsSceneInGameplayLevels(SceneRef sceneRef)
+    private Level IsSceneInGameplayLevels(SceneRef sceneRef)
     {
         foreach (var level in levelContainer.gameplayLevels)
         {
             if (level.scenes.Contains(sceneRef))
+                return level;
+        }
+        return null;
+    }
+
+    
+    private bool IsSceneInGameplayLevels(Level level)
+    {
+        foreach (var gameplayLevel in levelContainer.gameplayLevels)
+        {
+            if (gameplayLevel == level)
                 return true;
         }
         return false;
     }
+
+    
 
     /// <summary>
     /// Exits the application. Stops play mode if running in the Unity Editor
@@ -265,4 +281,32 @@ public class SceneController : MonoBehaviour
         return null;
     }
 
+    public Level GetLastActiveGameplay()
+    {
+        return _lastActiveGameplay;
+    }
+
+    public void SetLastActiveGameplay(Level lastActiveGameplay)
+    {
+        _lastActiveGameplay = lastActiveGameplay;
+    }
+
+    public void UpdateLastGameplayScene()
+    {
+        int index = SceneManager.GetActiveScene().buildIndex;
+
+        _lastActiveGameplay = GetLevel(index);
+    }
+
+    private Level GetLevel(int index)
+    {
+        foreach (var levelRef in _loadedScenes)
+        {
+            var level = IsSceneInGameplayLevels(levelRef);
+            if (level != null)
+                return level;
+        }
+
+        return null;
+    }
 }

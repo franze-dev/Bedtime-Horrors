@@ -10,6 +10,8 @@ public class WaveManager : MonoBehaviour
 
     public int WavesCount => _waves.Count;
 
+    public bool WavesStarted => _wavesStarted;
+
     private void Awake()
     {
         _currentWaveIndex = 0;
@@ -20,7 +22,7 @@ public class WaveManager : MonoBehaviour
             _waves[i].InitWave();
         }
 
-        ServiceProvider.SetService(this);
+        ServiceProvider.SetService(this, true);
     }
 
     private void OnDestroy()
@@ -64,10 +66,11 @@ public class WaveManager : MonoBehaviour
         {
             Debug.Log("All waves completed!");
 
-            SceneController.Instance.UnloadNonPersistentScenes();
 
             if (ServiceProvider.TryGetService(out NavigationController nav))
+            {
                 nav.GoToMenu(new WinMenuState());
+            }
             else
                 Debug.LogWarning("NavigationController service not found!");
             return;

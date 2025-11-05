@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{DF3CBF43-45E5-42EC-B8F3-FD02836B0893}" SchemaVersion="123">
 	<Switches>
-		<WorkUnit Name="Default Work Unit" ID="{DF3CBF43-45E5-42EC-B8F3-FD02836B0893}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{DF3CBF43-45E5-42EC-B8F3-FD02836B0893}" PersistMode="Standalone">
+			<ChildrenList>
+				<SwitchGroup Name="Disaster_Type" ID="{C2236A7B-BD3E-45CB-AAEC-4058F4FD14FE}">
+					<ChildrenList>
+						<Switch Name="Flood" ID="{64DA690E-17C7-4E10-8125-D217B9E1E7B0}"/>
+						<Switch Name="Earthquake" ID="{9A49E936-CC9A-4110-A0AD-713D2CD2CA39}"/>
+						<Switch Name="Blizzard" ID="{D296BB58-9929-467D-8906-4EAB75374263}"/>
+						<Switch Name="LightsOut" ID="{B7FC3546-51D1-4D1C-9DE8-3E602146D8CA}"/>
+						<Switch Name="Empty" ID="{082C5615-BCDC-4AEE-9E05-FF83EDAEC355}"/>
+					</ChildrenList>
+				</SwitchGroup>
+				<SwitchGroup Name="Enemy_Attack_Type" ID="{05C61E3C-CEFE-4973-9EFC-C45DA8A8875C}">
+					<ChildrenList>
+						<Switch Name="Dog" ID="{551DD70B-33C9-4D95-A599-1E0EE334CFE5}"/>
+						<Switch Name="Doll" ID="{C5A8E9E5-7AEA-45D0-9524-0ACB5CA720EA}"/>
+						<Switch Name="Spider" ID="{BAEAD339-603A-475C-B5EA-44A527B3F9AF}"/>
+					</ChildrenList>
+				</SwitchGroup>
+			</ChildrenList>
+		</WorkUnit>
 	</Switches>
 </WwiseDocument>
