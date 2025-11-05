@@ -17,6 +17,10 @@ public class Earthquake : NaturalDisaster, IDisasterUpdate
     public override void EndDisaster()
     {
         Debug.LogWarning("End disaster entered");
+
+        AkUnitySoundEngine.SetSwitch("Disaster_Type", "Earthquake", WwiseAudioHelper.DisasterSoundEmitter);
+        AkUnitySoundEngine.PostEvent("Disaster_End", WwiseAudioHelper.DisasterSoundEmitter);
+
         _isRunning = false;
         originalCamPos = new(0, 0, -10);
         _camera.transform.localPosition = originalCamPos;
@@ -70,6 +74,9 @@ public class Earthquake : NaturalDisaster, IDisasterUpdate
 
     public override void StartDisaster()
     {
+        AkUnitySoundEngine.SetSwitch("Disaster_Type", "Earthquake", WwiseAudioHelper.DisasterSoundEmitter);
+        AkUnitySoundEngine.PostEvent("Disaster_Start", WwiseAudioHelper.DisasterSoundEmitter);
+
         _isRunning = true;
         EventTriggerer.Trigger<ILogMessageEvent>(new LogMessageEvent("Earthquake!", null));
 

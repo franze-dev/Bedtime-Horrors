@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{5F73E66F-1501-491D-9EF8-0B28A7BEE5D9}" SchemaVersion="123">
 	<States>
-		<WorkUnit Name="Default Work Unit" ID="{5F73E66F-1501-491D-9EF8-0B28A7BEE5D9}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{5F73E66F-1501-491D-9EF8-0B28A7BEE5D9}" PersistMode="Standalone">
+			<ChildrenList>
+				<StateGroup Name="Music_State" ID="{A9C3CA31-5B2D-4346-939E-3342B501F994}">
+					<ChildrenList>
+						<State Name="None" ID="{F6911ACC-EBFC-4590-9F42-A221D9E25424}"/>
+						<State Name="Menu" ID="{7BB6D41F-050E-4673-A1EA-C14475A7FF29}"/>
+						<State Name="Stage_1" ID="{A1B17113-F58B-49D1-A5CF-A00AFD868163}"/>
+						<State Name="Stage_2" ID="{6A40FD3C-8717-4522-8DFD-68B4EF28A16E}"/>
+						<State Name="Stage_3" ID="{939F38AC-85F6-42F0-ACF0-815F1EF8B442}"/>
+						<State Name="Stage_4" ID="{9F715404-4E9E-418A-B01C-0C9EAF1D4690}"/>
+						<State Name="Stage_5" ID="{FC30573F-5F74-49A5-BA8A-94DA947FD811}"/>
+						<State Name="Stage_Defeat" ID="{4AE77B61-FF8E-4AF1-A74E-2EAB1A452F1A}"/>
+						<State Name="Stage_Victory" ID="{40D7D674-F8A7-4F71-BF3B-89C2A999B98A}"/>
+					</ChildrenList>
+				</StateGroup>
+				<StateGroup Name="Gameplay_Pause" ID="{29B1DF79-B75F-4B80-90E9-D3F3B611C24F}">
+					<ChildrenList>
+						<State Name="None" ID="{C679D203-0A10-4D19-AA24-46C10E2C56B8}"/>
+						<State Name="Paused" ID="{B21BE7D8-C013-4272-B0C7-A9A2D9607549}"/>
+						<State Name="Unpaused" ID="{6AACB874-EBE3-461B-BD10-BAF84CC7622C}"/>
+					</ChildrenList>
+				</StateGroup>
+			</ChildrenList>
+		</WorkUnit>
 	</States>
 </WwiseDocument>
