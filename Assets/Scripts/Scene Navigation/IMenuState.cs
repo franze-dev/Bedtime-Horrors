@@ -22,6 +22,8 @@ public class WinMenuState : IMenuState
 {
     public void Enter(NavigationController controller)
     {
+        SceneController.Instance.UpdateLastGameplayScene();
+        SceneController.Instance.UnloadNonPersistentScenes();
         controller.ShowMenu(controller.winMenuGO, this);
     }
 
