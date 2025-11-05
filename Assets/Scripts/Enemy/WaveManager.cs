@@ -66,10 +66,11 @@ public class WaveManager : MonoBehaviour
         {
             Debug.Log("All waves completed!");
 
-            SceneController.Instance.UnloadNonPersistentScenes();
 
             if (ServiceProvider.TryGetService(out NavigationController nav))
+            {
                 nav.GoToMenu(new WinMenuState());
+            }
             else
                 Debug.LogWarning("NavigationController service not found!");
             return;
