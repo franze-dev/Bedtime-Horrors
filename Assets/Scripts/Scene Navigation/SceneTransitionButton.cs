@@ -28,6 +28,11 @@ public class SceneTransitionButton : MonoBehaviour
             Debug.LogWarning("Previous active level not found");
     }
 
+    public void GoToNextLevel()
+    {
+        EventTriggerer.Trigger<INextLevelEvent>(new NextLevelEvent());
+    }
+
     /// <summary>
     /// Exits the game
     /// </summary>
