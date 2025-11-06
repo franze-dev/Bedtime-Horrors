@@ -1301,6 +1301,9 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Event_Start_Blizzard" ID="{5AF6E194-44C3-4A1C-9D08-7B3786F9371F}" ShortID="183580680">
+									<PropertyList>
+										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{066AACED-29FB-4E9B-977A-46A9F6C9913D}"/>
@@ -1311,6 +1314,12 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Event_Start_Blizzard" ID="{331D3EE6-E9D6-408B-A45A-FEBEEF96BE10}">
+											<PropertyList>
+												<Property Name="CrossfadeDuration" Type="Real64" Value="330.518"/>
+												<Property Name="LoopBegin" Type="Real64" Value="2.57986949603441"/>
+												<Property Name="LoopEnd" Type="Real64" Value="6.92776113872081"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Event_Start_Blizzard.wav</AudioFile>
 											<MediaIDList>
