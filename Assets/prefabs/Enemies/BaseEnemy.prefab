@@ -91,6 +91,8 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 0}
   _collider: {fileID: 0}
   _armatureGO: {fileID: 0}
+  _minDamageColor: {r: 0.99215686, g: 0.5647059, b: 0.8627451, a: 1}
+  _maxDamageColor: {r: 0.99215686, g: 0, b: 0.6901961, a: 1}
   _animator: {fileID: 0}
 --- !u!50 &419097758472167262
 Rigidbody2D:
