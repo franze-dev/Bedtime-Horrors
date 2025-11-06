@@ -8,6 +8,11 @@
 						<Sound Name="Ambient_Wind" ID="{D7910854-A0D3-4653-B583-5E85C7801ECE}" ShortID="967437726">
 							<PropertyList>
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="IsStreamingEnabled" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -19,6 +24,14 @@
 							</ReferenceList>
 							<ChildrenList>
 								<AudioFileSource Name="Ambient_Wind" ID="{DCA92684-D83D-41D3-9A41-FB3A51E4FC84}">
+									<PropertyList>
+										<Property Name="CrossfadeDuration" Type="Real64" Value="1666.667"/>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.774962742175857"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="1.07302533532042"/>
+										<Property Name="LoopBegin" Type="Real64" Value="2.26527570789866"/>
+										<Property Name="LoopEnd" Type="Real64" Value="37.0789865871833"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>Ambient_Wind.wav</AudioFile>
 									<MediaIDList>
@@ -45,20 +58,21 @@
 								</Property>
 								<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
 								<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
-								<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="8">
+								<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="15">
 									<ModifierList>
 										<ModifierInfo>
 											<Modifier Name="" ID="{5CBE716C-603E-49FC-A879-706F25CDA635}">
 												<PropertyList>
 													<Property Name="Enabled" Type="bool" Value="True"/>
-													<Property Name="Max" Type="Real64" Value="8"/>
-													<Property Name="Min" Type="Real64" Value="-3"/>
+													<Property Name="Max" Type="Real64" Value="10"/>
+													<Property Name="Min" Type="Real64" Value="-5"/>
 												</PropertyList>
 											</Modifier>
 										</ModifierInfo>
 									</ModifierList>
 								</Property>
 								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+								<Property Name="SpeakerPanning" Type="int16" Value="2"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -69,7 +83,11 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<Sound Name="Ambient_Creaks_11" ID="{E3870EEF-138F-4165-91F2-7558BCFB4AAB}" ShortID="241590831">
+								<Sound Name="Ambient_Creaks_11(L)" ID="{E3870EEF-138F-4165-91F2-7558BCFB4AAB}" ShortID="241590831">
+									<PropertyList>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="SpeakerPanning" Type="int16" Value="2"/>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{066AACED-29FB-4E9B-977A-46A9F6C9913D}"/>
@@ -87,12 +105,22 @@
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
+									<PositioningInfo>
+										<Panner Name="" ID="{0025D50E-24CF-4EA4-ADB3-E8554E026584}">
+											<PropertyList>
+												<Property Name="PanX" Type="Real64" Value="-44.8398576512456"/>
+												<Property Name="PanY" Type="Real64" Value="-0.383141762452107"/>
+											</PropertyList>
+										</Panner>
+									</PositioningInfo>
 									<ActiveSourceList>
 										<ActiveSource Name="Ambient_Creaks_11" ID="{565638B6-A68A-4B81-A294-987AA2EDF573}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="Ambient_Creaks_10" ID="{472644D7-A8E8-4551-82F7-397DE363E7D0}" ShortID="144094343">
+								<Sound Name="Ambient_Creaks_10(L)" ID="{472644D7-A8E8-4551-82F7-397DE363E7D0}" ShortID="144094343">
 									<PropertyList>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="SpeakerPanning" Type="int16" Value="2"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-4</Value>
@@ -116,11 +144,23 @@
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
+									<PositioningInfo>
+										<Panner Name="" ID="{13EBF939-A702-49DD-A901-90F46F22B643}">
+											<PropertyList>
+												<Property Name="PanX" Type="Real64" Value="-40.2135231316726"/>
+												<Property Name="PanY" Type="Real64" Value="-0.383141762452107"/>
+											</PropertyList>
+										</Panner>
+									</PositioningInfo>
 									<ActiveSourceList>
 										<ActiveSource Name="Ambient_Creaks_10" ID="{FDB235DA-FE1C-44B3-98CB-F3132201B818}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="Ambient_Creaks_09" ID="{D08419C1-1C10-4FAF-860C-9B6E1C72C5B3}" ShortID="366791217">
+								<Sound Name="Ambient_Creaks_09(L)" ID="{D08419C1-1C10-4FAF-860C-9B6E1C72C5B3}" ShortID="366791217">
+									<PropertyList>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="SpeakerPanning" Type="int16" Value="2"/>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{066AACED-29FB-4E9B-977A-46A9F6C9913D}"/>
@@ -138,12 +178,22 @@
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
+									<PositioningInfo>
+										<Panner Name="" ID="{F24DADA7-209E-41CD-A2D1-BAAB7AA2A4ED}">
+											<PropertyList>
+												<Property Name="PanX" Type="Real64" Value="-51.2455516014235"/>
+												<Property Name="PanY" Type="Real64" Value="1.11022302462516E-16"/>
+											</PropertyList>
+										</Panner>
+									</PositioningInfo>
 									<ActiveSourceList>
 										<ActiveSource Name="Ambient_Creaks_09" ID="{1A5F06EF-8FC9-4FC1-9798-2F782AE36C6A}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="Ambient_Creaks_08" ID="{B25C7A2A-D65F-438E-AA9E-14C8BD6D34FE}" ShortID="187962690">
+								<Sound Name="Ambient_Creaks_08(L)" ID="{B25C7A2A-D65F-438E-AA9E-14C8BD6D34FE}" ShortID="187962690">
 									<PropertyList>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="SpeakerPanning" Type="int16" Value="2"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-3</Value>
@@ -167,12 +217,21 @@
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
+									<PositioningInfo>
+										<Panner Name="" ID="{3019FE31-9462-420F-ABBA-778886CD419B}">
+											<PropertyList>
+												<Property Name="PanX" Type="Real64" Value="-45.9074733096085"/>
+											</PropertyList>
+										</Panner>
+									</PositioningInfo>
 									<ActiveSourceList>
 										<ActiveSource Name="Ambient_Creaks_08" ID="{7F7EE8EA-5493-4780-9479-986FCC5FB205}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="Ambient_Creaks_07" ID="{E3591859-FB8D-4647-A3EB-111181DEE89F}" ShortID="217537029">
+								<Sound Name="Ambient_Creaks_07(L)" ID="{E3591859-FB8D-4647-A3EB-111181DEE89F}" ShortID="217537029">
 									<PropertyList>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="SpeakerPanning" Type="int16" Value="2"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-5</Value>
@@ -196,11 +255,23 @@
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
+									<PositioningInfo>
+										<Panner Name="" ID="{49FACB8B-0E4A-4DEB-A851-EEA77BBBA71C}">
+											<PropertyList>
+												<Property Name="PanX" Type="Real64" Value="-43.7722419928826"/>
+												<Property Name="PanY" Type="Real64" Value="1.91570881226053"/>
+											</PropertyList>
+										</Panner>
+									</PositioningInfo>
 									<ActiveSourceList>
 										<ActiveSource Name="Ambient_Creaks_07" ID="{C39F3E0A-2BF5-461D-8A17-2A1084424911}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="Ambient_Creaks_06" ID="{C7A50082-A718-4C49-9538-25AC06F60985}" ShortID="680414615">
+								<Sound Name="Ambient_Creaks_06(L)" ID="{C7A50082-A718-4C49-9538-25AC06F60985}" ShortID="680414615">
+									<PropertyList>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="SpeakerPanning" Type="int16" Value="2"/>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{066AACED-29FB-4E9B-977A-46A9F6C9913D}"/>
@@ -218,11 +289,23 @@
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
+									<PositioningInfo>
+										<Panner Name="" ID="{B6B34AE2-0192-4B11-AD75-6E136DAA1A24}">
+											<PropertyList>
+												<Property Name="PanX" Type="Real64" Value="-51.9572953736655"/>
+												<Property Name="PanY" Type="Real64" Value="-0.383141762452107"/>
+											</PropertyList>
+										</Panner>
+									</PositioningInfo>
 									<ActiveSourceList>
 										<ActiveSource Name="Ambient_Creaks_06" ID="{5842D622-54E8-40E1-B447-13A94ADAA8F4}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="Ambient_Creaks_05" ID="{052B64F6-21F9-4AD9-8074-9D07E66334F5}" ShortID="557668997">
+								<Sound Name="Ambient_Creaks_05(L)" ID="{052B64F6-21F9-4AD9-8074-9D07E66334F5}" ShortID="557668997">
+									<PropertyList>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="SpeakerPanning" Type="int16" Value="2"/>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{066AACED-29FB-4E9B-977A-46A9F6C9913D}"/>
@@ -240,12 +323,21 @@
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
+									<PositioningInfo>
+										<Panner Name="" ID="{8E01AE70-14AD-4D52-989E-C0AA2CE5E4FB}">
+											<PropertyList>
+												<Property Name="PanX" Type="Real64" Value="-41.2811387900356"/>
+											</PropertyList>
+										</Panner>
+									</PositioningInfo>
 									<ActiveSourceList>
 										<ActiveSource Name="Ambient_Creaks_05" ID="{BCE3F0C8-7306-4F41-ABF1-D072C93CEE0A}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="Ambient_Creaks_04" ID="{34D964DF-DBD8-4757-A4C5-A19CD67893E4}" ShortID="745527748">
+								<Sound Name="Ambient_Creaks_04(L)" ID="{34D964DF-DBD8-4757-A4C5-A19CD67893E4}" ShortID="745527748">
 									<PropertyList>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="SpeakerPanning" Type="int16" Value="2"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-7</Value>
@@ -269,12 +361,22 @@
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
+									<PositioningInfo>
+										<Panner Name="" ID="{4C18E9D6-3060-4C93-8F02-1463308E608A}">
+											<PropertyList>
+												<Property Name="PanX" Type="Real64" Value="-51.6014234875445"/>
+												<Property Name="PanY" Type="Real64" Value="-1.11022302462516E-16"/>
+											</PropertyList>
+										</Panner>
+									</PositioningInfo>
 									<ActiveSourceList>
 										<ActiveSource Name="Ambient_Creaks_04" ID="{278C739C-9460-4EB8-AED4-189D67F5D957}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="Ambient_Creaks_03" ID="{526E0ACB-2D84-4DE8-929F-14C623035742}" ShortID="827975961">
+								<Sound Name="Ambient_Creaks_03(L)" ID="{526E0ACB-2D84-4DE8-929F-14C623035742}" ShortID="827975961">
 									<PropertyList>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="SpeakerPanning" Type="int16" Value="2"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-9</Value>
@@ -298,12 +400,22 @@
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
+									<PositioningInfo>
+										<Panner Name="" ID="{08062CA2-9810-46BA-98F6-C7117D9B7CDF}">
+											<PropertyList>
+												<Property Name="PanX" Type="Real64" Value="-46.6192170818505"/>
+												<Property Name="PanY" Type="Real64" Value="-0.766283524904214"/>
+											</PropertyList>
+										</Panner>
+									</PositioningInfo>
 									<ActiveSourceList>
 										<ActiveSource Name="Ambient_Creaks_03" ID="{9A926A23-8603-43FA-A617-B971A6D1D329}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="Ambient_Creaks_02" ID="{67497785-B440-4E16-A751-9AE2807094D8}" ShortID="963103853">
+								<Sound Name="Ambient_Creaks_02(L)" ID="{67497785-B440-4E16-A751-9AE2807094D8}" ShortID="963103853">
 									<PropertyList>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="SpeakerPanning" Type="int16" Value="2"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-6</Value>
@@ -327,11 +439,23 @@
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
+									<PositioningInfo>
+										<Panner Name="" ID="{AAD9EBCE-2F73-45BD-9A08-7B3146A39C84}">
+											<PropertyList>
+												<Property Name="PanX" Type="Real64" Value="-44.1281138790036"/>
+												<Property Name="PanY" Type="Real64" Value="0.766283524904215"/>
+											</PropertyList>
+										</Panner>
+									</PositioningInfo>
 									<ActiveSourceList>
 										<ActiveSource Name="Ambient_Creaks_02" ID="{FCE2AF77-3411-424C-84A3-2E3F1496B927}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="Ambient_Creaks_01" ID="{2282452D-9201-476C-B7B4-9470498A608B}" ShortID="644801958">
+								<Sound Name="Ambient_Creaks_01(L)" ID="{2282452D-9201-476C-B7B4-9470498A608B}" ShortID="644801958">
+									<PropertyList>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="SpeakerPanning" Type="int16" Value="2"/>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{066AACED-29FB-4E9B-977A-46A9F6C9913D}"/>
@@ -349,15 +473,433 @@
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
+									<PositioningInfo>
+										<Panner Name="" ID="{48F04BF1-5656-468E-9A35-F8889EA5FE4B}">
+											<PropertyList>
+												<Property Name="PanX" Type="Real64" Value="-49.4661921708185"/>
+												<Property Name="PanY" Type="Real64" Value="-0.383141762452165"/>
+											</PropertyList>
+										</Panner>
+									</PositioningInfo>
 									<ActiveSourceList>
 										<ActiveSource Name="Ambient_Creaks_01" ID="{017482EF-BC1F-49D6-A5F5-7128D4A0F675}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
+								<Sound Name="Ambient_Creaks_12(R)" ID="{5DEDC4AA-A449-4AB8-92C6-B8859E1665FA}" ShortID="240653759">
+									<PropertyList>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="SpeakerPanning" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{066AACED-29FB-4E9B-977A-46A9F6C9913D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F847AA8C-7B54-49C2-9EE8-B09DDE93BCE9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Ambient_Creaks_01" ID="{EDE31CA3-1F95-45F3-9998-B824501493AD}">
+											<Language>SFX</Language>
+											<AudioFile>Ambient_Creaks_01.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="199528629"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<PositioningInfo>
+										<Panner Name="" ID="{A53CEB49-F43E-422D-8F2F-09BB5CDE95CA}">
+											<PropertyList>
+												<Property Name="PanX" Type="Real64" Value="48.3985765124555"/>
+												<Property Name="PanY" Type="Real64" Value="-0.383141762452107"/>
+											</PropertyList>
+										</Panner>
+									</PositioningInfo>
+									<ActiveSourceList>
+										<ActiveSource Name="Ambient_Creaks_01" ID="{EDE31CA3-1F95-45F3-9998-B824501493AD}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Ambient_Creaks_13(R)" ID="{BF75098B-B36D-4834-9B4D-0F039309D707}" ShortID="919088244">
+									<PropertyList>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="SpeakerPanning" Type="int16" Value="2"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{066AACED-29FB-4E9B-977A-46A9F6C9913D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F847AA8C-7B54-49C2-9EE8-B09DDE93BCE9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Ambient_Creaks_02" ID="{953DB315-09FE-4DF4-B285-69286F536376}">
+											<Language>SFX</Language>
+											<AudioFile>Ambient_Creaks_02.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="755158847"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<PositioningInfo>
+										<Panner Name="" ID="{2F6821C2-43A7-4E0F-AF2A-F7190D4C06DE}">
+											<PropertyList>
+												<Property Name="PanX" Type="Real64" Value="31.3167259786477"/>
+												<Property Name="PanY" Type="Real64" Value="1.14942528735632"/>
+											</PropertyList>
+										</Panner>
+									</PositioningInfo>
+									<ActiveSourceList>
+										<ActiveSource Name="Ambient_Creaks_02" ID="{953DB315-09FE-4DF4-B285-69286F536376}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Ambient_Creaks_14(R)" ID="{65166B9E-5862-4F9C-A690-FBB8516C1A0C}" ShortID="10579061">
+									<PropertyList>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="SpeakerPanning" Type="int16" Value="2"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-9</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{066AACED-29FB-4E9B-977A-46A9F6C9913D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F847AA8C-7B54-49C2-9EE8-B09DDE93BCE9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Ambient_Creaks_03" ID="{85863FDF-BCAA-4407-A452-00B69D14CF8B}">
+											<Language>SFX</Language>
+											<AudioFile>Ambient_Creaks_03.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="71648286"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<PositioningInfo>
+										<Panner Name="" ID="{067492E2-F692-4F0B-B7E3-6BDEBC18F4CF}">
+											<PropertyList>
+												<Property Name="PanX" Type="Real64" Value="39.5017793594306"/>
+												<Property Name="PanY" Type="Real64" Value="-0.383141762452107"/>
+											</PropertyList>
+										</Panner>
+									</PositioningInfo>
+									<ActiveSourceList>
+										<ActiveSource Name="Ambient_Creaks_03" ID="{85863FDF-BCAA-4407-A452-00B69D14CF8B}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Ambient_Creaks_15(R)" ID="{2CCB8205-64C2-40F3-BF6E-DFB60B16FFFC}" ShortID="520390804">
+									<PropertyList>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="SpeakerPanning" Type="int16" Value="2"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-7</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{066AACED-29FB-4E9B-977A-46A9F6C9913D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F847AA8C-7B54-49C2-9EE8-B09DDE93BCE9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Ambient_Creaks_04" ID="{22948D56-58E6-46B2-8306-2F0D06C55137}">
+											<Language>SFX</Language>
+											<AudioFile>Ambient_Creaks_04.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="366351809"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<PositioningInfo>
+										<Panner Name="" ID="{DD62A68A-6C51-4255-9A7B-88CE9F355358}">
+											<PropertyList>
+												<Property Name="PanX" Type="Real64" Value="47.6868327402135"/>
+												<Property Name="PanY" Type="Real64" Value="-0.383141762452107"/>
+											</PropertyList>
+										</Panner>
+									</PositioningInfo>
+									<ActiveSourceList>
+										<ActiveSource Name="Ambient_Creaks_04" ID="{22948D56-58E6-46B2-8306-2F0D06C55137}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Ambient_Creaks_16(R)" ID="{261AF954-9287-4E20-8180-D5DBB02CD17C}" ShortID="297803240">
+									<PropertyList>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="SpeakerPanning" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{066AACED-29FB-4E9B-977A-46A9F6C9913D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F847AA8C-7B54-49C2-9EE8-B09DDE93BCE9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Ambient_Creaks_05" ID="{75E42D7B-3688-4B70-98BA-D1A1D11F4122}">
+											<Language>SFX</Language>
+											<AudioFile>Ambient_Creaks_05.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="234173383"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<PositioningInfo>
+										<Panner Name="" ID="{84AA56DC-88AE-4A2C-B050-0ADFB0345B8D}">
+											<PropertyList>
+												<Property Name="PanX" Type="Real64" Value="31.6725978647687"/>
+												<Property Name="PanY" Type="Real64" Value="-1.11022302462516E-16"/>
+											</PropertyList>
+										</Panner>
+									</PositioningInfo>
+									<ActiveSourceList>
+										<ActiveSource Name="Ambient_Creaks_05" ID="{75E42D7B-3688-4B70-98BA-D1A1D11F4122}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Ambient_Creaks_17(R)" ID="{8076C4E5-ECF9-487F-B59C-195A09D20310}" ShortID="660417631">
+									<PropertyList>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="SpeakerPanning" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{066AACED-29FB-4E9B-977A-46A9F6C9913D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F847AA8C-7B54-49C2-9EE8-B09DDE93BCE9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Ambient_Creaks_06" ID="{C617A87C-F6EE-4CEF-B143-9D23D66AD5A5}">
+											<Language>SFX</Language>
+											<AudioFile>Ambient_Creaks_06.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="409672502"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<PositioningInfo>
+										<Panner Name="" ID="{10E8F7CF-8EA3-49A2-9A13-710E920524F1}">
+											<PropertyList>
+												<Property Name="PanX" Type="Real64" Value="36.2989323843417"/>
+											</PropertyList>
+										</Panner>
+									</PositioningInfo>
+									<ActiveSourceList>
+										<ActiveSource Name="Ambient_Creaks_06" ID="{C617A87C-F6EE-4CEF-B143-9D23D66AD5A5}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Ambient_Creaks_18(R)" ID="{DCDD3B36-9BBA-47D2-B7EF-FD75BD2B0077}" ShortID="234459800">
+									<PropertyList>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="SpeakerPanning" Type="int16" Value="2"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-5</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{066AACED-29FB-4E9B-977A-46A9F6C9913D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F847AA8C-7B54-49C2-9EE8-B09DDE93BCE9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Ambient_Creaks_07" ID="{367E4640-23C1-4954-B7A9-2BE3F5613D72}">
+											<Language>SFX</Language>
+											<AudioFile>Ambient_Creaks_07.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="51957951"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<PositioningInfo>
+										<Panner Name="" ID="{2725F09F-9EEA-4587-AC7C-4F0A29DD8932}">
+											<PropertyList>
+												<Property Name="PanX" Type="Real64" Value="28.8256227758007"/>
+												<Property Name="PanY" Type="Real64" Value="0.383141762452107"/>
+											</PropertyList>
+										</Panner>
+									</PositioningInfo>
+									<ActiveSourceList>
+										<ActiveSource Name="Ambient_Creaks_07" ID="{367E4640-23C1-4954-B7A9-2BE3F5613D72}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Ambient_Creaks_19(R)" ID="{DA148098-FDE7-4843-9198-87BE69DB5FB2}" ShortID="668360264">
+									<PropertyList>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="SpeakerPanning" Type="int16" Value="2"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-3</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{066AACED-29FB-4E9B-977A-46A9F6C9913D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F847AA8C-7B54-49C2-9EE8-B09DDE93BCE9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Ambient_Creaks_08" ID="{6801516B-0CC3-4456-A7C2-D7CB0E0BF464}">
+											<Language>SFX</Language>
+											<AudioFile>Ambient_Creaks_08.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="821646958"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<PositioningInfo>
+										<Panner Name="" ID="{2C988C2A-A4C6-454E-90C5-F012CCFE7FC3}">
+											<PropertyList>
+												<Property Name="PanX" Type="Real64" Value="33.0960854092527"/>
+											</PropertyList>
+										</Panner>
+									</PositioningInfo>
+									<ActiveSourceList>
+										<ActiveSource Name="Ambient_Creaks_08" ID="{6801516B-0CC3-4456-A7C2-D7CB0E0BF464}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Ambient_Creaks_20(R)" ID="{FCC21A17-6B90-4B2F-A9A2-01C4AFC7543D}" ShortID="810452823">
+									<PropertyList>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="SpeakerPanning" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{066AACED-29FB-4E9B-977A-46A9F6C9913D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F847AA8C-7B54-49C2-9EE8-B09DDE93BCE9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Ambient_Creaks_09" ID="{A26A0374-54B0-437F-9AE6-079AE82D6053}">
+											<Language>SFX</Language>
+											<AudioFile>Ambient_Creaks_09.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="218177699"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<PositioningInfo>
+										<Panner Name="" ID="{E2B660A9-6503-4BDC-9BCC-545CD7196951}">
+											<PropertyList>
+												<Property Name="PanX" Type="Real64" Value="37.3665480427046"/>
+												<Property Name="PanY" Type="Real64" Value="0.766283524904215"/>
+											</PropertyList>
+										</Panner>
+									</PositioningInfo>
+									<ActiveSourceList>
+										<ActiveSource Name="Ambient_Creaks_09" ID="{A26A0374-54B0-437F-9AE6-079AE82D6053}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Ambient_Creaks_21(R)" ID="{DB6CCC6C-0075-4E90-9E7C-7C8262386680}" ShortID="634892318">
+									<PropertyList>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="SpeakerPanning" Type="int16" Value="2"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-4</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{066AACED-29FB-4E9B-977A-46A9F6C9913D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F847AA8C-7B54-49C2-9EE8-B09DDE93BCE9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Ambient_Creaks_10" ID="{D92E1BD9-0EB2-461A-89D6-9FDDA78D3A4D}">
+											<Language>SFX</Language>
+											<AudioFile>Ambient_Creaks_10.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="291154626"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<PositioningInfo>
+										<Panner Name="" ID="{EF17D86D-ACE5-412F-B661-1E77F09446A7}">
+											<PropertyList>
+												<Property Name="PanX" Type="Real64" Value="43.7722419928826"/>
+												<Property Name="PanY" Type="Real64" Value="0.766283524904214"/>
+											</PropertyList>
+										</Panner>
+									</PositioningInfo>
+									<ActiveSourceList>
+										<ActiveSource Name="Ambient_Creaks_10" ID="{D92E1BD9-0EB2-461A-89D6-9FDDA78D3A4D}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Ambient_Creaks_22(R)" ID="{6263673C-6CD7-4927-920B-1BD8A62B4E50}" ShortID="558714093">
+									<PropertyList>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="SpeakerPanning" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{066AACED-29FB-4E9B-977A-46A9F6C9913D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F847AA8C-7B54-49C2-9EE8-B09DDE93BCE9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Ambient_Creaks_11" ID="{450D1038-BA28-4C81-AEB4-4C490A3D6B08}">
+											<Language>SFX</Language>
+											<AudioFile>Ambient_Creaks_11.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1039346954"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<PositioningInfo>
+										<Panner Name="" ID="{EB1244DE-E39E-407B-873A-5076E83D2DA7}">
+											<PropertyList>
+												<Property Name="PanX" Type="Real64" Value="37.0106761565836"/>
+												<Property Name="PanY" Type="Real64" Value="-0.766283524904214"/>
+											</PropertyList>
+										</Panner>
+									</PositioningInfo>
+									<ActiveSourceList>
+										<ActiveSource Name="Ambient_Creaks_11" ID="{450D1038-BA28-4C81-AEB4-4C490A3D6B08}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
 							</ChildrenList>
+							<PositioningInfo>
+								<Panner Name="" ID="{FFF4781E-D714-4835-866B-F243F0D335DB}"/>
+							</PositioningInfo>
 						</RandomSequenceContainer>
 						<Sound Name="Ambient_Eerie" ID="{FDDCCE1C-E897-4A83-9DD8-E31F5F43267A}" ShortID="218428621">
 							<PropertyList>
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="IsStreamingEnabled" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-10</Value>
@@ -374,6 +916,12 @@
 							</ReferenceList>
 							<ChildrenList>
 								<AudioFileSource Name="Ambient_Eerie" ID="{B922DF60-EFD1-4114-A3C1-F01E0B91302F}">
+									<PropertyList>
+										<Property Name="CrossfadeDuration" Type="Real64" Value="2434.896"/>
+										<Property Name="LoopBegin" Type="Real64" Value="9.34426229508197"/>
+										<Property Name="LoopEnd" Type="Real64" Value="50.8196721311475"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>Ambient_Eerie.wav</AudioFile>
 									<MediaIDList>
@@ -395,6 +943,8 @@
 					<ChildrenList>
 						<Sound Name="Tower_Place" ID="{0E7B035F-4FF1-4A01-A96E-BA0499C1C97C}" ShortID="756393415">
 							<PropertyList>
+								<Property Name="Color" Type="int16" Value="17"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
 								<Property Name="Pitch" Type="int32">
 									<ModifierList>
 										<ModifierInfo>
@@ -437,12 +987,14 @@
 						</Sound>
 						<RandomSequenceContainer Name="Tower_Shoot_ToyTank" ID="{C15BAFF6-57F0-4AE3-B631-0529C355580F}" ShortID="324399306">
 							<PropertyList>
+								<Property Name="Color" Type="int16" Value="17"/>
 								<Property Name="GlobalOrPerObject" Type="int16" Value="0"/>
 								<Property Name="Highpass" Type="int16">
 									<ValueList>
 										<Value>30</Value>
 									</ValueList>
 								</Property>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
 								<Property Name="Pitch" Type="int32">
 									<ModifierList>
 										<ModifierInfo>
@@ -536,12 +1088,14 @@
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="Tower_Shoot_TeddyBear" ID="{0006AEB5-6FF6-42C9-BDC0-6CB22735AC78}" ShortID="848239361">
 							<PropertyList>
+								<Property Name="Color" Type="int16" Value="17"/>
 								<Property Name="GlobalOrPerObject" Type="int16" Value="0"/>
 								<Property Name="Highpass" Type="int16">
 									<ValueList>
 										<Value>20</Value>
 									</ValueList>
 								</Property>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
 								<Property Name="Pitch" Type="int32">
 									<ModifierList>
 										<ModifierInfo>
@@ -646,7 +1200,7 @@
 								<AudioFileSource Name="Tower_Destroy" ID="{4B353841-643A-47FC-95ED-D4B54BE1B51F}">
 									<PropertyList>
 										<Property Name="FadeInDuration" Type="Real64" Value="0.00124567823405279"/>
-										<Property Name="FadeOutDuration" Type="Real64" Value="0.0106574693357849"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.00708978416668787"/>
 										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
 									</PropertyList>
 									<Language>SFX</Language>
@@ -665,6 +1219,10 @@
 				<Folder Name="Disasters" ID="{0693640A-221B-489F-BA07-7580BD795A37}" ShortID="613592752">
 					<ChildrenList>
 						<SwitchContainer Name="Disaster_Start" ID="{7D952468-3AB8-4CEA-86CB-6ACD21D45293}" ShortID="136889000">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="17"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{066AACED-29FB-4E9B-977A-46A9F6C9913D}"/>
@@ -783,6 +1341,10 @@
 							</GroupingInfo>
 						</SwitchContainer>
 						<SwitchContainer Name="Disaster_End" ID="{4F4BA34F-0460-4859-987E-BF0A236F647E}" ShortID="122908179">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="17"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{066AACED-29FB-4E9B-977A-46A9F6C9913D}"/>
