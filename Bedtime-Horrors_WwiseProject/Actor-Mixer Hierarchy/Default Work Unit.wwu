@@ -1300,6 +1300,28 @@
 										<ActiveSource Name="Event_Start_Flood" ID="{D4875F3F-0CA5-4C78-83F0-B29A05C9F0DF}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
+								<Sound Name="Event_Start_Blizzard" ID="{5AF6E194-44C3-4A1C-9D08-7B3786F9371F}" ShortID="183580680">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{066AACED-29FB-4E9B-977A-46A9F6C9913D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F847AA8C-7B54-49C2-9EE8-B09DDE93BCE9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Event_Start_Blizzard" ID="{331D3EE6-E9D6-408B-A45A-FEBEEF96BE10}">
+											<Language>SFX</Language>
+											<AudioFile>Event_Start_Blizzard.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="190868841"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Event_Start_Blizzard" ID="{331D3EE6-E9D6-408B-A45A-FEBEEF96BE10}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
 							</ChildrenList>
 							<GroupingInfo>
 								<GroupingBehaviorList>
@@ -1323,6 +1345,9 @@
 											</Property>
 										</PropertyList>
 									</GroupingBehavior>
+									<GroupingBehavior>
+										<ItemRef Name="Event_Start_Blizzard" ID="{5AF6E194-44C3-4A1C-9D08-7B3786F9371F}"/>
+									</GroupingBehavior>
 								</GroupingBehaviorList>
 								<GroupingList>
 									<Grouping>
@@ -1335,6 +1360,12 @@
 										<SwitchRef Name="Earthquake" ID="{9A49E936-CC9A-4110-A0AD-713D2CD2CA39}"/>
 										<ItemList>
 											<ItemRef Name="Event_Start_Earthquake" ID="{D72CD91C-2758-4B9E-8337-0C27272C849C}"/>
+										</ItemList>
+									</Grouping>
+									<Grouping>
+										<SwitchRef Name="Blizzard" ID="{D296BB58-9929-467D-8906-4EAB75374263}"/>
+										<ItemList>
+											<ItemRef Name="Event_Start_Blizzard" ID="{5AF6E194-44C3-4A1C-9D08-7B3786F9371F}"/>
 										</ItemList>
 									</Grouping>
 								</GroupingList>
@@ -1404,6 +1435,28 @@
 										<ActiveSource Name="Event_End_Flood" ID="{7A1FAB02-1287-427F-B1AF-011543CF8BBF}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
+								<Sound Name="Event_End_Blizzard" ID="{33817155-77E8-4E87-9D43-57288919ABD5}" ShortID="907038615">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{066AACED-29FB-4E9B-977A-46A9F6C9913D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F847AA8C-7B54-49C2-9EE8-B09DDE93BCE9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Event_End_Blizzard" ID="{FA2B106B-462F-4E95-8255-DD7E80002708}">
+											<Language>SFX</Language>
+											<AudioFile>Event_End_Blizzard.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="297946496"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Event_End_Blizzard" ID="{FA2B106B-462F-4E95-8255-DD7E80002708}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
 							</ChildrenList>
 							<GroupingInfo>
 								<GroupingBehaviorList>
@@ -1427,6 +1480,9 @@
 											</Property>
 										</PropertyList>
 									</GroupingBehavior>
+									<GroupingBehavior>
+										<ItemRef Name="Event_End_Blizzard" ID="{33817155-77E8-4E87-9D43-57288919ABD5}"/>
+									</GroupingBehavior>
 								</GroupingBehaviorList>
 								<GroupingList>
 									<Grouping>
@@ -1439,6 +1495,12 @@
 										<SwitchRef Name="Earthquake" ID="{9A49E936-CC9A-4110-A0AD-713D2CD2CA39}"/>
 										<ItemList>
 											<ItemRef Name="Event_End_Earthquake" ID="{59B83323-319A-4739-9616-74885DBD04EA}"/>
+										</ItemList>
+									</Grouping>
+									<Grouping>
+										<SwitchRef Name="Blizzard" ID="{D296BB58-9929-467D-8906-4EAB75374263}"/>
+										<ItemList>
+											<ItemRef Name="Event_End_Blizzard" ID="{33817155-77E8-4E87-9D43-57288919ABD5}"/>
 										</ItemList>
 									</Grouping>
 								</GroupingList>
