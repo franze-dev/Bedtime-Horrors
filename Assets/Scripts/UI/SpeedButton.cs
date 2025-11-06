@@ -6,9 +6,18 @@ public class SpeedButton : MonoBehaviour
     [SerializeField] GameObject _speedDisabledButtonGO;
     [SerializeField] float _speedUpValue = 1.5f;
 
+    public float CurrentSpeed => _speedActiveButtonGO.activeSelf ? _speedUpValue : 1f;
+
+    private void Awake()
+    {
+        ServiceProvider.SetService(this, true);
+    }
+
     private void OnDestroy()
     {
-        Time.timeScale = 1.0f;
+        ServiceProvider.SetService<SpeedButton>(null);
+
+        Time.timeScale = 1f;
     }
 
     public void OnSpeedChange()
@@ -29,11 +38,13 @@ public class SpeedButton : MonoBehaviour
 
     private void SpeedUpTime()
     {
-        Time.timeScale = _speedUpValue;
+        if (Time.timeScale > 0f)
+            Time.timeScale = _speedUpValue;
     }
 
     private void ResetTime()
     {
-        Time.timeScale = 1.0f;
+        if (Time.timeScale > 0f)
+            Time.timeScale = 1f;
     }
 }

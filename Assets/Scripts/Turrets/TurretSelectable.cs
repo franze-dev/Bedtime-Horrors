@@ -79,6 +79,8 @@ public class TurretSelectable : MonoBehaviour, ITooltipInfo, IInteractable, IDra
         if (!@event.HasHit)
         {
             Debug.Log("No hit detected on drag end");
+            Destroy(_copy);
+            _copy = null;
             return;
         }
 
