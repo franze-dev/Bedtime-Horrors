@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BackgroundAnimation : MonoBehaviour
+public class SimpleAnimation : MonoBehaviour
 {
     [SerializeField] private Image _sourceImage;
     [SerializeField] private List<Sprite> _animationFrames = new List<Sprite>();
