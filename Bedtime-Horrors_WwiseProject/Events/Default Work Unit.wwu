@@ -63,8 +63,28 @@
 					<ChildrenList>
 						<Event Name="UI_RadioAnnouncement" ID="{5D599C58-81B0-42C7-9726-7E2E98D23C1C}"/>
 						<Event Name="UI_EliteEnemyAnnouncement" ID="{C584969E-4F68-4558-9342-FDD576DEF304}"/>
-						<Event Name="UI_TowerChest_Open" ID="{D247628B-69BC-47CB-88B8-46A9333638D5}"/>
-						<Event Name="UI_TowerChest_Close" ID="{CB917243-2DCE-48AE-8FCF-57558B873280}"/>
+						<Event Name="UI_TowerChest_Open" ID="{D247628B-69BC-47CB-88B8-46A9333638D5}">
+							<ChildrenList>
+								<Action Name="" ID="{9141608F-B39A-44C2-8D77-55BB946A3950}" ShortID="805541249">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="UI_TowerChest_Open" ID="{4CFAA8A0-F5F2-4378-99FF-D119E71348F8}" WorkUnitID="{932C6B5F-4E51-4C47-BD09-779BE6F37C5D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="UI_TowerChest_Close" ID="{CB917243-2DCE-48AE-8FCF-57558B873280}">
+							<ChildrenList>
+								<Action Name="" ID="{3398C832-102C-40DC-ABAE-E3F6E3AF7D3E}" ShortID="543605402">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="UI_TowerChest_Close" ID="{06951F27-ED4B-4B69-B07C-27544AA6C671}" WorkUnitID="{932C6B5F-4E51-4C47-BD09-779BE6F37C5D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 						<Event Name="UI_Button_Normal" ID="{00E53B91-C68A-4FCF-919E-3B3956A950F7}"/>
 						<Event Name="UI_Button_Special" ID="{6032EF43-4870-4EA3-8217-C6C78B2B3C8E}"/>
 						<Event Name="UI_DiaryPage" ID="{4AAB2DEA-3CEB-4503-8986-CFD643ABAF2A}"/>
