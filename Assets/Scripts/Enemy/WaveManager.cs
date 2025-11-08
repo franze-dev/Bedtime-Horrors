@@ -69,6 +69,7 @@ public class WaveManager : MonoBehaviour
 
             if (ServiceProvider.TryGetService(out NavigationController nav))
             {
+                AkUnitySoundEngine.StopAll();
                 nav.GoToMenu(new WinMenuState());
             }
             else
