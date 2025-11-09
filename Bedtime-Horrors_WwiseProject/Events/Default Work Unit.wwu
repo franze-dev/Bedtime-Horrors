@@ -57,6 +57,40 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Ambient_Stop" ID="{6AC283F0-FF5E-4CBC-A201-6F5EBD4F64A9}">
+							<ChildrenList>
+								<Action Name="" ID="{4D857C25-59E3-43DA-894C-D3B2BE0CB88B}" ShortID="807070108">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Ambient_Creaks" ID="{10B96277-F529-428B-BE61-5DF506F72D5B}" WorkUnitID="{932C6B5F-4E51-4C47-BD09-779BE6F37C5D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{8901FCEB-E181-460F-9E7D-2A363A8AE733}" ShortID="1060730439">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Ambient_Eerie" ID="{FDDCCE1C-E897-4A83-9DD8-E31F5F43267A}" WorkUnitID="{932C6B5F-4E51-4C47-BD09-779BE6F37C5D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{3FC4B2B0-1580-4635-99A0-E62F990AE434}" ShortID="392605073">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Ambient_Wind" ID="{D7910854-A0D3-4653-B583-5E85C7801ECE}" WorkUnitID="{932C6B5F-4E51-4C47-BD09-779BE6F37C5D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="UI" ID="{0B9A0F8F-BF51-4EBA-B11C-4CC5E80B2EED}" ShortID="326983710">
@@ -230,6 +264,30 @@
 									</ReferenceList>
 								</Action>
 								<Action Name="" ID="{FD2957B7-2060-478F-9CA4-F2EC11F5D391}" ShortID="1061599537">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Disaster_End" ID="{4F4BA34F-0460-4859-987E-BF0A236F647E}" WorkUnitID="{932C6B5F-4E51-4C47-BD09-779BE6F37C5D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Disaster_Stop" ID="{8F150DED-089B-449D-A256-3FCE2238521B}">
+							<ChildrenList>
+								<Action Name="" ID="{14A230AA-56E0-4CDC-A9EC-A34E23BB2B52}" ShortID="818538825">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Disaster_Start" ID="{7D952468-3AB8-4CEA-86CB-6ACD21D45293}" WorkUnitID="{932C6B5F-4E51-4C47-BD09-779BE6F37C5D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{BEF19CE0-5918-4C4E-BD98-07A7FFAFFD77}" ShortID="226103161">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Disaster_End" ID="{4F4BA34F-0460-4859-987E-BF0A236F647E}" WorkUnitID="{932C6B5F-4E51-4C47-BD09-779BE6F37C5D}"/>
