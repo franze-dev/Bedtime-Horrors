@@ -22,7 +22,7 @@ public class NaturalDisasterManager : MonoBehaviour
             return;
 
         _radioObject.SetActive(false);
-        _disasterSymbol = null;
+        _disasterSymbol.sprite = null;
 
         foreach (var disaster in _disasters)
             disaster?.Init();
@@ -63,11 +63,12 @@ public class NaturalDisasterManager : MonoBehaviour
         _isCoroutineRunning = true;
 
         yield return new WaitForSeconds(Random.Range(_minInterval, _maxInterval));
-        StartRandomDisaster();
+        SelectRandomDisaster();
         _disasterSymbol.sprite = _currentDisaster.Icon;
         _radioObject.SetActive(true);
 
         yield return new WaitForSeconds(_timeToDisasterStart);
+        StartRandomDisaster();
         _radioObject.SetActive(false);
 
         yield return new WaitForSeconds(_currentDisaster.Duration);
@@ -81,11 +82,11 @@ public class NaturalDisasterManager : MonoBehaviour
         _isCoroutineRunning = true;
 
         _currentDisaster = disaster;
-        disaster.StartDisaster();
         _disasterSymbol.sprite = _currentDisaster.Icon;
         _radioObject.SetActive(true);
 
         yield return new WaitForSeconds(_timeToDisasterStart);
+        disaster.StartDisaster();
         _radioObject.SetActive(false);
 
         yield return new WaitForSeconds(disaster.Duration);
@@ -94,8 +95,7 @@ public class NaturalDisasterManager : MonoBehaviour
         _currentDisaster = null;
     }
 
-
-    private void StartRandomDisaster()
+    private void SelectRandomDisaster()
     {
         if (_disasters.Count == 0)
         {
@@ -107,7 +107,10 @@ public class NaturalDisasterManager : MonoBehaviour
             _currentDisaster = _disasters[Random.Range(0, _disasters.Count)];
         else
             _currentDisaster = _disasters[0];
+    }
 
+    private void StartRandomDisaster()
+    {
         _currentDisaster.StartDisaster();
     }
 

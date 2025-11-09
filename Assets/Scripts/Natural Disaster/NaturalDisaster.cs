@@ -10,7 +10,7 @@ public abstract class NaturalDisaster : ScriptableObject
 
     [HideInInspector] public DisasterAnimationData AnimationData { get => _disasterAnimationData; protected set => _disasterAnimationData = value; }
     [HideInInspector] public DisasterAnimation AnimationLogic { get => _animationLogic; protected set => _animationLogic = value; }
-    [HideInInspector] public Sprite Icon { get => Icon; protected set => Icon = value; }
+    [HideInInspector] public Sprite Icon { get => _icon; protected set => _icon = value; }
 
     public abstract void Init();
     public abstract void StartDisaster();
