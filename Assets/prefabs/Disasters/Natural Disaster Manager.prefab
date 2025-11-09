@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 4872184844810642685}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -519.1527, y: -402.652, z: -1.483884}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -201,7 +201,7 @@ Transform:
   m_GameObject: {fileID: 5374349931523294432}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 519.1527, y: 402.652, z: 1.483884}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -227,3 +227,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 50f803d52003ea24586aa89b14552c91, type: 2}
   _minInterval: 3
   _maxInterval: 4
+  _timeToDisasterStart: 3
+  _radioObject: {fileID: 4872184844810642685}
+  _disasterSymbol: {fileID: 3545187267413581918}
