@@ -20319,6 +20319,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _originalPrefab: {fileID: 7588107092092086437, guid: 9cf32c7cfc89f374fa14638036ec8bab, type: 3}
+  _armature: {fileID: 4249699294858145857}
+  _creativityUpdater: {fileID: 2726348020391225494}
+  _originalColor: {r: 1, g: 1, b: 1, a: 1}
+  _unaffordableColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
 --- !u!33 &3036365818806060795
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -24345,6 +24349,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 4627032095133692230}
   m_SourcePrefab: {fileID: 100100000, guid: 68ce140c0d4fcc74ab125a9ae3a9d10a, type: 3}
+--- !u!114 &3671697756861298161 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8039170608942271048, guid: 68ce140c0d4fcc74ab125a9ae3a9d10a, type: 3}
+  m_PrefabInstance: {fileID: 3671697756861298160}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f825bb5ce93d6ab429dfa508444119b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3675759406133108711
 GameObject:
   m_ObjectHideFlags: 1
@@ -27175,6 +27190,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 3034940533587011711}
   m_SourcePrefab: {fileID: 100100000, guid: 9cf32c7cfc89f374fa14638036ec8bab, type: 3}
+--- !u!114 &4249699294858145857 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6098796316363942830, guid: 9cf32c7cfc89f374fa14638036ec8bab, type: 3}
+  m_PrefabInstance: {fileID: 4249699294858145856}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f825bb5ce93d6ab429dfa508444119b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &4251519315405558631
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -28741,6 +28767,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _originalPrefab: {fileID: 6875482896816604502, guid: 68ce140c0d4fcc74ab125a9ae3a9d10a, type: 3}
+  _armature: {fileID: 3671697756861298161}
+  _creativityUpdater: {fileID: 2726348020391225494}
+  _originalColor: {r: 1, g: 1, b: 1, a: 1}
+  _unaffordableColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
 --- !u!212 &4627288498398752075
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -37283,6 +37313,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 8641558087153555229}
   m_SourcePrefab: {fileID: 100100000, guid: 3e08f0efa1207df44b275fc6f6633e0a, type: 3}
+--- !u!114 &6286583052296163308 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4042338804836371942, guid: 3e08f0efa1207df44b275fc6f6633e0a, type: 3}
+  m_PrefabInstance: {fileID: 6286583052296163307}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f825bb5ce93d6ab429dfa508444119b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &6295200047499834868
 Transform:
   m_ObjectHideFlags: 1
@@ -47036,11 +47077,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1548426303525779564, guid: 933370bd845a73d47b6d082e277b65da, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: 1548426303525779564, guid: 933370bd845a73d47b6d082e277b65da, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: 1548426303525779564, guid: 933370bd845a73d47b6d082e277b65da, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -48355,6 +48396,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _originalPrefab: {fileID: 5727367013825334767, guid: 3e08f0efa1207df44b275fc6f6633e0a, type: 3}
+  _armature: {fileID: 6286583052296163308}
+  _creativityUpdater: {fileID: 2726348020391225494}
+  _originalColor: {r: 1, g: 1, b: 1, a: 1}
+  _unaffordableColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
 --- !u!23 &8642818782887078371
 MeshRenderer:
   m_ObjectHideFlags: 1

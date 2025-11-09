@@ -132,7 +132,7 @@ public class Turret : MonoBehaviour, IInteractable
 
         _currentLevelId++;
 
-        if (!HasEnoughCreativity())
+        if (!HasEnoughCreativity(_creativityUpdater, LevelUpPrice))
         {
             _currentLevelId--;
             return false;
@@ -147,9 +147,9 @@ public class Turret : MonoBehaviour, IInteractable
         return CurrentStats == _levelData.FinalLevelStats;
     }
 
-    private bool HasEnoughCreativity()
+    public bool HasEnoughCreativity(CreativityUpdater creativityUpdater, float price)
     {
-        return _creativityUpdater.GetCreativityValue() >= LevelUpPrice &&
-               _creativityUpdater.GetCreativityValue() - LevelUpPrice >= 0;
+        return creativityUpdater.GetCreativityValue() >= price &&
+               creativityUpdater.GetCreativityValue() - price >= 0;
     }
 }
