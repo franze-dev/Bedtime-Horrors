@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: 0ce53dd6281b7fb429ee87bf41f3a728
+guid: a83adb6d0ad3f2647aa2e5df39a6143d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4138507159461002405
-    second: Terremoto_0
-  - first:
-      213: 314898592773567480
-    second: Terremoto_1
-  - first:
-      213: 1535785080942686136
-    second: Terremoto_2
+      213: -5383133283771436648
+    second: Pesadilla_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -106,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Terremoto_0
+      name: Pesadilla_0
       rect:
         serializedVersion: 2
-        x: 40
-        y: 51
-        width: 25
-        height: 99
+        x: 49
+        y: 33
+        width: 170
+        height: 140
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -121,52 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5ac7514b55eee6930800000000000000
-      internalID: 4138507159461002405
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Terremoto_1
-      rect:
-        serializedVersion: 2
-        x: 52
-        y: 60
-        width: 167
-        height: 102
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8f3f98a0a9ebe5400800000000000000
-      internalID: 314898592773567480
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Terremoto_2
-      rect:
-        serializedVersion: 2
-        x: 206
-        y: 51
-        width: 24
-        height: 99
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8bfeee8e464305510800000000000000
-      internalID: 1535785080942686136
+      spriteID: 891b83aacc44b45b0800000000000000
+      internalID: -5383133283771436648
       vertices: []
       indices: 
       edges: []
@@ -175,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -185,9 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Terremoto_0: 4138507159461002405
-      Terremoto_1: 314898592773567480
-      Terremoto_2: 1535785080942686136
+      Pesadilla_0: -5383133283771436648
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
