@@ -7,15 +7,22 @@ public class NaturalDisasterManager : MonoBehaviour
     [SerializeField] private List<NaturalDisaster> _disasters;
     [SerializeField] private float _minInterval = 30f;
     [SerializeField] private float _maxInterval = 120f;
+    [SerializeField] private float _timeToDisasterStart = 3f;
     private NaturalDisaster _currentDisaster;
     private WaveManager _waveManager;
 
     bool _isCoroutineRunning = false;
 
+    [SerializeField] private GameObject _radioObject; // Mover esto a otro objeto, quizas la radio, u otro game object
+    [SerializeField] private SpriteRenderer _disasterSymbol;
+
     private void Awake()
     {
         if (_disasters.Count == 0)
             return;
+
+        _radioObject.SetActive(false);
+        _disasterSymbol = null;
 
         foreach (var disaster in _disasters)
             disaster?.Init();
@@ -57,6 +64,12 @@ public class NaturalDisasterManager : MonoBehaviour
 
         yield return new WaitForSeconds(Random.Range(_minInterval, _maxInterval));
         StartRandomDisaster();
+        _disasterSymbol.sprite = _currentDisaster.Icon;
+        _radioObject.SetActive(true);
+
+        yield return new WaitForSeconds(_timeToDisasterStart);
+        _radioObject.SetActive(false);
+
         yield return new WaitForSeconds(_currentDisaster.Duration);
         _currentDisaster.EndDisaster();
         _isCoroutineRunning = false;
@@ -66,9 +79,15 @@ public class NaturalDisasterManager : MonoBehaviour
     {
         if (_isCoroutineRunning) yield break;
         _isCoroutineRunning = true;
-        _currentDisaster = disaster;
 
+        _currentDisaster = disaster;
         disaster.StartDisaster();
+        _disasterSymbol.sprite = _currentDisaster.Icon;
+        _radioObject.SetActive(true);
+
+        yield return new WaitForSeconds(_timeToDisasterStart);
+        _radioObject.SetActive(false);
+
         yield return new WaitForSeconds(disaster.Duration);
         disaster.EndDisaster();
         _isCoroutineRunning = false;
