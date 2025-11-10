@@ -244,7 +244,17 @@
 				</Folder>
 				<Folder Name="Base" ID="{F58C7A35-4E1F-4A0C-8098-E6E595142FD6}" ShortID="985752268">
 					<ChildrenList>
-						<Event Name="Base_TakeDamage" ID="{355D17B9-0A26-4237-AA07-1B17E5724129}"/>
+						<Event Name="Base_TakeDamage" ID="{355D17B9-0A26-4237-AA07-1B17E5724129}">
+							<ChildrenList>
+								<Action Name="" ID="{A00C76BE-76D8-4C94-BBE7-B64F3991B2E5}" ShortID="7808615">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Base_TakeDamage" ID="{5AC7D144-07BE-4D94-95D1-AA570BD5E8B2}" WorkUnitID="{932C6B5F-4E51-4C47-BD09-779BE6F37C5D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Disasters" ID="{F249F206-80CA-4872-AC08-91A95CBA3CCF}" ShortID="186666429">
