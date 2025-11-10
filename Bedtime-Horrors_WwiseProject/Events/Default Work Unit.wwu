@@ -141,7 +141,17 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="UI_DiaryPage" ID="{4AAB2DEA-3CEB-4503-8986-CFD643ABAF2A}"/>
+						<Event Name="UI_DiaryPage" ID="{4AAB2DEA-3CEB-4503-8986-CFD643ABAF2A}">
+							<ChildrenList>
+								<Action Name="" ID="{4F411D07-C0B5-4D9C-8E77-B17D0831FC3B}" ShortID="944304256">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="UI_DiaryPage" ID="{F701525C-E627-4489-A117-0FB02D85DAAB}" WorkUnitID="{932C6B5F-4E51-4C47-BD09-779BE6F37C5D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Enemy" ID="{6835C477-88BF-4004-A2FA-56CF044EE58C}" ShortID="763513481">

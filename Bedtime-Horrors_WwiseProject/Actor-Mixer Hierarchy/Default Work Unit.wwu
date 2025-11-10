@@ -941,6 +941,13 @@
 				<Folder Name="UI" ID="{5C9ACD1B-891F-478F-A785-B9F340C44562}" ShortID="77317106">
 					<ChildrenList>
 						<Sound Name="UI_TowerChest_Close" ID="{06951F27-ED4B-4B69-B07C-27544AA6C671}" ShortID="136172763">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{066AACED-29FB-4E9B-977A-46A9F6C9913D}"/>
@@ -963,6 +970,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="UI_TowerChest_Open" ID="{4CFAA8A0-F5F2-4378-99FF-D119E71348F8}" ShortID="1041658374">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{066AACED-29FB-4E9B-977A-46A9F6C9913D}"/>
@@ -1099,6 +1113,76 @@
 								<ActiveSource Name="UI_Button_Special" ID="{CD58F48B-86C8-4111-8CD4-D08E24792659}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
+						<RandomSequenceContainer Name="UI_DiaryPage" ID="{F701525C-E627-4489-A117-0FB02D85DAAB}" ShortID="258714568">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{637C4979-7BE6-45F3-BC28-45B98292E59F}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Min" Type="Real64" Value="-150"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{066AACED-29FB-4E9B-977A-46A9F6C9913D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F847AA8C-7B54-49C2-9EE8-B09DDE93BCE9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="UI_DiaryPage_2" ID="{B3845202-21A8-42D7-9DD8-684F59BF575F}" ShortID="965271519">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{066AACED-29FB-4E9B-977A-46A9F6C9913D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F847AA8C-7B54-49C2-9EE8-B09DDE93BCE9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="UI_DiaryPage_2" ID="{80EA92D2-6901-46FD-9D0D-687495B675B6}">
+											<Language>SFX</Language>
+											<AudioFile>UI_DiaryPage_2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="994256297"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="UI_DiaryPage_2" ID="{80EA92D2-6901-46FD-9D0D-687495B675B6}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="UI_DiaryPage_1" ID="{8F639E49-907C-4DC6-8A45-88DFC4490C5E}" ShortID="166647292">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{066AACED-29FB-4E9B-977A-46A9F6C9913D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F847AA8C-7B54-49C2-9EE8-B09DDE93BCE9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="UI_DiaryPage_1" ID="{7C166CE5-197B-4F3D-92CA-6CE7C153DCC7}">
+											<Language>SFX</Language>
+											<AudioFile>UI_DiaryPage_1.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="548485176"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="UI_DiaryPage_1" ID="{7C166CE5-197B-4F3D-92CA-6CE7C153DCC7}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Tower" ID="{796E6D56-1189-48B9-A26C-DC0FBF6EB7F4}" ShortID="925768887">
