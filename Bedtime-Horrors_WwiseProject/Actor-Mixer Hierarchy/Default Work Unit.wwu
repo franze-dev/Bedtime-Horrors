@@ -1664,6 +1664,7 @@
 								<Sound Name="Event_LightsOff_Start" ID="{6A7CC612-7F5D-4279-981F-78739BBE06B5}" ShortID="244883665">
 									<PropertyList>
 										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+										<Property Name="OverrideEffect" Type="bool" Value="True"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -1676,9 +1677,9 @@
 									<ChildrenList>
 										<AudioFileSource Name="Event_LightsOff_Start" ID="{9A0E069F-B8AC-42F5-AC57-2483A0F0603D}">
 											<PropertyList>
-												<Property Name="CrossfadeDuration" Type="Real64" Value="546.874"/>
-												<Property Name="LoopBegin" Type="Real64" Value="0.674931129476584"/>
-												<Property Name="LoopEnd" Type="Real64" Value="6.1129476584022"/>
+												<Property Name="CrossfadeDuration" Type="Real64" Value="1093.749"/>
+												<Property Name="LoopBegin" Type="Real64" Value="1.18454651409197"/>
+												<Property Name="LoopEnd" Type="Real64" Value="5.83410150455605"/>
 												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
 											</PropertyList>
 											<Language>SFX</Language>

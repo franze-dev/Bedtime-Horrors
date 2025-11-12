@@ -5,12 +5,31 @@
 			<ChildrenList>
 				<Folder Name="Music" ID="{14018490-EE75-4DF3-9C4E-EE12A83F23F7}" ShortID="565122092">
 					<ChildrenList>
-						<Event Name="Music_Menu" ID="{FCC65AED-5371-4E24-A47E-6B53627B9949}"/>
-						<Event Name="Music_Gameplay" ID="{3DB0C889-C8E4-4595-98ED-D4160ADC7D24}"/>
-						<Event Name="Music_Stinger_Victory" ID="{FA0FB104-C463-4117-B50C-F518E9FE36E0}"/>
-						<Event Name="Music_Stinger_Defeat" ID="{2C8290CE-EE6A-4BB9-B3A6-D5B469116F4E}"/>
-						<Event Name="Gameplay_Resume" ID="{9C29D38C-B87B-48FB-94AB-D62680C3BE69}"/>
-						<Event Name="Gameplay_Pause" ID="{060C00C4-1F9C-4E3A-ADD2-7A1872F099E6}"/>
+						<Event Name="Music_Initialize" ID="{78013AD2-56A7-4670-8723-D228A918C1BE}">
+							<ChildrenList>
+								<Action Name="" ID="{035AFA05-C31A-4E43-8FA4-1A2EF30A23F8}" ShortID="1001527014">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Music Manager" ID="{43055C6B-739A-4E7C-8024-B82931BAA934}" WorkUnitID="{A2D28F5B-7C18-4C1C-8171-1F179D7E5534}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Music_Stop" ID="{3D79B505-22AC-458F-AB19-CDDCDD40BF1B}">
+							<ChildrenList>
+								<Action Name="" ID="{2729BC52-F2B0-4B8F-9238-64F402E7EB4F}" ShortID="410604955">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Music Manager" ID="{43055C6B-739A-4E7C-8024-B82931BAA934}" WorkUnitID="{A2D28F5B-7C18-4C1C-8171-1F179D7E5534}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Ambient" ID="{12F46618-68AA-44F8-AFC8-7FAD6E128226}" ShortID="3586527">

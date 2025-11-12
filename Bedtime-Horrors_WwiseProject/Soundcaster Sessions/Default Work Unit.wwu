@@ -3,27 +3,107 @@
 	<SoundcasterSessions>
 		<WorkUnit Name="Default Work Unit" ID="{F82A206A-3541-42C6-9E35-6C350BE0204F}" PersistMode="Standalone">
 			<ChildrenList>
-				<SoundcasterSession Name="New Soundcaster Session" ID="{0907307F-BD8E-47F3-8321-7468B7092CC0}">
+				<SoundcasterSession Name="Full Gameplay Test" ID="{8E474AB4-F288-425A-8232-A6261E970E1E}">
 					<ModuleList>
 						<Module>
-							<ObjectRef Name="Disaster_Start" ID="{579D3231-111F-464F-A9B6-E0B35257D231}" WorkUnitID="{52DD7F67-F123-4AA1-A73A-36B216D11CA3}"/>
+							<ObjectRef Name="Music_Initialize" ID="{78013AD2-56A7-4670-8723-D228A918C1BE}" WorkUnitID="{52DD7F67-F123-4AA1-A73A-36B216D11CA3}"/>
 							<Position X="0" Y="0"/>
 						</Module>
 						<Module>
 							<ObjectRef Name="Ambient_Wind" ID="{642759CE-B921-45EA-B9D4-6832CA2DE74A}" WorkUnitID="{52DD7F67-F123-4AA1-A73A-36B216D11CA3}"/>
+							<Position X="0" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Tower_Place" ID="{F73304EB-6F84-4633-815F-A977D3D2A886}" WorkUnitID="{52DD7F67-F123-4AA1-A73A-36B216D11CA3}"/>
 							<Position X="0" Y="2"/>
 						</Module>
 						<Module>
-							<ObjectRef Name="Disaster_End" ID="{CD310ECB-C0A9-4611-AC09-EEAFA99EA3C3}" WorkUnitID="{52DD7F67-F123-4AA1-A73A-36B216D11CA3}"/>
+							<ObjectRef Name="Enemy_Attack" ID="{D8DE8EB0-22B8-4BAF-AD69-49074FC45065}" WorkUnitID="{52DD7F67-F123-4AA1-A73A-36B216D11CA3}"/>
+							<Position X="0" Y="3"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Base_TakeDamage" ID="{355D17B9-0A26-4237-AA07-1B17E5724129}" WorkUnitID="{52DD7F67-F123-4AA1-A73A-36B216D11CA3}"/>
+							<Position X="0" Y="4"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="UI_Button_Normal" ID="{00E53B91-C68A-4FCF-919E-3B3956A950F7}" WorkUnitID="{52DD7F67-F123-4AA1-A73A-36B216D11CA3}"/>
+							<Position X="0" Y="5"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Music_Stop" ID="{3D79B505-22AC-458F-AB19-CDDCDD40BF1B}" WorkUnitID="{52DD7F67-F123-4AA1-A73A-36B216D11CA3}"/>
 							<Position X="1" Y="0"/>
 						</Module>
 						<Module>
-							<ObjectRef Name="Ambient_Eerie" ID="{68EE6F13-C85E-4BB1-A4DD-94F1F71F38E1}" WorkUnitID="{52DD7F67-F123-4AA1-A73A-36B216D11CA3}"/>
+							<ObjectRef Name="Ambient_Creaks" ID="{C7737DC2-AFFB-49EC-A2DD-4AAAE984B9B6}" WorkUnitID="{52DD7F67-F123-4AA1-A73A-36B216D11CA3}"/>
+							<Position X="1" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Tower_Destroy" ID="{818904D9-4C9C-4A82-AF1F-7B88B39F41EA}" WorkUnitID="{52DD7F67-F123-4AA1-A73A-36B216D11CA3}"/>
 							<Position X="1" Y="2"/>
 						</Module>
 						<Module>
-							<ObjectRef Name="Ambient_Creaks" ID="{C7737DC2-AFFB-49EC-A2DD-4AAAE984B9B6}" WorkUnitID="{52DD7F67-F123-4AA1-A73A-36B216D11CA3}"/>
+							<ObjectRef Name="Enemy_Death_Spider" ID="{E6839A8B-5E0C-41E9-940D-ED652ED9D28E}" WorkUnitID="{52DD7F67-F123-4AA1-A73A-36B216D11CA3}"/>
+							<Position X="1" Y="3"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="UI_Button_Special" ID="{6032EF43-4870-4EA3-8217-C6C78B2B3C8E}" WorkUnitID="{52DD7F67-F123-4AA1-A73A-36B216D11CA3}"/>
+							<Position X="1" Y="5"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Ambient_Eerie" ID="{68EE6F13-C85E-4BB1-A4DD-94F1F71F38E1}" WorkUnitID="{52DD7F67-F123-4AA1-A73A-36B216D11CA3}"/>
+							<Position X="2" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Tower_Shoot_Dino" ID="{39C21F18-CD42-4BDC-B29D-299BDA05B51C}" WorkUnitID="{52DD7F67-F123-4AA1-A73A-36B216D11CA3}"/>
 							<Position X="2" Y="2"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Enemy_Death_Dog" ID="{42ABC833-9489-4E1C-A0D2-892E91369284}" WorkUnitID="{52DD7F67-F123-4AA1-A73A-36B216D11CA3}"/>
+							<Position X="2" Y="3"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="UI_EliteEnemyAnnouncement" ID="{C584969E-4F68-4558-9342-FDD576DEF304}" WorkUnitID="{52DD7F67-F123-4AA1-A73A-36B216D11CA3}"/>
+							<Position X="2" Y="4"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="UI_DiaryPage" ID="{4AAB2DEA-3CEB-4503-8986-CFD643ABAF2A}" WorkUnitID="{52DD7F67-F123-4AA1-A73A-36B216D11CA3}"/>
+							<Position X="2" Y="5"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Disaster_Start" ID="{579D3231-111F-464F-A9B6-E0B35257D231}" WorkUnitID="{52DD7F67-F123-4AA1-A73A-36B216D11CA3}"/>
+							<Position X="3" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Tower_Shoot_TeddyBear" ID="{4E825D32-6F6A-4702-9137-67770A378985}" WorkUnitID="{52DD7F67-F123-4AA1-A73A-36B216D11CA3}"/>
+							<Position X="3" Y="2"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Enemy_Death_Doll" ID="{78901C3E-68FB-4BB7-8EFF-C95F67CA8F51}" WorkUnitID="{52DD7F67-F123-4AA1-A73A-36B216D11CA3}"/>
+							<Position X="3" Y="3"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="UI_RadioAnnouncement" ID="{5D599C58-81B0-42C7-9726-7E2E98D23C1C}" WorkUnitID="{52DD7F67-F123-4AA1-A73A-36B216D11CA3}"/>
+							<Position X="3" Y="4"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="UI_TowerChest_Open" ID="{D247628B-69BC-47CB-88B8-46A9333638D5}" WorkUnitID="{52DD7F67-F123-4AA1-A73A-36B216D11CA3}"/>
+							<Position X="3" Y="5"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Disaster_End" ID="{CD310ECB-C0A9-4611-AC09-EEAFA99EA3C3}" WorkUnitID="{52DD7F67-F123-4AA1-A73A-36B216D11CA3}"/>
+							<Position X="4" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Tower_Shoot_ToyTank" ID="{2601DF2F-567E-4884-9D9E-AD6C926525BA}" WorkUnitID="{52DD7F67-F123-4AA1-A73A-36B216D11CA3}"/>
+							<Position X="4" Y="2"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Enemy_Doll_Transform" ID="{F17B07E4-01E1-47DA-8A07-655F412781CB}" WorkUnitID="{52DD7F67-F123-4AA1-A73A-36B216D11CA3}"/>
+							<Position X="4" Y="3"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="UI_TowerChest_Close" ID="{CB917243-2DCE-48AE-8FCF-57558B873280}" WorkUnitID="{52DD7F67-F123-4AA1-A73A-36B216D11CA3}"/>
+							<Position X="4" Y="5"/>
 						</Module>
 					</ModuleList>
 					<RTPCValueList ShowAll="true"/>
