@@ -7,15 +7,22 @@ public class NaturalDisasterManager : MonoBehaviour
     [SerializeField] private List<NaturalDisaster> _disasters;
     [SerializeField] private float _minInterval = 30f;
     [SerializeField] private float _maxInterval = 120f;
+    [SerializeField] private float _timeToDisasterStart = 3f;
     private NaturalDisaster _currentDisaster;
     private WaveManager _waveManager;
 
     bool _isCoroutineRunning = false;
 
+    [SerializeField] private GameObject _radioObject;
+    [SerializeField] private SpriteRenderer _disasterSymbol;
+
     private void Awake()
     {
         if (_disasters.Count == 0)
             return;
+
+        _radioObject.SetActive(false);
+        _disasterSymbol.sprite = null;
 
         foreach (var disaster in _disasters)
             disaster?.Init();
@@ -56,8 +63,17 @@ public class NaturalDisasterManager : MonoBehaviour
         _isCoroutineRunning = true;
 
         yield return new WaitForSeconds(Random.Range(_minInterval, _maxInterval));
+        SelectRandomDisaster();
+        _disasterSymbol.sprite = _currentDisaster.Icon;
+        _radioObject.SetActive(true);
+
+        yield return new WaitForSeconds(_timeToDisasterStart);
+        EventTriggerer.Trigger<IOnDisasterStartEvent>(new OnDisasterStartEvent(_currentDisaster));
         StartRandomDisaster();
+        _radioObject.SetActive(false);
+
         yield return new WaitForSeconds(_currentDisaster.Duration);
+        EventTriggerer.Trigger<IOnDisasterEndEvent>(new OnDisasterEndEvent(_currentDisaster));
         _currentDisaster.EndDisaster();
         _isCoroutineRunning = false;
     }
@@ -66,17 +82,24 @@ public class NaturalDisasterManager : MonoBehaviour
     {
         if (_isCoroutineRunning) yield break;
         _isCoroutineRunning = true;
-        _currentDisaster = disaster;
 
+        _currentDisaster = disaster;
+        _disasterSymbol.sprite = _currentDisaster.Icon;
+        _radioObject.SetActive(true);
+
+        yield return new WaitForSeconds(_timeToDisasterStart);
+        EventTriggerer.Trigger<IOnDisasterStartEvent>(new OnDisasterStartEvent(_currentDisaster));
         disaster.StartDisaster();
+        _radioObject.SetActive(false);
+
         yield return new WaitForSeconds(disaster.Duration);
+        EventTriggerer.Trigger<IOnDisasterEndEvent>(new OnDisasterEndEvent(_currentDisaster));
         disaster.EndDisaster();
         _isCoroutineRunning = false;
         _currentDisaster = null;
     }
 
-
-    private void StartRandomDisaster()
+    private void SelectRandomDisaster()
     {
         if (_disasters.Count == 0)
         {
@@ -88,7 +111,10 @@ public class NaturalDisasterManager : MonoBehaviour
             _currentDisaster = _disasters[Random.Range(0, _disasters.Count)];
         else
             _currentDisaster = _disasters[0];
+    }
 
+    private void StartRandomDisaster()
+    {
         _currentDisaster.StartDisaster();
     }
 

@@ -23,6 +23,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private BoxCollider2D _collider;
     [SerializeField] private GameObject _armatureGO;
+    [SerializeField] private Color _minDamageColor;
+    [SerializeField] private Color _maxDamageColor;
 
     [SerializeField] private MyAnimator _animator;
 
@@ -169,7 +171,7 @@ public class Enemy : MonoBehaviour
         float minDamage = StaticTurretValues.minDamage;
         float maxDamage = StaticTurretValues.maxDamage;
         float t = Mathf.InverseLerp(minDamage, maxDamage, damage);
-        Color damageColor = Color.Lerp(Color.green, Color.red, t);
+        Color damageColor = Color.Lerp(_minDamageColor, _maxDamageColor, t);
         return damageColor;
     }
 

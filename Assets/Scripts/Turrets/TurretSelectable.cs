@@ -1,10 +1,16 @@
-using Unity.VisualScripting;
+using DragonBones;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class TurretSelectable : MonoBehaviour, ITooltipInfo, IInteractable, IDraggable
 {
     [SerializeField] private Turret _originalPrefab;
+
+    [SerializeField] private UnityArmatureComponent _armature;
+    [SerializeField] private CreativityUpdater _creativityUpdater;
+    [SerializeField] private Color _originalColor;
+    [SerializeField] private Color _unaffordableColor;
+
     private bool _isDragging;
     private GameObject _copy;
 
@@ -15,11 +21,26 @@ public class TurretSelectable : MonoBehaviour, ITooltipInfo, IInteractable, IDra
         EventProvider.Subscribe<IClickEvent>(OnDragStart);
         EventProvider.Subscribe<IDragEvent>(OnDrag);
         EventProvider.Subscribe<IClickReleaseEvent>(OnDragEnd);
+
+        if (_armature == null)
+            _armature = GetComponentInChildren<UnityArmatureComponent>();
+
         _copy = null;
         _isDragging = false;
     }
     private void Update()
     {
+        if (_armature == null)
+            Debug.LogWarning("Armature is null");
+
+        if (_creativityUpdater == null)
+            Debug.LogWarning("Creativity updater is null");
+
+        if (_originalPrefab.HasEnoughCreativity(_creativityUpdater, _originalPrefab.price))
+            SetArmatureColor(_originalColor);
+        else
+            SetArmatureColor(_unaffordableColor);
+
         if (!_isDragging)
             return;
 
@@ -79,6 +100,8 @@ public class TurretSelectable : MonoBehaviour, ITooltipInfo, IInteractable, IDra
         if (!@event.HasHit)
         {
             Debug.Log("No hit detected on drag end");
+            Destroy(_copy);
+            _copy = null;
             return;
         }
 
@@ -94,6 +117,22 @@ public class TurretSelectable : MonoBehaviour, ITooltipInfo, IInteractable, IDra
 
         Destroy(_copy);
         _copy = null;
+    }
+
+    private void SetArmatureColor(Color color)
+    {
+        if (_armature == null || _armature.armature == null)
+            return;
+
+        var ct = new ColorTransform
+        {
+            alphaMultiplier = color.a,
+            redMultiplier = color.r,
+            greenMultiplier = color.g,
+            blueMultiplier = color.b
+        };
+
+        _armature.color = ct;
     }
 }
 
