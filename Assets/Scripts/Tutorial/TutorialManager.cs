@@ -1,4 +1,3 @@
-using Coffee.UIExtensions;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,6 +10,7 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private Image _backgroundImage;
     [SerializeField] private float _backgroundMaxAlpha = 225;
     private int _currentPanelIndex = -1;
+    private SpeedButton _speedButton;
 
     public int CurrentPanelIndex => _currentPanelIndex;
 
@@ -51,6 +51,7 @@ public class TutorialManager : MonoBehaviour
     private void Start()
     {
         EventProvider.Subscribe<IContinuePanelsEvent>(OnContinuePanels);
+        ServiceProvider.TryGetService(out _speedButton);
     }
 
     private void OnDestroy()
@@ -111,7 +112,7 @@ public class TutorialManager : MonoBehaviour
                         _backgroundGO.SetActive(false);
 
                     _currentPanelIndex = currentIndex + 1;
-                    Time.timeScale = 1;
+                    Time.timeScale = _speedButton.CurrentSpeed;
                 }
             }
         }
