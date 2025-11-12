@@ -30,6 +30,11 @@ public class MenuTransitionButton : MonoBehaviour
         _navigationController.GoToMenu(new CreditsMenuState());
     }
 
+    public void ActivateLevelsScreen()
+    {
+        _navigationController.GoToMenu(new LevelsScreenMenuState());
+    }
+
     public void ButtonSetPreviousActive()
     {
         _navigationController.GoToMenu(_navigationController.PreviousMenu);
@@ -49,7 +54,7 @@ public class MenuTransitionButton : MonoBehaviour
         EventTriggerer.Trigger<ITogglePause>(new TogglePauseEvent());
     }
 
-    
+
 
     public void ExitApp()
     {

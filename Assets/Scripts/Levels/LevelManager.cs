@@ -39,9 +39,24 @@ public class LevelManager : MonoBehaviour
             return;
         }
 
-        Level nextLevel = _mainLevels[listId + 1];
+        var nextLevel = GetNextLevel(currentLevel, listId);
 
         GoToLevel(nextLevel);
+    }
+    
+    public Level GetNextLevel(Level currentLevel)
+    {
+        int listId = GetListId(currentLevel);
+        return GetNextLevel(currentLevel, listId);
+    }
+
+    public Level GetNextLevel(Level currentLevel, int listId)
+    {
+        if (listId < 0 || listId >= _mainLevels.Count - 1)
+            return null;
+
+        Level nextLevel = _mainLevels[listId + 1];
+        return nextLevel;
     }
 
     private bool IsNextLevelValid(Level currentLevel, int listId)
@@ -57,7 +72,7 @@ public class LevelManager : MonoBehaviour
         SceneController.Instance.AddLevel(nextLevel);
     }
 
-    private int GetListId(Level currentLevel)
+    public int GetListId(Level currentLevel)
     {
         for (int i = 0; i < _mainLevels.Count; i++)
         {

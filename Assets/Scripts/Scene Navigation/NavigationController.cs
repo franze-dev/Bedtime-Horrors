@@ -16,6 +16,7 @@ public class NavigationController : MonoBehaviour
     public GameObject settingsMenuGO;
     public GameObject creditsMenuGO;
     public GameObject diaryMenuGO;
+    public GameObject levelsScreenMenuGO;
 
     private List<Menu> _menus = new();
     public Menu baseMenu;

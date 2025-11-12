@@ -97,3 +97,16 @@ public class PauseMenuState : IMenuState
         controller.HideMenu(controller.pauseMenuGO);
     }
 }
+
+public class LevelsScreenMenuState : IMenuState
+{
+    public void Enter(NavigationController controller)
+    {
+        controller.ShowMenu(controller.levelsScreenMenuGO, this);
+    }
+
+    public void Exit(NavigationController controller)
+    {
+        controller.HideMenu(controller.levelsScreenMenuGO);
+    }
+}
