@@ -81,6 +81,7 @@
 								<Action Name="" ID="{4D857C25-59E3-43DA-894C-D3B2BE0CB88B}" ShortID="807070108">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="FadeTime" Type="Real64" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -91,6 +92,7 @@
 								<Action Name="" ID="{8901FCEB-E181-460F-9E7D-2A363A8AE733}" ShortID="1060730439">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="FadeTime" Type="Real64" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -101,6 +103,7 @@
 								<Action Name="" ID="{3FC4B2B0-1580-4635-99A0-E62F990AE434}" ShortID="392605073">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="FadeTime" Type="Real64" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -316,6 +319,7 @@
 								<Action Name="" ID="{14A230AA-56E0-4CDC-A9EC-A34E23BB2B52}" ShortID="818538825">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="FadeTime" Type="Real64" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -326,10 +330,63 @@
 								<Action Name="" ID="{BEF19CE0-5918-4C4E-BD98-07A7FFAFFD77}" ShortID="226103161">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="FadeTime" Type="Real64" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Disaster_End" ID="{4F4BA34F-0460-4859-987E-BF0A236F647E}" WorkUnitID="{932C6B5F-4E51-4C47-BD09-779BE6F37C5D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Transitions" ID="{85663905-D12D-42F0-9C0A-5B6F896C0FB4}" ShortID="572031157">
+					<ChildrenList>
+						<Event Name="TransitionTo_Menu" ID="{5DF84D74-6964-4CD9-8254-ACBCB57ACC2F}">
+							<ChildrenList>
+								<Action Name="" ID="{994F69D4-375A-4719-B07C-D9BC2F3CFCF4}" ShortID="490533108">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="41"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Ambient_Stop" ID="{6AC283F0-FF5E-4CBC-A201-6F5EBD4F64A9}" WorkUnitID="{52DD7F67-F123-4AA1-A73A-36B216D11CA3}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{B8B5AA17-63E5-4AB2-A460-DEF8B8311DB0}" ShortID="739822627">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="41"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Disaster_Stop" ID="{8F150DED-089B-449D-A256-3FCE2238521B}" WorkUnitID="{52DD7F67-F123-4AA1-A73A-36B216D11CA3}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="TransitionTo_Level" ID="{A88D570B-B223-456F-9E02-A7BEC6321EA3}">
+							<ChildrenList>
+								<Action Name="" ID="{07965162-74C7-4877-85AB-E68A15691E20}" ShortID="656098151">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="41"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Ambient_Stop" ID="{6AC283F0-FF5E-4CBC-A201-6F5EBD4F64A9}" WorkUnitID="{52DD7F67-F123-4AA1-A73A-36B216D11CA3}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{31AB0F86-50E6-4236-9191-E984EF61C238}" ShortID="302337078">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="41"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Disaster_Stop" ID="{8F150DED-089B-449D-A256-3FCE2238521B}" WorkUnitID="{52DD7F67-F123-4AA1-A73A-36B216D11CA3}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

@@ -50,6 +50,10 @@
 							<Position X="1" Y="5"/>
 						</Module>
 						<Module>
+							<ObjectRef Name="TransitionTo_Menu" ID="{5DF84D74-6964-4CD9-8254-ACBCB57ACC2F}" WorkUnitID="{52DD7F67-F123-4AA1-A73A-36B216D11CA3}"/>
+							<Position X="2" Y="0"/>
+						</Module>
+						<Module>
 							<ObjectRef Name="Ambient_Eerie" ID="{68EE6F13-C85E-4BB1-A4DD-94F1F71F38E1}" WorkUnitID="{52DD7F67-F123-4AA1-A73A-36B216D11CA3}"/>
 							<Position X="2" Y="1"/>
 						</Module>
@@ -68,6 +72,10 @@
 						<Module>
 							<ObjectRef Name="UI_DiaryPage" ID="{4AAB2DEA-3CEB-4503-8986-CFD643ABAF2A}" WorkUnitID="{52DD7F67-F123-4AA1-A73A-36B216D11CA3}"/>
 							<Position X="2" Y="5"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="TransitionTo_Level" ID="{A88D570B-B223-456F-9E02-A7BEC6321EA3}" WorkUnitID="{52DD7F67-F123-4AA1-A73A-36B216D11CA3}"/>
+							<Position X="3" Y="0"/>
 						</Module>
 						<Module>
 							<ObjectRef Name="Disaster_Start" ID="{579D3231-111F-464F-A9B6-E0B35257D231}" WorkUnitID="{52DD7F67-F123-4AA1-A73A-36B216D11CA3}"/>
