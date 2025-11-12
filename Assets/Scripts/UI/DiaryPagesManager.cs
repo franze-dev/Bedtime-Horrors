@@ -10,8 +10,8 @@ public class DiaryPagesManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _titleMesh;
     [SerializeField] private TextMeshProUGUI _storyMesh;
     [SerializeField] private TextMeshProUGUI _tutorialMesh;
-    [SerializeField] private Image _photoImage1;
-    [SerializeField] private Image _photoImage2;
+    [SerializeField] private GameObject _photoParentGO;
+    private List<GameObject> _diaryPhotos;
 
     private void Awake()
     {
@@ -23,16 +23,26 @@ public class DiaryPagesManager : MonoBehaviour
 
         _currentPageId = -1;
 
+        _diaryPhotos = new List<GameObject>();
+
+        foreach (var page in _diaryPages)
+        {
+            GameObject instance = Instantiate(page.photoPrefab, _photoParentGO.transform);
+            instance.SetActive(false);
+            _diaryPhotos.Add(instance);
+        }
+
         ActivateNextPage();
     }
 
-    private void UpdatePage(int pageId)
+    private void UpdatePage(int pageId, int previousPage)
     {
         _titleMesh.text = _diaryPages[pageId].title;
         _storyMesh.text = _diaryPages[pageId].story;
         _tutorialMesh.text = _diaryPages[pageId].tutorial;
-        _photoImage1.sprite = _diaryPages[pageId].photo;
-        _photoImage2.sprite = _diaryPages[pageId].photo2;
+        if (previousPage >= 0)
+            _diaryPhotos[previousPage].SetActive(false);
+        _diaryPhotos[pageId].SetActive(true);
     }
 
     public void ActivateNextPage()
@@ -40,7 +50,7 @@ public class DiaryPagesManager : MonoBehaviour
         if (_currentPageId + 1 >= _diaryPages.Count)
             return;
 
-        UpdatePage(_currentPageId + 1);
+        UpdatePage(_currentPageId + 1, _currentPageId);
         _currentPageId++;
     }
 
@@ -49,7 +59,7 @@ public class DiaryPagesManager : MonoBehaviour
         if (_currentPageId <= 0)
             return;
 
-        UpdatePage(_currentPageId - 1);
+        UpdatePage(_currentPageId - 1, _currentPageId);
         _currentPageId--;
     }
 }
