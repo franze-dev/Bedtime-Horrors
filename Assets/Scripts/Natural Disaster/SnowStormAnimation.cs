@@ -22,6 +22,9 @@ public class SnowStormAnimation : DisasterAnimation, IDisasterAnimationLoop
 
     public override void Play(DisasterAnimationData animation)
     {
+        AkUnitySoundEngine.SetSwitch("Disaster_Type", "Blizzard", WwiseAudioHelper.DisasterSoundEmitter);
+        AkUnitySoundEngine.PostEvent("Disaster_Start", WwiseAudioHelper.DisasterSoundEmitter);
+
         if (animation == null || animation.animationPrefab == null)
             return;
 
@@ -30,6 +33,9 @@ public class SnowStormAnimation : DisasterAnimation, IDisasterAnimationLoop
     }
     public override void Stop()
     {
+        AkUnitySoundEngine.SetSwitch("Disaster_Type", "Blizzard", WwiseAudioHelper.DisasterSoundEmitter);
+        AkUnitySoundEngine.PostEvent("Disaster_End", WwiseAudioHelper.DisasterSoundEmitter);
+        
         if (AnimationInstance != null)
         {
             Armature = AnimationInstance.GetComponent<UnityArmatureComponent>();

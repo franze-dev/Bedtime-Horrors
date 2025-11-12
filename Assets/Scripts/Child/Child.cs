@@ -24,6 +24,7 @@ public class Child : MonoBehaviour
             float damageToTake = enemy.GetDamage();
             TakeDamage(damageToTake);
             Debug.Log(damageToTake + " damage taken!");
+            AkUnitySoundEngine.PostEvent("Base_TakeDamage", gameObject);
 
             enemy?.OnDeath();
             return;
