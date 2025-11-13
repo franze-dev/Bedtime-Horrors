@@ -72,7 +72,14 @@ public class NaturalDisasterManager : MonoBehaviour
         StartRandomDisaster();
         _radioObject.SetActive(false);
 
-        yield return new WaitForSeconds(_currentDisaster.Duration);
+
+        //Check how to change this
+        float firstAnimationDuration = _currentDisaster.AnimationLogic.Armature.armature.animation.animations[_currentDisaster.AnimationLogic.Armature.armature.animation.animationNames[0]].duration;
+        yield return new WaitForSeconds (firstAnimationDuration);
+        EventTriggerer.Trigger<IOnDisasterLoopEvent>(new OnDisasterLoopEvent(_currentDisaster));
+
+
+        yield return new WaitForSeconds(_currentDisaster.Duration - firstAnimationDuration);
         EventTriggerer.Trigger<IOnDisasterEndEvent>(new OnDisasterEndEvent(_currentDisaster));
         _currentDisaster.EndDisaster();
         _isCoroutineRunning = false;
