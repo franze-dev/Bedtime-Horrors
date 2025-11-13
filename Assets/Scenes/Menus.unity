@@ -5817,7 +5817,7 @@ GameObject:
   - component: {fileID: 1258597737}
   - component: {fileID: 1258597736}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: PreviousButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6139,17 +6139,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _diaryPages:
-  - {fileID: 11400000, guid: 4363369a4d61dcb489e4c4cc54facb02, type: 2}
   - {fileID: 11400000, guid: ab89c5287eef4db4a8c6dd182e5cb30f, type: 2}
-  - {fileID: 11400000, guid: 1b8663339175c7b4692e073756bb49b3, type: 2}
-  - {fileID: 11400000, guid: be3eff4f61ad3364387fa8eba53a9b81, type: 2}
   - {fileID: 11400000, guid: d489f3ba2805b5042bb1ee3ad7125492, type: 2}
   - {fileID: 11400000, guid: 39d1ff081f3b11149bd9ce939bf0db68, type: 2}
+  - {fileID: 11400000, guid: 4363369a4d61dcb489e4c4cc54facb02, type: 2}
+  - {fileID: 11400000, guid: 1b8663339175c7b4692e073756bb49b3, type: 2}
+  - {fileID: 11400000, guid: be3eff4f61ad3364387fa8eba53a9b81, type: 2}
   _currentPageId: 0
   _titleMesh: {fileID: 1095716951}
   _storyMesh: {fileID: 2120027802}
   _tutorialMesh: {fileID: 1785492093}
   _photoParentGO: {fileID: 231285273}
+  _previousButton: {fileID: 1258597734}
+  _nextButton: {fileID: 1716354394}
 --- !u!1 &1397080551
 GameObject:
   m_ObjectHideFlags: 0
@@ -7030,7 +7032,7 @@ GameObject:
   - component: {fileID: 1716354397}
   - component: {fileID: 1716354396}
   m_Layer: 5
-  m_Name: Button
+  m_Name: NextButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
