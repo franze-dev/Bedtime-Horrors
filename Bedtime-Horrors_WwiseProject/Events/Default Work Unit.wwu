@@ -275,7 +275,17 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="Tower_Shoot_Dino" ID="{39C21F18-CD42-4BDC-B29D-299BDA05B51C}"/>
+						<Event Name="Tower_Shoot_Dino" ID="{39C21F18-CD42-4BDC-B29D-299BDA05B51C}">
+							<ChildrenList>
+								<Action Name="" ID="{8C85C6E6-665F-455E-858B-4CC9A7DD5E98}" ShortID="127375058">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Tower_Shoot_Dino" ID="{786CC269-1A27-4A5B-817A-C39FF796D320}" WorkUnitID="{932C6B5F-4E51-4C47-BD09-779BE6F37C5D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 						<Event Name="Tower_Place" ID="{F73304EB-6F84-4633-815F-A977D3D2A886}">
 							<PropertyList>
 								<Property Name="Color" Type="int16" Value="15"/>
