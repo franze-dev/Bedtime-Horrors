@@ -5817,7 +5817,7 @@ GameObject:
   - component: {fileID: 1258597737}
   - component: {fileID: 1258597736}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: PreviousButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6150,6 +6150,8 @@ MonoBehaviour:
   _storyMesh: {fileID: 2120027802}
   _tutorialMesh: {fileID: 1785492093}
   _photoParentGO: {fileID: 231285273}
+  _previousButton: {fileID: 1258597734}
+  _nextButton: {fileID: 1716354394}
 --- !u!1 &1397080551
 GameObject:
   m_ObjectHideFlags: 0
@@ -7030,7 +7032,7 @@ GameObject:
   - component: {fileID: 1716354397}
   - component: {fileID: 1716354396}
   m_Layer: 5
-  m_Name: Button
+  m_Name: NextButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
