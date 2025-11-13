@@ -178,7 +178,17 @@
 				</Folder>
 				<Folder Name="Enemy" ID="{6835C477-88BF-4004-A2FA-56CF044EE58C}" ShortID="763513481">
 					<ChildrenList>
-						<Event Name="Enemy_Attack" ID="{D8DE8EB0-22B8-4BAF-AD69-49074FC45065}"/>
+						<Event Name="Enemy_Attack" ID="{D8DE8EB0-22B8-4BAF-AD69-49074FC45065}">
+							<ChildrenList>
+								<Action Name="" ID="{6FAB65D8-B4F7-4FA9-8C18-307C7AD4E14A}" ShortID="908764910">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Enemy_Attack" ID="{2A6E53BE-0BAD-4DA4-A931-6AA3BFE8B18E}" WorkUnitID="{932C6B5F-4E51-4C47-BD09-779BE6F37C5D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 						<Event Name="Enemy_Footsteps" ID="{4760C3BB-246A-4F89-AC64-81422F44CDC6}">
 							<PropertyList>
 								<Property Name="Color" Type="int16" Value="10"/>
@@ -192,9 +202,39 @@
 							</PropertyList>
 						</Event>
 						<Event Name="Enemy_Doll_Transform" ID="{F17B07E4-01E1-47DA-8A07-655F412781CB}"/>
-						<Event Name="Enemy_Death_Dog" ID="{42ABC833-9489-4E1C-A0D2-892E91369284}"/>
-						<Event Name="Enemy_Death_Doll" ID="{78901C3E-68FB-4BB7-8EFF-C95F67CA8F51}"/>
-						<Event Name="Enemy_Death_Spider" ID="{E6839A8B-5E0C-41E9-940D-ED652ED9D28E}"/>
+						<Event Name="Enemy_Death_Dog" ID="{42ABC833-9489-4E1C-A0D2-892E91369284}">
+							<ChildrenList>
+								<Action Name="" ID="{CC8FACF0-BB1F-4DCB-A5D4-833525F8E6DF}" ShortID="140992760">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Enemy_Death_Dog" ID="{B6E2BEDC-E793-474B-9B23-81C744E6828A}" WorkUnitID="{932C6B5F-4E51-4C47-BD09-779BE6F37C5D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Enemy_Death_Doll" ID="{78901C3E-68FB-4BB7-8EFF-C95F67CA8F51}">
+							<ChildrenList>
+								<Action Name="" ID="{F13DE7DA-0D4A-401F-A247-FE88AC372415}" ShortID="242342631">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Enemy_Death_Doll" ID="{7E648BEA-EB7B-4C7B-B8EF-26A10AD4AEED}" WorkUnitID="{932C6B5F-4E51-4C47-BD09-779BE6F37C5D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Enemy_Death_Spider" ID="{E6839A8B-5E0C-41E9-940D-ED652ED9D28E}">
+							<ChildrenList>
+								<Action Name="" ID="{C3B5CAA6-92B3-403F-AC39-B09D3E2ABC1C}" ShortID="437943119">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Enemy_Death_Spider" ID="{F3700EE3-6810-4511-85E7-A33AFE09228F}" WorkUnitID="{932C6B5F-4E51-4C47-BD09-779BE6F37C5D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 						<Event Name="Enemy_Hit_TowerDamage" ID="{1DF9E471-7A31-415B-9AEE-D91550B0AFFF}">
 							<PropertyList>
 								<Property Name="Color" Type="int16" Value="10"/>
