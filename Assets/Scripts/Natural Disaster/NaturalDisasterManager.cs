@@ -13,7 +13,7 @@ public class NaturalDisasterManager : MonoBehaviour
 
     bool _isCoroutineRunning = false;
 
-    [SerializeField] private GameObject _radioObject; // Mover esto a otro objeto, quizas la radio, u otro game object
+    [SerializeField] private GameObject _radioObject;
     [SerializeField] private SpriteRenderer _disasterSymbol;
 
     private void Awake()
@@ -68,10 +68,12 @@ public class NaturalDisasterManager : MonoBehaviour
         _radioObject.SetActive(true);
 
         yield return new WaitForSeconds(_timeToDisasterStart);
+        EventTriggerer.Trigger<IOnDisasterStartEvent>(new OnDisasterStartEvent(_currentDisaster));
         StartRandomDisaster();
         _radioObject.SetActive(false);
 
         yield return new WaitForSeconds(_currentDisaster.Duration);
+        EventTriggerer.Trigger<IOnDisasterEndEvent>(new OnDisasterEndEvent(_currentDisaster));
         _currentDisaster.EndDisaster();
         _isCoroutineRunning = false;
     }
@@ -86,10 +88,12 @@ public class NaturalDisasterManager : MonoBehaviour
         _radioObject.SetActive(true);
 
         yield return new WaitForSeconds(_timeToDisasterStart);
+        EventTriggerer.Trigger<IOnDisasterStartEvent>(new OnDisasterStartEvent(_currentDisaster));
         disaster.StartDisaster();
         _radioObject.SetActive(false);
 
         yield return new WaitForSeconds(disaster.Duration);
+        EventTriggerer.Trigger<IOnDisasterEndEvent>(new OnDisasterEndEvent(_currentDisaster));
         disaster.EndDisaster();
         _isCoroutineRunning = false;
         _currentDisaster = null;
