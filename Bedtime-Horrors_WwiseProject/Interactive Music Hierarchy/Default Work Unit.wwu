@@ -24,119 +24,6 @@
 										<MusicTransition Name="Transition" ID="{80E71A6F-A14D-48E1-B2FE-FDA77E11DDBE}">
 											<TransitionInfo/>
 										</MusicTransition>
-										<MusicTransition Name="Transition" ID="{10E126CA-B017-489E-A84D-408457600F83}">
-											<PropertyList>
-												<Property Name="DestinationContextType" Type="int16" Value="2"/>
-												<Property Name="SourceContextType" Type="int16" Value="2"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="DestinationContextObject">
-													<ObjectRef Name="Gameplay_Stage2" ID="{7AA2FC34-3887-4638-B78A-0971427B0144}" WorkUnitID="{A2D28F5B-7C18-4C1C-8171-1F179D7E5534}"/>
-												</Reference>
-												<Reference Name="SourceContextObject">
-													<ObjectRef Name="Gameplay_Stage1" ID="{3CC06496-94A7-4FAD-AB5C-88A3593D9D00}" WorkUnitID="{A2D28F5B-7C18-4C1C-8171-1F179D7E5534}"/>
-												</Reference>
-											</ReferenceList>
-											<TransitionInfo>
-												<SourceFadeOut>
-													<MusicFade Name="Source Fade-out" ID="{563DB0D8-6EEE-4CB5-8E45-973307CF1534}">
-														<PropertyList>
-															<Property Name="FadeOffset" Type="Real64" Value="0.5"/>
-															<Property Name="FadeTime" Type="Real64" Value="1.5"/>
-															<Property Name="FadeType" Type="int16" Value="1"/>
-														</PropertyList>
-													</MusicFade>
-												</SourceFadeOut>
-												<DestinationFadeIn>
-													<MusicFade Name="Destination Fade-in" ID="{E4F05761-15A5-4FB1-B270-B8EA83562899}">
-														<PropertyList>
-															<Property Name="FadeOffset" Type="Real64" Value="-0.5"/>
-															<Property Name="FadeTime" Type="Real64" Value="1.5"/>
-														</PropertyList>
-													</MusicFade>
-												</DestinationFadeIn>
-											</TransitionInfo>
-										</MusicTransition>
-										<MusicTransition Name="Transition" ID="{CE734653-F0EC-4B98-A1E9-5E359CBC9F44}">
-											<PropertyList>
-												<Property Name="DestinationContextType" Type="int16" Value="2"/>
-												<Property Name="EnableDestinationFadeIn" Type="bool" Value="True"/>
-												<Property Name="EnableSourceFadeOut" Type="bool" Value="True"/>
-												<Property Name="ExitSourceAt" Type="int16" Value="0"/>
-												<Property Name="PlayDestinationPreEntry" Type="bool" Value="False"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="DestinationContextObject">
-													<ObjectRef Name="Menu" ID="{1DD1048C-C2EF-46E6-A8A8-81EA7C2E22C3}" WorkUnitID="{A2D28F5B-7C18-4C1C-8171-1F179D7E5534}"/>
-												</Reference>
-											</ReferenceList>
-											<TransitionInfo>
-												<SourceFadeOut>
-													<MusicFade Name="Source Fade-out" ID="{AF9BFDFE-F48A-4C52-81F2-844C7470E19A}">
-														<PropertyList>
-															<Property Name="FadeCurve" Type="int16" Value="1"/>
-															<Property Name="FadeOffset" Type="Real64" Value="0.5"/>
-															<Property Name="FadeTime" Type="Real64" Value="1.5"/>
-															<Property Name="FadeType" Type="int16" Value="1"/>
-														</PropertyList>
-													</MusicFade>
-												</SourceFadeOut>
-												<DestinationFadeIn>
-													<MusicFade Name="Destination Fade-in" ID="{8636B497-ADBA-49EB-A58E-FD3D8AC2C62E}">
-														<PropertyList>
-															<Property Name="FadeCurve" Type="int16" Value="1"/>
-															<Property Name="FadeOffset" Type="Real64" Value="-0.5"/>
-															<Property Name="FadeTime" Type="Real64" Value="1.5"/>
-														</PropertyList>
-													</MusicFade>
-												</DestinationFadeIn>
-											</TransitionInfo>
-										</MusicTransition>
-										<MusicTransition Name="Transition" ID="{1F8C6F4C-058F-47EC-BC06-FBFC222E0F96}">
-											<PropertyList>
-												<Property Name="DestinationContextType" Type="int16" Value="2"/>
-												<Property Name="SourceContextType" Type="int16" Value="2"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="DestinationContextObject">
-													<ObjectRef Name="Gameplay_Stage3" ID="{CB21D54F-D18B-4321-842D-8409266DCFFE}" WorkUnitID="{A2D28F5B-7C18-4C1C-8171-1F179D7E5534}"/>
-												</Reference>
-												<Reference Name="SourceContextObject">
-													<ObjectRef Name="Gameplay_Stage2" ID="{7AA2FC34-3887-4638-B78A-0971427B0144}" WorkUnitID="{A2D28F5B-7C18-4C1C-8171-1F179D7E5534}"/>
-												</Reference>
-											</ReferenceList>
-											<TransitionInfo/>
-										</MusicTransition>
-										<MusicTransition Name="Transition" ID="{63B9F01E-2D2A-4648-92DB-9FCC756962B2}">
-											<PropertyList>
-												<Property Name="DestinationContextType" Type="int16" Value="2"/>
-												<Property Name="SourceContextType" Type="int16" Value="2"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="DestinationContextObject">
-													<ObjectRef Name="Gameplay_Stage4" ID="{DC70737A-5316-4BA4-BFC2-7EA62122D164}" WorkUnitID="{A2D28F5B-7C18-4C1C-8171-1F179D7E5534}"/>
-												</Reference>
-												<Reference Name="SourceContextObject">
-													<ObjectRef Name="Gameplay_Stage3" ID="{CB21D54F-D18B-4321-842D-8409266DCFFE}" WorkUnitID="{A2D28F5B-7C18-4C1C-8171-1F179D7E5534}"/>
-												</Reference>
-											</ReferenceList>
-											<TransitionInfo/>
-										</MusicTransition>
-										<MusicTransition Name="Transition" ID="{83B51D2B-A652-4E8A-8F56-3A6B83493FA1}">
-											<PropertyList>
-												<Property Name="DestinationContextType" Type="int16" Value="2"/>
-												<Property Name="SourceContextType" Type="int16" Value="2"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="DestinationContextObject">
-													<ObjectRef Name="Gameplay_Stage1" ID="{3CC06496-94A7-4FAD-AB5C-88A3593D9D00}" WorkUnitID="{A2D28F5B-7C18-4C1C-8171-1F179D7E5534}"/>
-												</Reference>
-												<Reference Name="SourceContextObject">
-													<ObjectRef Name="Menu" ID="{1DD1048C-C2EF-46E6-A8A8-81EA7C2E22C3}" WorkUnitID="{A2D28F5B-7C18-4C1C-8171-1F179D7E5534}"/>
-												</Reference>
-											</ReferenceList>
-											<TransitionInfo/>
-										</MusicTransition>
 										<MusicTransition Name="Transition" ID="{4E99321E-CDC0-4F6D-A8DD-436FD2CF1201}">
 											<PropertyList>
 												<Property Name="DestinationContextType" Type="int16" Value="2"/>
@@ -381,6 +268,74 @@
 														</Reference>
 													</ReferenceList>
 												</MusicPlaylistItem>
+												<MusicPlaylistItem Name="" ID="{2CB38E06-02B3-4661-87D5-FF9ADA022C59}" ShortID="73679804">
+													<PropertyList>
+														<Property Name="PlayMode" Type="int16" Value="2"/>
+													</PropertyList>
+													<ChildrenList>
+														<MusicPlaylistItem Name="" ID="{80066A18-4545-48BC-BE62-888EAFAEDD0A}" ShortID="1071559784">
+															<PropertyList>
+																<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+															</PropertyList>
+															<ReferenceList>
+																<Reference Name="Segment">
+																	<ObjectRef Name="B - 116BPM - Full Mix" ID="{EDBB76F2-D40F-4B13-9741-D6423BF65769}" WorkUnitID="{A2D28F5B-7C18-4C1C-8171-1F179D7E5534}"/>
+																</Reference>
+															</ReferenceList>
+														</MusicPlaylistItem>
+														<MusicPlaylistItem Name="" ID="{2D7EC1A7-5BF3-4423-9EBE-E194ABF901AB}" ShortID="354566121">
+															<PropertyList>
+																<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+															</PropertyList>
+															<ReferenceList>
+																<Reference Name="Segment">
+																	<ObjectRef Name="C - 116BPM - Full Mix" ID="{BEC4A706-A1E5-44CF-AFEE-B104BA5B11DC}" WorkUnitID="{A2D28F5B-7C18-4C1C-8171-1F179D7E5534}"/>
+																</Reference>
+															</ReferenceList>
+														</MusicPlaylistItem>
+													</ChildrenList>
+												</MusicPlaylistItem>
+												<MusicPlaylistItem Name="" ID="{679C83F5-DF50-457D-8EFB-B492D5D8AD25}" ShortID="972432560">
+													<ChildrenList>
+														<MusicPlaylistItem Name="" ID="{3D699A24-1C43-412F-A3C5-0BF2D55A1F61}" ShortID="443738742">
+															<PropertyList>
+																<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+															</PropertyList>
+															<ReferenceList>
+																<Reference Name="Segment">
+																	<ObjectRef Name="A - 116BPM - Full Mix" ID="{6D5460E8-D70F-4388-ACB8-822BE74CEBBF}" WorkUnitID="{A2D28F5B-7C18-4C1C-8171-1F179D7E5534}"/>
+																</Reference>
+															</ReferenceList>
+														</MusicPlaylistItem>
+														<MusicPlaylistItem Name="" ID="{2AE2AE02-4DEA-486A-871A-37C8B814936E}" ShortID="207247592">
+															<PropertyList>
+																<Property Name="PlayMode" Type="int16" Value="2"/>
+															</PropertyList>
+															<ChildrenList>
+																<MusicPlaylistItem Name="" ID="{41F837FD-4324-4764-9879-59E7334224D4}" ShortID="428494957">
+																	<PropertyList>
+																		<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+																	</PropertyList>
+																	<ReferenceList>
+																		<Reference Name="Segment">
+																			<ObjectRef Name="C - 116BPM - Full Mix" ID="{BEC4A706-A1E5-44CF-AFEE-B104BA5B11DC}" WorkUnitID="{A2D28F5B-7C18-4C1C-8171-1F179D7E5534}"/>
+																		</Reference>
+																	</ReferenceList>
+																</MusicPlaylistItem>
+																<MusicPlaylistItem Name="" ID="{5BD6AB51-C927-4BC5-B296-8FB86E127DC0}" ShortID="917016213">
+																	<PropertyList>
+																		<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+																	</PropertyList>
+																	<ReferenceList>
+																		<Reference Name="Segment">
+																			<ObjectRef Name="D - 116BPM - Full Mix" ID="{9C70801D-5D76-4A1B-812A-A4859C4F16D5}" WorkUnitID="{A2D28F5B-7C18-4C1C-8171-1F179D7E5534}"/>
+																		</Reference>
+																	</ReferenceList>
+																</MusicPlaylistItem>
+															</ChildrenList>
+														</MusicPlaylistItem>
+													</ChildrenList>
+												</MusicPlaylistItem>
 											</ChildrenList>
 										</MusicPlaylistItem>
 									</Custom>
@@ -488,97 +443,10 @@
 										</ObjectList>
 									</ObjectLists>
 								</MusicSegment>
-							</ChildrenList>
-						</MusicPlaylistContainer>
-						<MusicPlaylistContainer Name="Gameplay_Stage2" ID="{7AA2FC34-3887-4638-B78A-0971427B0144}" ShortID="477391088">
-							<PropertyList>
-								<Property Name="OverrideClockSettings" Type="bool" Value="True"/>
-								<Property Name="Tempo" Type="Real64" Value="116"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{066AACED-29FB-4E9B-977A-46A9F6C9913D}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F847AA8C-7B54-49C2-9EE8-B09DDE93BCE9}"/>
-								</Reference>
-								<Reference Name="PlaylistRoot">
-									<Custom>
-										<MusicPlaylistItem Name="" ID="{E9392A3F-FAE8-441B-BD48-9E3AD40DABCF}" ShortID="638565959">
-											<PropertyList>
-												<Property Name="LoopCount" Type="int16" Value="0">
-													<ModifierList>
-														<ModifierInfo>
-															<Modifier Name="" ID="{C3B9ADBB-4CE6-4512-8BF2-66170E8EF4AF}"/>
-														</ModifierInfo>
-													</ModifierList>
-												</Property>
-											</PropertyList>
-											<ChildrenList>
-												<MusicPlaylistItem Name="" ID="{379BA0D5-3BDE-4B62-9076-58C181460EFF}" ShortID="695096137">
-													<PropertyList>
-														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Segment">
-															<ObjectRef Name="B - 116BPM - Full Mix" ID="{EDBB76F2-D40F-4B13-9741-D6423BF65769}" WorkUnitID="{A2D28F5B-7C18-4C1C-8171-1F179D7E5534}"/>
-														</Reference>
-													</ReferenceList>
-												</MusicPlaylistItem>
-											</ChildrenList>
-										</MusicPlaylistItem>
-									</Custom>
-								</Reference>
-								<Reference Name="TransitionRoot">
-									<Custom>
-										<MusicTransition Name="Root" ID="{4F34EFA8-B9E8-4322-9B53-0B0266E09145}">
-											<PropertyList>
-												<Property Name="IsFolder" Type="bool" Value="True"/>
-											</PropertyList>
-											<ChildrenList>
-												<MusicTransition Name="Transition" ID="{3C49208D-15F4-4DE0-B1DA-47691C7A0290}">
-													<TransitionInfo/>
-												</MusicTransition>
-												<MusicTransition Name="Transition" ID="{2BFE814B-582F-47CF-8B47-9E6D00872BA4}">
-													<PropertyList>
-														<Property Name="DestinationContextType" Type="int16" Value="2"/>
-														<Property Name="PlayDestinationPreEntry" Type="bool" Value="False"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="DestinationContextObject">
-															<ObjectRef Name="B - 116BPM - Full Mix" ID="{EDBB76F2-D40F-4B13-9741-D6423BF65769}" WorkUnitID="{A2D28F5B-7C18-4C1C-8171-1F179D7E5534}"/>
-														</Reference>
-													</ReferenceList>
-													<TransitionInfo/>
-												</MusicTransition>
-												<MusicTransition Name="Transition" ID="{A14BE3D7-520F-4DB6-A6FB-AC1CAA224CA5}">
-													<PropertyList>
-														<Property Name="PlayDestinationPreEntry" Type="bool" Value="False"/>
-														<Property Name="SourceContextType" Type="int16" Value="2"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="SourceContextObject">
-															<ObjectRef Name="B - 116BPM - Full Mix" ID="{EDBB76F2-D40F-4B13-9741-D6423BF65769}" WorkUnitID="{A2D28F5B-7C18-4C1C-8171-1F179D7E5534}"/>
-														</Reference>
-													</ReferenceList>
-													<TransitionInfo/>
-												</MusicTransition>
-												<MusicTransition Name="Transition" ID="{FD2C9F5F-B810-41B9-8FD0-8AABA03781CD}">
-													<PropertyList>
-														<Property Name="PlayDestinationPreEntry" Type="bool" Value="False"/>
-													</PropertyList>
-													<TransitionInfo/>
-												</MusicTransition>
-											</ChildrenList>
-											<TransitionInfo/>
-										</MusicTransition>
-									</Custom>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
 								<MusicSegment Name="B - 116BPM - Full Mix" ID="{EDBB76F2-D40F-4B13-9741-D6423BF65769}" ShortID="509592265">
 									<PropertyList>
 										<Property Name="EndPosition" Type="Real64" Value="18620.7029478458"/>
+										<Property Name="Tempo" Type="Real64" Value="116"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -662,97 +530,10 @@
 										</ObjectList>
 									</ObjectLists>
 								</MusicSegment>
-							</ChildrenList>
-						</MusicPlaylistContainer>
-						<MusicPlaylistContainer Name="Gameplay_Stage3" ID="{CB21D54F-D18B-4321-842D-8409266DCFFE}" ShortID="197701428">
-							<PropertyList>
-								<Property Name="OverrideClockSettings" Type="bool" Value="True"/>
-								<Property Name="Tempo" Type="Real64" Value="116"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{066AACED-29FB-4E9B-977A-46A9F6C9913D}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F847AA8C-7B54-49C2-9EE8-B09DDE93BCE9}"/>
-								</Reference>
-								<Reference Name="PlaylistRoot">
-									<Custom>
-										<MusicPlaylistItem Name="" ID="{F13A4769-588E-4A6A-A452-B246C5F97423}" ShortID="811580720">
-											<PropertyList>
-												<Property Name="LoopCount" Type="int16" Value="0">
-													<ModifierList>
-														<ModifierInfo>
-															<Modifier Name="" ID="{59F57A5F-2AD3-4D20-A268-D4FDA0AF0372}"/>
-														</ModifierInfo>
-													</ModifierList>
-												</Property>
-											</PropertyList>
-											<ChildrenList>
-												<MusicPlaylistItem Name="" ID="{A0A12C2A-0995-4787-B255-D5BFA546662D}" ShortID="491192071">
-													<PropertyList>
-														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Segment">
-															<ObjectRef Name="C - 116BPM - Full Mix" ID="{BEC4A706-A1E5-44CF-AFEE-B104BA5B11DC}" WorkUnitID="{A2D28F5B-7C18-4C1C-8171-1F179D7E5534}"/>
-														</Reference>
-													</ReferenceList>
-												</MusicPlaylistItem>
-											</ChildrenList>
-										</MusicPlaylistItem>
-									</Custom>
-								</Reference>
-								<Reference Name="TransitionRoot">
-									<Custom>
-										<MusicTransition Name="Root" ID="{479A1A08-3A4B-4F30-950C-DDB985A5E320}">
-											<PropertyList>
-												<Property Name="IsFolder" Type="bool" Value="True"/>
-											</PropertyList>
-											<ChildrenList>
-												<MusicTransition Name="Transition" ID="{6DDD033D-146A-48D7-97C0-B70EC37136F6}">
-													<TransitionInfo/>
-												</MusicTransition>
-												<MusicTransition Name="Transition" ID="{8327C8F3-7B8F-49BC-8169-4CDCFE6FA586}">
-													<PropertyList>
-														<Property Name="PlayDestinationPreEntry" Type="bool" Value="False"/>
-													</PropertyList>
-													<TransitionInfo/>
-												</MusicTransition>
-												<MusicTransition Name="Transition" ID="{EEB8057D-C5E0-4001-B3E1-06830D913F48}">
-													<PropertyList>
-														<Property Name="DestinationContextType" Type="int16" Value="2"/>
-														<Property Name="PlayDestinationPreEntry" Type="bool" Value="False"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="DestinationContextObject">
-															<ObjectRef Name="C - 116BPM - Full Mix" ID="{BEC4A706-A1E5-44CF-AFEE-B104BA5B11DC}" WorkUnitID="{A2D28F5B-7C18-4C1C-8171-1F179D7E5534}"/>
-														</Reference>
-													</ReferenceList>
-													<TransitionInfo/>
-												</MusicTransition>
-												<MusicTransition Name="Transition" ID="{83478D4E-E76B-4D76-AF43-8E139D1787C4}">
-													<PropertyList>
-														<Property Name="PlayDestinationPreEntry" Type="bool" Value="False"/>
-														<Property Name="SourceContextType" Type="int16" Value="2"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="SourceContextObject">
-															<ObjectRef Name="C - 116BPM - Full Mix" ID="{BEC4A706-A1E5-44CF-AFEE-B104BA5B11DC}" WorkUnitID="{A2D28F5B-7C18-4C1C-8171-1F179D7E5534}"/>
-														</Reference>
-													</ReferenceList>
-													<TransitionInfo/>
-												</MusicTransition>
-											</ChildrenList>
-											<TransitionInfo/>
-										</MusicTransition>
-									</Custom>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
 								<MusicSegment Name="C - 116BPM - Full Mix" ID="{BEC4A706-A1E5-44CF-AFEE-B104BA5B11DC}" ShortID="1055621929">
 									<PropertyList>
 										<Property Name="EndPosition" Type="Real64" Value="18620.7029478458"/>
+										<Property Name="Tempo" Type="Real64" Value="116"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -836,91 +617,10 @@
 										</ObjectList>
 									</ObjectLists>
 								</MusicSegment>
-							</ChildrenList>
-						</MusicPlaylistContainer>
-						<MusicPlaylistContainer Name="Gameplay_Stage4" ID="{DC70737A-5316-4BA4-BFC2-7EA62122D164}" ShortID="681187812">
-							<PropertyList>
-								<Property Name="OverrideClockSettings" Type="bool" Value="True"/>
-								<Property Name="Tempo" Type="Real64" Value="116"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{066AACED-29FB-4E9B-977A-46A9F6C9913D}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F847AA8C-7B54-49C2-9EE8-B09DDE93BCE9}"/>
-								</Reference>
-								<Reference Name="PlaylistRoot">
-									<Custom>
-										<MusicPlaylistItem Name="" ID="{142EA736-6932-44A8-AF3D-F26589D6C770}" ShortID="24101124">
-											<PropertyList>
-												<Property Name="LoopCount" Type="int16" Value="0">
-													<ModifierList>
-														<ModifierInfo>
-															<Modifier Name="" ID="{364FBBA8-513E-45E0-BA78-690AE970305F}"/>
-														</ModifierInfo>
-													</ModifierList>
-												</Property>
-											</PropertyList>
-											<ChildrenList>
-												<MusicPlaylistItem Name="" ID="{B1CA97F8-874E-40EB-B542-B0545F8744F9}" ShortID="516938191">
-													<PropertyList>
-														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Segment">
-															<ObjectRef Name="D - 116BPM - Full Mix" ID="{9C70801D-5D76-4A1B-812A-A4859C4F16D5}" WorkUnitID="{A2D28F5B-7C18-4C1C-8171-1F179D7E5534}"/>
-														</Reference>
-													</ReferenceList>
-												</MusicPlaylistItem>
-											</ChildrenList>
-										</MusicPlaylistItem>
-									</Custom>
-								</Reference>
-								<Reference Name="TransitionRoot">
-									<Custom>
-										<MusicTransition Name="Root" ID="{39889196-78CB-40A1-8E70-155BEA4BBCCF}">
-											<PropertyList>
-												<Property Name="IsFolder" Type="bool" Value="True"/>
-											</PropertyList>
-											<ChildrenList>
-												<MusicTransition Name="Transition" ID="{C38D8832-E16F-42A9-8C23-5A66D4E5CAE2}">
-													<TransitionInfo/>
-												</MusicTransition>
-												<MusicTransition Name="Transition" ID="{8AEE8DF7-2BCE-4387-8EA1-568E1D5F0484}">
-													<PropertyList>
-														<Property Name="PlayDestinationPreEntry" Type="bool" Value="False"/>
-													</PropertyList>
-													<TransitionInfo/>
-												</MusicTransition>
-												<MusicTransition Name="Transition" ID="{DB584FCC-1E7C-4A8F-AD4E-86329F202FBD}">
-													<PropertyList>
-														<Property Name="PlayDestinationPreEntry" Type="bool" Value="False"/>
-													</PropertyList>
-													<TransitionInfo/>
-												</MusicTransition>
-												<MusicTransition Name="Transition" ID="{8A30DF36-D5F2-4B43-A750-B6C33C5671E5}">
-													<PropertyList>
-														<Property Name="DestinationContextType" Type="int16" Value="2"/>
-														<Property Name="PlayDestinationPreEntry" Type="bool" Value="False"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="DestinationContextObject">
-															<ObjectRef Name="D - 116BPM - Full Mix" ID="{9C70801D-5D76-4A1B-812A-A4859C4F16D5}" WorkUnitID="{A2D28F5B-7C18-4C1C-8171-1F179D7E5534}"/>
-														</Reference>
-													</ReferenceList>
-													<TransitionInfo/>
-												</MusicTransition>
-											</ChildrenList>
-											<TransitionInfo/>
-										</MusicTransition>
-									</Custom>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
 								<MusicSegment Name="D - 116BPM - Full Mix" ID="{9C70801D-5D76-4A1B-812A-A4859C4F16D5}" ShortID="35228635">
 									<PropertyList>
 										<Property Name="EndPosition" Type="Real64" Value="10344.8526077098"/>
+										<Property Name="Tempo" Type="Real64" Value="116"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -1626,24 +1326,6 @@
 						<ObjectList Name="Entries">
 							<Reference>
 								<Local>
-									<MultiSwitchEntry Name="" ID="{A05D16B1-9D70-47EB-9A3A-01EF9FBFBE96}">
-										<ReferenceList>
-											<Reference Name="AudioNode">
-												<ObjectRef Name="Menu" ID="{1DD1048C-C2EF-46E6-A8A8-81EA7C2E22C3}" WorkUnitID="{A2D28F5B-7C18-4C1C-8171-1F179D7E5534}"/>
-											</Reference>
-										</ReferenceList>
-										<ObjectLists>
-											<ObjectList Name="EntryPath">
-												<Reference>
-													<ObjectRef Name="Menu" ID="{7BB6D41F-050E-4673-A1EA-C14475A7FF29}" WorkUnitID="{5F73E66F-1501-491D-9EF8-0B28A7BEE5D9}"/>
-												</Reference>
-											</ObjectList>
-										</ObjectLists>
-									</MultiSwitchEntry>
-								</Local>
-							</Reference>
-							<Reference>
-								<Local>
 									<MultiSwitchEntry Name="" ID="{37287648-986A-401D-821E-1BD2A22F8908}">
 										<ReferenceList>
 											<Reference Name="AudioNode">
@@ -1654,60 +1336,6 @@
 											<ObjectList Name="EntryPath">
 												<Reference>
 													<ObjectRef Name="Stage_1" ID="{A1B17113-F58B-49D1-A5CF-A00AFD868163}" WorkUnitID="{5F73E66F-1501-491D-9EF8-0B28A7BEE5D9}"/>
-												</Reference>
-											</ObjectList>
-										</ObjectLists>
-									</MultiSwitchEntry>
-								</Local>
-							</Reference>
-							<Reference>
-								<Local>
-									<MultiSwitchEntry Name="" ID="{0B6E677C-6873-4986-A692-99C5631922AC}">
-										<ReferenceList>
-											<Reference Name="AudioNode">
-												<ObjectRef Name="Gameplay_Stage2" ID="{7AA2FC34-3887-4638-B78A-0971427B0144}" WorkUnitID="{A2D28F5B-7C18-4C1C-8171-1F179D7E5534}"/>
-											</Reference>
-										</ReferenceList>
-										<ObjectLists>
-											<ObjectList Name="EntryPath">
-												<Reference>
-													<ObjectRef Name="Stage_2" ID="{6A40FD3C-8717-4522-8DFD-68B4EF28A16E}" WorkUnitID="{5F73E66F-1501-491D-9EF8-0B28A7BEE5D9}"/>
-												</Reference>
-											</ObjectList>
-										</ObjectLists>
-									</MultiSwitchEntry>
-								</Local>
-							</Reference>
-							<Reference>
-								<Local>
-									<MultiSwitchEntry Name="" ID="{67CB4909-77DC-4545-9F4E-10D5B61D9AE4}">
-										<ReferenceList>
-											<Reference Name="AudioNode">
-												<ObjectRef Name="Gameplay_Stage3" ID="{CB21D54F-D18B-4321-842D-8409266DCFFE}" WorkUnitID="{A2D28F5B-7C18-4C1C-8171-1F179D7E5534}"/>
-											</Reference>
-										</ReferenceList>
-										<ObjectLists>
-											<ObjectList Name="EntryPath">
-												<Reference>
-													<ObjectRef Name="Stage_3" ID="{939F38AC-85F6-42F0-ACF0-815F1EF8B442}" WorkUnitID="{5F73E66F-1501-491D-9EF8-0B28A7BEE5D9}"/>
-												</Reference>
-											</ObjectList>
-										</ObjectLists>
-									</MultiSwitchEntry>
-								</Local>
-							</Reference>
-							<Reference>
-								<Local>
-									<MultiSwitchEntry Name="" ID="{F28BF2DE-A210-410C-B396-083E5F34BD7C}">
-										<ReferenceList>
-											<Reference Name="AudioNode">
-												<ObjectRef Name="Gameplay_Stage4" ID="{DC70737A-5316-4BA4-BFC2-7EA62122D164}" WorkUnitID="{A2D28F5B-7C18-4C1C-8171-1F179D7E5534}"/>
-											</Reference>
-										</ReferenceList>
-										<ObjectLists>
-											<ObjectList Name="EntryPath">
-												<Reference>
-													<ObjectRef Name="Stage_4" ID="{9F715404-4E9E-418A-B01C-0C9EAF1D4690}" WorkUnitID="{5F73E66F-1501-491D-9EF8-0B28A7BEE5D9}"/>
 												</Reference>
 											</ObjectList>
 										</ObjectLists>
