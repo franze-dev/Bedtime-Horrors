@@ -57,7 +57,6 @@ public class LightsOff : NaturalDisaster, IDisasterUpdate
 
     public override void StartDisaster()
     {
-        EventTriggerer.Trigger<ILogMessageEvent>(new LogMessageEvent("Lights off!", null));
         _darkRectGO.SetActive(true);
 
         _elapsed = 0f;
@@ -70,8 +69,6 @@ public class LightsOff : NaturalDisaster, IDisasterUpdate
         _darkRectGO.SetActive(false);
         _phase = FadeState.None;
         _elapsed = 0f;
-
-        EventTriggerer.Trigger<ILogMessageEvent>(new LogMessageEvent("Lights On!", null));
     }
 
     public void UpdateDisaster()
