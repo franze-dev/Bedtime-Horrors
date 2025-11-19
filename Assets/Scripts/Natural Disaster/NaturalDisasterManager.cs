@@ -75,17 +75,22 @@ public class NaturalDisasterManager : MonoBehaviour
 
 
         var anim = _currentDisaster.AnimationLogic;
-        float animDuration = anim.Armature.armature.animation.animations[anim.Armature.armature.animation.animationNames[0]].duration;
-        if (anim != null && anim.HasAnimation && animDuration > 0)
+        float animDuration = 0;
+        if (anim != null)
         {
-            string first = anim.Armature.animation.animationNames[0];
-            float duration = anim.Armature.armature.animation.animations[first].duration;
-            yield return new WaitForSeconds(duration);
-        }
-        else
-            animDuration = 0;
+            animDuration = anim.Armature.armature.animation.animations[anim.Armature.armature.animation.animationNames[0]].duration;
 
-        EventTriggerer.Trigger<IOnDisasterLoopEvent>(new OnDisasterLoopEvent(_currentDisaster));
+            if (anim.HasAnimation && animDuration > 0)
+            {
+                string first = anim.Armature.animation.animationNames[0];
+                float duration = anim.Armature.armature.animation.animations[first].duration;
+                yield return new WaitForSeconds(duration);
+                EventTriggerer.Trigger<IOnDisasterLoopEvent>(new OnDisasterLoopEvent(_currentDisaster));
+            }
+            else
+                animDuration = 0;
+        }
+
 
         yield return new WaitForSeconds(_currentDisaster.Duration - animDuration);
         EventTriggerer.Trigger<IOnDisasterEndEvent>(new OnDisasterEndEvent(_currentDisaster));
@@ -110,17 +115,23 @@ public class NaturalDisasterManager : MonoBehaviour
         _radioObject.SetActive(false);
 
         var anim = _currentDisaster.AnimationLogic;
-        float animDuration = anim.Armature.armature.animation.animations[anim.Armature.armature.animation.animationNames[0]].duration;
-        if (anim != null && anim.HasAnimation && animDuration > 0)
+        float animDuration = 0;
+        if (anim != null)
         {
-            string first = anim.Armature.animation.animationNames[0];
-            float duration = anim.Armature.armature.animation.animations[first].duration;
-            yield return new WaitForSeconds(duration);
-        }
-        else
-            animDuration = 0;
+            animDuration = anim.Armature.armature.animation.animations[anim.Armature.armature.animation.animationNames[0]].duration;
 
-            yield return new WaitForSeconds(_currentDisaster.Duration - animDuration);
+            if (anim.HasAnimation && animDuration > 0)
+            {
+                string first = anim.Armature.animation.animationNames[0];
+                float duration = anim.Armature.armature.animation.animations[first].duration;
+                yield return new WaitForSeconds(duration);
+                EventTriggerer.Trigger<IOnDisasterLoopEvent>(new OnDisasterLoopEvent(_currentDisaster));
+            }
+            else
+                animDuration = 0;
+        }
+
+        yield return new WaitForSeconds(_currentDisaster.Duration - animDuration);
         EventTriggerer.Trigger<IOnDisasterEndEvent>(new OnDisasterEndEvent(_currentDisaster));
         _currentDisaster.EndDisaster();
 

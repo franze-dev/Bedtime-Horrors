@@ -59,7 +59,6 @@ public class FurnitureDisasterResponder : MonoBehaviour
         if (_reactionProfile == null || _reactionProfile.Reactions == null)
             return;
 
-        _armature.gameObject.SetActive(true);
         foreach (var r in _reactionProfile.Reactions)
         {
             if (r == null || r.Disaster == null)
@@ -67,6 +66,8 @@ public class FurnitureDisasterResponder : MonoBehaviour
 
             if (r.Disaster == disaster && r.Phase == phase)
             {
+                _armature.gameObject.SetActive(true);
+
                 if (!string.IsNullOrEmpty(r.AnimationName))
                     _armature.animation.Play(r.AnimationName, r.PlayTimes);
 
