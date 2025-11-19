@@ -7,8 +7,6 @@ public class FurnitureDisasterResponder : MonoBehaviour
     [SerializeField] private UnityArmatureComponent _armature;
     [SerializeField] private DisasterReactionProfile _reactionProfile;
 
-    private bool _disasterActive = false;
-
     private void Awake()
     {
         EventProvider.Subscribe<IOnDisasterStartEvent>(OnStart);
@@ -27,7 +25,6 @@ public class FurnitureDisasterResponder : MonoBehaviour
 
     private void OnStart(IOnDisasterStartEvent evt)
     {
-        _disasterActive = true;
         React(evt.Disaster, DisasterPhase.Start);
     }
 
@@ -43,8 +40,6 @@ public class FurnitureDisasterResponder : MonoBehaviour
 
     private void OnNoDisaster(IOnNoDisasterEvent evt)
     {
-        _disasterActive = false;
-
         if (_reactionProfile.Idle != null && !string.IsNullOrEmpty(_reactionProfile.Idle.AnimationName))
         {
             _armature.animation.Play(

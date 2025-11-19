@@ -44,25 +44,19 @@ public class Earthquake : NaturalDisaster, IDisasterUpdate
         if (activeTurrets == null || activeTurrets.Count == 0)
         {
             Debug.LogWarning("No active turrets to destroy.");
-            EventTriggerer.Trigger<ILogMessageEvent>(new LogMessageEvent("No turrets to destroy!", null));
             return;
         }
 
         int randomIndex = Random.Range(0, activeTurrets.Count + 2);
 
         if (randomIndex >= activeTurrets.Count)
-        {
-            EventTriggerer.Trigger<ILogMessageEvent>(new LogMessageEvent("No casualties!", null));
             return;
-        }
 
         GameObject turretToDestroy = activeTurrets[randomIndex].gameObject;
 
         if (turretToDestroy != null)
-        {
             EventTriggerer.Trigger<ITurretDestroyEvent>(new TurretDestroyEvent(turretToDestroy));
-            EventTriggerer.Trigger<ILogMessageEvent>(new LogMessageEvent("A turret was destroyed..", null));
-        }
+
     }
 
     public override void Init()
@@ -78,7 +72,7 @@ public class Earthquake : NaturalDisaster, IDisasterUpdate
         AkUnitySoundEngine.PostEvent("Disaster_Start", WwiseAudioHelper.DisasterSoundEmitter);
 
         _isRunning = true;
-        EventTriggerer.Trigger<ILogMessageEvent>(new LogMessageEvent("Earthquake!", null));
+
 
         Debug.LogWarning("Start earthquake");
 

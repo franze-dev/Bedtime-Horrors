@@ -9,10 +9,7 @@ public class SpeedMod : NaturalDisaster, IDisasterUpdate
 {
     [SerializeField] private float speedMultiplier = 1.5f;
     [SerializeField] private float _duration = 10f;
-    [SerializeField] private List<Enemy> _affectedEnemies;
-    [SerializeField] private string _messageStart = "Speed!";
-    [SerializeField] private string _messageEnd = "Speed End!";
-    
+    [SerializeField] private List<Enemy> _affectedEnemies;    
 
     public override void Init()
     {
@@ -33,15 +30,12 @@ public class SpeedMod : NaturalDisaster, IDisasterUpdate
 
     public override void StartDisaster()
     {
-        EventTriggerer.Trigger<ILogMessageEvent>(new LogMessageEvent(_messageStart, null));
         MultiplySpeed();
         AnimationLogic?.Play(AnimationData);
     }
 
     public override void EndDisaster()
     {
-        EventTriggerer.Trigger<ILogMessageEvent>(new LogMessageEvent(_messageEnd, null));
-
         ResetSpeed();
         AnimationLogic?.Stop();
     }
