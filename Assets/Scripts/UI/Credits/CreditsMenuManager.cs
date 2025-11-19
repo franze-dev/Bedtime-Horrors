@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class CreditsMenuManager : MonoBehaviour
 {
     [SerializeField] private Image _creditsBg;
+    [SerializeField] private Image _creditsBg2;
     [SerializeField] private GameObject _contentGO;
     [SerializeField] private TextMeshProUGUI _titleText;
     [SerializeField] private GameObject _creditsTextPrefab;
@@ -24,13 +25,28 @@ public class CreditsMenuManager : MonoBehaviour
             return;
         }
 
+        if (_creditsBg2 != null)
+            _creditsBg2.gameObject.SetActive(false);
+        else
+        {
+            Debug.LogError("No credits bg 2 found");
+            return;
+        }
+
         EventProvider.Subscribe<IOpenCreditMenuEvent>(OnCreditMenuOpen);
         EventProvider.Subscribe<ICloseCreditMenuEvent>(OnCreditMenuClose);
+    }
+
+    private void OnDisable()
+    {
+        _creditsMenuGO.SetActive(false);
+        _currentlyOpenedSection = null;
     }
 
     private void OnCreditMenuClose(ICloseCreditMenuEvent @event)
     {
         _creditsMenuGO.SetActive(false);
+        _creditsBg2.gameObject.SetActive(false);
     }
 
     private void OnCreditMenuOpen(IOpenCreditMenuEvent @event)
@@ -49,6 +65,7 @@ public class CreditsMenuManager : MonoBehaviour
 
         SetBackground(@event.CreditsToShow);
         _creditsBg.gameObject.SetActive(true);
+        _creditsBg2.gameObject.SetActive(true);
 
         _titleText.text = @event.CreditsToShow.Title;
 
