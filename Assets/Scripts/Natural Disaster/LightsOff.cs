@@ -1,4 +1,3 @@
-using DragonBones;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,76 +13,110 @@ public class LightsOff : NaturalDisaster, IDisasterUpdate
 
     private GameObject _darkRectGO;
     private Image _darkRectImage;
-    private float _fadeOutTime;
+
     private float _fadeInTime;
+    private float _fadeOutTime;
+    private float _holdTime;
     private float _elapsed;
 
     private Color _minColor;
-    private Color _midColor;
     private Color _maxColor;
+    private FadeState _phase;
 
-    public override void EndDisaster()
+    private enum FadeState
     {
-        AkUnitySoundEngine.SetSwitch("Disaster_Type", "LightsOff", WwiseAudioHelper.DisasterSoundEmitter);
-        AkUnitySoundEngine.PostEvent("Disaster_End", WwiseAudioHelper.DisasterSoundEmitter);
-                
-        _darkRectImage.color = _minColor;
-        _elapsed = 0;
-        _midColor = _minColor;
-        _darkRectGO.SetActive(false);
-
-        EventTriggerer.Trigger<ILogMessageEvent>(new LogMessageEvent("Lights On!", null));
+        None,
+        FadingIn,
+        Holding,
+        FadingOut
     }
 
     public override void Init()
     {
         Duration = _duration;
+
         _darkRectGO = Instantiate(_darkRectPrefab);
         _darkRectImage = _darkRectGO.GetComponentInChildren<Image>();
-        _darkRectGO?.SetActive(false);
+        _darkRectGO.SetActive(false);
 
         _minColor = _darkRectImage.color;
         _maxColor = _darkRectImage.color;
-
         _minColor.a = 0f;
-        _midColor = _minColor;
         _maxColor.a = _maxAlphaValue;
 
         _darkRectImage.color = _minColor;
 
-        _elapsed = 0;
+        _fadeInTime = 1f / _darkeningSpeed;
+        _fadeOutTime = 1f / _lighteningSpeed;
 
-        _fadeInTime = 1 / _darkeningSpeed;
-        _fadeOutTime = 1 / _lighteningSpeed;
+        _holdTime = Duration - _fadeInTime - _fadeOutTime;
+
+        _elapsed = 0f;
+        _phase = FadeState.None;
     }
 
     public override void StartDisaster()
     {
         EventTriggerer.Trigger<ILogMessageEvent>(new LogMessageEvent("Lights off!", null));
+        _darkRectGO.SetActive(true);
 
-        AkUnitySoundEngine.SetSwitch("Disaster_Type", "LightsOff", WwiseAudioHelper.DisasterSoundEmitter);
-        AkUnitySoundEngine.PostEvent("Disaster_Start", WwiseAudioHelper.DisasterSoundEmitter);
+        _elapsed = 0f;
+        _phase = FadeState.FadingIn;
+    }
 
-        _darkRectGO?.SetActive(true);
+    public override void EndDisaster()
+    {
+        _darkRectImage.color = _minColor;
+        _darkRectGO.SetActive(false);
+        _phase = FadeState.None;
+        _elapsed = 0f;
+
+        EventTriggerer.Trigger<ILogMessageEvent>(new LogMessageEvent("Lights On!", null));
     }
 
     public void UpdateDisaster()
     {
+        if (_phase == FadeState.None)
+            return;
+
         _elapsed += Time.deltaTime;
 
-        if (_elapsed < _fadeInTime)
+        switch (_phase)
         {
-            var t = _elapsed / _fadeInTime;
+            case FadeState.FadingIn:
+                {
+                    float t = _elapsed / _fadeInTime;
+                    _darkRectImage.color = Color.Lerp(_minColor, _maxColor, Mathf.Clamp01(t));
+                    if (_elapsed >= _fadeInTime)
+                    {
+                        _elapsed = 0f;
+                        _phase = FadeState.Holding;
+                    }
+                }
+                break;
 
-            _midColor = Color.Lerp(_minColor, _maxColor, Mathf.Clamp01(t));
+            case FadeState.Holding:
+                {
+                    if (_elapsed >= _holdTime)
+                    {
+                        _elapsed = 0f;
+                        _phase = FadeState.FadingOut;
+                    }
+                }
+                break;
+
+            case FadeState.FadingOut:
+                {
+                    float t = _elapsed / _fadeOutTime;
+                    _darkRectImage.color = Color.Lerp(_maxColor, _minColor, Mathf.Clamp01(t));
+                    if (_elapsed >= _fadeOutTime)
+                    {
+                        _elapsed = 0f;
+                        _phase = FadeState.None;
+                        EndDisaster();
+                    }
+                }
+                break;
         }
-        else if (_elapsed >= Duration - _fadeOutTime)
-        {
-            var t = (_elapsed - (Duration - _fadeOutTime)) / _fadeOutTime;
-
-            _midColor = Color.Lerp(_maxColor, _minColor, Mathf.Clamp01(t));
-        }
-
-        _darkRectImage.color = _midColor;
     }
 }

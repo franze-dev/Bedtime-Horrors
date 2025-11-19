@@ -49,7 +49,10 @@ public class Child : MonoBehaviour
             SceneController.Instance.UnloadNonPersistentScenes();
 
             if (ServiceProvider.TryGetService(out NavigationController nav))
+            {
+                AkUnitySoundEngine.StopAll();
                 nav.GoToMenu(new LoseMenuState());
+            }
             else
                 Debug.LogWarning("NavigationController service not found!");
         }
