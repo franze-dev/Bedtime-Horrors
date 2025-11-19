@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5644945813691001150}
+  - component: {fileID: 8595313386934909909}
   m_Layer: 0
   m_Name: WallDecoAnimation
   m_TagString: Untagged
@@ -26,12 +27,26 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 40.17046, y: 40.17046, z: 40.17046}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3751353953449532333}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8595313386934909909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368837497762083971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71ff3de807f723447ae4bc40b106b16c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _armature: {fileID: 7517413039887793743}
+  _reactionProfile: {fileID: 11400000, guid: 13ada6070b6e08d41b0d1dc115e9950e, type: 2}
 --- !u!1 &6577417024109197800
 GameObject:
   m_ObjectHideFlags: 0
@@ -63,7 +78,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 538847445351645147}
+  - {fileID: 6530404380612265021}
   m_Father: {fileID: 5644945813691001150}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7517413039887793743
@@ -82,12 +97,12 @@ MonoBehaviour:
   armatureName: Armature
   isUGUI: 0
   debugDraw: 0
-  animationName: animtion0
+  animationName: 
   _playTimes: 0
   _timeScale: 1
   _sortingMode: 0
   _sortingLayerName: Default
-  _sortingOrder: 0
+  _sortingOrder: 1
   _zSpace: 0
   _flipX: 0
   _flipY: 0
@@ -106,7 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotNames: []
   dirty: 0
---- !u!1 &7960787604380268899
+--- !u!1 &6793864446204038552
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -114,9 +129,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 538847445351645147}
-  - component: {fileID: 3871314168035093580}
-  - component: {fileID: 5941311317292288984}
+  - component: {fileID: 6530404380612265021}
+  - component: {fileID: 6476993012846934397}
+  - component: {fileID: 4671230549096448548}
   m_Layer: 0
   m_Name: Deco
   m_TagString: Untagged
@@ -124,13 +139,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &538847445351645147
+--- !u!4 &6530404380612265021
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7960787604380268899}
+  m_GameObject: {fileID: 6793864446204038552}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -139,13 +154,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3751353953449532333}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &3871314168035093580
+--- !u!23 &6476993012846934397
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7960787604380268899}
+  m_GameObject: {fileID: 6793864446204038552}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -182,13 +197,13 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &5941311317292288984
+--- !u!33 &4671230549096448548
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7960787604380268899}
+  m_GameObject: {fileID: 6793864446204038552}
   m_Mesh: {fileID: 0}

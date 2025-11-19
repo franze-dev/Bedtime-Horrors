@@ -346,6 +346,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5908152259724796830}
+  - component: {fileID: 2297187567076373337}
   m_Layer: 0
   m_Name: SparksAnimation
   m_TagString: Untagged
@@ -369,6 +370,20 @@ Transform:
   - {fileID: 8494892543053052787}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2297187567076373337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5733177698793324476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71ff3de807f723447ae4bc40b106b16c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _armature: {fileID: 8950331280661505850}
+  _reactionProfile: {fileID: 11400000, guid: 45c04764bf0ed0d44882a4b1e102f3a8, type: 2}
 --- !u!1 &7452404696990370712
 GameObject:
   m_ObjectHideFlags: 0

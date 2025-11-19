@@ -170,6 +170,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1615195935986938914}
+  - component: {fileID: 7699408777907101764}
   m_Layer: 0
   m_Name: CourtainsAnimation
   m_TagString: Untagged
@@ -193,6 +194,20 @@ Transform:
   - {fileID: 5758425149929185809}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7699408777907101764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3904432528045858939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71ff3de807f723447ae4bc40b106b16c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _armature: {fileID: 3550668780621090305}
+  _reactionProfile: {fileID: 11400000, guid: ce9c89ba8fa5c024498215b4594540f4, type: 2}
 --- !u!1 &4107601305226313208
 GameObject:
   m_ObjectHideFlags: 0
