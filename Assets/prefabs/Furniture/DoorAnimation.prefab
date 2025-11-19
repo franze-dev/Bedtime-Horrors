@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1749659854949284389
+--- !u!1 &2141643394117680967
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,38 +8,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1106711724824564520}
-  - component: {fileID: 7111030778935572723}
-  - component: {fileID: 2088339157861130498}
+  - component: {fileID: 3207278332012994485}
+  - component: {fileID: 3727764050689369232}
+  - component: {fileID: 8584072501000140179}
   m_Layer: 0
-  m_Name: Courtains_0000s_0001s_0003_Curtain-L
+  m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1106711724824564520
+--- !u!4 &3207278332012994485
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1749659854949284389}
+  m_GameObject: {fileID: 2141643394117680967}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.002256451, w: 0.9999975}
-  m_LocalPosition: {x: -4.021503, y: 9.483179, z: -0.001}
-  m_LocalScale: {x: 0.4808, y: 0.4808, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.001}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5758425149929185809}
+  m_Father: {fileID: 6219817208624607273}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &7111030778935572723
+--- !u!23 &3727764050689369232
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1749659854949284389}
+  m_GameObject: {fileID: 2141643394117680967}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -56,7 +56,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ad84f69c44d408f4594a88fba2c89e4b, type: 2}
+  - {fileID: 2100000, guid: 6ede9d65441ba384a9a0768f854116c4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -76,17 +76,17 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &2088339157861130498
+--- !u!33 &8584072501000140179
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1749659854949284389}
+  m_GameObject: {fileID: 2141643394117680967}
   m_Mesh: {fileID: 0}
---- !u!1 &3125980483593551647
+--- !u!1 &3148936983117534657
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,46 +94,46 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5758425149929185809}
-  - component: {fileID: 3550668780621090305}
-  - component: {fileID: 594939751330576766}
+  - component: {fileID: 6219817208624607273}
+  - component: {fileID: 2792416561016029333}
+  - component: {fileID: 2278703813023285737}
   m_Layer: 0
-  m_Name: CourtainsArmature
+  m_Name: Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5758425149929185809
+--- !u!4 &6219817208624607273
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3125980483593551647}
+  m_GameObject: {fileID: 3148936983117534657}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4684128604587345394}
-  - {fileID: 1106711724824564520}
-  m_Father: {fileID: 1615195935986938914}
+  - {fileID: 5266421926131196853}
+  - {fileID: 3207278332012994485}
+  m_Father: {fileID: 5846725900532327937}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3550668780621090305
+--- !u!114 &2792416561016029333
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3125980483593551647}
+  m_GameObject: {fileID: 3148936983117534657}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f825bb5ce93d6ab429dfa508444119b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unityData: {fileID: 11400000, guid: 5dd563d20d8bfe54389a26f339c5a2c1, type: 2}
+  unityData: {fileID: 11400000, guid: 30e8d00dda9ef054285425c55218a01e, type: 2}
   armatureName: Armature
   isUGUI: 0
   debugDraw: 0
@@ -142,18 +142,18 @@ MonoBehaviour:
   _timeScale: 1
   _sortingMode: 0
   _sortingLayerName: Default
-  _sortingOrder: 0
+  _sortingOrder: 3
   _zSpace: 0
   _flipX: 0
   _flipY: 0
   _closeCombineMeshs: 0
---- !u!114 &594939751330576766
+--- !u!114 &2278703813023285737
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3125980483593551647}
+  m_GameObject: {fileID: 3148936983117534657}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0dfe11beb597d1a40a892f995bd31b3d, type: 3}
@@ -161,7 +161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotNames: []
   dirty: 0
---- !u!1 &3904432528045858939
+--- !u!1 &5564984159686647855
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -169,46 +169,46 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1615195935986938914}
-  - component: {fileID: 7699408777907101764}
+  - component: {fileID: 5846725900532327937}
+  - component: {fileID: 7650640687287866306}
   m_Layer: 0
-  m_Name: CourtainsAnimation
+  m_Name: DoorAnimation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1615195935986938914
+--- !u!4 &5846725900532327937
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3904432528045858939}
+  m_GameObject: {fileID: 5564984159686647855}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 44, y: 44, z: 44}
+  m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 5758425149929185809}
+  - {fileID: 6219817208624607273}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7699408777907101764
+--- !u!114 &7650640687287866306
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3904432528045858939}
+  m_GameObject: {fileID: 5564984159686647855}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71ff3de807f723447ae4bc40b106b16c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _armature: {fileID: 3550668780621090305}
-  _reactionProfile: {fileID: 11400000, guid: ce9c89ba8fa5c024498215b4594540f4, type: 2}
---- !u!1 &4107601305226313208
+  _armature: {fileID: 2792416561016029333}
+  _reactionProfile: {fileID: 11400000, guid: dd4c8dc9f3633ab4fba25f76f10e1f11, type: 2}
+--- !u!1 &5785263209518578371
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -216,38 +216,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4684128604587345394}
-  - component: {fileID: 5048833566767850598}
-  - component: {fileID: 5115987600027188709}
+  - component: {fileID: 5266421926131196853}
+  - component: {fileID: 5450238488649802514}
+  - component: {fileID: 1800077860167294119}
   m_Layer: 0
-  m_Name: Courtains_0000s_0000s_0003_Curtain-R
+  m_Name: Door BK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4684128604587345394
+--- !u!4 &5266421926131196853
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4107601305226313208}
+  m_GameObject: {fileID: 5785263209518578371}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.0022562724, w: 0.9999975}
-  m_LocalPosition: {x: -1.9045914, y: 9.470118, z: 0}
-  m_LocalScale: {x: 0.47999996, y: 0.47999996, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.79963106, y: -0.43863097, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5758425149929185809}
+  m_Father: {fileID: 6219817208624607273}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &5048833566767850598
+--- !u!23 &5450238488649802514
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4107601305226313208}
+  m_GameObject: {fileID: 5785263209518578371}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -264,7 +264,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ad84f69c44d408f4594a88fba2c89e4b, type: 2}
+  - {fileID: 2100000, guid: 6ede9d65441ba384a9a0768f854116c4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -284,13 +284,13 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &5115987600027188709
+--- !u!33 &1800077860167294119
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4107601305226313208}
+  m_GameObject: {fileID: 5785263209518578371}
   m_Mesh: {fileID: 0}
