@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class NaturalDisasterManager : MonoBehaviour
@@ -73,16 +74,25 @@ public class NaturalDisasterManager : MonoBehaviour
         _radioObject.SetActive(false);
 
 
-        //Check how to change this
-        float firstAnimationDuration = _currentDisaster.AnimationLogic.Armature.armature.animation.animations[_currentDisaster.AnimationLogic.Armature.armature.animation.animationNames[0]].duration;
-        yield return new WaitForSeconds (firstAnimationDuration);
+        var anim = _currentDisaster.AnimationLogic;
+        float animDuration = anim.Armature.armature.animation.animations[anim.Armature.armature.animation.animationNames[0]].duration;
+        if (anim != null && anim.HasAnimation && animDuration > 0)
+        {
+            string first = anim.Armature.animation.animationNames[0];
+            float duration = anim.Armature.armature.animation.animations[first].duration;
+            yield return new WaitForSeconds(duration);
+        }
+        else
+            animDuration = 0;
+
         EventTriggerer.Trigger<IOnDisasterLoopEvent>(new OnDisasterLoopEvent(_currentDisaster));
 
-
-        yield return new WaitForSeconds(_currentDisaster.Duration - firstAnimationDuration);
+        yield return new WaitForSeconds(_currentDisaster.Duration - animDuration);
         EventTriggerer.Trigger<IOnDisasterEndEvent>(new OnDisasterEndEvent(_currentDisaster));
         _currentDisaster.EndDisaster();
-        _isCoroutineRunning = false;
+        //_isCoroutineRunning = false;
+
+        StartCoroutine(WaitForDisasterEndVisual());
     }
 
     public IEnumerator DisasterCoroutine(NaturalDisaster disaster)
@@ -96,14 +106,42 @@ public class NaturalDisasterManager : MonoBehaviour
 
         yield return new WaitForSeconds(_timeToDisasterStart);
         EventTriggerer.Trigger<IOnDisasterStartEvent>(new OnDisasterStartEvent(_currentDisaster));
-        disaster.StartDisaster();
+        _currentDisaster.StartDisaster();
         _radioObject.SetActive(false);
 
-        yield return new WaitForSeconds(disaster.Duration);
+        var anim = _currentDisaster.AnimationLogic;
+        float animDuration = anim.Armature.armature.animation.animations[anim.Armature.armature.animation.animationNames[0]].duration;
+        if (anim != null && anim.HasAnimation && animDuration > 0)
+        {
+            string first = anim.Armature.animation.animationNames[0];
+            float duration = anim.Armature.armature.animation.animations[first].duration;
+            yield return new WaitForSeconds(duration);
+        }
+        else
+            animDuration = 0;
+
+            yield return new WaitForSeconds(_currentDisaster.Duration - animDuration);
         EventTriggerer.Trigger<IOnDisasterEndEvent>(new OnDisasterEndEvent(_currentDisaster));
-        disaster.EndDisaster();
-        _isCoroutineRunning = false;
+        _currentDisaster.EndDisaster();
+
+        StartCoroutine(WaitForDisasterEndVisual());
         _currentDisaster = null;
+    }
+
+    private IEnumerator WaitForDisasterEndVisual()
+    {
+        var anim = _currentDisaster.AnimationLogic;
+
+        if (anim != null && anim.HasAnimation)
+        {
+            string endName = anim.Armature.animation.animationNames.Last();
+            float duration = anim.Armature.armature.animation.animations[endName].duration;
+
+            yield return new WaitForSeconds(duration);
+        }
+
+        EventTriggerer.Trigger<IOnNoDisasterEvent>(new OnNoDisasterEvent());
+        _isCoroutineRunning = false;
     }
 
     private void SelectRandomDisaster()

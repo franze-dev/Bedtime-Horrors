@@ -26,6 +26,8 @@ public abstract class DisasterAnimation : ScriptableObject, IDisasterAnimation
 {
     public GameObject AnimationInstance { get; protected set; }
     public UnityArmatureComponent Armature { get; protected set; }
+    public bool HasArmature => Armature != null;
+    public bool HasAnimation => AnimationInstance != null && Armature != null;
 
     public abstract void Play(DisasterAnimationData animation);
 
