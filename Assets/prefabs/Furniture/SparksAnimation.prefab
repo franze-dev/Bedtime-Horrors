@@ -112,8 +112,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 558905563794828616}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.7358553, y: 2.139593, z: -0.001}
+  m_LocalRotation: {x: 0, y: 0, z: -0.999069, w: -0.043140773}
+  m_LocalPosition: {x: 0.46655563, y: 1.895535, z: -0.001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -313,7 +313,7 @@ MonoBehaviour:
   armatureName: Armature
   isUGUI: 0
   debugDraw: 0
-  animationName: 
+  animationName: Sparks
   _playTimes: 0
   _timeScale: 1
   _sortingMode: 0
@@ -346,6 +346,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5908152259724796830}
+  - component: {fileID: 2297187567076373337}
   m_Layer: 0
   m_Name: SparksAnimation
   m_TagString: Untagged
@@ -369,6 +370,20 @@ Transform:
   - {fileID: 8494892543053052787}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2297187567076373337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5733177698793324476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71ff3de807f723447ae4bc40b106b16c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _armature: {fileID: 8950331280661505850}
+  _reactionProfile: {fileID: 11400000, guid: 45c04764bf0ed0d44882a4b1e102f3a8, type: 2}
 --- !u!1 &7452404696990370712
 GameObject:
   m_ObjectHideFlags: 0
@@ -395,9 +410,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7452404696990370712}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5644838, y: 0.510678, z: -0.004}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.38034484, w: 0.92484474}
+  m_LocalPosition: {x: 1.701028, y: 0.02653562, z: -0.004}
+  m_LocalScale: {x: 0.9999998, y: 1.0000002, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8494892543053052787}
@@ -481,9 +496,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7657570319990251290}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.4286325, y: 1.3470819, z: -0.0050000004}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.84193456, w: 0.5395797}
+  m_LocalPosition: {x: -2.1326575, y: 0.582721, z: -0.0050000004}
+  m_LocalScale: {x: 0.9999999, y: 1.0000001, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8494892543053052787}

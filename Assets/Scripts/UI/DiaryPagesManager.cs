@@ -11,10 +11,19 @@ public class DiaryPagesManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _storyMesh;
     [SerializeField] private TextMeshProUGUI _tutorialMesh;
     [SerializeField] private GameObject _photoParentGO;
+    [SerializeField] private GameObject _previousButton;
+    [SerializeField] private GameObject _nextButton;
+
     private List<GameObject> _diaryPhotos;
 
     private void Awake()
     {
+        if (_previousButton == null || _nextButton == null)
+        {
+            Debug.LogError("No buttons assigned on Diary Pages Manager");
+            return;
+        }
+
         if (_diaryPages == null || _diaryPages.Count == 0)
         {
             Debug.LogError("No diary pages assigned on Diary Pages Manager");
@@ -52,6 +61,20 @@ public class DiaryPagesManager : MonoBehaviour
 
         UpdatePage(_currentPageId + 1, _currentPageId);
         _currentPageId++;
+        ActivateButtons();
+    }
+
+    private void ActivateButtons()
+    {
+        if (_currentPageId == 0)
+            _previousButton.SetActive(false);
+        else
+            _previousButton.SetActive(true);
+
+        if (_currentPageId == _diaryPages.Count - 1)
+            _nextButton.SetActive(false);
+        else
+            _nextButton.SetActive(true);
     }
 
     public void ActivatePreviousPage()
@@ -61,5 +84,6 @@ public class DiaryPagesManager : MonoBehaviour
 
         UpdatePage(_currentPageId - 1, _currentPageId);
         _currentPageId--;
+        ActivateButtons();
     }
 }
