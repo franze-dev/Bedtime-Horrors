@@ -13,6 +13,7 @@ public class TooltipUI : MonoBehaviour
     [SerializeField] private Vector2 _spaceFromMouse = new(0.2f,0.2f);
     private RectTransform _rectTransform;
     private ITooltipInfo _currentInfoShowing = null;
+    private PauseController _pauseController;
 
     private void Awake()
     {
@@ -25,6 +26,11 @@ public class TooltipUI : MonoBehaviour
         _rectTransform = GetComponent<RectTransform>();
 
         Enable(false);
+    }
+
+    private void Start()
+    {
+        ServiceProvider.TryGetService(out _pauseController);
     }
 
     private void Enable(bool enable)
@@ -46,6 +52,12 @@ public class TooltipUI : MonoBehaviour
 
     private void CheckHover()
     {
+        if (!_pauseController)
+            ServiceProvider.TryGetService(out _pauseController);
+
+        if (_pauseController && _pauseController.IsPaused)
+            return;
+
         var screenPos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
 
         var hits = Physics2D.RaycastAll(screenPos, Vector2.zero);

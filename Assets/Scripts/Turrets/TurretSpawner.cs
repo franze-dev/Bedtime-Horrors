@@ -23,6 +23,7 @@ public class TurretSpawner : MonoBehaviour, IInteractable
     private GameObject _spawnedTurret;
     private int _nextTurretId = 0;
     private CreativityUpdater _creativityUpdater;
+    private PauseController _pauseController;
 
     private void Awake()
     {
@@ -43,6 +44,7 @@ public class TurretSpawner : MonoBehaviour, IInteractable
     private void Start()
     {
         ServiceProvider.TryGetService(out _creativityUpdater);
+        ServiceProvider.TryGetService(out _pauseController);
     }
 
     private void OnDeletion(InputAction.CallbackContext context)
@@ -94,6 +96,12 @@ public class TurretSpawner : MonoBehaviour, IInteractable
 
     private bool IsMouseHovering()
     {
+        if (!_pauseController)
+            ServiceProvider.TryGetService(out _pauseController);
+
+        if (_pauseController && _pauseController.IsPaused)
+            return false;
+
         Vector2 mousePos = Mouse.current.position.ReadValue();
         Vector3 mouseToScreenPos = Camera.main.ScreenToWorldPoint(mousePos);
         mouseToScreenPos.z = 0;
