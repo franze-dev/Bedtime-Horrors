@@ -91,7 +91,8 @@ public class LevelManager : MonoBehaviour
 
     public bool IsThereANextLevel()
     {
-        return HasNextLevel(SceneController.Instance.GetLastActiveGameplay());
+        bool hasNext = HasNextLevel(SceneController.Instance.GetLastActiveGameplay());
+        return hasNext;
     }
 }
 
