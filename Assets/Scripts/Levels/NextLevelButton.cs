@@ -16,17 +16,15 @@ public class NextLevelButton : MonoBehaviour
 
     private void OnCheckNextLevel(ICheckNextLevelEvent @event)
     {
-        CheckNextLevel();
+        if (!_levelManager.IsThereANextLevelCurr())
+            _nextLevelButton.gameObject.SetActive(false);
+        else
+            _nextLevelButton.gameObject.SetActive(true);
     }
 
     private void OnNextLevel(INextLevelEvent @event)
     {
-        CheckNextLevel();
-    }
-
-    private void CheckNextLevel()
-    {
-        if (!_levelManager.IsThereANextLevel())
+        if (!_levelManager.IsThereANextLevelPrev())
             _nextLevelButton.gameObject.SetActive(false);
         else
             _nextLevelButton.gameObject.SetActive(true);
