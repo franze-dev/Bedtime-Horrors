@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81f1a96677cbeb4499c6ef833c3ab94f, type: 3}
+  m_Name: Audio
+  m_EditorClassIdentifier: 
+  _title: Audio
+  _credits:
+  - _credit: 'Guido Heinzenknecht: Audio design and implementation'
+    _links:
+    - heinzenknecht.com
+  - _credit: 'Francisco Laiuppa: Composition'
+    _links:
+    - Laiuppafrancisco@gmail.com
+  - _credit: 'Ignacio Lassaga: Sound Design'
+    _links:
+    - nacholassaga98@gmail.com
+  _background: {fileID: 21300000, guid: 0f2e73ecf12c3a94083b65622804bbb1, type: 3}
