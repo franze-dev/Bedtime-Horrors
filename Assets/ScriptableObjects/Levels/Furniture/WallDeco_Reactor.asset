@@ -18,6 +18,13 @@ MonoBehaviour:
     AnimationName: animtion0
     PlayTimes: 0
     DisableOnEnd: 0
+    ClearAnimationOnEnd: 0
+  - Disaster: {fileID: 11400000, guid: 0f7761a392ababf4e803f550e0f986d7, type: 2}
+    Phase: 3
+    AnimationName: 
+    PlayTimes: 0
+    DisableOnEnd: 0
+    ClearAnimationOnEnd: 1
   Idle:
     AnimationName: 
     PlayTimes: 0
