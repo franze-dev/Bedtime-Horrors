@@ -122,18 +122,18 @@ PrefabInstance:
     - target: {fileID: 2973847113277733328, guid: a39bfb30ecb09d14ab399968812c7afa, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: cafad4f816002dc49afac5ce1cb4f804, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 2973847113277733328, guid: a39bfb30ecb09d14ab399968812c7afa, type: 3}
       propertyPath: m_Color.b
-      value: 1
+      value: 0.3019608
       objectReference: {fileID: 0}
     - target: {fileID: 2973847113277733328, guid: a39bfb30ecb09d14ab399968812c7afa, type: 3}
       propertyPath: m_Color.g
-      value: 1
+      value: 0.043137256
       objectReference: {fileID: 0}
     - target: {fileID: 2973847113277733328, guid: a39bfb30ecb09d14ab399968812c7afa, type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0.23137257
       objectReference: {fileID: 0}
     - target: {fileID: 4680601684088197736, guid: a39bfb30ecb09d14ab399968812c7afa, type: 3}
       propertyPath: m_PresetInfoIsWorld
@@ -141,7 +141,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5103946708579689246, guid: a39bfb30ecb09d14ab399968812c7afa, type: 3}
       propertyPath: m_Name
-      value: Canvas Variant
+      value: EnemiesHealthBar
       objectReference: {fileID: 0}
     - target: {fileID: 5717001160264527938, guid: a39bfb30ecb09d14ab399968812c7afa, type: 3}
       propertyPath: m_AnchorMax.y
@@ -249,11 +249,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7998582300497949323, guid: a39bfb30ecb09d14ab399968812c7afa, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.3
+      value: -0.139
       objectReference: {fileID: 0}
     - target: {fileID: 7998582300497949323, guid: a39bfb30ecb09d14ab399968812c7afa, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.29
+      value: 1.129
       objectReference: {fileID: 0}
     - target: {fileID: 7998582300497949323, guid: a39bfb30ecb09d14ab399968812c7afa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -326,6 +326,22 @@ PrefabInstance:
     - target: {fileID: 9150344766049216849, guid: a39bfb30ecb09d14ab399968812c7afa, type: 3}
       propertyPath: m_SizeDelta.y
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 9150344766049216849, guid: a39bfb30ecb09d14ab399968812c7afa, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7383964
+      objectReference: {fileID: 0}
+    - target: {fileID: 9150344766049216849, guid: a39bfb30ecb09d14ab399968812c7afa, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.62159044
+      objectReference: {fileID: 0}
+    - target: {fileID: 9150344766049216849, guid: a39bfb30ecb09d14ab399968812c7afa, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.69660044
+      objectReference: {fileID: 0}
+    - target: {fileID: 9150344766049216849, guid: a39bfb30ecb09d14ab399968812c7afa, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -3.699997
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
