@@ -25,7 +25,7 @@ public class Child : MonoBehaviour
             TakeDamage(damageToTake);
             Debug.Log(damageToTake + " damage taken!");
 
-            enemy?.OnDeath();
+            enemy?.OnDeath(false);
             return;
         }
     }

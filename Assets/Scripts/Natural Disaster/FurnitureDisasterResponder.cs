@@ -1,6 +1,5 @@
 using UnityEngine;
 using DragonBones;
-using System;
 
 public class FurnitureDisasterResponder : MonoBehaviour
 {
@@ -66,10 +65,19 @@ public class FurnitureDisasterResponder : MonoBehaviour
                 if (!string.IsNullOrEmpty(r.AnimationName))
                     _armature.animation.Play(r.AnimationName, r.PlayTimes);
 
-                if (r.DisableOnEnd && phase == DisasterPhase.End)
+                if (phase == DisasterPhase.End)
                 {
-                    _armature.animation.Stop();
-                    _armature.gameObject.SetActive(false);
+                    if (r.DisableOnEnd)
+                    {
+                        _armature.animation.Stop();
+                        _armature.gameObject.SetActive(false);
+                    }
+
+                    if (r.ClearAnimationOnEnd)
+                    {
+                        _armature.animation.Stop();
+                        _armature.animation.Reset();
+                    }
                 }
             }
         }
