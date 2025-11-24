@@ -66,7 +66,10 @@ public class TutorialManager : MonoBehaviour
 
     public void ActivateNextPanel(int currentIndex)
     {
-        Time.timeScale = 1;
+        if(_speedButton == null)
+            ServiceProvider.TryGetService(out _speedButton);
+
+        Time.timeScale = _speedButton.CurrentSpeed;
 
         if (currentIndex < _panels.Count)
         {

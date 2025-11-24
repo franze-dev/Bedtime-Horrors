@@ -57,7 +57,7 @@ public class PauseController : MonoBehaviour
         }
         else
         {
-            GameManager.Instance.ResumeTime();
+            GameManager.Instance.ResumeGameTime();
 
             _navigationController.SetAllInactive();
             SceneController.Instance.SetSceneActive(SceneController.Instance.PreviousActiveScene);

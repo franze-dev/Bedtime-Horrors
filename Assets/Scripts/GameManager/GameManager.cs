@@ -3,6 +3,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private Level firstLevel;
+    private SpeedButton _speedButton;
 
     public static GameManager Instance { get; private set; }
     private void Awake()
@@ -46,6 +47,14 @@ public class GameManager : MonoBehaviour
     public void ResumeTime()
     {
         Time.timeScale = 1f;
+    }
+
+    public void ResumeGameTime()
+    {
+        if (_speedButton == null)
+            ServiceProvider.TryGetService(out _speedButton);
+
+        Time.timeScale = _speedButton.CurrentSpeed;
     }
 
 }
