@@ -37,7 +37,7 @@ public class Enemy : MonoBehaviour
         if (_targetManager == null)
             Debug.LogError("No TargetManager assigned to " + gameObject.name);
 
-        if(_animator == null)
+        if (_animator == null)
             _animator = GetComponent<MyAnimator>();
     }
 
@@ -119,9 +119,11 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void OnDeath()
+    public void OnDeath(bool addCreativty)
     {
-        EventTriggerer.Trigger<ICreativityUpdateEvent>(new CreativityUpdaterEvent(gameObject, _creativityToSum));
+        if (addCreativty)
+            EventTriggerer.Trigger<ICreativityUpdateEvent>(new CreativityUpdaterEvent(gameObject, _creativityToSum));
+
         _isDead = true;
         _animator.Play(MyAnimationStates.Death, 1);
         MultiplySpeed(0f);
@@ -161,7 +163,7 @@ public class Enemy : MonoBehaviour
         _currentHealth -= damage;
 
         if (_currentHealth < Mathf.Epsilon)
-            OnDeath();
+            OnDeath(true);
 
         _healthBar.UpdateSlider(_currentHealth, _maxHealth);
     }
