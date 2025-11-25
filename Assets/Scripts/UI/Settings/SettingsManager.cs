@@ -13,35 +13,32 @@ public class SettingsManager : MonoBehaviour
 
     public static bool ShakeEnabled = true;
 
-    public void ApplyChanges()
-    {
-        InitSlider(_musicSlider, OnMasterChanged);
-        InitSlider(_sfxSlider, OnSFXChanged);
+    private string _sfxRtpc = "SFX_Volume";
+    private string _musicRtpc = "Music_Volume";
 
-        _shakeCheckbox.onValueChanged.AddListener(OnShakeToggle);
+    public void Start()
+    {
+        _sfxSlider.minValue = 0f;
+        _sfxSlider.maxValue = 100f;
+        _musicSlider.minValue = 0f;
+        _musicSlider.maxValue = 100f;
+
+        _sfxSlider.value = 100f;
+        _musicSlider.value = 100f;
     }
 
-    private void OnShakeToggle(bool isOn)
+    public void OnShakeToggle(bool isOn)
     {
         ShakeEnabled = isOn;
     }
 
-    private void OnSFXChanged(float volume)
+    public void OnSFXChanged()
     {
-        throw new NotImplementedException();
+        AkUnitySoundEngine.SetRTPCValue(_sfxRtpc, _sfxSlider.value);
     }
 
-    private void OnMasterChanged(float volume)
+    public void OnMusicChanged()
     {
-        throw new NotImplementedException();
-    }
-
-    private void InitSlider(Slider slider, UnityAction<float> callback)
-    {
-        slider.wholeNumbers = true;
-        slider.minValue = 0;
-        slider.maxValue = 100;
-
-        slider.onValueChanged.AddListener(callback);
+        AkUnitySoundEngine.SetRTPCValue(_musicRtpc, _musicSlider.value);
     }
 }
