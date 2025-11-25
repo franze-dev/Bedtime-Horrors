@@ -47,5 +47,10 @@ public class ChestController : MonoBehaviour
     private void UpdateChestVisual()
     {
         _chestButton.image.sprite = _isOpen ? _openChestSprite : _closedChestSprite;
+
+        if (_isOpen)
+            AkUnitySoundEngine.PostEvent("UI_TowerChest_Open", gameObject);
+        else
+            AkUnitySoundEngine.PostEvent("UI_TowerChest_Close", gameObject);
     }
 }
