@@ -33,6 +33,8 @@ public class TurretManager : MonoBehaviour
         var turret = @event.Turret.GetComponent<Turret>();
         turret.Animator.Play(MyAnimationStates.Death, 1);
 
+        AkUnitySoundEngine.PostEvent("Tower_Destroy", WwiseAudioHelper.DisasterSoundEmitter);
+
         _activeTurrets.Remove(@event.Turret.GetComponent<Turret>());
         Destroy(@event.Turret, turret.Animator.GetAnimationDuration(MyAnimationStates.Death));
     }
