@@ -4,30 +4,26 @@ public class AudioButton : MonoBehaviour
 {
     public void PlayNormalSound()
     {
-        AkUnitySoundEngine.PostEvent("UI_Button_Normal", gameObject);
+        AkUnitySoundEngine.PostEvent("UI_Button_Normal", WwiseAudioHelper.GlobalSoundEmitter);
     }
 
     public void PlaySpecialSound()
     {
-        AkUnitySoundEngine.PostEvent("UI_Button_Special", gameObject);
+        AkUnitySoundEngine.PostEvent("UI_Button_Special", WwiseAudioHelper.GlobalSoundEmitter);
     }
 
     public void PlayDiaryPage()
     {
-        AkUnitySoundEngine.PostEvent("UI_DiaryPage", gameObject);
+        AkUnitySoundEngine.PostEvent("UI_DiaryPage", WwiseAudioHelper.GlobalSoundEmitter);
     }
 
     public void PlayTransitionToLevel()
     {
-        //AkUnitySoundEngine.PostEvent("TransitionTo_Level", gameObject);
-        AkUnitySoundEngine.PostEvent("Ambient_Stop", gameObject);
-        AkUnitySoundEngine.PostEvent("Disaster_Stop", gameObject);
+        GlobalAudioEventsCaller.StopGameplaySounds();
     }
 
     public void PlayTransitionToMenu()
     {
-        //AkUnitySoundEngine.PostEvent("TransitionTo_Menu", gameObject);
-        AkUnitySoundEngine.PostEvent("Ambient_Stop", gameObject);
-        AkUnitySoundEngine.PostEvent("Disaster_Stop", gameObject);
+        GlobalAudioEventsCaller.StopGameplaySounds();
     }
 }
