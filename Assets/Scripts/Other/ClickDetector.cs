@@ -6,10 +6,12 @@ public class ClickDetector : MonoBehaviour
 {
     [SerializeField] private InputActionReference _click;
     private PauseController _pauseController;
+    private TutorialManager _tutorialManager;
 
     private void Start()
     {
         ServiceProvider.TryGetService(out _pauseController);
+        ServiceProvider.TryGetService(out _tutorialManager);
     }
 
     private void OnEnable()
@@ -24,12 +26,22 @@ public class ClickDetector : MonoBehaviour
         _click.action.canceled -= OnClickRelease;
     }
 
-    private void OnClick(InputAction.CallbackContext context)
+    private bool ShouldNotClick()
     {
         if (!_pauseController)
             ServiceProvider.TryGetService(out _pauseController);
 
-        if (_pauseController && _pauseController.IsPaused)
+        if (!_tutorialManager)
+            ServiceProvider.TryGetService(out _tutorialManager);
+
+        return (_pauseController && _pauseController.IsPaused) ||
+               (_tutorialManager && !_tutorialManager.isClickAllowed);
+    }
+
+    private void OnClick(InputAction.CallbackContext context)
+    {
+
+        if (ShouldNotClick())
             return;
 
         EventTriggerer.Trigger<IClickEvent>(new ClickHitEvent(Mouse.current.position.ReadValue()));

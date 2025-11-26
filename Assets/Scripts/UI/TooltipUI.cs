@@ -14,6 +14,7 @@ public class TooltipUI : MonoBehaviour
     private RectTransform _rectTransform;
     private ITooltipInfo _currentInfoShowing = null;
     private PauseController _pauseController;
+    private TutorialManager _tutorialManager;
 
     private void Awake()
     {
@@ -55,7 +56,11 @@ public class TooltipUI : MonoBehaviour
         if (!_pauseController)
             ServiceProvider.TryGetService(out _pauseController);
 
-        if (_pauseController && _pauseController.IsPaused)
+        if (!_tutorialManager)
+            ServiceProvider.TryGetService(out _tutorialManager);
+
+        if ((_pauseController && _pauseController.IsPaused) ||
+           (_tutorialManager && !_tutorialManager.isClickAllowed))
             return;
 
         var screenPos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
