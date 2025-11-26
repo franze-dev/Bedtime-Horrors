@@ -961,7 +961,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 128744914}
+      - m_Target: {fileID: 128744915}
         m_TargetAssemblyTypeName: AudioButton, Assembly-CSharp
         m_MethodName: PlayNormalSound
         m_Mode: 1
@@ -973,7 +973,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 128744914}
+      - m_Target: {fileID: 128744915}
         m_TargetAssemblyTypeName: AudioButton, Assembly-CSharp
         m_MethodName: PlayTransitionToMenu
         m_Mode: 1
@@ -1157,6 +1157,7 @@ GameObject:
   - component: {fileID: 128744912}
   - component: {fileID: 128744913}
   - component: {fileID: 128744914}
+  - component: {fileID: 128744915}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1362,6 +1363,18 @@ MonoBehaviour:
   _musicSlider: {fileID: 876311950}
   _sfxSlider: {fileID: 1920375667}
   _shakeCheckbox: {fileID: 563203997}
+--- !u!114 &128744915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128744904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c06b460d5c3d9b44b13a5afdcbc2c8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &155314824
 GameObject:
   m_ObjectHideFlags: 0
@@ -1682,7 +1695,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 128744914}
+      - m_Target: {fileID: 128744915}
         m_TargetAssemblyTypeName: AudioButton, Assembly-CSharp
         m_MethodName: PlaySpecialSound
         m_Mode: 1
@@ -1694,7 +1707,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 128744914}
+      - m_Target: {fileID: 128744915}
         m_TargetAssemblyTypeName: AudioButton, Assembly-CSharp
         m_MethodName: PlayTransitionToLevel
         m_Mode: 1
@@ -1900,7 +1913,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 128744914}
+      - m_Target: {fileID: 128744915}
         m_TargetAssemblyTypeName: AudioButton, Assembly-CSharp
         m_MethodName: PlayNormalSound
         m_Mode: 1
@@ -2782,7 +2795,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 128744914}
+      - m_Target: {fileID: 128744915}
         m_TargetAssemblyTypeName: AudioButton, Assembly-CSharp
         m_MethodName: PlayNormalSound
         m_Mode: 1
@@ -3499,6 +3512,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 128744915}
+        m_TargetAssemblyTypeName: AudioButton, Assembly-CSharp
+        m_MethodName: PlayNormalSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 1
 --- !u!1 &564875776
 GameObject:
@@ -3873,7 +3898,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 128744914}
+      - m_Target: {fileID: 128744915}
         m_TargetAssemblyTypeName: AudioButton, Assembly-CSharp
         m_MethodName: PlayNormalSound
         m_Mode: 1
@@ -4230,7 +4255,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 128744914}
+      - m_Target: {fileID: 128744915}
         m_TargetAssemblyTypeName: AudioButton, Assembly-CSharp
         m_MethodName: PlayNormalSound
         m_Mode: 1
@@ -4663,7 +4688,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 128744914}
+      - m_Target: {fileID: 128744915}
         m_TargetAssemblyTypeName: AudioButton, Assembly-CSharp
         m_MethodName: PlayNormalSound
         m_Mode: 1
@@ -4973,7 +4998,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 128744914}
+      - m_Target: {fileID: 128744915}
         m_TargetAssemblyTypeName: AudioButton, Assembly-CSharp
         m_MethodName: PlaySpecialSound
         m_Mode: 1
@@ -4985,7 +5010,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 128744914}
+      - m_Target: {fileID: 128744915}
         m_TargetAssemblyTypeName: AudioButton, Assembly-CSharp
         m_MethodName: PlayTransitionToLevel
         m_Mode: 1
@@ -5169,7 +5194,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 128744914}
+      - m_Target: {fileID: 128744915}
         m_TargetAssemblyTypeName: AudioButton, Assembly-CSharp
         m_MethodName: PlaySpecialSound
         m_Mode: 1
@@ -5181,7 +5206,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 128744914}
+      - m_Target: {fileID: 128744915}
         m_TargetAssemblyTypeName: AudioButton, Assembly-CSharp
         m_MethodName: PlayTransitionToLevel
         m_Mode: 1
@@ -5399,7 +5424,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 128744914}
+      - m_Target: {fileID: 128744915}
         m_TargetAssemblyTypeName: AudioButton, Assembly-CSharp
         m_MethodName: PlayNormalSound
         m_Mode: 1
@@ -5613,6 +5638,18 @@ MonoBehaviour:
       - m_Target: {fileID: 867347577}
         m_TargetAssemblyTypeName: MenuTransitionButton, Assembly-CSharp
         m_MethodName: ButtonSetPreviousActive
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 128744915}
+        m_TargetAssemblyTypeName: AudioButton, Assembly-CSharp
+        m_MethodName: PlayNormalSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6144,9 +6181,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 128744914}
+      - m_Target: {fileID: 128744915}
         m_TargetAssemblyTypeName: AudioButton, Assembly-CSharp
-        m_MethodName: PlaySpecialSound
+        m_MethodName: PlayNormalSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6497,7 +6534,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 128744914}
+      - m_Target: {fileID: 128744915}
         m_TargetAssemblyTypeName: AudioButton, Assembly-CSharp
         m_MethodName: PlayNormalSound
         m_Mode: 1
@@ -6669,7 +6706,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 128744914}
+      - m_Target: {fileID: 128744915}
         m_TargetAssemblyTypeName: AudioButton, Assembly-CSharp
         m_MethodName: PlayNormalSound
         m_Mode: 1
@@ -6681,7 +6718,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 128744914}
+      - m_Target: {fileID: 128744915}
         m_TargetAssemblyTypeName: AudioButton, Assembly-CSharp
         m_MethodName: PlayTransitionToMenu
         m_Mode: 1
@@ -8214,7 +8251,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 128744914}
+      - m_Target: {fileID: 128744915}
         m_TargetAssemblyTypeName: AudioButton, Assembly-CSharp
         m_MethodName: PlayDiaryPage
         m_Mode: 1
@@ -8658,7 +8695,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1385094030
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8672,8 +8709,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 346325486}
-  - {fileID: 1024952907}
   - {fileID: 2049277011}
+  - {fileID: 1024952907}
   m_Father: {fileID: 128744908}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -9562,7 +9599,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 128744914}
+      - m_Target: {fileID: 128744915}
         m_TargetAssemblyTypeName: AudioButton, Assembly-CSharp
         m_MethodName: PlayNormalSound
         m_Mode: 1
@@ -9708,7 +9745,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 128744914}
+      - m_Target: {fileID: 128744915}
         m_TargetAssemblyTypeName: AudioButton, Assembly-CSharp
         m_MethodName: PlayNormalSound
         m_Mode: 1
@@ -9867,7 +9904,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 128744914}
+      - m_Target: {fileID: 128744915}
         m_TargetAssemblyTypeName: AudioButton, Assembly-CSharp
         m_MethodName: PlayNormalSound
         m_Mode: 1
@@ -10039,7 +10076,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 128744914}
+      - m_Target: {fileID: 128744915}
         m_TargetAssemblyTypeName: AudioButton, Assembly-CSharp
         m_MethodName: PlaySpecialSound
         m_Mode: 1
@@ -10051,7 +10088,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 128744914}
+      - m_Target: {fileID: 128744915}
         m_TargetAssemblyTypeName: AudioButton, Assembly-CSharp
         m_MethodName: PlayTransitionToLevel
         m_Mode: 1
@@ -10411,7 +10448,7 @@ GameObject:
   - component: {fileID: 1631792576}
   - component: {fileID: 1631792577}
   m_Layer: 5
-  m_Name: Buttons
+  m_Name: Options
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10860,7 +10897,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 128744914}
+      - m_Target: {fileID: 128744915}
         m_TargetAssemblyTypeName: AudioButton, Assembly-CSharp
         m_MethodName: PlayDiaryPage
         m_Mode: 1
@@ -11910,7 +11947,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 128744914}
+      - m_Target: {fileID: 128744915}
         m_TargetAssemblyTypeName: AudioButton, Assembly-CSharp
         m_MethodName: PlayNormalSound
         m_Mode: 1
@@ -12397,7 +12434,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 128744914}
+      - m_Target: {fileID: 128744915}
         m_TargetAssemblyTypeName: AudioButton, Assembly-CSharp
         m_MethodName: PlaySpecialSound
         m_Mode: 1
@@ -12409,7 +12446,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 128744914}
+      - m_Target: {fileID: 128744915}
         m_TargetAssemblyTypeName: AudioButton, Assembly-CSharp
         m_MethodName: PlayTransitionToLevel
         m_Mode: 1
@@ -12833,7 +12870,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 128744914}
+      - m_Target: {fileID: 128744915}
         m_TargetAssemblyTypeName: AudioButton, Assembly-CSharp
         m_MethodName: PlayNormalSound
         m_Mode: 1
@@ -12845,7 +12882,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 128744914}
+      - m_Target: {fileID: 128744915}
         m_TargetAssemblyTypeName: AudioButton, Assembly-CSharp
         m_MethodName: PlayTransitionToMenu
         m_Mode: 1
@@ -13107,7 +13144,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 128744914}
+      - m_Target: {fileID: 128744915}
         m_TargetAssemblyTypeName: AudioButton, Assembly-CSharp
         m_MethodName: PlayNormalSound
         m_Mode: 1
@@ -13402,7 +13439,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 128744914}
+      - m_Target: {fileID: 128744915}
         m_TargetAssemblyTypeName: AudioButton, Assembly-CSharp
         m_MethodName: PlayNormalSound
         m_Mode: 1
@@ -13573,7 +13610,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 128744914}
+      - m_Target: {fileID: 128744915}
         m_TargetAssemblyTypeName: AudioButton, Assembly-CSharp
         m_MethodName: PlayNormalSound
         m_Mode: 1
