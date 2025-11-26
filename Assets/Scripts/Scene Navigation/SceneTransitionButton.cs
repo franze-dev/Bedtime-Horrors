@@ -3,6 +3,12 @@ using UnityEngine;
 public class SceneTransitionButton : MonoBehaviour
 {
     [SerializeField] private Level _levelToLoad;
+    [SerializeField] private NavigationController _navigationController;
+
+    private void Start()
+    {
+        ServiceProvider.TryGetService(out _navigationController);
+    }
 
     /// <summary>
     /// Loads the assigned level, replacing current non-persistent scenes
@@ -49,5 +55,6 @@ public class SceneTransitionButton : MonoBehaviour
     {
         GameManager.Instance.ResumeTime();
         SceneController.Instance.UnloadNonPersistentScenes();
+        _navigationController.GoToMenu(new MainMenuState());
     }
 }

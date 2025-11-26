@@ -50,7 +50,7 @@ public class Child : MonoBehaviour
 
             if (ServiceProvider.TryGetService(out NavigationController nav))
             {
-                AkUnitySoundEngine.StopAll();
+                GlobalAudioEventsCaller.StopGameplaySounds();
                 nav.GoToMenu(new LoseMenuState());
             }
             else
