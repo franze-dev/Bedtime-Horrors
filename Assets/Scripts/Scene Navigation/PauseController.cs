@@ -8,7 +8,14 @@ public class PauseController : MonoBehaviour
     [SerializeField] private InputActionReference _pauseAction;
     [SerializeField] private NavigationController _navigationController;
 
-    private bool isPaused = false;
+    private bool _isPaused = false;
+
+    public bool IsPaused => _isPaused;
+
+    private void Awake()
+    {
+        ServiceProvider.SetService(this);
+    }
 
     private void OnEnable()
     {
@@ -30,7 +37,7 @@ public class PauseController : MonoBehaviour
     {
         if (GameManager.Instance == null) return;
 
-        if (SceneController.Instance.IsGameplaySceneActive() || isPaused)
+        if (SceneController.Instance.IsGameplaySceneActive() || _isPaused)
             TogglePause();
     }
 
@@ -43,14 +50,14 @@ public class PauseController : MonoBehaviour
     {
         ChangePausedState();
 
-        if (isPaused)
+        if (_isPaused)
         {
             EventTriggerer.Trigger<IActivateTargetMenu>(new ActivateTargetMenu(new PauseMenuState(), true, true));
             GameManager.Instance.PauseTime();
         }
         else
         {
-            GameManager.Instance.ResumeTime();
+            GameManager.Instance.ResumeGameTime();
 
             _navigationController.SetAllInactive();
             SceneController.Instance.SetSceneActive(SceneController.Instance.PreviousActiveScene);
@@ -59,6 +66,6 @@ public class PauseController : MonoBehaviour
 
     private void ChangePausedState()
     {
-        isPaused = !isPaused;
+        _isPaused = !_isPaused;
     }
 }

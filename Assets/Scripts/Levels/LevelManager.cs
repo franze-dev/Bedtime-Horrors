@@ -57,7 +57,7 @@ public class LevelManager : MonoBehaviour
         SceneController.Instance.AddLevel(nextLevel);
     }
 
-    private int GetListId(Level currentLevel)
+    public int GetListId(Level currentLevel)
     {
         for (int i = 0; i < _mainLevels.Count; i++)
         {
@@ -89,9 +89,16 @@ public class LevelManager : MonoBehaviour
         return false;
     }
 
-    public bool IsThereANextLevel()
+    public bool IsThereANextLevelPrev()
     {
-        return HasNextLevel(SceneController.Instance.GetLastActiveGameplay());
+        bool hasNext = HasNextLevel(SceneController.Instance.GetLastActiveGameplay());
+        return hasNext;
+    }
+
+    public bool IsThereANextLevelCurr()
+    {
+        bool hasNext = HasNextLevel(SceneController.Instance.CurrentActiveLevel);
+        return hasNext;
     }
 }
 

@@ -5,6 +5,12 @@ using UnityEngine.InputSystem;
 public class ClickDetector : MonoBehaviour
 {
     [SerializeField] private InputActionReference _click;
+    private PauseController _pauseController;
+
+    private void Start()
+    {
+        ServiceProvider.TryGetService(out _pauseController);
+    }
 
     private void OnEnable()
     {
@@ -20,11 +26,23 @@ public class ClickDetector : MonoBehaviour
 
     private void OnClick(InputAction.CallbackContext context)
     {
+        if (!_pauseController)
+            ServiceProvider.TryGetService(out _pauseController);
+
+        if (_pauseController && _pauseController.IsPaused)
+            return;
+
         EventTriggerer.Trigger<IClickEvent>(new ClickHitEvent(Mouse.current.position.ReadValue()));
     }
 
     private void OnClickRelease(InputAction.CallbackContext context)
     {
+        if (!_pauseController)
+            ServiceProvider.TryGetService(out _pauseController);
+
+        if (_pauseController && _pauseController.IsPaused)
+            return;
+
         EventTriggerer.Trigger<IClickReleaseEvent>(new ClickReleaseEvent(Mouse.current.position.ReadValue()));
     }
 }

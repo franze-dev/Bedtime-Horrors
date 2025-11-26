@@ -19,6 +19,7 @@ public class TurretSelectionManager : MonoBehaviour
     [Header("Gameplay Turrets Select")]
     [SerializeField] private TurretManager _turretManager;
     private Turret _selectedTurret;
+    private PauseController _pauseController;
 
     private void Awake()
     {
@@ -53,6 +54,12 @@ public class TurretSelectionManager : MonoBehaviour
         EventProvider.Subscribe<ISelectTurretPrefabEvent>(OnSelectPrefab);
         EventProvider.Subscribe<IUpdateSelectedTurretEvent>(OnSelectTurret);
     }
+
+    private void Start()
+    {
+        ServiceProvider.TryGetService(out _pauseController);
+    }
+
     private void OnDestroy()
     {
         EventProvider.Unsubscribe<IUpdateSelectedTurretEvent>(OnSelectTurret);
@@ -138,6 +145,12 @@ public class TurretSelectionManager : MonoBehaviour
 
     private bool IsMouseHovering(Bounds bounds)
     {
+        if (!_pauseController)
+            ServiceProvider.TryGetService(out _pauseController);
+
+        if (_pauseController && _pauseController.IsPaused)
+            return false;
+
         Vector2 mousePos = Mouse.current.position.ReadValue();
         Vector3 worldMousePos = Camera.main.ScreenToWorldPoint(mousePos);
         worldMousePos.z = 0;

@@ -11,6 +11,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float _currentHealth;
     [SerializeField] private int _creativityToSum = 10;
 
+    [SerializeField] private string _deathSound;
+
     private bool _isDead;
 
     private GameObject _currentTarget;
@@ -37,7 +39,7 @@ public class Enemy : MonoBehaviour
         if (_targetManager == null)
             Debug.LogError("No TargetManager assigned to " + gameObject.name);
 
-        if(_animator == null)
+        if (_animator == null)
             _animator = GetComponent<MyAnimator>();
     }
 
@@ -119,13 +121,19 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void OnDeath()
+    public void OnDeath(bool addCreativty)
     {
-        EventTriggerer.Trigger<ICreativityUpdateEvent>(new CreativityUpdaterEvent(gameObject, _creativityToSum));
+        if (addCreativty)
+        {
+            EventTriggerer.Trigger<ICreativityUpdateEvent>(new CreativityUpdaterEvent(gameObject, _creativityToSum));
+            AkUnitySoundEngine.PostEvent(_deathSound, gameObject);
+        }
+
         _isDead = true;
         _animator.Play(MyAnimationStates.Death, 1);
         MultiplySpeed(0f);
         StartCoroutine(DeathCoroutine());
+
     }
 
     private IEnumerator DeathCoroutine()
@@ -161,7 +169,7 @@ public class Enemy : MonoBehaviour
         _currentHealth -= damage;
 
         if (_currentHealth < Mathf.Epsilon)
-            OnDeath();
+            OnDeath(true);
 
         _healthBar.UpdateSlider(_currentHealth, _maxHealth);
     }

@@ -11,6 +11,7 @@ public class DisasterReactionProfile : ScriptableObject
         public string AnimationName;
         public int PlayTimes = 1;
         public bool DisableOnEnd = false;
+        public bool ClearAnimationOnEnd = false;
     }
 
     [System.Serializable]

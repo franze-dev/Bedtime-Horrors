@@ -57,6 +57,8 @@ public class LightsOff : NaturalDisaster, IDisasterUpdate
 
     public override void StartDisaster()
     {
+        AkUnitySoundEngine.SetSwitch("Disaster_Type", "LightsOff", WwiseAudioHelper.DisasterSoundEmitter);
+        AkUnitySoundEngine.PostEvent("Disaster_Start", WwiseAudioHelper.DisasterSoundEmitter);
         _darkRectGO.SetActive(true);
 
         _elapsed = 0f;
@@ -65,6 +67,8 @@ public class LightsOff : NaturalDisaster, IDisasterUpdate
 
     public override void EndDisaster()
     {
+        AkUnitySoundEngine.SetSwitch("Disaster_Type", "LightsOff", WwiseAudioHelper.DisasterSoundEmitter);
+        AkUnitySoundEngine.PostEvent("Disaster_End", WwiseAudioHelper.DisasterSoundEmitter);
         _darkRectImage.color = _minColor;
         _darkRectGO.SetActive(false);
         _phase = FadeState.None;

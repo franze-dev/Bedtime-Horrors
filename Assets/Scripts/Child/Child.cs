@@ -24,8 +24,9 @@ public class Child : MonoBehaviour
             float damageToTake = enemy.GetDamage();
             TakeDamage(damageToTake);
             Debug.Log(damageToTake + " damage taken!");
+            AkUnitySoundEngine.PostEvent("Base_TakeDamage", gameObject);
 
-            enemy?.OnDeath();
+            enemy?.OnDeath(false);
             return;
         }
     }
@@ -49,7 +50,7 @@ public class Child : MonoBehaviour
 
             if (ServiceProvider.TryGetService(out NavigationController nav))
             {
-                AkUnitySoundEngine.StopAll();
+                GlobalAudioEventsCaller.StopGameplaySounds();
                 nav.GoToMenu(new LoseMenuState());
             }
             else

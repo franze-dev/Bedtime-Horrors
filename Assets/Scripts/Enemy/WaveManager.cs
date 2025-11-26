@@ -66,10 +66,9 @@ public class WaveManager : MonoBehaviour
         {
             Debug.Log("All waves completed!");
 
-
             if (ServiceProvider.TryGetService(out NavigationController nav))
             {
-                AkUnitySoundEngine.StopAll();
+                GlobalAudioEventsCaller.StopGameplaySounds();
                 nav.GoToMenu(new WinMenuState());
             }
             else

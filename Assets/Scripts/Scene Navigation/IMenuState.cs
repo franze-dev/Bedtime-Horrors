@@ -10,6 +10,8 @@ public class MainMenuState : IMenuState
     public void Enter(NavigationController controller)
     {
         controller.ShowMenu(controller.mainMenuGO, this);
+        ServiceProvider.TryGetService(out MusicPlayer player);
+        player.ToState(new MenuMusicState());
     }
 
     public void Exit(NavigationController controller)
@@ -25,6 +27,9 @@ public class WinMenuState : IMenuState
         SceneController.Instance.UpdateLastGameplayScene();
         SceneController.Instance.UnloadNonPersistentScenes();
         controller.ShowMenu(controller.winMenuGO, this);
+
+        ServiceProvider.TryGetService(out MusicPlayer player);
+        player.ToState(new VictoryMusicState());
     }
 
     public void Exit(NavigationController controller)
@@ -38,6 +43,9 @@ public class LoseMenuState : IMenuState
     public void Enter(NavigationController controller)
     {
         controller.ShowMenu(controller.loseMenuGO, this);
+
+        ServiceProvider.TryGetService(out MusicPlayer player);
+        player.ToState(new DefeatMusicState());
     }
 
     public void Exit(NavigationController controller)

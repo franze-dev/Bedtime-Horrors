@@ -22,6 +22,7 @@ public class AreaTurret : Turret, IAreaTurret
         if (timer >= Cooldown && EnemiesCollided.Count > 0)
         {
             _animator.Play(MyAnimationStates.Attack, 1);
+            AkUnitySoundEngine.PostEvent("Tower_Shoot_Dino", WwiseAudioHelper.DisasterSoundEmitter);
             timer = 0f;
 
             for (int i = 0; i < EnemiesCollided.Count; i++)
