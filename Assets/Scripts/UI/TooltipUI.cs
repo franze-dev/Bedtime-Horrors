@@ -60,7 +60,7 @@ public class TooltipUI : MonoBehaviour
             ServiceProvider.TryGetService(out _tutorialManager);
 
         if ((_pauseController && _pauseController.IsPaused) ||
-           (_tutorialManager && !_tutorialManager.isClickAllowed))
+           (_tutorialManager && !_tutorialManager.IsClickAllowed))
             return;
 
         var screenPos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());

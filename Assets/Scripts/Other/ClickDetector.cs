@@ -35,7 +35,7 @@ public class ClickDetector : MonoBehaviour
             ServiceProvider.TryGetService(out _tutorialManager);
 
         return (_pauseController && _pauseController.IsPaused) ||
-               (_tutorialManager && !_tutorialManager.isClickAllowed);
+               (_tutorialManager && !_tutorialManager.IsClickAllowed);
     }
 
     private void OnClick(InputAction.CallbackContext context)

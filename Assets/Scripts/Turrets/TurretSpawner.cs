@@ -105,7 +105,7 @@ public class TurretSpawner : MonoBehaviour, IInteractable
             ServiceProvider.TryGetService(out _tutorialManager);
 
         if ((_pauseController && _pauseController.IsPaused) ||
-           (_tutorialManager && !_tutorialManager.isClickAllowed))
+           (_tutorialManager && !_tutorialManager.IsClickAllowed))
             return false;
 
         Vector2 mousePos = Mouse.current.position.ReadValue();
