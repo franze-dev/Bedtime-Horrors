@@ -57,7 +57,7 @@ public class LevelManager : MonoBehaviour
         SceneController.Instance.AddLevel(nextLevel);
     }
 
-    private int GetListId(Level currentLevel)
+    public int GetListId(Level currentLevel)
     {
         for (int i = 0; i < _mainLevels.Count; i++)
         {

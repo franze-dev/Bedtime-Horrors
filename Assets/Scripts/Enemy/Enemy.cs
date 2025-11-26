@@ -11,6 +11,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float _currentHealth;
     [SerializeField] private int _creativityToSum = 10;
 
+    [SerializeField] private string _deathSound;
+
     private bool _isDead;
 
     private GameObject _currentTarget;
@@ -138,6 +140,7 @@ public class Enemy : MonoBehaviour
         _healthBar.gameObject.SetActive(false);
         _collider.enabled = false;
 
+        AkUnitySoundEngine.PostEvent(_deathSound, gameObject);
         yield return new WaitForSeconds(_animator.GetAnimationDuration(MyAnimationStates.Death));
 
         EventTriggerer.Trigger<IEnemyDeathEvent>(new EnemyDeathEvent());

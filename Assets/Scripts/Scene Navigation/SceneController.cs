@@ -14,14 +14,14 @@ public class SceneController : MonoBehaviour
 
     private SceneRef _currentActiveScene;
     private SceneRef _previousActiveScene;
-    public SceneRef CurrentActiveScene => _currentActiveScene;
-    public SceneRef PreviousActiveScene => _previousActiveScene;
-
     private Level _currentActiveLevel;
     private Level _previousActiveLevel;
+    private Level _lastActiveGameplay;
+
+    public SceneRef CurrentActiveScene => _currentActiveScene;
+    public SceneRef PreviousActiveScene => _previousActiveScene;
     public Level CurrentActiveLevel => _currentActiveLevel;
     public Level PreviousActiveLevel => _previousActiveLevel;
-    private Level _lastActiveGameplay;
 
     public static SceneController Instance { get; private set; }
 
@@ -80,6 +80,18 @@ public class SceneController : MonoBehaviour
                 if (scene.IsPersistent)
                     _persistentLoadedScenes.Add(scene);
             }
+        }
+
+        PlayLevelMusic();
+    }
+
+    private void PlayLevelMusic()
+    {
+        if (IsSceneInGameplayLevels(_currentActiveLevel))
+        {
+            ServiceProvider.TryGetService(out MusicPlayer player);
+            ServiceProvider.TryGetService(out LevelManager manager);
+            player.ToState(new LevelMusicState(manager.GetListId(_currentActiveLevel) + 1));
         }
     }
 
@@ -238,7 +250,7 @@ public class SceneController : MonoBehaviour
         return null;
     }
 
-    
+
     private bool IsSceneInGameplayLevels(Level level)
     {
         foreach (var gameplayLevel in levelContainer.gameplayLevels)
@@ -249,7 +261,7 @@ public class SceneController : MonoBehaviour
         return false;
     }
 
-    
+
 
     /// <summary>
     /// Exits the application. Stops play mode if running in the Unity Editor
