@@ -124,12 +124,16 @@ public class Enemy : MonoBehaviour
     public void OnDeath(bool addCreativty)
     {
         if (addCreativty)
+        {
             EventTriggerer.Trigger<ICreativityUpdateEvent>(new CreativityUpdaterEvent(gameObject, _creativityToSum));
+            AkUnitySoundEngine.PostEvent(_deathSound, gameObject);
+        }
 
         _isDead = true;
         _animator.Play(MyAnimationStates.Death, 1);
         MultiplySpeed(0f);
         StartCoroutine(DeathCoroutine());
+
     }
 
     private IEnumerator DeathCoroutine()
@@ -140,7 +144,6 @@ public class Enemy : MonoBehaviour
         _healthBar.gameObject.SetActive(false);
         _collider.enabled = false;
 
-        AkUnitySoundEngine.PostEvent(_deathSound, gameObject);
         yield return new WaitForSeconds(_animator.GetAnimationDuration(MyAnimationStates.Death));
 
         EventTriggerer.Trigger<IEnemyDeathEvent>(new EnemyDeathEvent());

@@ -81,7 +81,7 @@ public class Earthquake : NaturalDisaster, IDisasterUpdate
 
     public void UpdateDisaster()
     {
-        if (_isRunning && SettingsManager.ShakeEnabled)
+        if (_isRunning)
         {
             if (_camera == null)
                 _camera = Camera.main;
@@ -95,12 +95,15 @@ public class Earthquake : NaturalDisaster, IDisasterUpdate
                 return;
             }
 
-            float offsetX = Mathf.PerlinNoise(Time.time * _frequency, 0f) * 2f - 1f;
-            float offsetY = Mathf.PerlinNoise(0f, Time.time * _frequency) * 2f - 1f;
+            if (SettingsManager.ShakeEnabled)
+            {
+                float offsetX = Mathf.PerlinNoise(Time.time * _frequency, 0f) * 2f - 1f;
+                float offsetY = Mathf.PerlinNoise(0f, Time.time * _frequency) * 2f - 1f;
 
-            Vector3 shakePos = new Vector3(offsetX, offsetY, -10f) * _magnitude;
+                Vector3 shakePos = new Vector3(offsetX, offsetY, -10f) * _magnitude;
 
-            _camera.transform.localPosition = originalCamPos + shakePos;
+                _camera.transform.localPosition = originalCamPos + shakePos;
+            }
         }
 
         (AnimationLogic as IDisasterAnimationLoop)?.Loop();
