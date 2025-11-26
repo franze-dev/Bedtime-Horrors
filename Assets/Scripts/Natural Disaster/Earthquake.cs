@@ -81,7 +81,7 @@ public class Earthquake : NaturalDisaster, IDisasterUpdate
 
     public void UpdateDisaster()
     {
-        if (_isRunning)
+        if (_isRunning && SettingsManager.ShakeEnabled)
         {
             if (_camera == null)
                 _camera = Camera.main;
