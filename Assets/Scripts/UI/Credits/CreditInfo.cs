@@ -6,9 +6,16 @@ using UnityEngine;
 public class CreditInfo 
 {
     [SerializeField] private string _credit;
-    [SerializeField] private List<string> _links;
+    [SerializeField] private List<Link> _links;
 
     public string Credit => _credit;
 
-    public List<string> Link => _links;
+    public List<Link> Link => _links;
+}
+
+[Serializable]
+public class Link
+{
+    [SerializeField] public string URL;
+    [SerializeField] public string name;
 }

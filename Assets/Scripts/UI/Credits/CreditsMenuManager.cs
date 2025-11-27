@@ -91,11 +91,11 @@ public class CreditsMenuManager : MonoBehaviour
     {
         foreach (var link in credit.Link)
         {
-            if (link != null && link != "")
+            if (link != null && link.URL != "")
             {
                 GameObject creditLinkGO = Instantiate(_creditsTextPrefab, _contentGO.transform);
                 var creditLinkText = creditLinkGO.GetComponent<TextMeshProUGUI>();
-                creditLinkText.text = $"<link=\"{link}\"><color=blue><u>{link}</u></color></link>";
+                creditLinkText.text = $"<link=\"{link.URL}\"><color=blue><u>{link.name}</u></color></link>";
                 var fontSize = creditLinkText.fontSize;
                 fontSize -= 4;
                 creditLinkText.fontSize = fontSize;
@@ -107,7 +107,7 @@ public class CreditsMenuManager : MonoBehaviour
                 {
                     button.onClick.AddListener(() =>
                     {
-                        Application.OpenURL(link);
+                        Application.OpenURL(link.URL);
                     });
                 }
 
