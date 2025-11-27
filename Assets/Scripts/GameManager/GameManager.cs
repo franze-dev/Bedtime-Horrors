@@ -4,7 +4,6 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private Level firstLevel;
     private SpeedButton _speedButton;
-    private TutorialManager _tutorialManager;
 
     public static GameManager Instance { get; private set; }
     private void Awake()
@@ -22,7 +21,6 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         SceneController.Instance.LoadLevel(firstLevel);
-        ServiceProvider.TryGetService(out _tutorialManager);
     }
 
     /// <summary>
@@ -55,14 +53,6 @@ public class GameManager : MonoBehaviour
     {
         if (_speedButton == null)
             ServiceProvider.TryGetService(out _speedButton);
-
-        if (!_tutorialManager)
-            ServiceProvider.TryGetService(out _tutorialManager);
-
-        if (_tutorialManager && _tutorialManager.IsTutorialRunning)
-        {
-            return;
-        }
 
         Time.timeScale = _speedButton.CurrentSpeed;
     }
