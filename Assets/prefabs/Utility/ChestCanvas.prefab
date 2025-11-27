@@ -55,6 +55,7 @@ MonoBehaviour:
   _chestBar: {fileID: 3678576171562931020}
   _closedChestSprite: {fileID: -986494072762707005, guid: f14837945384ef64bb3cf428d106bbca, type: 3}
   _openChestSprite: {fileID: 7371257226262748037, guid: 23355563366607a48b79982c85422c17, type: 3}
+  _chestStartStatus: 0
   _turretSelectionManager: {fileID: 0}
 --- !u!1 &3333163098488631942
 GameObject:
@@ -222,7 +223,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 153, y: -202.9}
+  m_AnchoredPosition: {x: 241.3, y: -202.9}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2938950457326271096
@@ -320,7 +321,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 12
+  m_SortingOrder: 20
   m_TargetDisplay: 0
 --- !u!114 &4713148859448566451
 MonoBehaviour:
