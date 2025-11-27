@@ -27,13 +27,24 @@ public class GameplayScaler : MonoBehaviour
     private void Resize()
     {
         _targetRatio = _targetWidth / _targetHeight;
-        _currentRatio = (float)Screen.currentResolution.width / (float)Screen.currentResolution.height;
 
-        //Debug.Log((float)Screen.currentResolution.width + " " + (float)Screen.currentResolution.height);
-        //
-        //_targetRatio = _testWidth / _testHeight;
+        var currentWidth = (float)Screen.currentResolution.width;
+        var currentHeight = (float)Screen.currentResolution.height;
 
-        var scale = _targetRatio / _currentRatio;
+        _currentRatio = currentWidth / currentHeight;
+
+        _currentRatio = _testWidth / _testHeight;
+
+        float scale = 1f;
+        if (_targetRatio > _currentRatio)
+        {
+            scale = _currentRatio / _targetRatio;
+        }
+
+
+
+            Debug.Log("target: " + _targetRatio);
+        Debug.Log("current: " + _currentRatio);
         Vector3 newScale = new Vector3(scale, scale, scale);
 
 
