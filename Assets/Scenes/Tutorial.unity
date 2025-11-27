@@ -26516,7 +26516,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _handGO: {fileID: 0}
   _focusPointsGO: {fileID: 0}
-  allowsClick: 0
 --- !u!1 &1077005685
 GameObject:
   m_ObjectHideFlags: 1
@@ -40599,7 +40598,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _handGO: {fileID: 0}
   _focusPointsGO: {fileID: 0}
-  allowsClick: 0
 --- !u!1 &1636410588
 GameObject:
   m_ObjectHideFlags: 0
@@ -54628,7 +54626,6 @@ MonoBehaviour:
   _backgroundGO: {fileID: 1789716635}
   _backgroundImage: {fileID: 2119302132}
   _backgroundMaxAlpha: 225
-  isClickAllowed: 0
 --- !u!4 &2126239611
 Transform:
   m_ObjectHideFlags: 0
@@ -55722,10 +55719,6 @@ PrefabInstance:
     - target: {fileID: 4686985420038806395, guid: 4644ecfc9d8179b47bee1ff085b03703, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4744238951744248428, guid: 4644ecfc9d8179b47bee1ff085b03703, type: 3}
-      propertyPath: allowsClick
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4749118272613686180, guid: 4644ecfc9d8179b47bee1ff085b03703, type: 3}
       propertyPath: m_fontSize
