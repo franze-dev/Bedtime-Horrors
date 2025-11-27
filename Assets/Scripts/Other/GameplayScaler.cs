@@ -33,8 +33,9 @@ public class GameplayScaler : MonoBehaviour
 
         _currentRatio = currentWidth / currentHeight;
 
+#if UNITY_EDITOR
         _currentRatio = _testWidth / _testHeight;
-
+#endif
         float scale = 1f;
         if (_targetRatio > _currentRatio)
         {
