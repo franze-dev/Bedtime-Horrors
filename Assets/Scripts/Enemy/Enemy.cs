@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float _damage;
 
     [SerializeField] private float _maxHealth;
-    [SerializeField] private float _currentHealth;
+    private float _currentHealth;
     [SerializeField] private int _creativityToSum = 10;
 
     [SerializeField] private string _deathSound;
