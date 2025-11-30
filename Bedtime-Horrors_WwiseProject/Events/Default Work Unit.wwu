@@ -418,6 +418,16 @@
 										</Reference>
 									</ReferenceList>
 								</Action>
+								<Action Name="" ID="{EF7D06A2-543B-4AEA-BDDF-1F179DD2FB62}" ShortID="559263305">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DisasterOngoing" ID="{D49864F4-DE40-4AC3-A6E3-A3668B638CDE}" WorkUnitID="{5F73E66F-1501-491D-9EF8-0B28A7BEE5D9}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
 							</ChildrenList>
 						</Event>
 						<Event Name="Disaster_End" ID="{CD310ECB-C0A9-4611-AC09-EEAFA99EA3C3}">
@@ -444,6 +454,16 @@
 										</Reference>
 									</ReferenceList>
 								</Action>
+								<Action Name="" ID="{4C818DA5-1C84-497D-A37D-F9BB388E702B}" ShortID="687931363">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DisasterEnded" ID="{F0F27C01-54E7-4C14-9203-A75E43E1CF62}" WorkUnitID="{5F73E66F-1501-491D-9EF8-0B28A7BEE5D9}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
 							</ChildrenList>
 						</Event>
 						<Event Name="Disaster_Stop" ID="{8F150DED-089B-449D-A256-3FCE2238521B}">
@@ -467,6 +487,16 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Disaster_End" ID="{4F4BA34F-0460-4859-987E-BF0A236F647E}" WorkUnitID="{932C6B5F-4E51-4C47-BD09-779BE6F37C5D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{E36DD3AE-C981-4EDD-BB42-5DE8DE5D4CF6}" ShortID="97547835">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DisasterEnded" ID="{F0F27C01-54E7-4C14-9203-A75E43E1CF62}" WorkUnitID="{5F73E66F-1501-491D-9EF8-0B28A7BEE5D9}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
