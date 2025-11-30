@@ -1,5 +1,3 @@
-using DragonBones;
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -54,6 +52,7 @@ public class TurretSelectionManager : MonoBehaviour
 
         EventProvider.Subscribe<ISelectTurretPrefabEvent>(OnSelectPrefab);
         EventProvider.Subscribe<IUpdateSelectedTurretEvent>(OnSelectTurret);
+        EventProvider.Subscribe<IDeselectTurretPrefabEvent>(OnDeselectionRequested);
     }
 
     private void Start()
@@ -65,6 +64,7 @@ public class TurretSelectionManager : MonoBehaviour
     {
         EventProvider.Unsubscribe<IUpdateSelectedTurretEvent>(OnSelectTurret);
         EventProvider.Unsubscribe<ISelectTurretPrefabEvent>(OnSelectPrefab);
+        EventProvider.Unsubscribe<IDeselectTurretPrefabEvent>(OnDeselectionRequested);
     }
 
     private void OnSelectTurret(IUpdateSelectedTurretEvent @event)
@@ -108,6 +108,14 @@ public class TurretSelectionManager : MonoBehaviour
 
         Debug.Log(@event.TurretSelectable.gameObject.name);
         _selectedPrefab = -1;
+    }
+
+    private void OnDeselectionRequested(IDeselectTurretPrefabEvent e)
+    {
+        _selectedPrefab = -1;
+
+        for (int i = 0; i < _turretSelectables.Count; i++)
+            _turretSelectables[i].transform.localScale = Vector3.one;
     }
 
 
@@ -199,4 +207,11 @@ public class UpdateSelectedTurret : IUpdateSelectedTurretEvent
     {
         _toSelect = toSelect;
     }
+}
+
+public interface IDeselectTurretPrefabEvent : IEvent { }
+
+public class DeselectTurretPrefabEvent : IDeselectTurretPrefabEvent
+{
+    public GameObject TriggeredByGO => null;
 }

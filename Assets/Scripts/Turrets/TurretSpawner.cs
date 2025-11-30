@@ -158,6 +158,7 @@ public class TurretSpawner : MonoBehaviour, IInteractable
 
         _currentTime = 0;
 
+        EventTriggerer.Trigger<IDeselectTurretPrefabEvent>(new DeselectTurretPrefabEvent());
         EventTriggerer.Trigger<ICreativityUpdateEvent>(new CreativityUpdaterEvent(gameObject, -turretPrice));
     }
 
