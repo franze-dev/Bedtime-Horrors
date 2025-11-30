@@ -18,7 +18,7 @@ public class TutorialManager : MonoBehaviour
 
     private void Awake()
     {
-        ServiceProvider.SetService(this);
+        ServiceProvider.SetService(this, true);
 
         if (_panels == null || _panels.Count == 0)
         {
@@ -47,6 +47,9 @@ public class TutorialManager : MonoBehaviour
         }
 
         Time.timeScale = 0;
+
+        IsTutorialRunning = false;
+        IsClickAllowed = false;
 
         if (_panels.Count > 0)
             ActivateNextPanel(_currentPanelIndex);
