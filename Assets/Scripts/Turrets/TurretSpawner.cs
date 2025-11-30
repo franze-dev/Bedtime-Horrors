@@ -60,6 +60,10 @@ public class TurretSpawner : MonoBehaviour, IInteractable
         if (_spawnedTurret == null)
             return;
 
+        Turret turret = _spawnedTurret.GetComponent<Turret>();
+
+        EventTriggerer.Trigger<ICreativityUpdateEvent>(new CreativityUpdaterEvent(gameObject, turret.price/2));
+
         EventTriggerer.Trigger<ITurretDestroyEvent>(new TurretDestroyEvent(_spawnedTurret));
     }
 
