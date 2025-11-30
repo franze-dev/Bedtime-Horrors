@@ -130,13 +130,10 @@ public class Turret : MonoBehaviour, IInteractable
         if (NextStats == null)
             return false;
 
-        _currentLevelId++;
-
         if (!HasEnoughCreativity(_creativityUpdater, LevelUpPrice))
-        {
-            _currentLevelId--;
             return false;
-        }
+
+        _currentLevelId++;
 
         _selectedTurretVisual.SetStats(CurrentStats, NextStats, _name);
         return true;
