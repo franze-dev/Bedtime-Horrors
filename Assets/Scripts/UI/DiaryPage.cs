@@ -4,7 +4,7 @@ using UnityEngine;
 public class DiaryPage : ScriptableObject
 {
     public string title;
-    public string story;
-    public string tutorial;
+    [TextArea] public string story;
+    [TextArea] public string tutorial;
     public GameObject photoPrefab;
 }

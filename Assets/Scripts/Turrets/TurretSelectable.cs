@@ -111,6 +111,7 @@ public class TurretSelectable : MonoBehaviour, ITooltipInfo, IInteractable, IDra
             if (spawner != null)
             {
                 spawner.Interact();
+                EventTriggerer.Trigger<IDeselectTurretPrefabEvent>(new DeselectTurretPrefabEvent());
                 break;
             }
         }

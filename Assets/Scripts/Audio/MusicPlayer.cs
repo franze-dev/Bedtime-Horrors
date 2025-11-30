@@ -8,12 +8,11 @@ public class MusicPlayer : MonoBehaviour
     private void Awake()
     {
         ServiceProvider.SetService(this);
-        AkUnitySoundEngine.PostEvent("Music_Initialize", WwiseAudioHelper.GlobalSoundEmitter);
     }
 
-    private void OnDestroy()
+    private void OnEnable()
     {
-        AkUnitySoundEngine.PostEvent("Music_Stop", WwiseAudioHelper.GlobalSoundEmitter);
+        AkUnitySoundEngine.PostEvent("Music_Initialize", WwiseAudioHelper.GlobalSoundEmitter);
     }
 
     public void ToState(IMusicState state)
