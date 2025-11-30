@@ -86,4 +86,12 @@ public class DiaryPagesManager : MonoBehaviour
         _currentPageId--;
         ActivateButtons();
     }
+
+    public void Reset()
+    {
+        _currentPageId = -1;
+        foreach (var page in _diaryPhotos)
+            page.SetActive(false);
+        ActivateNextPage();
+    }
 }
