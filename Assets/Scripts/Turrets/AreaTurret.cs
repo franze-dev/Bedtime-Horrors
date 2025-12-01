@@ -1,9 +1,11 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class AreaTurret : Turret, IAreaTurret
 {
     [SerializeField] private List<GameObject> _enemiesCollided;
+    [SerializeField] private CircleCollider2D _areaCollider;
 
     public List<GameObject> EnemiesCollided { get => _enemiesCollided; private set => _enemiesCollided = value; }
 
@@ -64,6 +66,11 @@ public class AreaTurret : Turret, IAreaTurret
                 return;
             }
         }
+    }
+
+    public void UpdateArea(SpriteRenderer areaSprite)
+    {
+        throw new NotImplementedException();
     }
 }
 

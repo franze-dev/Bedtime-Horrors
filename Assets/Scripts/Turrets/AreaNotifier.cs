@@ -11,10 +11,12 @@ public class AreaNotifier : MonoBehaviour
     private void Awake()
     {
         _parentTurret = GetComponentInParent<IAreaTurret>();
-        _circleCollider = GetComponent<CircleCollider2D>();
-        _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
+        if (!_circleCollider)
+            _circleCollider = GetComponent<CircleCollider2D>();
 
+        if (!_spriteRenderer)
+            _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     public void SetRange(float range)

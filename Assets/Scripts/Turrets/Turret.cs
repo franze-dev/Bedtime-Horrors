@@ -136,6 +136,9 @@ public class Turret : MonoBehaviour, IInteractable
         _currentLevelId++;
 
         _selectedTurretVisual.SetStats(CurrentStats, NextStats, _name);
+
+        _areaNotifier.SetRange(Range);
+
         return true;
     }
 
