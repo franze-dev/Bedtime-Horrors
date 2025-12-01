@@ -291,7 +291,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 479.78528}
+  m_SizeDelta: {x: 0, y: 920.54785}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &12749064
 MonoBehaviour:
@@ -1111,9 +1111,9 @@ RectTransform:
   - {fileID: 1775734640}
   m_Father: {fileID: 1631792576}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: -517, y: -27.5}
   m_SizeDelta: {x: 469, y: 179}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &112136398
@@ -3198,7 +3198,7 @@ RectTransform:
   m_Father: {fileID: 834228924}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4802,9 +4802,9 @@ RectTransform:
   - {fileID: 158248477}
   m_Father: {fileID: 1631792576}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: -517, y: -204.5}
   m_SizeDelta: {x: 472, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &797718182
@@ -4877,8 +4877,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1254550080}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5865,9 +5865,9 @@ RectTransform:
   - {fileID: 2051883084}
   m_Father: {fileID: 1631792576}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: -517, y: 144}
   m_SizeDelta: {x: 468, y: 164}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &884633778
@@ -5941,7 +5941,7 @@ RectTransform:
   m_Father: {fileID: 1923780057}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -6418,7 +6418,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1016010570
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6740,6 +6740,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 128744915}
+        m_TargetAssemblyTypeName: AudioButton, Assembly-CSharp
+        m_MethodName: PlayTransitionToMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1032818650}
         m_TargetAssemblyTypeName: MenuTransitionButton, Assembly-CSharp
         m_MethodName: ActivateBaseMenu
@@ -6755,18 +6767,6 @@ MonoBehaviour:
       - m_Target: {fileID: 128744915}
         m_TargetAssemblyTypeName: AudioButton, Assembly-CSharp
         m_MethodName: PlayNormalSound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 128744915}
-        m_TargetAssemblyTypeName: AudioButton, Assembly-CSharp
-        m_MethodName: PlayTransitionToMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10679,8 +10679,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1706806798}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
