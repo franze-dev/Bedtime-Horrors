@@ -12,7 +12,11 @@ public class TutorialManager : MonoBehaviour
     private int _currentPanelIndex = -1;
     private SpeedButton _speedButton;
 
+
     public int CurrentPanelIndex => _currentPanelIndex;
+
+    public bool IsTutorialRunning { get; private set; }
+    public bool IsClickAllowed { get; private set; }
 
     private void Awake()
     {
