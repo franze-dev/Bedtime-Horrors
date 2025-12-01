@@ -12,7 +12,7 @@ public class WaveManager : MonoBehaviour
 
     public bool WavesStarted => _wavesStarted;
 
-    private void Awake()
+    private void Start()
     {
         _currentWaveIndex = 0;
         _timer = 0f;
