@@ -18,7 +18,6 @@ public class TurretSelectionManager : MonoBehaviour
     [SerializeField] private TurretManager _turretManager;
     private Turret _selectedTurret;
     private PauseController _pauseController;
-    private TutorialManager _tutorialManager;
 
     private void Awake()
     {
@@ -157,11 +156,7 @@ public class TurretSelectionManager : MonoBehaviour
         if (!_pauseController)
             ServiceProvider.TryGetService(out _pauseController);
 
-        if (!_tutorialManager)
-            ServiceProvider.TryGetService(out _tutorialManager);
-
-        if ((_pauseController && _pauseController.IsPaused) ||
-           (_tutorialManager && !_tutorialManager.IsClickAllowed))
+        if (_pauseController && _pauseController.IsPaused)
             return false;
 
         Vector2 mousePos = Mouse.current.position.ReadValue();

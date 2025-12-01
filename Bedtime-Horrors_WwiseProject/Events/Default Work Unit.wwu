@@ -6,6 +6,10 @@
 				<Folder Name="Music" ID="{14018490-EE75-4DF3-9C4E-EE12A83F23F7}" ShortID="565122092">
 					<ChildrenList>
 						<Event Name="Music_Initialize" ID="{78013AD2-56A7-4670-8723-D228A918C1BE}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="15"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
 							<ChildrenList>
 								<Action Name="" ID="{035AFA05-C31A-4E43-8FA4-1A2EF30A23F8}" ShortID="1001527014">
 									<ReferenceList>
@@ -17,6 +21,10 @@
 							</ChildrenList>
 						</Event>
 						<Event Name="Music_Stop" ID="{3D79B505-22AC-458F-AB19-CDDCDD40BF1B}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="15"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
 							<ChildrenList>
 								<Action Name="" ID="{2729BC52-F2B0-4B8F-9238-64F402E7EB4F}" ShortID="410604955">
 									<PropertyList>
@@ -35,6 +43,10 @@
 				<Folder Name="Ambient" ID="{12F46618-68AA-44F8-AFC8-7FAD6E128226}" ShortID="3586527">
 					<ChildrenList>
 						<Event Name="Ambient_Wind" ID="{642759CE-B921-45EA-B9D4-6832CA2DE74A}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="15"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
 							<ChildrenList>
 								<Action Name="" ID="{B633DFDD-43F1-4F2F-AEE2-18E6532A8A96}" ShortID="762447217">
 									<ReferenceList>
@@ -46,6 +58,10 @@
 							</ChildrenList>
 						</Event>
 						<Event Name="Ambient_Creaks" ID="{C7737DC2-AFFB-49EC-A2DD-4AAAE984B9B6}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="15"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
 							<ChildrenList>
 								<Action Name="" ID="{4940250F-20B8-4E6A-B5BE-258E075EC1CE}" ShortID="878962540">
 									<PropertyList>
@@ -66,6 +82,10 @@
 							</ChildrenList>
 						</Event>
 						<Event Name="Ambient_Eerie" ID="{68EE6F13-C85E-4BB1-A4DD-94F1F71F38E1}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="15"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
 							<ChildrenList>
 								<Action Name="" ID="{B882DEE1-E6F1-40D6-96C0-AD1937FFB7DB}" ShortID="251741932">
 									<ReferenceList>
@@ -82,6 +102,7 @@
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="2"/>
 										<Property Name="FadeTime" Type="Real64" Value="1"/>
+										<Property Name="Scope" Type="int16" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -93,6 +114,7 @@
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="2"/>
 										<Property Name="FadeTime" Type="Real64" Value="1"/>
+										<Property Name="Scope" Type="int16" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -104,6 +126,7 @@
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="2"/>
 										<Property Name="FadeTime" Type="Real64" Value="1"/>
+										<Property Name="Scope" Type="int16" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -118,8 +141,17 @@
 				<Folder Name="UI" ID="{0B9A0F8F-BF51-4EBA-B11C-4CC5E80B2EED}" ShortID="326983710">
 					<ChildrenList>
 						<Event Name="UI_RadioAnnouncement" ID="{5D599C58-81B0-42C7-9726-7E2E98D23C1C}"/>
-						<Event Name="UI_EliteEnemyAnnouncement" ID="{C584969E-4F68-4558-9342-FDD576DEF304}"/>
+						<Event Name="UI_EliteEnemyAnnouncement" ID="{C584969E-4F68-4558-9342-FDD576DEF304}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="10"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+						</Event>
 						<Event Name="UI_TowerChest_Open" ID="{D247628B-69BC-47CB-88B8-46A9333638D5}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="15"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
 							<ChildrenList>
 								<Action Name="" ID="{9141608F-B39A-44C2-8D77-55BB946A3950}" ShortID="805541249">
 									<ReferenceList>
@@ -131,6 +163,10 @@
 							</ChildrenList>
 						</Event>
 						<Event Name="UI_TowerChest_Close" ID="{CB917243-2DCE-48AE-8FCF-57558B873280}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="15"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
 							<ChildrenList>
 								<Action Name="" ID="{3398C832-102C-40DC-ABAE-E3F6E3AF7D3E}" ShortID="543605402">
 									<ReferenceList>
@@ -142,6 +178,10 @@
 							</ChildrenList>
 						</Event>
 						<Event Name="UI_Button_Normal" ID="{00E53B91-C68A-4FCF-919E-3B3956A950F7}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="15"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
 							<ChildrenList>
 								<Action Name="" ID="{C81C2583-CC1F-4809-9E5B-54A24B1CEFD7}" ShortID="864970889">
 									<ReferenceList>
@@ -153,6 +193,10 @@
 							</ChildrenList>
 						</Event>
 						<Event Name="UI_Button_Special" ID="{6032EF43-4870-4EA3-8217-C6C78B2B3C8E}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="15"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
 							<ChildrenList>
 								<Action Name="" ID="{3827F9D7-E496-488C-8E25-F5A13B94A65A}" ShortID="807972304">
 									<ReferenceList>
@@ -164,6 +208,10 @@
 							</ChildrenList>
 						</Event>
 						<Event Name="UI_DiaryPage" ID="{4AAB2DEA-3CEB-4503-8986-CFD643ABAF2A}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="15"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
 							<ChildrenList>
 								<Action Name="" ID="{4F411D07-C0B5-4D9C-8E77-B17D0831FC3B}" ShortID="944304256">
 									<ReferenceList>
@@ -201,8 +249,17 @@
 								<Property Name="OverrideColor" Type="bool" Value="True"/>
 							</PropertyList>
 						</Event>
-						<Event Name="Enemy_Doll_Transform" ID="{F17B07E4-01E1-47DA-8A07-655F412781CB}"/>
+						<Event Name="Enemy_Doll_Transform" ID="{F17B07E4-01E1-47DA-8A07-655F412781CB}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="10"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+						</Event>
 						<Event Name="Enemy_Death_Dog" ID="{42ABC833-9489-4E1C-A0D2-892E91369284}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="15"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
 							<ChildrenList>
 								<Action Name="" ID="{CC8FACF0-BB1F-4DCB-A5D4-833525F8E6DF}" ShortID="140992760">
 									<ReferenceList>
@@ -214,6 +271,10 @@
 							</ChildrenList>
 						</Event>
 						<Event Name="Enemy_Death_Doll" ID="{78901C3E-68FB-4BB7-8EFF-C95F67CA8F51}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="15"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
 							<ChildrenList>
 								<Action Name="" ID="{F13DE7DA-0D4A-401F-A247-FE88AC372415}" ShortID="242342631">
 									<ReferenceList>
@@ -225,6 +286,10 @@
 							</ChildrenList>
 						</Event>
 						<Event Name="Enemy_Death_Spider" ID="{E6839A8B-5E0C-41E9-940D-ED652ED9D28E}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="15"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
 							<ChildrenList>
 								<Action Name="" ID="{C3B5CAA6-92B3-403F-AC39-B09D3E2ABC1C}" ShortID="437943119">
 									<ReferenceList>
@@ -276,6 +341,10 @@
 							</ChildrenList>
 						</Event>
 						<Event Name="Tower_Shoot_Dino" ID="{39C21F18-CD42-4BDC-B29D-299BDA05B51C}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="15"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
 							<ChildrenList>
 								<Action Name="" ID="{8C85C6E6-665F-455E-858B-4CC9A7DD5E98}" ShortID="127375058">
 									<ReferenceList>
@@ -302,6 +371,10 @@
 							</ChildrenList>
 						</Event>
 						<Event Name="Tower_Destroy" ID="{818904D9-4C9C-4A82-AF1F-7B88B39F41EA}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="15"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
 							<ChildrenList>
 								<Action Name="" ID="{C60C9DCC-FCE0-4E1E-AAEB-35818398E7AB}" ShortID="618958506">
 									<ReferenceList>
@@ -317,6 +390,10 @@
 				<Folder Name="Base" ID="{F58C7A35-4E1F-4A0C-8098-E6E595142FD6}" ShortID="985752268">
 					<ChildrenList>
 						<Event Name="Base_TakeDamage" ID="{355D17B9-0A26-4237-AA07-1B17E5724129}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="15"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
 							<ChildrenList>
 								<Action Name="" ID="{A00C76BE-76D8-4C94-BBE7-B64F3991B2E5}" ShortID="7808615">
 									<ReferenceList>
@@ -332,6 +409,10 @@
 				<Folder Name="Disasters" ID="{F249F206-80CA-4872-AC08-91A95CBA3CCF}" ShortID="186666429">
 					<ChildrenList>
 						<Event Name="Disaster_Start" ID="{579D3231-111F-464F-A9B6-E0B35257D231}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="15"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
 							<ChildrenList>
 								<Action Name="" ID="{A9F4CBA5-7F3A-4629-94FE-DDB4FF61E0BF}" ShortID="1026593318">
 									<ReferenceList>
@@ -340,9 +421,23 @@
 										</Reference>
 									</ReferenceList>
 								</Action>
+								<Action Name="" ID="{EF7D06A2-543B-4AEA-BDDF-1F179DD2FB62}" ShortID="559263305">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DisasterOngoing" ID="{D49864F4-DE40-4AC3-A6E3-A3668B638CDE}" WorkUnitID="{5F73E66F-1501-491D-9EF8-0B28A7BEE5D9}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
 							</ChildrenList>
 						</Event>
 						<Event Name="Disaster_End" ID="{CD310ECB-C0A9-4611-AC09-EEAFA99EA3C3}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="15"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
 							<ChildrenList>
 								<Action Name="" ID="{3A7D955E-7191-4CFD-937B-F24F3FED7101}" ShortID="159578594">
 									<PropertyList>
@@ -362,6 +457,16 @@
 										</Reference>
 									</ReferenceList>
 								</Action>
+								<Action Name="" ID="{4C818DA5-1C84-497D-A37D-F9BB388E702B}" ShortID="687931363">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DisasterEnded" ID="{F0F27C01-54E7-4C14-9203-A75E43E1CF62}" WorkUnitID="{5F73E66F-1501-491D-9EF8-0B28A7BEE5D9}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
 							</ChildrenList>
 						</Event>
 						<Event Name="Disaster_Stop" ID="{8F150DED-089B-449D-A256-3FCE2238521B}">
@@ -370,6 +475,7 @@
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="2"/>
 										<Property Name="FadeTime" Type="Real64" Value="1"/>
+										<Property Name="Scope" Type="int16" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -381,10 +487,21 @@
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="2"/>
 										<Property Name="FadeTime" Type="Real64" Value="1"/>
+										<Property Name="Scope" Type="int16" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Disaster_End" ID="{4F4BA34F-0460-4859-987E-BF0A236F647E}" WorkUnitID="{932C6B5F-4E51-4C47-BD09-779BE6F37C5D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{E36DD3AE-C981-4EDD-BB42-5DE8DE5D4CF6}" ShortID="97547835">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DisasterEnded" ID="{F0F27C01-54E7-4C14-9203-A75E43E1CF62}" WorkUnitID="{5F73E66F-1501-491D-9EF8-0B28A7BEE5D9}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
