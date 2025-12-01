@@ -14,14 +14,15 @@ public class Wave : MonoBehaviour
 
     public NaturalDisaster Disaster => _disaster;
 
-    private void Awake()
+    private void Start()
     {
         _disaster?.Init();
     }
 
     public void InitWave()
     {
-        EventTriggerer.Trigger<IStartFixedDisasterEvent>(new StartFixedDisasterEvent(_disaster));
+        if (_disaster != null)
+            EventTriggerer.Trigger<IStartFixedDisasterEvent>(new StartFixedDisasterEvent(_disaster));
 
         foreach (var enemy in _enemies)
         {

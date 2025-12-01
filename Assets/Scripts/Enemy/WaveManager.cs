@@ -12,17 +12,18 @@ public class WaveManager : MonoBehaviour
 
     public bool WavesStarted => _wavesStarted;
 
-    private void Start()
+    private void Awake()
     {
         _currentWaveIndex = 0;
         _timer = 0f;
 
-        for (int i = 0; i < _waves.Count; i++)
-        {
-            _waves[i].InitWave();
-        }
-
         ServiceProvider.SetService(this, true);
+    }
+
+    private void Start()
+    {
+        for (int i = 0; i < _waves.Count; i++)
+            _waves[i].InitWave();
     }
 
     private void OnDestroy()

@@ -22,6 +22,8 @@ public class NaturalDisasterManager : MonoBehaviour
         if (_disasters.Count == 0)
             return;
 
+        EventProvider.Subscribe<IStartFixedDisasterEvent>(StartFixedDisasterCoroutine);
+
         _radioObject.SetActive(false);
         _disasterSymbol.sprite = null;
 
@@ -31,7 +33,6 @@ public class NaturalDisasterManager : MonoBehaviour
 
     private void Start()
     {
-        EventProvider.Subscribe<IStartFixedDisasterEvent>(StartFixedDisasterCoroutine);
         ServiceProvider.TryGetService(out _waveManager);
     }
 
