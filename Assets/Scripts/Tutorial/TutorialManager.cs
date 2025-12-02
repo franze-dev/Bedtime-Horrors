@@ -9,6 +9,7 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private GameObject _backgroundGO;
     [SerializeField] private Image _backgroundImage;
     [SerializeField] private float _backgroundMaxAlpha = 225;
+
     private int _currentPanelIndex = -1;
     private SpeedButton _speedButton;
 

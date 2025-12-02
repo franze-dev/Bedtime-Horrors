@@ -16,9 +16,13 @@ public class TurretSelectionManager : MonoBehaviour
 
     [Header("Gameplay Turrets Select")]
     [SerializeField] private TurretManager _turretManager;
+    [SerializeField]private GameObject _turretInstanceParent;
     private Turret _selectedTurret;
     private PauseController _pauseController;
     private TutorialManager _tutorialManager;
+
+    public GameObject TurretInstanceParent => _turretInstanceParent;
+
 
     private void Awake()
     {

@@ -156,7 +156,7 @@ public class TurretSpawner : MonoBehaviour, IInteractable
             else
                 _nextTurretId++;
         }
-        _spawnedTurret = Instantiate(_turretPrefabs[turretId]);
+        _spawnedTurret = Instantiate(_turretPrefabs[turretId], _selectionManager.TurretInstanceParent.transform);
         _spawnedTurret.transform.position = transform.position;
         _giftBoxGO.SetActive(false);
 

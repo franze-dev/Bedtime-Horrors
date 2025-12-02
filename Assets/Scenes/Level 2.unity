@@ -30152,6 +30152,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 13
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &1130108041
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1130108042}
+  m_Layer: 0
+  m_Name: turrets
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1130108042
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130108041}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8216695999302865367}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1131529802
 GameObject:
   m_ObjectHideFlags: 1
@@ -56339,11 +56370,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: dirty
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: slotNames.Array.size
-      value: 21
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: 'slotNames.Array.data[2]'
@@ -56415,10 +56446,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: 'slotNames.Array.data[19]'
-      value: hair_front
+      value: eye_L
       objectReference: {fileID: 0}
     - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: 'slotNames.Array.data[20]'
+      value: head_back_R
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[21]'
+      value: eye_R
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[22]'
+      value: head
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[23]'
+      value: hair_front
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[24]'
       value: Eyebrows
       objectReference: {fileID: 0}
     - target: {fileID: 6642303015114630005, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
@@ -56842,7 +56889,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5753779706990828483, guid: a71eeec13c3362448981680b4180c744, type: 3}
       propertyPath: dirty
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6179284805343382196, guid: a71eeec13c3362448981680b4180c744, type: 3}
       propertyPath: m_Mesh
@@ -57392,11 +57439,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: dirty
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: slotNames.Array.size
-      value: 21
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: 'slotNames.Array.data[2]'
@@ -57468,10 +57515,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: 'slotNames.Array.data[19]'
-      value: hair_front
+      value: eye_L
       objectReference: {fileID: 0}
     - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: 'slotNames.Array.data[20]'
+      value: head_back_R
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[21]'
+      value: eye_R
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[22]'
+      value: head
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[23]'
+      value: hair_front
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[24]'
       value: Eyebrows
       objectReference: {fileID: 0}
     - target: {fileID: 6642303015114630005, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
@@ -58523,7 +58586,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5753779706990828483, guid: a71eeec13c3362448981680b4180c744, type: 3}
       propertyPath: dirty
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6179284805343382196, guid: a71eeec13c3362448981680b4180c744, type: 3}
       propertyPath: m_Mesh
@@ -59406,11 +59469,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: dirty
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: slotNames.Array.size
-      value: 21
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: 'slotNames.Array.data[2]'
@@ -59482,10 +59545,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: 'slotNames.Array.data[19]'
-      value: hair_front
+      value: eye_L
       objectReference: {fileID: 0}
     - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: 'slotNames.Array.data[20]'
+      value: head_back_R
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[21]'
+      value: eye_R
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[22]'
+      value: head
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[23]'
+      value: hair_front
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[24]'
       value: Eyebrows
       objectReference: {fileID: 0}
     - target: {fileID: 6642303015114630005, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
@@ -59995,7 +60074,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5753779706990828483, guid: a71eeec13c3362448981680b4180c744, type: 3}
       propertyPath: dirty
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6179284805343382196, guid: a71eeec13c3362448981680b4180c744, type: 3}
       propertyPath: m_Mesh
@@ -61518,11 +61597,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: dirty
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: slotNames.Array.size
-      value: 21
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: 'slotNames.Array.data[2]'
@@ -61594,10 +61673,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: 'slotNames.Array.data[19]'
-      value: hair_front
+      value: eye_L
       objectReference: {fileID: 0}
     - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: 'slotNames.Array.data[20]'
+      value: head_back_R
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[21]'
+      value: eye_R
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[22]'
+      value: head
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[23]'
+      value: hair_front
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[24]'
       value: Eyebrows
       objectReference: {fileID: 0}
     - target: {fileID: 6642303015114630005, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
@@ -61998,7 +62093,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5753779706990828483, guid: a71eeec13c3362448981680b4180c744, type: 3}
       propertyPath: dirty
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6179284805343382196, guid: a71eeec13c3362448981680b4180c744, type: 3}
       propertyPath: m_Mesh
@@ -62783,7 +62878,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5753779706990828483, guid: a71eeec13c3362448981680b4180c744, type: 3}
       propertyPath: dirty
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6179284805343382196, guid: a71eeec13c3362448981680b4180c744, type: 3}
       propertyPath: m_Mesh
@@ -64275,6 +64370,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2116777055663042089, guid: 68ce140c0d4fcc74ab125a9ae3a9d10a, type: 3}
+      propertyPath: _turret
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2160264116591096155, guid: 68ce140c0d4fcc74ab125a9ae3a9d10a, type: 3}
       propertyPath: m_SortingOrder
       value: 25
@@ -65191,7 +65290,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5753779706990828483, guid: a71eeec13c3362448981680b4180c744, type: 3}
       propertyPath: dirty
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6179284805343382196, guid: a71eeec13c3362448981680b4180c744, type: 3}
       propertyPath: m_Mesh
@@ -67454,7 +67553,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5753779706990828483, guid: a71eeec13c3362448981680b4180c744, type: 3}
       propertyPath: dirty
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6179284805343382196, guid: a71eeec13c3362448981680b4180c744, type: 3}
       propertyPath: m_Mesh
@@ -68277,6 +68376,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 531482890197665052, guid: 3e08f0efa1207df44b275fc6f6633e0a, type: 3}
       propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 798203760242842427, guid: 3e08f0efa1207df44b275fc6f6633e0a, type: 3}
+      propertyPath: _turret
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 945249633307368880, guid: 3e08f0efa1207df44b275fc6f6633e0a, type: 3}
@@ -69145,7 +69248,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5753779706990828483, guid: a71eeec13c3362448981680b4180c744, type: 3}
       propertyPath: dirty
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6179284805343382196, guid: a71eeec13c3362448981680b4180c744, type: 3}
       propertyPath: m_Mesh
@@ -70219,6 +70322,7 @@ MonoBehaviour:
   _selectedPrefab: 0
   _scaleMultiplier: 1.2
   _turretManager: {fileID: 5045778851412905251}
+  _turretInstanceParent: {fileID: 1130108041}
 --- !u!1001 &7204760792337786947
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -70357,7 +70461,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5753779706990828483, guid: a71eeec13c3362448981680b4180c744, type: 3}
       propertyPath: dirty
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6179284805343382196, guid: a71eeec13c3362448981680b4180c744, type: 3}
       propertyPath: m_Mesh
@@ -71148,11 +71252,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: dirty
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: slotNames.Array.size
-      value: 21
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: 'slotNames.Array.data[2]'
@@ -71224,10 +71328,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: 'slotNames.Array.data[19]'
-      value: hair_front
+      value: eye_L
       objectReference: {fileID: 0}
     - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: 'slotNames.Array.data[20]'
+      value: head_back_R
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[21]'
+      value: eye_R
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[22]'
+      value: head
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[23]'
+      value: hair_front
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[24]'
       value: Eyebrows
       objectReference: {fileID: 0}
     - target: {fileID: 6642303015114630005, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
@@ -72589,6 +72709,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2009042477634577270, guid: 7ca6b39df70bab24c8f7aca02c6d776f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5418623908487654528}
+    - targetCorrespondingSourceObject: {fileID: 2009042477634577270, guid: 7ca6b39df70bab24c8f7aca02c6d776f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1130108042}
     - targetCorrespondingSourceObject: {fileID: 2009042477634577270, guid: 7ca6b39df70bab24c8f7aca02c6d776f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1996173154013113379}
