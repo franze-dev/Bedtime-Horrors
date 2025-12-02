@@ -12,9 +12,7 @@ public class TutorialManager : MonoBehaviour
     private int _currentPanelIndex = -1;
     private SpeedButton _speedButton;
 
-
     public int CurrentPanelIndex => _currentPanelIndex;
-
     public bool IsTutorialRunning { get; private set; }
     public bool IsClickAllowed { get; private set; }
 
@@ -65,6 +63,7 @@ public class TutorialManager : MonoBehaviour
 
     private void OnDestroy()
     {
+        IsClickAllowed = true;
         EventProvider.Unsubscribe<IContinuePanelsEvent>(OnContinuePanels);
     }
 
@@ -75,7 +74,7 @@ public class TutorialManager : MonoBehaviour
 
     public void ActivateNextPanel(int currentIndex)
     {
-        if(_speedButton == null)
+        if (_speedButton == null)
             ServiceProvider.TryGetService(out _speedButton);
 
         Time.timeScale = _speedButton.CurrentSpeed;
@@ -115,6 +114,8 @@ public class TutorialManager : MonoBehaviour
                     }
 
                     _currentPanelIndex = currentIndex + 1;
+                    IsClickAllowed = _panels[_currentPanelIndex].allowsClick;
+                    IsTutorialRunning = true;
                     Time.timeScale = 0;
 
                 }
@@ -124,12 +125,20 @@ public class TutorialManager : MonoBehaviour
                         _backgroundGO.SetActive(false);
 
                     _currentPanelIndex = currentIndex + 1;
+                    IsClickAllowed = true;
+                    IsTutorialRunning = false;
                     Time.timeScale = _speedButton.CurrentSpeed;
+
                 }
             }
         }
         else
+        {
+            IsClickAllowed = true;
+            IsTutorialRunning = false;
+
             _panels[currentIndex].gameObject.SetActive(false);
+        }
     }
 }
 public class ContinuePanelsEvent : IContinuePanelsEvent

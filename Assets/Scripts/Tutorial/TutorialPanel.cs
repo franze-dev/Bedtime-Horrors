@@ -5,6 +5,7 @@ public class TutorialPanel : MonoBehaviour
 {
     [SerializeField] private GameObject _handGO;
     [SerializeField] private GameObject _focusPointsGO;
+    public bool allowsClick = false;
 
     private void OnEnable()
     {

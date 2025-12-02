@@ -10,10 +10,11 @@ public class TooltipUI : MonoBehaviour
     [SerializeField] private RectTransform _canvasTransform;
     [SerializeField] private TextMeshProUGUI _textMesh;
     [SerializeField] private Vector2 _paddingSize = new(20f, 20f);
-    [SerializeField] private Vector2 _spaceFromMouse = new(0.2f,0.2f);
+    [SerializeField] private Vector2 _spaceFromMouse = new(0.2f, 0.2f);
     private RectTransform _rectTransform;
     private ITooltipInfo _currentInfoShowing = null;
     private PauseController _pauseController;
+    private TutorialManager _tutorialManager;
 
     private void Awake()
     {
@@ -55,7 +56,11 @@ public class TooltipUI : MonoBehaviour
         if (!_pauseController)
             ServiceProvider.TryGetService(out _pauseController);
 
-        if (_pauseController && _pauseController.IsPaused)
+        if (!_tutorialManager)
+            ServiceProvider.TryGetService(out _tutorialManager);
+
+        if ((_pauseController && _pauseController.IsPaused) ||
+           (_tutorialManager && !_tutorialManager.IsClickAllowed))
             return;
 
         var screenPos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
@@ -88,7 +93,7 @@ public class TooltipUI : MonoBehaviour
 
         var mousePos = Mouse.current.position.ReadValue();
 
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(_canvasTransform, mousePos, 
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(_canvasTransform, mousePos,
                                                                 null, out var anchorPos);
 
         _rectTransform.anchoredPosition = anchorPos + _spaceFromMouse;

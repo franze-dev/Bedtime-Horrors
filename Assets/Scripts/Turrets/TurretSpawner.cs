@@ -24,6 +24,7 @@ public class TurretSpawner : MonoBehaviour, IInteractable
     private int _nextTurretId = 0;
     private CreativityUpdater _creativityUpdater;
     private PauseController _pauseController;
+    private TutorialManager _tutorialManager;
 
     private void Awake()
     {
@@ -45,6 +46,7 @@ public class TurretSpawner : MonoBehaviour, IInteractable
     {
         ServiceProvider.TryGetService(out _creativityUpdater);
         ServiceProvider.TryGetService(out _pauseController);
+        ServiceProvider.TryGetService(out _tutorialManager);
     }
 
     private void OnDeletion(InputAction.CallbackContext context)
@@ -103,7 +105,11 @@ public class TurretSpawner : MonoBehaviour, IInteractable
         if (!_pauseController)
             ServiceProvider.TryGetService(out _pauseController);
 
-        if (_pauseController && _pauseController.IsPaused)
+        if (!_tutorialManager)
+            ServiceProvider.TryGetService(out _tutorialManager);
+
+        if ((_pauseController && _pauseController.IsPaused) ||
+           (_tutorialManager && !_tutorialManager.IsClickAllowed))
             return false;
 
         Vector2 mousePos = Mouse.current.position.ReadValue();
