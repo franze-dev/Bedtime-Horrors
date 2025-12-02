@@ -1105,6 +1105,94 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: slotNames.Array.size
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[2]'
+      value: leg2_R
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[3]'
+      value: leg_R
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[4]'
+      value: shoe_L
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[5]'
+      value: shoe_R
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[6]'
+      value: arm_L
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[7]'
+      value: hand_L
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[8]'
+      value: hair_back
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[9]'
+      value: shoulder_L
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[10]'
+      value: skirt
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[11]'
+      value: cloth_tape
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[12]'
+      value: torso
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[13]'
+      value: arm_R
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[14]'
+      value: hand_R
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[15]'
+      value: shoulder_R
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[16]'
+      value: bow
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[17]'
+      value: neck
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[18]'
+      value: head_back_L
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[19]'
+      value: eye_L
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[20]'
+      value: head_back_R
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[21]'
+      value: eye_R
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[22]'
+      value: head
+      objectReference: {fileID: 0}
     - target: {fileID: 7848717989014921142, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -8613,6 +8701,94 @@ PrefabInstance:
     - target: {fileID: 6361300969341190296, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: slotNames.Array.size
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[2]'
+      value: leg2_R
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[3]'
+      value: leg_R
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[4]'
+      value: shoe_L
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[5]'
+      value: shoe_R
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[6]'
+      value: arm_L
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[7]'
+      value: hand_L
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[8]'
+      value: hair_back
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[9]'
+      value: shoulder_L
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[10]'
+      value: skirt
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[11]'
+      value: cloth_tape
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[12]'
+      value: torso
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[13]'
+      value: arm_R
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[14]'
+      value: hand_R
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[15]'
+      value: shoulder_R
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[16]'
+      value: bow
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[17]'
+      value: neck
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[18]'
+      value: head_back_L
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[19]'
+      value: eye_L
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[20]'
+      value: head_back_R
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[21]'
+      value: eye_R
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[22]'
+      value: head
       objectReference: {fileID: 0}
     - target: {fileID: 7848717989014921142, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18370,7 +18546,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7633596999692147426, guid: 7ca6b39df70bab24c8f7aca02c6d776f, type: 3}
       propertyPath: m_Name
-      value: Scaler
+      value: Gameplay
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18384,6 +18560,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2009042477634577270, guid: 7ca6b39df70bab24c8f7aca02c6d776f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5418623908487654528}
+    - targetCorrespondingSourceObject: {fileID: 2009042477634577270, guid: 7ca6b39df70bab24c8f7aca02c6d776f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 786671665}
     - targetCorrespondingSourceObject: {fileID: 2009042477634577270, guid: 7ca6b39df70bab24c8f7aca02c6d776f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1996173154013113379}
@@ -22650,6 +22829,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 13
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &786671664
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 786671665}
+  m_Layer: 0
+  m_Name: turrets
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &786671665
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786671664}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 627877047}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &797645054
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22689,6 +22899,94 @@ PrefabInstance:
     - target: {fileID: 6361300969341190296, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: slotNames.Array.size
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[2]'
+      value: leg2_R
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[3]'
+      value: leg_R
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[4]'
+      value: shoe_L
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[5]'
+      value: shoe_R
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[6]'
+      value: arm_L
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[7]'
+      value: hand_L
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[8]'
+      value: hair_back
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[9]'
+      value: shoulder_L
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[10]'
+      value: skirt
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[11]'
+      value: cloth_tape
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[12]'
+      value: torso
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[13]'
+      value: arm_R
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[14]'
+      value: hand_R
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[15]'
+      value: shoulder_R
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[16]'
+      value: bow
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[17]'
+      value: neck
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[18]'
+      value: head_back_L
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[19]'
+      value: eye_L
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[20]'
+      value: head_back_R
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[21]'
+      value: eye_R
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[22]'
+      value: head
       objectReference: {fileID: 0}
     - target: {fileID: 7848717989014921142, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -32522,6 +32820,94 @@ PrefabInstance:
     - target: {fileID: 6361300969341190296, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: slotNames.Array.size
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[2]'
+      value: leg2_R
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[3]'
+      value: leg_R
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[4]'
+      value: shoe_L
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[5]'
+      value: shoe_R
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[6]'
+      value: arm_L
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[7]'
+      value: hand_L
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[8]'
+      value: hair_back
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[9]'
+      value: shoulder_L
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[10]'
+      value: skirt
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[11]'
+      value: cloth_tape
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[12]'
+      value: torso
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[13]'
+      value: arm_R
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[14]'
+      value: hand_R
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[15]'
+      value: shoulder_R
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[16]'
+      value: bow
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[17]'
+      value: neck
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[18]'
+      value: head_back_L
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[19]'
+      value: eye_L
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[20]'
+      value: head_back_R
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[21]'
+      value: eye_R
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[22]'
+      value: head
       objectReference: {fileID: 0}
     - target: {fileID: 7848717989014921142, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -53595,6 +53981,94 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: slotNames.Array.size
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[2]'
+      value: leg2_R
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[3]'
+      value: leg_R
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[4]'
+      value: shoe_L
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[5]'
+      value: shoe_R
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[6]'
+      value: arm_L
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[7]'
+      value: hand_L
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[8]'
+      value: hair_back
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[9]'
+      value: shoulder_L
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[10]'
+      value: skirt
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[11]'
+      value: cloth_tape
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[12]'
+      value: torso
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[13]'
+      value: arm_R
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[14]'
+      value: hand_R
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[15]'
+      value: shoulder_R
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[16]'
+      value: bow
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[17]'
+      value: neck
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[18]'
+      value: head_back_L
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[19]'
+      value: eye_L
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[20]'
+      value: head_back_R
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[21]'
+      value: eye_R
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637332779954499833, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: 'slotNames.Array.data[22]'
+      value: head
+      objectReference: {fileID: 0}
     - target: {fileID: 7848717989014921142, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -63230,6 +63704,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2116777055663042089, guid: 68ce140c0d4fcc74ab125a9ae3a9d10a, type: 3}
+      propertyPath: _turret
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2160264116591096155, guid: 68ce140c0d4fcc74ab125a9ae3a9d10a, type: 3}
       propertyPath: m_SortingOrder
       value: 25
@@ -63513,6 +63991,10 @@ PrefabInstance:
     - target: {fileID: 6160328300332365721, guid: 68ce140c0d4fcc74ab125a9ae3a9d10a, type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6204079791433798663, guid: 68ce140c0d4fcc74ab125a9ae3a9d10a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6360483146021001018, guid: 68ce140c0d4fcc74ab125a9ae3a9d10a, type: 3}
       propertyPath: m_Mesh
@@ -66179,6 +66661,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 798203760242842427, guid: 3e08f0efa1207df44b275fc6f6633e0a, type: 3}
+      propertyPath: _turret
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 945249633307368880, guid: 3e08f0efa1207df44b275fc6f6633e0a, type: 3}
       propertyPath: m_SortingOrder
       value: 25
@@ -66205,7 +66691,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1941673496799188265, guid: 3e08f0efa1207df44b275fc6f6633e0a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1941673496799188265, guid: 3e08f0efa1207df44b275fc6f6633e0a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -66310,6 +66796,10 @@ PrefabInstance:
     - target: {fileID: 4573732943218046104, guid: 3e08f0efa1207df44b275fc6f6633e0a, type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641757799058940181, guid: 3e08f0efa1207df44b275fc6f6633e0a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4761553574758238855, guid: 3e08f0efa1207df44b275fc6f6633e0a, type: 3}
       propertyPath: m_LocalScale.x
@@ -66964,22 +67454,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6163724978152152323}
   m_CullTransparentMesh: 1
---- !u!114 &6937935199730444346
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8719071889983618724}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be91aec7f192eb546b8e8c304702665d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isDefaultListener: 1
-  bOverrideScalingFactor: 0
-  scalingFactor: -1
-  listenerId: 0
 --- !u!1 &7006836430992600152
 GameObject:
   m_ObjectHideFlags: 0
@@ -67084,6 +67558,7 @@ MonoBehaviour:
   _selectedPrefab: 0
   _scaleMultiplier: 1.2
   _turretManager: {fileID: 5045778851412905251}
+  _turretInstanceParent: {fileID: 786671664}
 --- !u!4 &7231621275373155522
 Transform:
   m_ObjectHideFlags: 0
@@ -67498,30 +67973,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7922939400330425546
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8719071889983618724}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e158768d6261ad7438f9f256a75c46a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_listeners:
-    initialListenerList: []
-    useDefaultListeners: 1
-  isEnvironmentAware: 0
-  isStaticObject: 0
-  usePositionOffsetData: 0
-  m_positionOffsetData:
-    KeepMe: 0
-    positionOffset: {x: 0, y: 0, z: 0}
-  scalingFactor: 1
-  m_posOffsetData: {fileID: 0}
-  listenerMask: 1
 --- !u!114 &7996600673339185396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68006,9 +68457,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 601066002}
   - {fileID: 293271524}
   - {fileID: 240607542}
+  - {fileID: 601066002}
   m_Father: {fileID: 627877047}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8517585188467610575
@@ -68407,15 +68858,13 @@ GameObject:
   - component: {fileID: 3933209169736503674}
   - component: {fileID: 8088144951296297882}
   - component: {fileID: 8446158755698105187}
-  - component: {fileID: 7922939400330425546}
-  - component: {fileID: 6937935199730444346}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!222 &8737289121859398362
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -68710,7 +69159,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &9192930787876982040
 SpriteRenderer:
   m_ObjectHideFlags: 0

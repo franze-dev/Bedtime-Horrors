@@ -29,6 +29,12 @@ public class CreativityUpdater : MonoBehaviour
     {
         value += @event.Value;
 
+        if (value < 0)
+        {
+            Debug.LogError("Creativity almost became negative by " + value);
+            value = 0;
+        }
+
         _statTextUpdater.UpdateText(value);
     }
 

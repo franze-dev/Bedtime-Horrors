@@ -621,7 +621,7 @@
 									<PropertyList>
 										<Property Name="FilterTypeBand1" Type="int32" Value="1"/>
 										<Property Name="FilterTypeBand3" Type="int32" Value="0"/>
-										<Property Name="FrequencyBand3" Type="Real32" Value="20000"/>
+										<Property Name="FrequencyBand3" Type="Real32" Value="5000"/>
 										<Property Name="OnOffBand1" Type="bool" Value="False"/>
 										<Property Name="OnOffBand2" Type="bool" Value="False"/>
 									</PropertyList>
@@ -1587,11 +1587,32 @@
 							<ChildrenList>
 								<Effect Name="Chorus_Like" ID="{EEE0CC86-8CA5-4DBC-A6B7-568FCB26F290}" PluginName="Wwise Flanger" CompanyID="0" PluginID="125" PluginType="3">
 									<PropertyList>
-										<Property Name="DelayTime" Type="Real32" Value="10"/>
+										<Property Name="DelayTime" Type="Real32" Value="14"/>
 										<Property Name="ModDepth" Type="Real32" Value="60"/>
 										<Property Name="ModFrequency" Type="Real32" Value="0.85"/>
 										<Property Name="ModPWM" Type="Real32" Value="0"/>
 									</PropertyList>
+									<StateInfo>
+										<StateGroupList>
+											<StateGroupInfo>
+												<StateGroupRef Name="Music_DisasterOngoing" ID="{2264C5CF-B2E5-423B-81E1-3634E43D5B92}"/>
+											</StateGroupInfo>
+										</StateGroupList>
+										<CustomStateList>
+											<CustomState>
+												<StateRef Name="None" ID="{14977040-CF0B-42F6-B5F3-7A54AAAAD516}"/>
+												<CustomState Name="" ID="{C3CB4CBF-6B23-433D-B2EA-168A7D43C019}" ShortID="591180998"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="DisasterOngoing" ID="{D49864F4-DE40-4AC3-A6E3-A3668B638CDE}"/>
+												<CustomState Name="" ID="{596FB178-BE72-470B-9904-FF18FF9D5EE1}" ShortID="277163867"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="DisasterEnded" ID="{F0F27C01-54E7-4C14-9203-A75E43E1CF62}"/>
+												<CustomState Name="" ID="{B060E3FC-783C-4D8E-8684-5567952E69B3}" ShortID="481815566"/>
+											</CustomState>
+										</CustomStateList>
+									</StateInfo>
 								</Effect>
 							</ChildrenList>
 						</Folder>

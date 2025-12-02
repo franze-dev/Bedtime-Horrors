@@ -1,7 +1,4 @@
-using DragonBones;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "SpeedMod", menuName = "ScriptableObjects/NaturalDisasters/SpeedMod")]
@@ -9,7 +6,7 @@ public class SpeedMod : NaturalDisaster, IDisasterUpdate
 {
     [SerializeField] private float speedMultiplier = 1.5f;
     [SerializeField] private float _duration = 10f;
-    [SerializeField] private List<Enemy> _affectedEnemies;    
+    private List<Enemy> _affectedEnemies;    
 
     public override void Init()
     {

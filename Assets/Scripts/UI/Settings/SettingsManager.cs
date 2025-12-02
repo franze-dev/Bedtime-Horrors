@@ -27,9 +27,9 @@ public class SettingsManager : MonoBehaviour
         _musicSlider.value = 100f;
     }
 
-    public void OnShakeToggle(bool isOn)
+    public void OnShakeToggle()
     {
-        ShakeEnabled = isOn;
+        ShakeEnabled = !ShakeEnabled;
     }
 
     public void OnSFXChanged()

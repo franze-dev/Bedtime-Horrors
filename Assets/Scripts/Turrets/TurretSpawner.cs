@@ -24,6 +24,7 @@ public class TurretSpawner : MonoBehaviour, IInteractable
     private int _nextTurretId = 0;
     private CreativityUpdater _creativityUpdater;
     private PauseController _pauseController;
+    private TutorialManager _tutorialManager;
 
     private void Awake()
     {
@@ -45,6 +46,7 @@ public class TurretSpawner : MonoBehaviour, IInteractable
     {
         ServiceProvider.TryGetService(out _creativityUpdater);
         ServiceProvider.TryGetService(out _pauseController);
+        ServiceProvider.TryGetService(out _tutorialManager);
     }
 
     private void OnDeletion(InputAction.CallbackContext context)
@@ -57,6 +59,10 @@ public class TurretSpawner : MonoBehaviour, IInteractable
     {
         if (_spawnedTurret == null)
             return;
+
+        Turret turret = _spawnedTurret.GetComponent<Turret>();
+
+        EventTriggerer.Trigger<ICreativityUpdateEvent>(new CreativityUpdaterEvent(gameObject, turret.price/2));
 
         EventTriggerer.Trigger<ITurretDestroyEvent>(new TurretDestroyEvent(_spawnedTurret));
     }
@@ -99,7 +105,11 @@ public class TurretSpawner : MonoBehaviour, IInteractable
         if (!_pauseController)
             ServiceProvider.TryGetService(out _pauseController);
 
-        if (_pauseController && _pauseController.IsPaused)
+        if (!_tutorialManager)
+            ServiceProvider.TryGetService(out _tutorialManager);
+
+        if ((_pauseController && _pauseController.IsPaused) ||
+           (_tutorialManager && !_tutorialManager.IsClickAllowed))
             return false;
 
         Vector2 mousePos = Mouse.current.position.ReadValue();
@@ -146,7 +156,7 @@ public class TurretSpawner : MonoBehaviour, IInteractable
             else
                 _nextTurretId++;
         }
-        _spawnedTurret = Instantiate(_turretPrefabs[turretId]);
+        _spawnedTurret = Instantiate(_turretPrefabs[turretId], _selectionManager.TurretInstanceParent.transform);
         _spawnedTurret.transform.position = transform.position;
         _giftBoxGO.SetActive(false);
 

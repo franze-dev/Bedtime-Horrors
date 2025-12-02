@@ -23,6 +23,13 @@
 						<State Name="Unpaused" ID="{6AACB874-EBE3-461B-BD10-BAF84CC7622C}"/>
 					</ChildrenList>
 				</StateGroup>
+				<StateGroup Name="Music_DisasterOngoing" ID="{2264C5CF-B2E5-423B-81E1-3634E43D5B92}">
+					<ChildrenList>
+						<State Name="None" ID="{14977040-CF0B-42F6-B5F3-7A54AAAAD516}"/>
+						<State Name="DisasterOngoing" ID="{D49864F4-DE40-4AC3-A6E3-A3668B638CDE}"/>
+						<State Name="DisasterEnded" ID="{F0F27C01-54E7-4C14-9203-A75E43E1CF62}"/>
+					</ChildrenList>
+				</StateGroup>
 			</ChildrenList>
 		</WorkUnit>
 	</States>

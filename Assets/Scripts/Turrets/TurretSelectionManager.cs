@@ -16,8 +16,13 @@ public class TurretSelectionManager : MonoBehaviour
 
     [Header("Gameplay Turrets Select")]
     [SerializeField] private TurretManager _turretManager;
+    [SerializeField]private GameObject _turretInstanceParent;
     private Turret _selectedTurret;
     private PauseController _pauseController;
+    private TutorialManager _tutorialManager;
+
+    public GameObject TurretInstanceParent => _turretInstanceParent;
+
 
     private void Awake()
     {
@@ -156,7 +161,11 @@ public class TurretSelectionManager : MonoBehaviour
         if (!_pauseController)
             ServiceProvider.TryGetService(out _pauseController);
 
-        if (_pauseController && _pauseController.IsPaused)
+        if (!_tutorialManager)
+            ServiceProvider.TryGetService(out _tutorialManager);
+
+        if ((_pauseController && _pauseController.IsPaused) ||
+           (_tutorialManager && !_tutorialManager.IsClickAllowed))
             return false;
 
         Vector2 mousePos = Mouse.current.position.ReadValue();

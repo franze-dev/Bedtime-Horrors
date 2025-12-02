@@ -9,9 +9,11 @@ public class WaveCounterText : MonoBehaviour
     private int _currentWaveId = 0;
     private WaveManager _manager;
 
-    private void Awake()
+    private void Start()
     {
         EventProvider.Subscribe<INewWaveEvent>(OnWaveStart);
+        ServiceProvider.TryGetService(out _manager);
+        SetValue(_currentWaveId, _manager.WavesCount);
     }
 
     private void OnWaveStart(INewWaveEvent @event)
@@ -21,12 +23,6 @@ public class WaveCounterText : MonoBehaviour
             _currentWaveId++;
             SetValue(_currentWaveId, _manager.WavesCount);
         }
-    }
-
-    private void Start()
-    {
-        ServiceProvider.TryGetService(out _manager);
-        SetValue(_currentWaveId, _manager.WavesCount);
     }
 
     public void SetValue(int currentWaveAmount, int totalWaves)

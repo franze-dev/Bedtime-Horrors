@@ -7,7 +7,7 @@ public class MusicPlayer : MonoBehaviour
 
     private void Awake()
     {
-        ServiceProvider.SetService(this);
+        ServiceProvider.SetService(this, true);
     }
 
     private void OnEnable()

@@ -900,11 +900,6 @@
 										<Value>True</Value>
 									</ValueList>
 								</Property>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-10</Value>
-									</ValueList>
-								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -939,6 +934,12 @@
 					<ChildrenList>
 						<RandomSequenceContainer Name="Base_TakeDamage" ID="{5AC7D144-07BE-4D94-95D1-AA570BD5E8B2}" ShortID="203525281">
 							<PropertyList>
+								<Property Name="MaxReachedBehavior" Type="int16" Value="1"/>
+								<Property Name="MaxSoundPerInstance" Type="int16">
+									<ValueList>
+										<Value>3</Value>
+									</ValueList>
+								</Property>
 								<Property Name="Pitch" Type="int32">
 									<ModifierList>
 										<ModifierInfo>
@@ -952,9 +953,10 @@
 										</ModifierInfo>
 									</ModifierList>
 								</Property>
-								<Property Name="Volume" Type="Real64">
+								<Property Name="SpeakerPanning" Type="int16" Value="2"/>
+								<Property Name="UseMaxSoundPerInstance" Type="bool">
 									<ValueList>
-										<Value>-4</Value>
+										<Value>True</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -1012,12 +1014,22 @@
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
+							<PositioningInfo>
+								<Panner Name="" ID="{17A4E039-5148-4EBA-B521-F084F37B8364}">
+									<PropertyList>
+										<Property Name="PanX" Type="Real64" Value="-30"/>
+									</PropertyList>
+								</Panner>
+							</PositioningInfo>
 						</RandomSequenceContainer>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Enemy" ID="{EE038CBB-11AD-41E3-AFDD-A9205D8D2DCC}" ShortID="916318176">
 					<ChildrenList>
 						<SwitchContainer Name="Enemy_Attack" ID="{2A6E53BE-0BAD-4DA4-A931-6AA3BFE8B18E}" ShortID="730281204">
+							<PropertyList>
+								<Property Name="SpeakerPanning" Type="int16" Value="2"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{066AACED-29FB-4E9B-977A-46A9F6C9913D}"/>
@@ -1034,6 +1046,18 @@
 							</ReferenceList>
 							<ChildrenList>
 								<RandomSequenceContainer Name="Doll_Attack" ID="{97BCAED9-8D04-4B4A-B90F-B23E73A278F8}" ShortID="922231116">
+									<PropertyList>
+										<Property Name="Lowpass" Type="int16">
+											<ValueList>
+												<Value>25</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-3</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{066AACED-29FB-4E9B-977A-46A9F6C9913D}"/>
@@ -1168,6 +1192,13 @@
 									</ChildrenList>
 								</RandomSequenceContainer>
 								<RandomSequenceContainer Name="Dog_Attack" ID="{A6D877C9-1250-46D1-8BFB-0D19F9EC49E0}" ShortID="208292092">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>2</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{066AACED-29FB-4E9B-977A-46A9F6C9913D}"/>
@@ -1246,6 +1277,13 @@
 									</ChildrenList>
 								</RandomSequenceContainer>
 							</ChildrenList>
+							<PositioningInfo>
+								<Panner Name="" ID="{688B4152-8534-42EA-859A-2AF3F32C2A35}">
+									<PropertyList>
+										<Property Name="PanX" Type="Real64" Value="-30"/>
+									</PropertyList>
+								</Panner>
+							</PositioningInfo>
 							<GroupingInfo>
 								<GroupingBehaviorList>
 									<GroupingBehavior>
@@ -1281,6 +1319,13 @@
 							</GroupingInfo>
 						</SwitchContainer>
 						<RandomSequenceContainer Name="Enemy_Death_Dog" ID="{B6E2BEDC-E793-474B-9B23-81C744E6828A}" ShortID="48725906">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>2</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{066AACED-29FB-4E9B-977A-46A9F6C9913D}"/>
@@ -1359,6 +1404,13 @@
 							</ChildrenList>
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="Enemy_Death_Doll" ID="{7E648BEA-EB7B-4C7B-B8EF-26A10AD4AEED}" ShortID="295595093">
+							<PropertyList>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>25</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{066AACED-29FB-4E9B-977A-46A9F6C9913D}"/>
@@ -1437,6 +1489,13 @@
 							</ChildrenList>
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="Enemy_Death_Spider" ID="{F3700EE3-6810-4511-85E7-A33AFE09228F}" ShortID="572350906">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-2</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{066AACED-29FB-4E9B-977A-46A9F6C9913D}"/>
@@ -1542,9 +1601,20 @@
 					<ChildrenList>
 						<Sound Name="UI_TowerChest_Close" ID="{06951F27-ED4B-4B69-B07C-27544AA6C671}" ShortID="136172763">
 							<PropertyList>
+								<Property Name="MaxReachedBehavior" Type="int16" Value="1"/>
+								<Property Name="MaxSoundPerInstance" Type="int16">
+									<ValueList>
+										<Value>2</Value>
+									</ValueList>
+								</Property>
+								<Property Name="UseMaxSoundPerInstance" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>5</Value>
+										<Value>9</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -1558,6 +1628,11 @@
 							</ReferenceList>
 							<ChildrenList>
 								<AudioFileSource Name="UI_TowerChest_Close" ID="{00E572E2-C2BA-4E9B-B994-1BD939B0B78D}">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.110365709812521"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimEnd" Type="Real64" Value="0.580523600553151"/>
+									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>UI_TowerChest_Close.wav</AudioFile>
 									<MediaIDList>
@@ -1571,9 +1646,20 @@
 						</Sound>
 						<Sound Name="UI_TowerChest_Open" ID="{4CFAA8A0-F5F2-4378-99FF-D119E71348F8}" ShortID="1041658374">
 							<PropertyList>
+								<Property Name="MaxReachedBehavior" Type="int16" Value="1"/>
+								<Property Name="MaxSoundPerInstance" Type="int16">
+									<ValueList>
+										<Value>2</Value>
+									</ValueList>
+								</Property>
+								<Property Name="UseMaxSoundPerInstance" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>5</Value>
+										<Value>9</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -1587,6 +1673,11 @@
 							</ReferenceList>
 							<ChildrenList>
 								<AudioFileSource Name="UI_TowerChest_Open" ID="{F134C5E0-04F5-4D69-8DCC-47F564A3663C}">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.103597122302158"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimEnd" Type="Real64" Value="0.492086330935252"/>
+									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>UI_TowerChest_Open.wav</AudioFile>
 									<MediaIDList>
@@ -1692,6 +1783,19 @@
 							</ChildrenList>
 						</RandomSequenceContainer>
 						<Sound Name="UI_Button_Special" ID="{23780B53-081F-4837-A381-F7CB61E0ADE5}" ShortID="515836842">
+							<PropertyList>
+								<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+								<Property Name="MaxSoundPerInstance" Type="int16">
+									<ValueList>
+										<Value>1</Value>
+									</ValueList>
+								</Property>
+								<Property Name="UseMaxSoundPerInstance" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{066AACED-29FB-4E9B-977A-46A9F6C9913D}"/>
@@ -1715,17 +1819,35 @@
 						</Sound>
 						<RandomSequenceContainer Name="UI_DiaryPage" ID="{F701525C-E627-4489-A117-0FB02D85DAAB}" ShortID="258714568">
 							<PropertyList>
+								<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+								<Property Name="MaxSoundPerInstance" Type="int16">
+									<ValueList>
+										<Value>1</Value>
+									</ValueList>
+								</Property>
 								<Property Name="Pitch" Type="int32">
 									<ModifierList>
 										<ModifierInfo>
 											<Modifier Name="" ID="{637C4979-7BE6-45F3-BC28-45B98292E59F}">
 												<PropertyList>
 													<Property Name="Enabled" Type="bool" Value="True"/>
-													<Property Name="Min" Type="Real64" Value="-150"/>
+													<Property Name="Max" Type="Real64" Value="300"/>
+													<Property Name="Min" Type="Real64" Value="-300"/>
 												</PropertyList>
 											</Modifier>
 										</ModifierInfo>
 									</ModifierList>
+								</Property>
+								<Property Name="RandomAvoidRepeating" Type="bool" Value="False"/>
+								<Property Name="UseMaxSoundPerInstance" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-2</Value>
+									</ValueList>
 								</Property>
 							</PropertyList>
 							<ReferenceList>
@@ -1804,13 +1926,18 @@
 										</ModifierInfo>
 									</ModifierList>
 								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>4</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{066AACED-29FB-4E9B-977A-46A9F6C9913D}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="SFX" ID="{9FB2C68F-6C0F-4440-B387-7BCFD4F598C2}" WorkUnitID="{F847AA8C-7B54-49C2-9EE8-B09DDE93BCE9}"/>
+									<ObjectRef Name="UI_Gameplay" ID="{1DF9CF81-FEB0-4D74-A7A5-D2982CAC2905}" WorkUnitID="{F847AA8C-7B54-49C2-9EE8-B09DDE93BCE9}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -1856,7 +1983,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-4</Value>
+										<Value>-2</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -1962,7 +2089,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-4</Value>
+										<Value>3</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -2044,12 +2171,19 @@
 							</ChildrenList>
 						</RandomSequenceContainer>
 						<Sound Name="Tower_Destroy" ID="{4452B529-E0FD-4CE1-95DB-22F2092984B7}" ShortID="660429983">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>4</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{066AACED-29FB-4E9B-977A-46A9F6C9913D}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="SFX" ID="{9FB2C68F-6C0F-4440-B387-7BCFD4F598C2}" WorkUnitID="{F847AA8C-7B54-49C2-9EE8-B09DDE93BCE9}"/>
+									<ObjectRef Name="UI_Gameplay" ID="{1DF9CF81-FEB0-4D74-A7A5-D2982CAC2905}" WorkUnitID="{F847AA8C-7B54-49C2-9EE8-B09DDE93BCE9}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -2072,6 +2206,14 @@
 						</Sound>
 						<RandomSequenceContainer Name="Tower_Shoot_Dino" ID="{786CC269-1A27-4A5B-817A-C39FF796D320}" ShortID="103080798">
 							<PropertyList>
+								<Property Name="Color" Type="int16" Value="17"/>
+								<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+								<Property Name="MaxSoundPerInstance" Type="int16">
+									<ValueList>
+										<Value>3</Value>
+									</ValueList>
+								</Property>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
 								<Property Name="Pitch" Type="int32">
 									<ModifierList>
 										<ModifierInfo>
@@ -2085,9 +2227,14 @@
 										</ModifierInfo>
 									</ModifierList>
 								</Property>
+								<Property Name="UseMaxSoundPerInstance" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-5</Value>
+										<Value>2</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -2195,6 +2342,11 @@
 								<Sound Name="Event_Start_Earthquake" ID="{D72CD91C-2758-4B9E-8337-0C27272C849C}" ShortID="553036402">
 									<PropertyList>
 										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>4</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -2226,6 +2378,11 @@
 								<Sound Name="Event_Start_Flood" ID="{F6A50F3D-547F-492A-A91E-E3428164D1AD}" ShortID="423387290">
 									<PropertyList>
 										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>6</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -2289,6 +2446,11 @@
 									<PropertyList>
 										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 										<Property Name="OverrideEffect" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>6</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -2403,6 +2565,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="Event_End_Earthquake" ID="{59B83323-319A-4739-9616-74885DBD04EA}" ShortID="559832670">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{066AACED-29FB-4E9B-977A-46A9F6C9913D}"/>
@@ -2425,6 +2594,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Event_End_Flood" ID="{30B3EA39-F529-4A7A-8E83-3E804709A49C}" ShortID="553787203">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>10</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{066AACED-29FB-4E9B-977A-46A9F6C9913D}"/>
@@ -2447,6 +2623,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Event_End_Blizzard" ID="{33817155-77E8-4E87-9D43-57288919ABD5}" ShortID="907038615">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>8</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{066AACED-29FB-4E9B-977A-46A9F6C9913D}"/>
@@ -2469,6 +2652,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Event_LightsOff_End" ID="{6FA1E095-E0F8-450D-AB0B-A7D95DD859AA}" ShortID="388260645">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{066AACED-29FB-4E9B-977A-46A9F6C9913D}"/>
