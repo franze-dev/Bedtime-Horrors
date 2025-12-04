@@ -15,4 +15,9 @@ public class NextPanelButton : MonoBehaviour
     {
         _tutorialManager.ActivateNextPanel(_tutorialManager.CurrentPanelIndex);
     }
+
+    public void EndTutorial()
+    {
+        _tutorialManager.EndTutorial();
+    }
 }
