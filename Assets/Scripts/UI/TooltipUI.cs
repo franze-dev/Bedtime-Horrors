@@ -61,7 +61,10 @@ public class TooltipUI : MonoBehaviour
 
         if ((_pauseController && _pauseController.IsPaused) ||
            (_tutorialManager && !_tutorialManager.IsClickAllowed))
+        {
+            Enable(false);
             return;
+        }
 
         var screenPos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
 
