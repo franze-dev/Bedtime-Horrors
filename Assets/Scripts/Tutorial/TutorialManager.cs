@@ -73,6 +73,12 @@ public class TutorialManager : MonoBehaviour
         ActivateNextPanel(_currentPanelIndex);
     }
 
+    public void EndTutorial()
+    {
+        IsTutorialRunning = false;
+        IsClickAllowed = true;
+    }
+
     public void ActivateNextPanel(int currentIndex)
     {
         if (_speedButton == null)
