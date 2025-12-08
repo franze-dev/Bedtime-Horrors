@@ -1,10 +1,10 @@
 <p align="center">
-<img src="logo.png" alt="Poner nombre del juego aca"/>
+<img src="logo.png" alt="Bedtime Horrors"/>
 </p>
 
-# Poner nombre del juego acá
+# Bedtime Horrors
 
-PONER LA DESCRIPCION LARGA DEL JUEGO ACA.
+When night falls, her fears return to haunt her room. Sleep stopped being a refuge long ago - every time she closes her eyes, nightmares try to drag her into the darkness. But she’s not alone. Her toys, Ms. Rosie, Tanky, and Nino, will come to life within her dreams to protect her, standing between her and the shadows.
 
 This is a game being developed by students from <a href="https://www.imagecampus.edu.ar/">Image Campus</a>
 
@@ -17,14 +17,19 @@ This is a game being developed by students from <a href="https://www.imagecampus
 
 ## Credits
 
-- **Nombre Apellido (ORDENAR IGUAL QUE CREDITOS EN JUEGO)** - *Programming*
-- **Nombre Apellido** - *Programming*
-- **Nombre Apellido** - *Art*
-- **Nombre Apellido** - *Art*
-- **Nombre Apellido** - *Audio*
-- **Nombre Apellido** - *Audio*
-- **Nombre Apellido** - *QA*
-- **Nombre Apellido** - *QA*
+- **Sofía Álvarez Franzé** - *Programming*
+- **Nicolas Leon** - *Programming*
+- **Milagro García Gubert** - *Art*
+- **Franco Gigena** - *Art*
+- **Alexa Laborero** - *Art*
+- **Guido Heinzenknecht** - *Audio*
+- **Francisco Laiuppa** - *Audio*
+- **Ignacio Lassaga** - *Audio*
+- **Iván Alzari** - *QA*
+- **Camila Gonella** - *QA*
+- **Marco Lóndero** - *QA*
+- **Franco Ripari** - *QA*
+- **Emmanuel Saavedra** - *QA*
 
 
 This game was also possible thanks to the support of:
@@ -51,13 +56,10 @@ This game was also possible thanks to the support of:
 
 ## Acknowledgements
 
-- Nombre Apellido
-- Nombre Apellido
-- Nombre Apellido
-
-OTRAS PERSONAS A LAS QUE QUIERAN AGRADECERLES ACÁ, SINO SACAR ESTA SECCIÓN
+- Lucas Anich
+- Lautaro Quiroga
 
 
 ## Links
 
-Download it from itch.io: PONER LINK AL JUEGO DE ITCH ACA
+Download it from itch.io: [https://gensofi24.itch.io/bedtime-horrors](https://gensofi24.itch.io/bedtime-horrors)
