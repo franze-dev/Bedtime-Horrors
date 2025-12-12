@@ -260,6 +260,11 @@ MonoBehaviour:
   _name: Dino
   _levelData: {fileID: 11400000, guid: 3edb0aabca90ee644ab753be49e0f02c, type: 2}
   _animator: {fileID: 3979864705007925786}
+  _advantages:
+  - _enemyPrefabScript: {fileID: 509469669851145109, guid: 126f7613e0a464e46931f6e914505cd7, type: 3}
+    _damageIncreasePercentage: 10
+  - _enemyPrefabScript: {fileID: 301566592410748688, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+    _damageIncreasePercentage: -10
   price: 30
   _areaSpriteRenderer: {fileID: 4317674797593383905}
   _enemiesCollided: []

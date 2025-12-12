@@ -1,5 +1,5 @@
-using DragonBones;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Turret : MonoBehaviour, IInteractable
@@ -9,6 +9,7 @@ public class Turret : MonoBehaviour, IInteractable
     [SerializeField] private string _name;
     [SerializeField] private TurretLevels _levelData;
     [SerializeField] protected MyAnimator _animator;
+    [SerializeField] private List<TurretAdvantage> _advantages;
 
     public MyAnimator Animator => _animator;
 
@@ -126,7 +127,7 @@ public class Turret : MonoBehaviour, IInteractable
     {
         if (IsOnLastLevel())
             return false;
-        
+
         if (NextStats == null)
             return false;
 
@@ -152,4 +153,26 @@ public class Turret : MonoBehaviour, IInteractable
         return creativityUpdater.GetCreativityValue() >= price &&
                creativityUpdater.GetCreativityValue() - price >= 0;
     }
+
+    public TurretAdvantage GetAdvantage(int enemyTypeID)
+    {
+        foreach (var advantage in _advantages)
+        {
+            if (advantage.AdvantageEnemyID == enemyTypeID)
+                return advantage;
+        }
+        return null;
+    }
+}
+
+[Serializable]
+public class TurretAdvantage
+{
+    [SerializeField] private Enemy _enemyPrefabScript;
+    [Header("Damage increase. If it's a negative value, turret will have disadvantage. If it's zero, it will have no effect.")]
+    [SerializeField] private float _damageIncreasePercentage;
+
+    public int AdvantageEnemyID => _enemyPrefabScript.TypeID;
+
+    public float Percentage => _damageIncreasePercentage;
 }

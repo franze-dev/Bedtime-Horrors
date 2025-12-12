@@ -4,6 +4,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [Range(0.1f, 5f)] public float speed;
+    [SerializeField] private Turret _ownerPrefabScript;
     public float range;
     public float damage;
 
@@ -12,6 +13,8 @@ public class Bullet : MonoBehaviour
     public Vector2 initialPosition;
 
     public GameObject target;
+
+    public Turret Owner => _ownerPrefabScript;
 
     private void OnEnable()
     {

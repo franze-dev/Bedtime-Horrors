@@ -32,7 +32,7 @@ public class AreaTurret : Turret, IAreaTurret
                 var enemy = enemyGO?.GetComponent<Enemy>();
 
                 Debug.Log("DAMAGE: " + Damage);
-                enemy?.TakeDamage(Damage);
+                enemy?.TakeDamage(Damage, GetAdvantage(enemy.TypeID));
             }
         }
         else if (!_animator.IsAnimationPlaying())
