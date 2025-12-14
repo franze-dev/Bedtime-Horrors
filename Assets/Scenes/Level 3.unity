@@ -563,11 +563,11 @@ PrefabInstance:
       objectReference: {fileID: 1767487266368242040}
     - target: {fileID: 757159162622798492, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 757159162622798492, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1000811383818942481, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: m_Mesh
@@ -580,6 +580,10 @@ PrefabInstance:
     - target: {fileID: 3117129704511111547, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: m_Name
       value: PossesedDoll
+      objectReference: {fileID: 0}
+    - target: {fileID: 3117129704511111547, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4657591382286329586, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: m_Mesh
@@ -1131,6 +1135,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spider (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 839991168330126653, guid: 126f7613e0a464e46931f6e914505cd7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4667694364650094029, guid: 126f7613e0a464e46931f6e914505cd7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1181,11 +1189,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6396771667718398296, guid: 126f7613e0a464e46931f6e914505cd7, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6396771667718398296, guid: 126f7613e0a464e46931f6e914505cd7, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -2483,11 +2491,11 @@ PrefabInstance:
       objectReference: {fileID: 1767487266368242040}
     - target: {fileID: 1171499173987061936, guid: a71eeec13c3362448981680b4180c744, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1171499173987061936, guid: a71eeec13c3362448981680b4180c744, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2872349585197642162, guid: a71eeec13c3362448981680b4180c744, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2536,6 +2544,10 @@ PrefabInstance:
     - target: {fileID: 3762735258986391157, guid: a71eeec13c3362448981680b4180c744, type: 3}
       propertyPath: m_Name
       value: Dog (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3762735258986391157, guid: a71eeec13c3362448981680b4180c744, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4069797930780040042, guid: a71eeec13c3362448981680b4180c744, type: 3}
       propertyPath: m_SortingOrder
@@ -6627,6 +6639,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spider (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 839991168330126653, guid: 126f7613e0a464e46931f6e914505cd7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4667694364650094029, guid: 126f7613e0a464e46931f6e914505cd7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -6677,11 +6693,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6396771667718398296, guid: 126f7613e0a464e46931f6e914505cd7, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6396771667718398296, guid: 126f7613e0a464e46931f6e914505cd7, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -10507,6 +10523,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spider (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 839991168330126653, guid: 126f7613e0a464e46931f6e914505cd7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4667694364650094029, guid: 126f7613e0a464e46931f6e914505cd7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -10557,11 +10577,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6396771667718398296, guid: 126f7613e0a464e46931f6e914505cd7, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6396771667718398296, guid: 126f7613e0a464e46931f6e914505cd7, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -11330,6 +11350,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spider (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 839991168330126653, guid: 126f7613e0a464e46931f6e914505cd7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4667694364650094029, guid: 126f7613e0a464e46931f6e914505cd7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -11380,11 +11404,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6396771667718398296, guid: 126f7613e0a464e46931f6e914505cd7, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6396771667718398296, guid: 126f7613e0a464e46931f6e914505cd7, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -12050,6 +12074,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spider
       objectReference: {fileID: 0}
+    - target: {fileID: 839991168330126653, guid: 126f7613e0a464e46931f6e914505cd7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4667694364650094029, guid: 126f7613e0a464e46931f6e914505cd7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -12100,11 +12128,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6396771667718398296, guid: 126f7613e0a464e46931f6e914505cd7, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6396771667718398296, guid: 126f7613e0a464e46931f6e914505cd7, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -12698,11 +12726,11 @@ PrefabInstance:
       objectReference: {fileID: 1767487266368242040}
     - target: {fileID: 1171499173987061936, guid: a71eeec13c3362448981680b4180c744, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1171499173987061936, guid: a71eeec13c3362448981680b4180c744, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2872349585197642162, guid: a71eeec13c3362448981680b4180c744, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12751,6 +12779,10 @@ PrefabInstance:
     - target: {fileID: 3762735258986391157, guid: a71eeec13c3362448981680b4180c744, type: 3}
       propertyPath: m_Name
       value: Dog
+      objectReference: {fileID: 0}
+    - target: {fileID: 3762735258986391157, guid: a71eeec13c3362448981680b4180c744, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4069797930780040042, guid: a71eeec13c3362448981680b4180c744, type: 3}
       propertyPath: m_SortingOrder
@@ -20303,6 +20335,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spider (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 839991168330126653, guid: 126f7613e0a464e46931f6e914505cd7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4667694364650094029, guid: 126f7613e0a464e46931f6e914505cd7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -20353,11 +20389,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6396771667718398296, guid: 126f7613e0a464e46931f6e914505cd7, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6396771667718398296, guid: 126f7613e0a464e46931f6e914505cd7, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -24986,11 +25022,11 @@ PrefabInstance:
       objectReference: {fileID: 1767487266368242040}
     - target: {fileID: 1171499173987061936, guid: a71eeec13c3362448981680b4180c744, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1171499173987061936, guid: a71eeec13c3362448981680b4180c744, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2872349585197642162, guid: a71eeec13c3362448981680b4180c744, type: 3}
       propertyPath: m_LocalPosition.x
@@ -25039,6 +25075,10 @@ PrefabInstance:
     - target: {fileID: 3762735258986391157, guid: a71eeec13c3362448981680b4180c744, type: 3}
       propertyPath: m_Name
       value: Dog (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3762735258986391157, guid: a71eeec13c3362448981680b4180c744, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4069797930780040042, guid: a71eeec13c3362448981680b4180c744, type: 3}
       propertyPath: m_SortingOrder
@@ -28768,6 +28808,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spider (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 839991168330126653, guid: 126f7613e0a464e46931f6e914505cd7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4667694364650094029, guid: 126f7613e0a464e46931f6e914505cd7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -28818,11 +28862,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6396771667718398296, guid: 126f7613e0a464e46931f6e914505cd7, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6396771667718398296, guid: 126f7613e0a464e46931f6e914505cd7, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -30211,11 +30255,11 @@ PrefabInstance:
       objectReference: {fileID: 1767487266368242040}
     - target: {fileID: 757159162622798492, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 757159162622798492, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1000811383818942481, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: m_Mesh
@@ -30228,6 +30272,10 @@ PrefabInstance:
     - target: {fileID: 3117129704511111547, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: m_Name
       value: PossesedDoll (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3117129704511111547, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4657591382286329586, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: m_Mesh
@@ -35082,11 +35130,11 @@ PrefabInstance:
       objectReference: {fileID: 1767487266368242040}
     - target: {fileID: 1171499173987061936, guid: a71eeec13c3362448981680b4180c744, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1171499173987061936, guid: a71eeec13c3362448981680b4180c744, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2872349585197642162, guid: a71eeec13c3362448981680b4180c744, type: 3}
       propertyPath: m_LocalPosition.x
@@ -35135,6 +35183,10 @@ PrefabInstance:
     - target: {fileID: 3762735258986391157, guid: a71eeec13c3362448981680b4180c744, type: 3}
       propertyPath: m_Name
       value: Dog (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3762735258986391157, guid: a71eeec13c3362448981680b4180c744, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4069797930780040042, guid: a71eeec13c3362448981680b4180c744, type: 3}
       propertyPath: m_SortingOrder
@@ -36626,11 +36678,11 @@ PrefabInstance:
       objectReference: {fileID: 1767487266368242040}
     - target: {fileID: 757159162622798492, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 757159162622798492, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1000811383818942481, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: m_Mesh
@@ -36643,6 +36695,10 @@ PrefabInstance:
     - target: {fileID: 3117129704511111547, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: m_Name
       value: PossesedDoll (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3117129704511111547, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4657591382286329586, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: m_Mesh
@@ -38057,11 +38113,11 @@ PrefabInstance:
       objectReference: {fileID: 1767487266368242040}
     - target: {fileID: 757159162622798492, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 757159162622798492, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1000811383818942481, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: m_Mesh
@@ -38074,6 +38130,10 @@ PrefabInstance:
     - target: {fileID: 3117129704511111547, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: m_Name
       value: PossesedDoll (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3117129704511111547, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4657591382286329586, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: m_Mesh
@@ -48184,6 +48244,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spider (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 839991168330126653, guid: 126f7613e0a464e46931f6e914505cd7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4667694364650094029, guid: 126f7613e0a464e46931f6e914505cd7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -48234,11 +48298,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6396771667718398296, guid: 126f7613e0a464e46931f6e914505cd7, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6396771667718398296, guid: 126f7613e0a464e46931f6e914505cd7, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -48386,11 +48450,11 @@ PrefabInstance:
       objectReference: {fileID: 1767487266368242040}
     - target: {fileID: 757159162622798492, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 757159162622798492, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1000811383818942481, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: m_Mesh
@@ -48403,6 +48467,10 @@ PrefabInstance:
     - target: {fileID: 3117129704511111547, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: m_Name
       value: PossesedDoll (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3117129704511111547, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4657591382286329586, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: m_Mesh
@@ -48694,11 +48762,11 @@ PrefabInstance:
       objectReference: {fileID: 1767487266368242040}
     - target: {fileID: 757159162622798492, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 757159162622798492, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1000811383818942481, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: m_Mesh
@@ -48711,6 +48779,10 @@ PrefabInstance:
     - target: {fileID: 3117129704511111547, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: m_Name
       value: PossesedDoll (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3117129704511111547, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4657591382286329586, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
       propertyPath: m_Mesh
@@ -49002,11 +49074,11 @@ PrefabInstance:
       objectReference: {fileID: 1767487266368242040}
     - target: {fileID: 1171499173987061936, guid: a71eeec13c3362448981680b4180c744, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1171499173987061936, guid: a71eeec13c3362448981680b4180c744, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2872349585197642162, guid: a71eeec13c3362448981680b4180c744, type: 3}
       propertyPath: m_LocalPosition.x
@@ -49055,6 +49127,10 @@ PrefabInstance:
     - target: {fileID: 3762735258986391157, guid: a71eeec13c3362448981680b4180c744, type: 3}
       propertyPath: m_Name
       value: Dog (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3762735258986391157, guid: a71eeec13c3362448981680b4180c744, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4069797930780040042, guid: a71eeec13c3362448981680b4180c744, type: 3}
       propertyPath: m_SortingOrder
@@ -53181,6 +53257,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spider (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 839991168330126653, guid: 126f7613e0a464e46931f6e914505cd7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4667694364650094029, guid: 126f7613e0a464e46931f6e914505cd7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -53231,11 +53311,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6396771667718398296, guid: 126f7613e0a464e46931f6e914505cd7, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6396771667718398296, guid: 126f7613e0a464e46931f6e914505cd7, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -57295,11 +57375,11 @@ PrefabInstance:
       objectReference: {fileID: 1767487266368242040}
     - target: {fileID: 1171499173987061936, guid: a71eeec13c3362448981680b4180c744, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1171499173987061936, guid: a71eeec13c3362448981680b4180c744, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2872349585197642162, guid: a71eeec13c3362448981680b4180c744, type: 3}
       propertyPath: m_LocalPosition.x
@@ -57348,6 +57428,10 @@ PrefabInstance:
     - target: {fileID: 3762735258986391157, guid: a71eeec13c3362448981680b4180c744, type: 3}
       propertyPath: m_Name
       value: Dog (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3762735258986391157, guid: a71eeec13c3362448981680b4180c744, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4069797930780040042, guid: a71eeec13c3362448981680b4180c744, type: 3}
       propertyPath: m_SortingOrder
