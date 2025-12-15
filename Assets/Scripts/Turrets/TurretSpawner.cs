@@ -65,6 +65,8 @@ public class TurretSpawner : MonoBehaviour, IInteractable
         EventTriggerer.Trigger<ICreativityUpdateEvent>(new CreativityUpdaterEvent(gameObject, turret.price));
 
         EventTriggerer.Trigger<ITurretDestroyEvent>(new TurretDestroyEvent(_spawnedTurret));
+
+        _spawnedTurret = null;
     }
 
     private void Update()

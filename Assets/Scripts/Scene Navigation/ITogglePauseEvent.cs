@@ -1,11 +1,10 @@
 using UnityEngine;
 
-public interface ITogglePause : IEvent { }
+public interface ITogglePauseEvent : IEvent { }
 
-public class TogglePauseEvent : ITogglePause
+public class TogglePauseEvent : ITogglePauseEvent
 {
     private GameObject _gameObject;
-
     public GameObject TriggeredByGO => _gameObject;
 
     public TogglePauseEvent()

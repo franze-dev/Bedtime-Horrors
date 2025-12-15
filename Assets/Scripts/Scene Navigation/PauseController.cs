@@ -22,7 +22,7 @@ public class PauseController : MonoBehaviour
         if (_pauseAction != null)
             _pauseAction.action.performed += OnPause;
 
-        EventProvider.Subscribe<ITogglePause>(OnTogglePauseEvent);
+        EventProvider.Subscribe<ITogglePauseEvent>(OnTogglePauseEvent);
     }
 
     private void OnDisable()
@@ -30,7 +30,7 @@ public class PauseController : MonoBehaviour
         if (_pauseAction != null)
             _pauseAction.action.performed -= OnPause;
 
-        EventProvider.Unsubscribe<ITogglePause>(OnTogglePauseEvent);
+        EventProvider.Unsubscribe<ITogglePauseEvent>(OnTogglePauseEvent);
     }
 
     private void OnPause(InputAction.CallbackContext context)
@@ -41,7 +41,7 @@ public class PauseController : MonoBehaviour
             TogglePause();
     }
 
-    private void OnTogglePauseEvent(ITogglePause @event)
+    private void OnTogglePauseEvent(ITogglePauseEvent @event)
     {
         TogglePause();
     }
