@@ -12,6 +12,7 @@ public class CreditsMenuManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _titleText;
     [SerializeField] private GameObject _creditsTextPrefab;
     [SerializeField] private GameObject _creditsMenuGO;
+    [SerializeField] private GameObject _creditsPaddingGO;
     private List<GameObject> _instantiatedCreditEntries = new List<GameObject>();
     private CreditsSectionInfo _currentlyOpenedSection = null;
 
@@ -32,6 +33,8 @@ public class CreditsMenuManager : MonoBehaviour
             Debug.LogError("No credits bg 2 found");
             return;
         }
+
+        _creditsMenuGO.SetActive(false);
 
         EventProvider.Subscribe<IOpenCreditMenuEvent>(OnCreditMenuOpen);
         EventProvider.Subscribe<ICloseCreditMenuEvent>(OnCreditMenuClose);
@@ -77,14 +80,16 @@ public class CreditsMenuManager : MonoBehaviour
     {
         foreach (var credit in @event.CreditsToShow.Credits)
         {
-            GameObject creditEntryGO = Instantiate(_creditsTextPrefab, _contentGO.transform);
-            var creditText = creditEntryGO.GetComponent<TextMeshProUGUI>();
-            creditText.text = credit.Credit;
+            GameObject newEntry = Instantiate(_creditsTextPrefab, _contentGO.transform);
+            var entryText = newEntry.GetComponent<TextMeshProUGUI>();
+            entryText.text = credit.Credit;
 
-            InstantiateLinks(credit, creditEntryGO);
+            InstantiateLinks(credit, newEntry);
 
-            _instantiatedCreditEntries.Add(creditEntryGO);
+            _instantiatedCreditEntries.Add(newEntry);
         }
+
+        Instantiate(_creditsPaddingGO, _contentGO.transform);
     }
 
     private void InstantiateLinks(CreditInfo credit, GameObject creditEntryGO)
@@ -95,7 +100,7 @@ public class CreditsMenuManager : MonoBehaviour
             {
                 GameObject creditLinkGO = Instantiate(_creditsTextPrefab, _contentGO.transform);
                 var creditLinkText = creditLinkGO.GetComponent<TextMeshProUGUI>();
-                creditLinkText.text = $"<link=\"{link.URL}\"><color=blue><u>{link.name}</u></color></link>";
+                creditLinkText.text = $"<link=\"{link.URL}\"><color=blue><u>{link.name}</u></color></link> \n";
                 var fontSize = creditLinkText.fontSize;
                 fontSize -= 4;
                 creditLinkText.fontSize = fontSize;
