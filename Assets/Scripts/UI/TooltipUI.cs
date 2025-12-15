@@ -13,8 +13,6 @@ public class TooltipUI : MonoBehaviour
     [SerializeField] private Vector2 _spaceFromMouse = new(0.2f, 0.2f);
     private RectTransform _rectTransform;
     private ITooltipInfo _currentInfoShowing = null;
-    private PauseController _pauseController;
-    private TutorialManager _tutorialManager;
 
     private void Awake()
     {
@@ -27,11 +25,6 @@ public class TooltipUI : MonoBehaviour
         _rectTransform = GetComponent<RectTransform>();
 
         Enable(false);
-    }
-
-    private void Start()
-    {
-        ServiceProvider.TryGetService(out _pauseController);
     }
 
     private void Enable(bool enable)
@@ -53,34 +46,18 @@ public class TooltipUI : MonoBehaviour
 
     private void CheckHover()
     {
-        if (!_pauseController)
-            ServiceProvider.TryGetService(out _pauseController);
-
-        if (!_tutorialManager)
-            ServiceProvider.TryGetService(out _tutorialManager);
-
-        if ((_pauseController && _pauseController.IsPaused) ||
-           (_tutorialManager && !_tutorialManager.IsClickAllowed))
+        if (!HoverChecker.CanCheckHover())
         {
             Enable(false);
             return;
         }
 
-        var screenPos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-
-        var hits = Physics2D.RaycastAll(screenPos, Vector2.zero);
-
-        foreach (var hit in hits)
+        if (HoverChecker.CheckHover<ITooltipInfo>(out var myInfo, false))
         {
-            if (hit.collider == null) continue;
-
-            if (hit.collider.gameObject.TryGetComponent<ITooltipInfo>(out var tooltip))
-            {
-                _currentInfoShowing = tooltip;
-                SetText(_currentInfoShowing.Text);
-                Enable(true);
-                return;
-            }
+            _currentInfoShowing = myInfo;
+            SetText(_currentInfoShowing.Text);
+            Enable(true);
+            return;
         }
 
         _currentInfoShowing = null;

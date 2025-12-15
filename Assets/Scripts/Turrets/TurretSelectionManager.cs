@@ -18,8 +18,6 @@ public class TurretSelectionManager : MonoBehaviour
     [SerializeField] private TurretManager _turretManager;
     [SerializeField]private GameObject _turretInstanceParent;
     private Turret _selectedTurret;
-    private PauseController _pauseController;
-    private TutorialManager _tutorialManager;
 
     public GameObject TurretInstanceParent => _turretInstanceParent;
 
@@ -57,11 +55,6 @@ public class TurretSelectionManager : MonoBehaviour
         EventProvider.Subscribe<ISelectTurretPrefabEvent>(OnSelectPrefab);
         EventProvider.Subscribe<IUpdateSelectedTurretEvent>(OnSelectTurret);
         EventProvider.Subscribe<IDeselectTurretPrefabEvent>(OnDeselectionRequested);
-    }
-
-    private void Start()
-    {
-        ServiceProvider.TryGetService(out _pauseController);
     }
 
     private void OnDestroy()
@@ -122,8 +115,6 @@ public class TurretSelectionManager : MonoBehaviour
             _turretSelectables[i].transform.localScale = Vector3.one;
     }
 
-
-
     private void Update()
     {
         for (int i = 0; i < _turretSelectables.Count; i++)
@@ -158,22 +149,7 @@ public class TurretSelectionManager : MonoBehaviour
 
     private bool IsMouseHovering(Bounds bounds)
     {
-        if (!_pauseController)
-            ServiceProvider.TryGetService(out _pauseController);
-
-        if (!_tutorialManager)
-            ServiceProvider.TryGetService(out _tutorialManager);
-
-        if ((_pauseController && _pauseController.IsPaused) ||
-           (_tutorialManager && !_tutorialManager.IsClickAllowed))
-            return false;
-
-        Vector2 mousePos = Mouse.current.position.ReadValue();
-        Vector3 worldMousePos = Camera.main.ScreenToWorldPoint(mousePos);
-        worldMousePos.z = 0;
-        worldMousePos.z = bounds.center.z;
-
-        return bounds.Contains(worldMousePos);
+        return HoverChecker.CheckHoverNoRay(bounds);
     }
 
     public int GetSelectedTurret()
