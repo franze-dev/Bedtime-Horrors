@@ -42,6 +42,8 @@ public class LevelManager : MonoBehaviour
         Level nextLevel = _mainLevels[listId + 1];
 
         GoToLevel(nextLevel);
+
+        HoverChecker.Reset();
     }
 
     private bool IsNextLevelValid(Level currentLevel, int listId)
