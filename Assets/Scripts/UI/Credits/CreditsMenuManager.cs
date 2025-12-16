@@ -15,6 +15,7 @@ public class CreditsMenuManager : MonoBehaviour
     [SerializeField] private GameObject _creditsPaddingGO;
     private List<GameObject> _instantiatedCreditEntries = new List<GameObject>();
     private CreditsSectionInfo _currentlyOpenedSection = null;
+    private GameObject _paddingGOInstance = null;
 
     private void Awake()
     {
@@ -55,13 +56,25 @@ public class CreditsMenuManager : MonoBehaviour
     private void OnCreditMenuOpen(IOpenCreditMenuEvent @event)
     {
         if (_currentlyOpenedSection == @event.CreditsToShow)
+        {
+            _creditsMenuGO.SetActive(true);
+            SetBackground(@event.CreditsToShow);
+            _creditsBg.gameObject.SetActive(true);
+            _creditsBg2.gameObject.SetActive(true);
             return;
+        }
         else
             _currentlyOpenedSection = @event.CreditsToShow;
 
         foreach (var entry in _instantiatedCreditEntries)
         {
             Destroy(entry);
+        }
+
+        if (_paddingGOInstance != null)
+        {
+            Destroy(_paddingGOInstance);
+            _paddingGOInstance = null;
         }
 
         _creditsMenuGO.SetActive(true);
@@ -89,7 +102,7 @@ public class CreditsMenuManager : MonoBehaviour
             _instantiatedCreditEntries.Add(newEntry);
         }
 
-        Instantiate(_creditsPaddingGO, _contentGO.transform);
+        _paddingGOInstance = Instantiate(_creditsPaddingGO, _contentGO.transform);
     }
 
     private void InstantiateLinks(CreditInfo credit, GameObject creditEntryGO)
