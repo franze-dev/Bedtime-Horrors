@@ -60,6 +60,9 @@ public class TutorialManager : MonoBehaviour
     {
         EventProvider.Subscribe<IContinuePanelsEvent>(OnContinuePanels);
         ServiceProvider.TryGetService(out _speedButton);
+
+        ServiceProvider.TryGetService(out MusicPlayer musicPlayer);
+        musicPlayer.ToState(new LevelMusicState(1));
     }
 
     private void OnDestroy()
