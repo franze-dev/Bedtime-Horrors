@@ -38,6 +38,8 @@ public class SelectedTurretVisual : MonoBehaviour
         _textsContainer?.SetActive(true);
         _openButton?.SetActive(false);
         _closeButton?.SetActive(true);
+
+        AkUnitySoundEngine.PostEvent("UI_Button_Normal", gameObject);
     }
 
     public void Disable()
@@ -48,6 +50,8 @@ public class SelectedTurretVisual : MonoBehaviour
         _textsContainer?.SetActive(false);
         _openButton?.SetActive(true);
         _closeButton?.SetActive(false);
+
+        AkUnitySoundEngine.PostEvent("UI_Button_Normal", gameObject);
     }
 
     public void SetStats(TurretStats currentStats, TurretStats nextStats, string turretName)

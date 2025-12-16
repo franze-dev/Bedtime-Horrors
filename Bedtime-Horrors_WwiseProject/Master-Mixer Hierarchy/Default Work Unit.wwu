@@ -4,6 +4,13 @@
 		<WorkUnit Name="Default Work Unit" ID="{F847AA8C-7B54-49C2-9EE8-B09DDE93BCE9}" PersistMode="Standalone">
 			<ChildrenList>
 				<Bus Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}">
+					<PropertyList>
+						<Property Name="BusVolume" Type="Real64">
+							<ValueList>
+								<Value>6</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="AudioDevice" PluginName="System" CompanyID="0" PluginID="174" PluginType="7">
 							<ObjectRef Name="System" ID="{E2883CF9-B948-4809-B54E-E8ADB2021A74}" WorkUnitID="{A8085972-5994-447A-9CAC-964145F87580}"/>
@@ -13,6 +20,32 @@
 						<Folder Name="Bus_SFX" ID="{6C140787-8749-4A57-BD66-19E2B430D0A7}" ShortID="447657829">
 							<ChildrenList>
 								<Bus Name="SFX" ID="{9FB2C68F-6C0F-4440-B387-7BCFD4F598C2}">
+									<StateInfo>
+										<StateGroupList>
+											<StateGroupInfo>
+												<StateGroupRef Name="Gameplay_Pause" ID="{29B1DF79-B75F-4B80-90E9-D3F3B611C24F}"/>
+											</StateGroupInfo>
+										</StateGroupList>
+										<CustomStateList>
+											<CustomState>
+												<StateRef Name="Paused" ID="{B21BE7D8-C013-4272-B0C7-A9A2D9607549}"/>
+												<CustomState Name="" ID="{7AC61C83-C600-4E6F-8330-0DB0366C9D27}" ShortID="963990458">
+													<PropertyList>
+														<Property Name="Lowpass" Type="int16" Value="60"/>
+														<Property Name="Volume" Type="Real64" Value="-10"/>
+													</PropertyList>
+												</CustomState>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Unpaused" ID="{6AACB874-EBE3-461B-BD10-BAF84CC7622C}"/>
+												<CustomState Name="" ID="{DA866E0C-5ED5-42A9-B8A0-0E20E9CB20BA}" ShortID="397993638"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="None" ID="{C679D203-0A10-4D19-AA24-46C10E2C56B8}"/>
+												<CustomState Name="" ID="{500BA24D-B2BB-41A5-A379-E3DE86DD5E23}" ShortID="826570800"/>
+											</CustomState>
+										</CustomStateList>
+									</StateInfo>
 									<ObjectLists>
 										<ObjectList Name="RTPC">
 											<Reference>
@@ -124,11 +157,26 @@
 											<StateGroupInfo>
 												<StateGroupRef Name="Music_DisasterOngoing" ID="{2264C5CF-B2E5-423B-81E1-3634E43D5B92}"/>
 											</StateGroupInfo>
+											<StateGroupInfo>
+												<StateGroupRef Name="Gameplay_Pause" ID="{29B1DF79-B75F-4B80-90E9-D3F3B611C24F}"/>
+											</StateGroupInfo>
 										</StateGroupList>
 										<CustomStateList>
 											<CustomState>
+												<StateRef Name="Paused" ID="{B21BE7D8-C013-4272-B0C7-A9A2D9607549}"/>
+												<CustomState Name="" ID="{DB9D88B7-8390-429A-BD42-BFA44E3D6874}" ShortID="205490896">
+													<PropertyList>
+														<Property Name="Lowpass" Type="int16" Value="60"/>
+													</PropertyList>
+												</CustomState>
+											</CustomState>
+											<CustomState>
 												<StateRef Name="None" ID="{14977040-CF0B-42F6-B5F3-7A54AAAAD516}"/>
 												<CustomState Name="" ID="{0EEDB77F-66FC-4116-BF2B-F80C96F5D77B}" ShortID="683530651"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Unpaused" ID="{6AACB874-EBE3-461B-BD10-BAF84CC7622C}"/>
+												<CustomState Name="" ID="{CBF3AF30-8AFF-4FA5-B622-705058B3D3E3}" ShortID="198848005"/>
 											</CustomState>
 											<CustomState>
 												<StateRef Name="DisasterOngoing" ID="{D49864F4-DE40-4AC3-A6E3-A3668B638CDE}"/>
@@ -141,6 +189,10 @@
 											<CustomState>
 												<StateRef Name="DisasterEnded" ID="{F0F27C01-54E7-4C14-9203-A75E43E1CF62}"/>
 												<CustomState Name="" ID="{6391775D-CF30-42FB-B482-FACB9873F6D6}" ShortID="584914737"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="None" ID="{C679D203-0A10-4D19-AA24-46C10E2C56B8}"/>
+												<CustomState Name="" ID="{3F48D346-9E94-495D-A583-F62B664EC85F}" ShortID="2207342"/>
 											</CustomState>
 										</CustomStateList>
 									</StateInfo>
@@ -187,6 +239,21 @@
 							</ChildrenList>
 						</Folder>
 					</ChildrenList>
+					<ObjectLists>
+						<ObjectList Name="Effects">
+							<Reference>
+								<Local>
+									<EffectSlot Name="" ID="{C17106B5-ADE5-4D0E-A92B-A19D8DE99A59}" ShortID="818817668">
+										<ReferenceList>
+											<Reference Name="Effect" PluginName="Wwise Peak Limiter" CompanyID="0" PluginID="110" PluginType="3">
+												<ObjectRef Name="Brick_Wall_Minus_1dB_Peak_Fast_Release" ID="{2144284E-7ADD-4341-86A4-4E468BEC9A2D}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+											</Reference>
+										</ReferenceList>
+									</EffectSlot>
+								</Local>
+							</Reference>
+						</ObjectList>
+					</ObjectLists>
 				</Bus>
 			</ChildrenList>
 		</WorkUnit>

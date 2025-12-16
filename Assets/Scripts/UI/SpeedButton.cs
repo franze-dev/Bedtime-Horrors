@@ -26,13 +26,19 @@ public class SpeedButton : MonoBehaviour
         {
             _speedActiveButtonGO.SetActive(false);
             _speedDisabledButtonGO.SetActive(true);
+            
             ResetTime();
+
+            AkUnitySoundEngine.PostEvent("UI_Button_Normal", gameObject);
         }
         else
         {
             _speedActiveButtonGO.SetActive(true);
             _speedDisabledButtonGO.SetActive(false);
+            
             SpeedUpTime();
+
+            AkUnitySoundEngine.PostEvent("UI_Button_Normal", gameObject);
         }
     }
 

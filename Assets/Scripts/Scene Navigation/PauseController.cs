@@ -15,6 +15,7 @@ public class PauseController : MonoBehaviour
     private void Awake()
     {
         ServiceProvider.SetService(this);
+        AkUnitySoundEngine.SetState("Gameplay_Pause", "Unpaused");
     }
 
     private void OnEnable()
@@ -54,6 +55,9 @@ public class PauseController : MonoBehaviour
         {
             EventTriggerer.Trigger<IActivateTargetMenu>(new ActivateTargetMenu(new PauseMenuState(), true, true));
             GameManager.Instance.PauseTime();
+
+            AkUnitySoundEngine.PostEvent("UI_Button_Normal", gameObject);
+            AkUnitySoundEngine.SetState("Gameplay_Pause", "Paused");
         }
         else
         {
@@ -61,11 +65,15 @@ public class PauseController : MonoBehaviour
 
             _navigationController.SetAllInactive();
             SceneController.Instance.SetSceneActive(SceneController.Instance.PreviousActiveScene);
+
+            AkUnitySoundEngine.PostEvent("UI_Button_Normal", gameObject);
+            AkUnitySoundEngine.SetState("Gameplay_Pause", "Unpaused");
         }
     }
 
     private void ChangePausedState()
     {
         _isPaused = !_isPaused;
+        
     }
 }

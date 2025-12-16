@@ -17,6 +17,9 @@
 					</ChildrenList>
 				</StateGroup>
 				<StateGroup Name="Gameplay_Pause" ID="{29B1DF79-B75F-4B80-90E9-D3F3B611C24F}">
+					<PropertyList>
+						<Property Name="DefaultTransitionTime" Type="Real64" Value="0.3"/>
+					</PropertyList>
 					<ChildrenList>
 						<State Name="None" ID="{C679D203-0A10-4D19-AA24-46C10E2C56B8}"/>
 						<State Name="Paused" ID="{B21BE7D8-C013-4272-B0C7-A9A2D9607549}"/>
