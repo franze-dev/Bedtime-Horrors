@@ -1,14 +1,13 @@
-using NUnit.Framework;
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelUpButton : MonoBehaviour, ITooltipInfo
+public class LevelUpButton : MonoBehaviour, ITooltipInfo, IInteractable
 {
     [SerializeField] Turret _turret;
     [SerializeField] List<GameObject> _buttonsGO;
     [SerializeField] private int _firstButtonId = 0;
     private int _currentButtonId = 0;
+    private Collider2D _collider;
 
     public string Text => !_turret.IsOnLastLevel() ? "CREATIVITY: " + _turret.LevelUpPrice : "LEVEL MAXED OUT";
 
@@ -20,6 +19,7 @@ public class LevelUpButton : MonoBehaviour, ITooltipInfo
         }
 
         ActivateButton(_firstButtonId);
+        _collider = GetComponent<Collider2D>();
     }
 
     private void ActivateButton(int id)
@@ -47,18 +47,12 @@ public class LevelUpButton : MonoBehaviour, ITooltipInfo
             ActivateButton(_currentButtonId + 1);
 
             EventTriggerer.Trigger<ICreativityUpdateEvent>(new CreativityUpdaterEvent(gameObject, levelUpPrice));
-            EventTriggerer.Trigger<ILevelUpEvent>(new LevelUpEvent());
         }
     }
 
-}
-
-public interface ILevelUpEvent : IEvent
-{
-
-}
-
-public class LevelUpEvent : ILevelUpEvent
-{
-    public GameObject TriggeredByGO => null;
+    public void Interact()
+    {
+        if (HoverChecker.CheckHover(_collider))
+            LevelUp();
+    }
 }

@@ -450,6 +450,11 @@ MonoBehaviour:
   _name: Teddy
   _levelData: {fileID: 11400000, guid: 549f626771c14434cb0fb76a389f9388, type: 2}
   _animator: {fileID: 953199669463364099}
+  _advantages:
+  - _enemyPrefabScript: {fileID: 301566592410748688, guid: 8f87ee8ae1a8c7c43b142db8b16d17fd, type: 3}
+    _damageIncreasePercentage: 10
+  - _enemyPrefabScript: {fileID: 822686634498361948, guid: a71eeec13c3362448981680b4180c744, type: 3}
+    _damageIncreasePercentage: -10
   price: 30
   _areaSpriteRenderer: {fileID: 8400314274170761117}
   _bulletSpeed: 4

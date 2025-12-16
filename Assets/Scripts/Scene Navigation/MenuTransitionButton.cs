@@ -20,6 +20,15 @@ public class MenuTransitionButton : MonoBehaviour
         _navigationController.GoToMenu(new DiaryMenuState(), false);
     }
 
+    public void QuickDiaryActivate()
+    {
+        if (SceneController.Instance.IsGameplaySceneActive())
+        {
+            ButtonTogglePause();
+            ActivateDiaryMenu();
+        }
+    }
+
     public void ActivateSettingsMenu()
     {
         _navigationController.GoToMenu(new SettingsMenuState());
@@ -46,10 +55,8 @@ public class MenuTransitionButton : MonoBehaviour
 
     public void ButtonTogglePause()
     {
-        EventTriggerer.Trigger<ITogglePause>(new TogglePauseEvent());
+        EventTriggerer.Trigger<ITogglePauseEvent>(new TogglePauseEvent());
     }
-
-    
 
     public void ExitApp()
     {

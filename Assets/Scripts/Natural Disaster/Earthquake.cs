@@ -1,5 +1,3 @@
-using DragonBones;
-using Unity.VisualScripting;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "RandomTowerDestruction", menuName = "ScriptableObjects/NaturalDisasters/RandomTowerDestruction")]

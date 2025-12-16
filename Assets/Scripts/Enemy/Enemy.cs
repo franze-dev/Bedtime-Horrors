@@ -1,8 +1,10 @@
+using NUnit.Framework;
 using System.Collections;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] private int _enemyTypeID = 0;
     [SerializeField] private TargetManager _targetManager;
     [SerializeField] private float _speed;
     [SerializeField] private float _damage;
@@ -33,6 +35,8 @@ public class Enemy : MonoBehaviour
     private FloatingText _floatingText;
 
     public bool IsDead => _isDead;
+
+    public int TypeID => _enemyTypeID;
 
     private void Awake()
     {
@@ -115,7 +119,7 @@ public class Enemy : MonoBehaviour
             if (collision.gameObject.TryGetComponent(out Bullet bullet))
             {
                 float damageToTake = bullet.damage;
-                TakeDamage(damageToTake);
+                TakeDamage(damageToTake, bullet.Owner.GetAdvantage(_enemyTypeID));
                 return;
             }
         }
@@ -156,15 +160,24 @@ public class Enemy : MonoBehaviour
         ResetSpeed();
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, TurretAdvantage advantage)
     {
+        if (advantage != null && advantage.Percentage != 0)
+        {
+            float basePercentage = 100;
+            float newPercentage = basePercentage + advantage.Percentage;
+            damage = newPercentage * damage / basePercentage;
+            damage = damage < 0 ? 0 : damage;
+        }
+
         var msg = Instantiate(_floatingDamage, _floatingDamageSpawn.position, Quaternion.identity, gameObject.transform);
         msg.transform.localPosition = Vector2.zero;
-        msg.transform.localScale = Vector2.one * 3; //Hacer esto bien en el futuro
+        msg.transform.localScale = Vector2.one * 3;
 
         Color damageColor = GetDamageColor(damage);
 
         msg.GetComponent<FloatingText>()?.SetTextAndColor(damage.ToString(), damageColor);
+
 
         _currentHealth -= damage;
 
