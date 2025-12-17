@@ -14,6 +14,7 @@ public class NextPanelButton : MonoBehaviour
     public void GoToNextPanel()
     {
         _tutorialManager.ActivateNextPanel(_tutorialManager.CurrentPanelIndex);
+        AkUnitySoundEngine.PostEvent("UI_Button_Normal", gameObject);
     }
 
     public void EndTutorial()
