@@ -56,5 +56,7 @@ public class SceneTransitionButton : MonoBehaviour
         GameManager.Instance.ResumeTime();
         SceneController.Instance.UnloadNonPersistentScenes();
         _navigationController.GoToMenu(new MainMenuState());
+
+        AkUnitySoundEngine.SetState("Gameplay_Pause", "Unpaused");
     }
 }

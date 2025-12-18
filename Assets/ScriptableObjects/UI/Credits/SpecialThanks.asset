@@ -14,10 +14,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _title: Special Thanks
   _credits:
-  - _credit: "This game was also possible thanks to the support of:  Professors: 
-      Sergio Baretto Ignacio Mosconi Ramiro Cabrera Eugenio Taboada Nazareno Rivero
-      Silvina Lemos  Teaching assistants:  Guido Tello Mar\xEDa Elisa Gonda Julian
-      Tinao Nicolas Arias Calvo Melissa Villarruel  and all Image Campus Staff! "
+  - _credit: External resources
+    _links:
+    - URL: https://www.dafont.com/teachers-student.font
+      name: Font - Teacher's Student
+  - _credit: 'This game was also possible thanks to the support of:'
+    _links: []
+  - _credit: 'Professors:'
+    _links: []
+  - _credit: Sergio Baretto
+    _links: []
+  - _credit: Ignacio Mosconi
+    _links: []
+  - _credit: Ramiro Cabrera
+    _links: []
+  - _credit: Eugenio Taboada
+    _links: []
+  - _credit: Nazareno Rivero
+    _links: []
+  - _credit: Silvina Lemos
+    _links: []
+  - _credit: 'Teaching Assistants:'
+    _links: []
+  - _credit: Guido Tello
+    _links: []
+  - _credit: Maria Elisa Gonda
+    _links: []
+  - _credit: Julian Tinao
+    _links: []
+  - _credit: Nicolas Arias Calvo
+    _links: []
+  - _credit: Melissa Villarruel
+    _links: []
+  - _credit: and all Image Campus Staff!
+    _links: []
+  - _credit: Other Special Thanks
     _links: []
   - _credit: Lucas Anich
     _links:
@@ -31,8 +62,4 @@ MonoBehaviour:
       name: Itch.io
     - URL: lautaroquiroga4@gmail.com
       name: 'Gmail: lautaroquiroga4@gmail.com'
-  - _credit: External resources
-    _links:
-    - URL: https://www.dafont.com/teachers-student.font
-      name: Font
   _background: {fileID: 21300000, guid: 0b662962aa4365f4c9f11797e8b7fb06, type: 3}

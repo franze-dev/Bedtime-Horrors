@@ -175,6 +175,11 @@ MonoBehaviour:
   _name: Tank
   _levelData: {fileID: 11400000, guid: edcb829547760de4294e8e96ce42f78e, type: 2}
   _animator: {fileID: 4240009086619009296}
+  _advantages:
+  - _enemyPrefabScript: {fileID: 822686634498361948, guid: a71eeec13c3362448981680b4180c744, type: 3}
+    _damageIncreasePercentage: 10
+  - _enemyPrefabScript: {fileID: 509469669851145109, guid: 126f7613e0a464e46931f6e914505cd7, type: 3}
+    _damageIncreasePercentage: -10
   price: 20
   _areaSpriteRenderer: {fileID: 0}
   _bulletSpeed: 3.5

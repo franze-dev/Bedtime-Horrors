@@ -81,6 +81,8 @@ public class WaveManager : MonoBehaviour
     public void StartWaves()
     {
         _wavesStarted = true;
+
+        AkUnitySoundEngine.PostEvent("UI_Button_Special", gameObject);
     }
 }
 

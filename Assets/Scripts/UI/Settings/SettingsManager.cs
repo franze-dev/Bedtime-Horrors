@@ -23,8 +23,11 @@ public class SettingsManager : MonoBehaviour
         _musicSlider.minValue = 0f;
         _musicSlider.maxValue = 100f;
 
-        _sfxSlider.value = 100f;
-        _musicSlider.value = 100f;
+        _sfxSlider.value = 50f;
+        _musicSlider.value = 50f;
+
+        OnSFXChanged();
+        OnMusicChanged();
     }
 
     public void OnShakeToggle()
